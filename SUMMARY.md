@@ -86,7 +86,10 @@
 
 * [How to contribute](developers/how-to-contribute.md)
 * [Backend API](developers/backend.md)
-* [Frontend API (Vue.js)](developers/client.md)
+* [Frontend API](developers/client/README.md)
+  * [vue](developers/client/vue.md)
+  * [hooks](developers/client/vue.md)
+  * [widgets](developers/client/widgets.md)
 * [Logging](developers/logging.md)
 * [Introduction to Tarentula](developers/introduction-to-tarentula.md)
 * [Introduction to Playground](developers/introduction-to-playground.md)
