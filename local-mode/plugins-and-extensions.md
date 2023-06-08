@@ -12,21 +12,21 @@ description: It will help you locally add plugins and extensions to Datashare.
 
 1. Go to "**Settings**":
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 09.56.51.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-09.56.51.png)
 
 1. Click "**Plugins**":
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 09.58.12.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-09.58.12.png)
 
 1. Choose the plugin you want to add and click "**Install now**":
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 09.59.25.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-09.59.25.png)
 
 If you want to install a plugin from an URL, click "Install plugin from URL".
 
 1. Your plugin is installed.
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 10.00.16.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-10.00.16.png)
 
 **Refresh your page to see your new plugin activated in Datashare.**
 
@@ -34,21 +34,21 @@ If you want to install a plugin from an URL, click "Install plugin from URL".
 
 1. Go to "**Settings**":
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 09.56.51.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-09.56.51.png)
 
 1. Click "**Extensions**":
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 10.03.09.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-10.03.09.png)
 
 1. Choose the extension you want to add and click "**Install now**":
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 10.04.52.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-10.04.52.png)
 
 If you want to install an extension from an URL, click "Install extension from URL".
 
 1. Your extension is installed.
 
-![](<../.gitbook/assets/Screenshot 2020-11-25 at 10.06.03.png>)
+![](../.gitbook/assets/screenshot-2020-11-25-at-10.06.03.png)
 
 **Restart Datashare to see your new extension activated in Datashare.**
 

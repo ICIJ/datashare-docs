@@ -9,7 +9,7 @@ description: You can tag documents, search for tagged documents and delete your 
 * **Open** the document by clicking on its title
 * Click the second tab '**Tags & Details**'
 
-![](<../.gitbook/assets/T and D.png>)
+![](../.gitbook/assets/t-and-d.png)
 
 * **Type** your tag
 * Press '**Enter**'
@@ -27,7 +27,7 @@ You can add several tags.
 * You can **search** using the search bar
 * You can **select one or multiple tags**
 
-![](<../.gitbook/assets/Tag filter.png>)
+![](../.gitbook/assets/tag-filter.png)
 
 ## Search tags with main search bar
 
@@ -36,7 +36,7 @@ To find all your documents tagged **with specific tag(s)**:
 * **Type** the tag(s) in the main search bar
 * Select '**Tags**' in the field dropdown menu
 
-![](<../.gitbook/assets/tag test1.png>)
+![](../.gitbook/assets/tag-test1.png)
 
 * Click '**Search**' or press '**Enter**'
 

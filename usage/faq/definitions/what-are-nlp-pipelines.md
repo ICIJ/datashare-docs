@@ -4,4 +4,4 @@ Pipelines of Natural Language Processing are tools that **automatically identify
 
 Select '**CoreNLP'** if you want to use the one with the highest probability of working in most of your documents:
 
-![](<../../../.gitbook/assets/2222 (1).png>)
+![](../../../.gitbook/assets/2222.png)
