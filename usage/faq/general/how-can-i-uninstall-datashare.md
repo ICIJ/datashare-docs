@@ -4,7 +4,7 @@
 
 &#x20;1\. Go to Applications
 
-![](<../../../.gitbook/assets/Screenshot 2021-10-26 at 09.16.08.png>)
+![](<../../../.gitbook/assets/Screenshot 2021-10-26 at 09.16.08 (1).png>)
 
 &#x20;2\. Click right on 'Datashare' and click 'Move to Bin'
 
