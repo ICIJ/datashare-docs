@@ -7,7 +7,6 @@ components used in this application.
 
 These widgets are used on the insights page.
 
-* [README](components/widget/README.md) 
 * [WidgetDiskUsage](components/widget/WidgetDiskUsage.md) <br />— _Widget to display the disk space occupied by indexed files on the insights page._
 * [WidgetDocumentsByCreationDate](components/widget/WidgetDocumentsByCreationDate.md) <br />— _Widget to display the number of file by creation date on the insights page._
 * [WidgetDocumentsByCreationDateByPath](components/widget/WidgetDocumentsByCreationDateByPath.md) <br />— _Widget to display number of files by creation date by path_
@@ -49,7 +48,6 @@ All pages components.
 * [Insights](pages/Insights.md) 
 * [Landing](pages/Landing.md) 
 * [Login](pages/Login.md) 
-* [README](pages/README.md) 
 * [Search](pages/Search.md) 
 * [Settings](pages/Settings.md) 
 * [Tasks](pages/Tasks.md) 
@@ -113,7 +111,6 @@ All pages components.
 * [ProjectCards](components/ProjectCards.md) <br />— _List all the projects with cards linking to the search._
 * [ProjectSelector](components/ProjectSelector.md) <br />— _A single-project selector input._
 * [QuickItemNav](components/QuickItemNav.md) <br />— _A simple component to display a next/previous pair of buttons to navigate_
-* [README](components/README.md) 
 * [ResetFiltersButton](components/ResetFiltersButton.md) <br />— _Button to reset all search filters._
 * [RouterLinkPopup](components/RouterLinkPopup.md) <br />— _A router-link that opens link in a popup._
 * [ScrollTracker](components/ScrollTracker.md) <br />— _An contextual link to the &quot;right&quot; scroll position._
