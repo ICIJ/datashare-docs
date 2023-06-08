@@ -87,7 +87,7 @@
 * [How to contribute](developers/how-to-contribute.md)
 * [Backend API](developers/backend.md)
 * [Frontend API](developers/client/README.md)
-  * [Vue components](developers/client/vue.md)
+  * [Vue components](developers/client/vue/README.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight page widgets](developers/client/widgets.md)
 * [Logging](developers/logging.md)
