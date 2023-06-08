@@ -12,6 +12,7 @@
 | Name    | Description | Bindings |
 | ------- | ----------- | -------- |
 | empty   |             |          |
+| status  |             |          |
 | default |             |          |
 
 ---
