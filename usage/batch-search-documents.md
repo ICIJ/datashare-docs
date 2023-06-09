@@ -137,7 +137,7 @@ When you turn on 'Do phrase matches', you can set, in 'Proximity searches', the 
 
 * Open your batch search by clicking its name:
 
-![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.55.14 (1) (1) (1).png>)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.55.14 (1) (1) (1) (2).png>)
 
 * You see your results and you can **sort them** by clicking the column's name. 'Rank' means the order by which each queries would be sorted out if run in Datashare's main search bar. They are thus sorted by **relevance score by default**.
 
@@ -174,7 +174,7 @@ Notes:
 
 1. Edit the name and the description of your batch search if needed:
 
-![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.05.46 (1) (1) (1).png>)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.05.46 (1) (1) (1) (2).png>)
 
 1. You can choose to delete the current batch search after relaunching it:
 
@@ -300,7 +300,7 @@ You cannot start a query with slash (/) or make it contain a slash, neither in D
 
 ![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.55.02.png>)
 
-![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.54.51 (1) (1) (1).png>)
+![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.54.51 (1) (1) (1) (2).png>)
 
 ### - A query uses square brackets (\[ ]) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
 

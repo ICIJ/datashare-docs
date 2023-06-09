@@ -8,7 +8,7 @@ It means that you are on **Windows**.
 
 * Go to '**Local users and groups**':
 
-![](<../../../.gitbook/assets/Screenshot (11) (1) (1).png>)
+![](<../../../.gitbook/assets/Screenshot (11) (1) (1) (2).png>)
 
 * In 'Groups', double-click '**docker-users'**:
 

@@ -62,4 +62,4 @@ You cannot end a query with question mark (!). [Question mark is reserved as a s
 
 You cannot use square brackets [except for searching for ranges](https://icij.gitbook.io/datashare/all/search-with-operators#advanced-searches-using-metadata-fields).
 
-![](<../../../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (2) (2).png>)
+![](<../../../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (2) (1) (2).png>)

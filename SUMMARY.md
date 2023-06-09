@@ -89,7 +89,7 @@
 * [Frontend API](developers/client/README.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
-  * [Vue components](developers/client/vue/README.md)
+  * [Vue app](developers/client/vue/README.md)
     * [Components](developers/client/vue/components/README.md)
       * [Api](developers/client/vue/components/Api.md)
       * [AppliedSearchFilters](developers/client/vue/components/AppliedSearchFilters.md)
@@ -234,5 +234,3 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
-
-

@@ -32,7 +32,7 @@ Copy or place the documents you want to have in Datashare in this Datashare fold
 
 Open your Applications. You should see Datashare. Double click on it:
 
-![](<../../.gitbook/assets/Group 28 (1) (1) (1) (2) (2).png>)
+![](<../../.gitbook/assets/Group 28 (1) (1) (1) (2) (1) (1).png>)
 
 Datashare opens in your default internet browser. Click '**Tasks**':&#x20;
 

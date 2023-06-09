@@ -28,7 +28,7 @@ If not collapsed yet, to collapse the left menu in order to gain room, **click t
 
 * **If you get a message "Your search query is wrong", it is probably because you are misusing one or some reserved characters (like ^ " ? ( \[ \* OR AND etc).** [**Please refer to this page**](https://icij.gitbook.io/datashare/faq-errors/your-search-query-is-wrong)**.**
 
-![](<../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (2).png>)
+![](<../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (2) (1) (1).png>)
 
 &#x20;3\. You can search **in specific fields** like tags, title, author, recipient, content, path or thread ID. Click **'All fields**' and **select your choice** in the dropdown menu:
 
