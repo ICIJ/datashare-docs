@@ -87,11 +87,7 @@
 * [How to contribute](developers/how-to-contribute.md)
 * [Backend API](developers/backend.md)
 * [Frontend API](developers/client/README.md)
-  * [Vue components](developers/client/vue/README.md)
-<!--- START: Vue components TOC --->
-    * [Widget](developers/client/vue/components/widget/README.md)
-      * [WidgetDiskUsage](developers/client/vue/components/widget/WidgetDiskUsage.md)
-<!--- END: Vue components TOC --->
+  * [Vue components](developers/client/vue/README.md) {> VUE:TOC <}
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
 * [Logging](developers/logging.md)
