@@ -88,7 +88,6 @@
 * [Backend API](developers/backend.md)
 * [Frontend API](developers/client/README.md)
   * [Vue components](developers/client/vue/README.md)
-    * [WidgetDiskUsage](developers/client/vue/components/widget/WidgetDiskUsage.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
 * [Logging](developers/logging.md)
