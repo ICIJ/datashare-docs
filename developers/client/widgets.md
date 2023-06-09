@@ -1,156 +1,210 @@
-# Insight widgets
+# Insight widgets 
 
-### Classes
+<a name="WidgetDiskUsage"></a>
 
-[WidgetDiskUsage](widgets.md#WidgetDiskUsage)
-
+## WidgetDiskUsage
 Widget to display the disk space occupied by indexed files on the insights page.
 
-[WidgetDocumentsByCreationDate](widgets.md#WidgetDocumentsByCreationDate)
+**Kind**: global class  
 
+* * *
+
+<a name="WidgetDocumentsByCreationDate"></a>
+
+## WidgetDocumentsByCreationDate
 Widget to display the number of file by creation date on the insights page.
 
-[WidgetDocumentsByCreationDateByPath](widgets.md#WidgetDocumentsByCreationDateByPath)
+**Kind**: global class  
 
+* * *
+
+<a name="WidgetDocumentsByCreationDateByPath"></a>
+
+## WidgetDocumentsByCreationDateByPath
 Widget to display number of files by creation date by path
 
-[WidgetDuplicates](widgets.md#WidgetDuplicates)
+**Kind**: global class  
 
+* * *
+
+<a name="WidgetDuplicates"></a>
+
+## WidgetDuplicates
 Widget for the insights page indicating the proportion of duplicates in the data.
 
-[WidgetEmpty](widgets.md#WidgetEmpty)
+**Kind**: global class  
 
+* * *
+
+<a name="WidgetEmpty"></a>
+
+## WidgetEmpty
 Class representing the Empty widget. This widget is not intended to be used directly.
 
-[WidgetEntities](widgets.md#WidgetEntities)
+**Kind**: global class  
 
-Widget to display text on the insights page
+* * *
 
-[WidgetFileBarometer](widgets.md#WidgetFileBarometer)
+<a name="new_WidgetEmpty_new"></a>
 
-Widget to display the number of indexed files on the insights page
-
-[WidgetListGroup](widgets.md#WidgetListGroup)
-
-Widget to display a list of items or links on the insights page
-
-[WidgetText](widgets.md#WidgetText)
-
-Widget to display text on the insights page
-
-[WidgetTreeMap](widgets.md#WidgetTreeMap)
-
-Class representing the TreeMap widget
-
-### WidgetDiskUsage
-
-Widget to display the disk space occupied by indexed files on the insights page.
-
-**Kind**: global class\
-
-
-### WidgetDocumentsByCreationDate
-
-Widget to display the number of file by creation date on the insights page.
-
-**Kind**: global class\
-
-
-### WidgetDocumentsByCreationDateByPath
-
-Widget to display number of files by creation date by path
-
-**Kind**: global class\
-
-
-### WidgetDuplicates
-
-Widget for the insights page indicating the proportion of duplicates in the data.
-
-**Kind**: global class\
-
-
-### WidgetEmpty
-
-Class representing the Empty widget. This widget is not intended to be used directly.
-
-**Kind**: global class\
-
-
-#### new WidgetEmpty(name, card, cols, order)
-
+### new WidgetEmpty(name, card, cols, order)
 Create a new WidgetEmpty
 
-| Param | Type      | Default | Description                                                                                                                                                                   |
-| ----- | --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name  | `string`  |         | Unique name of the widget                                                                                                                                                     |
-| card  | `boolean` | `true`  | Is this widget displayed as [card](https://bootstrap-vue.org/docs/components/card) ?                                                                                          |
-| cols  | `number`  | `12`    | Number of columns on which the widget should be displayed according to the [Bootstrap's grid system](https://bootstrap-vue.org/docs/components/layout#layout-and-grid-system) |
-| order | `number`  | `0`     | Order to display among the others widgets                                                                                                                                     |
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td><code>string</code></td><td></td><td><p>Unique name of the widget</p>
+</td>
+    </tr><tr>
+    <td>card</td><td><code>boolean</code></td><td><code>true</code></td><td><p>Is this widget displayed as <a href="https://bootstrap-vue.org/docs/components/card">card</a> ?</p>
+</td>
+    </tr><tr>
+    <td>cols</td><td><code>number</code></td><td><code>12</code></td><td><p>Number of columns on which the widget should be displayed according to the
+<a href="https://bootstrap-vue.org/docs/components/layout#layout-and-grid-system">Bootstrap&#39;s grid system</a></p>
+</td>
+    </tr><tr>
+    <td>order</td><td><code>number</code></td><td><code>0</code></td><td><p>Order to display among the others widgets</p>
+</td>
+    </tr>  </tbody>
+</table>
 
-### WidgetEntities
 
+* * *
+
+<a name="WidgetEntities"></a>
+
+## WidgetEntities
 Widget to display text on the insights page
 
-**Kind**: global class\
+**Kind**: global class  
 
+* * *
 
-### WidgetFileBarometer
+<a name="WidgetFileBarometer"></a>
 
+## WidgetFileBarometer
 Widget to display the number of indexed files on the insights page
 
-**Kind**: global class\
+**Kind**: global class  
 
+* * *
 
-### WidgetListGroup
+<a name="WidgetListGroup"></a>
 
+## WidgetListGroup
 Widget to display a list of items or links on the insights page
 
-**Kind**: global class\
+**Kind**: global class  
 
+* * *
 
-#### new WidgetListGroup(title, items, pipeline, options)
+<a name="new_WidgetListGroup_new"></a>
 
+### new WidgetListGroup(title, items, pipeline, options)
 Create a new WidgetListGroup
 
-| Param    | Type     | Default                 | Description                        |
-| -------- | -------- | ----------------------- | ---------------------------------- |
-| title    | `string` | `null`                  | The title of the widget            |
-| items    | `Array`  | `[`                     | The list of items to display       |
-| pipeline | `string` | `"'widget-list-group'"` | I do not know                      |
-| options  | `Object` |                         | See WidgetEmpty for others options |
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>title</td><td><code>string</code></td><td><code>null</code></td><td><p>The title of the widget</p>
+</td>
+    </tr><tr>
+    <td>items</td><td><code>Array</code></td><td><code>[</code></td><td><p>The list of items to display</p>
+</td>
+    </tr><tr>
+    <td>pipeline</td><td><code>string</code></td><td><code>&quot;&#x27;widget-list-group&#x27;&quot;</code></td><td><p>I do not know</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>Object</code></td><td></td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
 
-### WidgetText
 
+* * *
+
+<a name="WidgetText"></a>
+
+## WidgetText
 Widget to display text on the insights page
 
-**Kind**: global class\
+**Kind**: global class  
 
+* * *
 
-#### new WidgetText(title, content, pipeline, options)
+<a name="new_WidgetText_new"></a>
 
+### new WidgetText(title, content, pipeline, options)
 Create a new WidgetText based on a WidgetEmpty
 
-| Param    | Type     | Default           | Description                            |
-| -------- | -------- | ----------------- | -------------------------------------- |
-| title    | `string` | `null`            | The title of the widget                |
-| content  | `string` | `null`            | The content of the widget              |
-| pipeline | `string` | `"'widget-text'"` | Transformation to apply to the content |
-| options  | `Object` |                   | See WidgetEmpty for others options     |
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>title</td><td><code>string</code></td><td><code>null</code></td><td><p>The title of the widget</p>
+</td>
+    </tr><tr>
+    <td>content</td><td><code>string</code></td><td><code>null</code></td><td><p>The content of the widget</p>
+</td>
+    </tr><tr>
+    <td>pipeline</td><td><code>string</code></td><td><code>&quot;&#x27;widget-text&#x27;&quot;</code></td><td><p>Transformation to apply to the content</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>Object</code></td><td></td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
 
-### WidgetTreeMap
 
+* * *
+
+<a name="WidgetTreeMap"></a>
+
+## WidgetTreeMap
 Class representing the TreeMap widget
 
-**Kind**: global class\
+**Kind**: global class  
 
+* * *
 
-#### new WidgetTreeMap(title, index, options)
+<a name="new_WidgetTreeMap_new"></a>
 
+### new WidgetTreeMap(title, index, options)
 Create a new WidgetTreeMap based on a WidgetEmpty
 
-| Param   | Type     | Default | Description                             |
-| ------- | -------- | ------- | --------------------------------------- |
-| title   | `string` | `null`  | The title of the Widget                 |
-| index   | `string` |         | The Elasticsearch project of the Widget |
-| options | `Object` |         | See WidgetEmpty for others options      |
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>title</td><td><code>string</code></td><td><code>null</code></td><td><p>The title of the Widget</p>
+</td>
+    </tr><tr>
+    <td>index</td><td><code>string</code></td><td></td><td><p>The Elasticsearch project of the Widget</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>Object</code></td><td></td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+* * *
+
