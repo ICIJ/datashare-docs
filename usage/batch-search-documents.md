@@ -18,30 +18,30 @@ To do so, you will:
 
 * **Write your queries**, one per line and per cell, in the first column of a spreadsheet (Excel, Google Sheets, Numbers, Framacalc, etc.). In the example below, there are 4 queries:
 
-![](../.gitbook/assets/screenshot-2019-09-25-at-16.06.40.png)
+![](<../.gitbook/assets/Screenshot 2019-09-25 at 16.06.40.png>)
 
 * **Do not put line break(s)** in any of your cells.
 
-![This will lead to a "failure".](../.gitbook/assets/screenshot-2020-02-03-at-12.18.04.png)
+![This will lead to a "failure".](<../.gitbook/assets/Screenshot 2020-02-03 at 12.18.04.png>)
 
-![This will lead to a "success".](../.gitbook/assets/screenshot-2020-02-03-at-12.18.09.png)
+![This will lead to a "success".](<../.gitbook/assets/Screenshot 2020-02-03 at 12.18.09.png>)
 
 To delete line break(s) in your spreadsheet, you can use the "**Find and replace all**" functionality. Find all **"\n"** and replace them all by **nothing or a space**.
 
-![Use this functionality to delete all line break(s)](../.gitbook/assets/screenshot-2020-02-03-at-11.51.34.png)
+![Use this functionality to delete all line break(s)](<../.gitbook/assets/Screenshot 2020-02-03 at 11.51.34.png>)
 
 * Write **2 characters minimum in the cells**. If one cell contains one character but at least one other cell contains more than one, the cell containing one character will be ignored. If all cells contain only one character, the batch search will lead to 'failure'.
 * If you have **blank cells in your spreadsheet...**
 
-![](../.gitbook/assets/screenshot-2019-11-04-at-16.12.23.png)
+![](<../.gitbook/assets/Screenshot 2019-11-04 at 16.12.23.png>)
 
 ...the CSV (which stand for 'Comma-separated values') will keep these blank cells. It will separate them with semicolons (the 'commas'). You will thus have semicolons in your batch search results _(see screenshot below)_. To avoid that, **you need to remove blank cells in your spreadsheet before exporting it as a CSV**.
 
-![Remove blank cells in your spreadsheet in order to avoid this.](../.gitbook/assets/screenshot-2019-09-27-at-10.51.29.png)
+![Remove blank cells in your spreadsheet in order to avoid this.](<../.gitbook/assets/Screenshot 2019-09-27 at 10.51.29.png>)
 
 * **If there is a comma in one of your cells** (like in "1,8 million" in our example above), the CSV will formally put the content of the cell in double quotes in your results and search for the exact phrase in double quotes.
 
-![](../.gitbook/assets/screenshot-2019-11-04-at-16.20.29.png)
+![](<../.gitbook/assets/Screenshot 2019-11-04 at 16.20.29.png>)
 
 ### Want to search only on some documents?
 
@@ -63,13 +63,13 @@ Please also note that searches are **not case sensitive**: if you search 'HeLlo'
 
 Export your spreadsheet in a CSV format like this:
 
-![](../.gitbook/assets/screenshot-2019-09-25-at-16.10.06.png)
+![](<../.gitbook/assets/Screenshot 2019-09-25 at 16.10.06.png>)
 
 **Important: Use the** [**UTF-8 encoding**](https://en.wikipedia.org/wiki/UTF-8)**.**
 
 * **LibreOffice Calc**: it uses UTF-8 by default. If not, go to LibreOffice menu > Preferences > Load/Save > HTML Compatibility and make sur the character set is 'Unicode (UTF-8)':
 
-![](../.gitbook/assets/screenshot-2020-02-04-at-22.00.07.png)
+![](<../.gitbook/assets/Screenshot 2020-02-04 at 22.00.07.png>)
 
 * **Microsoft Excel**: if it is not set by default, select "CSV UTF-8" as one of the formats, [as explained here](https://answers.microsoft.com/en-us/msoffice/forum/msoffice\_excel-mso\_win10-mso\_365hp/save-as-csv-with-utf-8-encoding/ff94943c-db5b-42c3-8905-f86d3d8d52c2).
 * **Google Sheets**: it uses UTF-8 by default. Just click "Export to" and "CSV".
@@ -79,23 +79,23 @@ Export your spreadsheet in a CSV format like this:
 
 * Open Datashare, click '**Batch searches**' in the left menu and click '**New batch search**' on the top right:
 
-![](<../.gitbook/assets/screenshot-2020-08-21-at-15.45.32 (1).png>)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.45.32.png>)
 
 * Type a **name** for your batch search:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.47.29.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.47.29.png>)
 
 * Upload your **CSV**:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.49.51.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.49.51.png>)
 
 * Add a **description** (optional):
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.50.59.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.50.59.png>)
 
 * Set the **advanced filters** ('Do phrase matches', 'Fuzziness' or 'Proximity searches', 'File types' and 'Path') according to your preferences:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.51.57.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.51.57.png>)
 
 ### What is 'Do phrase matches'?
 
@@ -131,33 +131,33 @@ When you turn on 'Do phrase matches', you can set, in 'Proximity searches', the 
 
 * Click '**Add**'. Your batch search will appear in the table of batch searches.
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.52.58.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.52.58.png>)
 
 ## Get your results
 
 * Open your batch search by clicking its name:
 
-![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.55.14 (1).png>)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.55.14 (1) (1) (1).png>)
 
 * You see your results and you can **sort them** by clicking the column's name. 'Rank' means the order by which each queries would be sorted out if run in Datashare's main search bar. They are thus sorted by **relevance score by default**.
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.56.25.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.56.25.png>)
 
 * You can **click on a document's name** and it will open it in a new tab:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-16.03.13.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 16.03.13.png>)
 
 * You can **filter your results by query** and read how many documents there are for each query:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.54.33.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.54.33.png>)
 
 You can **search for specific queries**:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-16.05.57.png)
+![](<../.gitbook/assets/Screenshot 2020-08-21 at 16.05.57.png>)
 
 * You can also **download your results** in a CSV format:
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.17.38.png)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.17.38.png>)
 
 ## Relaunch your batch search
 
@@ -170,25 +170,25 @@ Notes:
 
 1. To do so, open the batch search that you'd like to relaunch and click 'Relaunch':
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.05.22.png)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.05.22.png>)
 
 1. Edit the name and the description of your batch search if needed:
 
-![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.05.46 (1).png>)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.05.46 (1) (1) (1).png>)
 
 1. You can choose to delete the current batch search after relaunching it:
 
 Note: if you're worried about losing your previous results because of an error, we recommend to keep your current batch search (turn off this toggle button) and delete it only after the relaunch is a success.
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.06.07.png)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.06.07.png>)
 
 1. Click 'Submit':
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.06.23.png)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.06.23.png>)
 
 You can see your relaunched batch search running in the batch search's list:
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.07.07.png)
+![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.07.07.png>)
 
 ## I get a "failure". What does that mean?
 
@@ -196,13 +196,13 @@ Failures in batch searches can be due to several causes.
 
 Click the **'See error' button** to open the error window:
 
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.28.52.png)
+![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.28.52.png>)
 
 The **first query containing an error makes the batch search fail and stop.**
 
 Check this first failure-generating query in the error window:
 
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.30.14.png)
+![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.30.14.png>)
 
 In the case above, the slash (/) used between 'Heroin' and 'Opiates' is a [reserved character that was not escaped by a backslash](https://icij.gitbook.io/datashare/all/batch-search-documents#the-query-uses-square-brackets) so Datashare interpreted this query as a syntax error, failed and didn't go further so the batch search stopped.
 
@@ -242,13 +242,13 @@ Datashare **stops at the first syntax error**. It reports only the first ​erro
 
 They are more likely to happen **when 'do phrase matches' toggle button is turned off:**
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.21.30.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.21.30.png>)
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.20.07.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.20.07.png>)
 
 When 'Do phrase matches' is on, syntax error can still happen though:
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.47.55.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.47.55.png>)
 
 Here are **the most common errors:**
 
@@ -256,51 +256,51 @@ Here are **the most common errors:**
 
 You cannot start a query with AND all uppercase, neither in Datashare's main search bar nor in your CSV. [AND is reserved as a search operator](https://icij.gitbook.io/datashare/all/search-with-operators#and).
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-14.53.32.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.53.32.png>)
 
 ### **- A query starts with OR** (all uppercase)
 
 You cannot start a query with OR all uppercase, neither in Datashare's main search bar nor in your CSV. [OR is reserved as a search operator](https://icij.gitbook.io/datashare/all/search-with-operators#or-or-space).
 
-![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.58.08 (1) (1).png>)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.58.08 (1) (1) (1) (1).png>)
 
 ### **- A query contains only one double quote or a double quote in a word**
 
 You cannot type a query with only one double quote, neither in Datashare's main search bar nor in your CSV. [Double quotes are reserved as a search operator](https://icij.gitbook.io/datashare/all/search-with-operators#exact-phrase).
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.41.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.23.41.png>)
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.51.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.23.51.png>)
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.01.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.23.01.png>)
 
 ### **- A query starts with or contains tilde** (\~) inside a term
 
 You cannot start a query with tilde (\~) or make one contain a tilde, neither in Datashare's main search bar nor in your CSV. Tilde is reserved as a search operator for [fuzziness](https://icij.gitbook.io/datashare/faq-definitions/what-is-fuzziness) or [proximity searches](https://icij.gitbook.io/datashare/faq-definitions/what-are-proximity-searches).
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.03.59.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.03.59.png>)
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-14.59.36.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.59.36.png>)
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.02.40.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.02.40.png>)
 
 ### **- A query starts with or contains a caret** (^)
 
 You cannot start a query with caret (^) or make it contain a caret, neither in Datashare's main search bar nor in your CSV. [Caret is reserved as a boosting operator](https://icij.gitbook.io/datashare/all/search-with-operators#boosting-operators).
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.05.05.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.05.05.png>)
 
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.06.28.png)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 15.06.28.png>)
 
 ### - A query contains one slash (/) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
 
 You cannot start a query with slash (/) or make it contain a slash, neither in Datashare's main search bar nor in your CSV. [Slash is a reserved character to open Regex ('regular expressions')](https://icij.gitbook.io/datashare/all/search-with-operators#regular-expressions-regex). Note that you can use Regex in batch searches.
 
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.54.23.png)
+![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.54.23.png>)
 
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.55.02.png)
+![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.55.02.png>)
 
-![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.54.51 (1).png>)
+![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.54.51 (1) (1) (1).png>)
 
 ### - A query uses square brackets (\[ ]) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
 
@@ -310,8 +310,8 @@ You cannot use square brackets [except for searching for ranges](https://icij.gi
 
 Open your batch search and click the **trash icon**:
 
-![](../.gitbook/assets/screenshot-2020-08-31-at-17.27.40.png)
+![](<../.gitbook/assets/Screenshot 2020-08-31 at 17.27.40.png>)
 
 Then click **'Yes'**:
 
-![](../.gitbook/assets/screenshot-2020-08-31-at-17.29.03.png)
+![](<../.gitbook/assets/Screenshot 2020-08-31 at 17.29.03.png>)

@@ -48,7 +48,7 @@ brew -v
 
 You should see an output similar to this:
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-01-13 at 04.43.22 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-01-13 at 04.43.22.png" alt=""><figcaption></figcaption></figure>
 
 If you get a `command not found: brew` error, this mean Homebrew is not installed on your system. You might either use MacPorts (see previous section) or [run the Datashare installer for Mac](install-datashare-on-mac/) on your computer.
 

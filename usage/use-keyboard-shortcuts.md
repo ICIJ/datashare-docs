@@ -6,11 +6,11 @@ description: Shortcuts help do some actions faster.
 
 ### F**ind these shortcuts in Datashare here:**
 
-![](../.gitbook/assets/screenshot-2019-10-01-at-10.17.49.png)
+![](<../.gitbook/assets/Screenshot 2019-10-01 at 10.17.49.png>)
 
 It will open a window which recalls the shortcuts:
 
-![](../.gitbook/assets/screenshot-2019-10-01-at-10.18.03.png)
+![](<../.gitbook/assets/Screenshot 2019-10-01 at 10.18.03.png>)
 
 ### **Go to the next / previous document**
 
@@ -26,7 +26,7 @@ It will open a window which recalls the shortcuts:
 >
 > Command (⌘) + ←
 
-![](../.gitbook/assets/next-document.png)
+![](<../.gitbook/assets/Next document.png>)
 
 ### **Find in document...**
 
@@ -38,7 +38,7 @@ It will open a window which recalls the shortcuts:
 
 > Command (⌘) + F
 
-![](../.gitbook/assets/find-in-document-f.png)
+![](<../.gitbook/assets/Find in document F.png>)
 
 **... and go from one occurrence to the next / previous occurrence**
 
@@ -58,7 +58,7 @@ It will open a window which recalls the shortcuts:
 >
 > Shift + F3
 
-![](../.gitbook/assets/previous-next-occurrence.png)
+![](<../.gitbook/assets/Previous next occurrence.png>)
 
 ### Navigate a document's tabs
 
@@ -74,7 +74,7 @@ It will open a window which recalls the shortcuts:
 >
 > Command (⌘) + option (⌥) + ↓ (arrow down)
 
-![](../.gitbook/assets/navigate-between-tabs-in-a-doc.png)
+![](<../.gitbook/assets/Navigate between tabs in a doc.png>)
 
 ### Go back to search results
 
@@ -82,4 +82,4 @@ Once you opened a document, go back to search results:
 
 > Esc
 
-![](../.gitbook/assets/back-to-search-results.png)
+![](<../.gitbook/assets/Back to search results.png>)
