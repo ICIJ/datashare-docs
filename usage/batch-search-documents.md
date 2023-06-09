@@ -262,7 +262,7 @@ You cannot start a query with AND all uppercase, neither in Datashare's main sea
 
 You cannot start a query with OR all uppercase, neither in Datashare's main search bar nor in your CSV. [OR is reserved as a search operator](https://icij.gitbook.io/datashare/all/search-with-operators#or-or-space).
 
-![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.58.08 (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.58.08 (1) (1) (1) (1) (1).png>)
 
 ### **- A query contains only one double quote or a double quote in a word**
 
