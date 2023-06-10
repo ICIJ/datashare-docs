@@ -20,7 +20,7 @@ The installer will setup:
 
 Go to [datashare.icij.org](https://datashare.icij.org), scroll down and click '**Download for Mac'**.
 
-![](<../../.gitbook/assets/Capture d’écran 2020-09-24 à 09.59.47 (1) (1) (1) (2) (1).png>)
+![](<../../.gitbook/assets/Capture d’écran 2020-09-24 à 09.59.47 (1) (1) (1) (1) (2).png>)
 
 ### 2. Start the installer
 

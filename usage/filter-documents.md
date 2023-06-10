@@ -67,7 +67,7 @@ In the example below, the 'Contextualize' checkboxes are not ticked:
 
 After the Contextualize button in Tags filter is ticked:
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 12.32.14.png>)
+![](<../.gitbook/assets/Screenshot 2022-04-21 at 12.32.14 (1).png>)
 
 After the Languages button in Tags filter is ticked:
 

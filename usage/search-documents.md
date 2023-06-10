@@ -28,11 +28,11 @@ If not collapsed yet, to collapse the left menu in order to gain room, **click t
 
 * **If you get a message "Your search query is wrong", it is probably because you are misusing one or some reserved characters (like ^ " ? ( \[ \* OR AND etc).** [**Please refer to this page**](https://icij.gitbook.io/datashare/faq-errors/your-search-query-is-wrong)**.**
 
-![](<../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (2) (1) (1).png>)
+![](<../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (1).png>)
 
 &#x20;3\. You can search **in specific fields** like tags, title, author, recipient, content, path or thread ID. Click **'All fields**' and **select your choice** in the dropdown menu:
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.20.41 (1).png>)
+![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.20.41.png>)
 
 &#x20;
 
@@ -65,8 +65,8 @@ _(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts
 
 This also counts the number of occurrences of your searched terms in this document:
 
-![](<../.gitbook/assets/Find F.png>)
+![](../.gitbook/assets/find-f.png)
 
 If you run [email extraction](https://icij.gitbook.io/datashare/all/analyze-documents#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
 
-![](<../.gitbook/assets/in metadata.png>)
+![](../.gitbook/assets/in-metadata.png)
