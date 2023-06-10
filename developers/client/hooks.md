@@ -8,7 +8,7 @@ define new Vue Component through plugins.
 
 | Component | Name |
 | --- | --- |
-| [components/AppNav.vue](vue/components/AppNav.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/components/AppNav.vue#L3) | `search.nav:before` |
+| [components/AppNav.vue](vue/components/appnav) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/components/AppNav.vue#L3) | `search.nav:before` |
 | [components/AppNav.vue](vue/components/AppNav.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/components/AppNav.vue#L12) | `search.nav:after` |
 | [components/AppSidebar.vue](vue/components/AppSidebar.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/components/AppSidebar.vue#L15) | `app-sidebar.menu:before` |
 | [components/AppSidebar.vue](vue/components/AppSidebar.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/components/AppSidebar.vue#L84) | `app-sidebar.menu:after` |
