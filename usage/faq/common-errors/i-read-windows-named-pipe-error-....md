@@ -2,6 +2,6 @@
 
 If you use Datashare with Docker (not the standard version), if a dark window called the Terminal displays a phrase beginning with "Windows named pipe error: The system cannot find the file specified" appears, it means that Docker Desktop, one of the 3 components of Datashare, is not working. **Relaunching Docker Desktop should solve the problem.**
 
-![](../../../.gitbook/assets/ds-1.15.PNG)
+![](<../../../.gitbook/assets/DS 1.15.PNG>)
 
 Find Docker Desktop in your Applications or the whale icon on the menu bar of your computer and click **'Restart'.**

@@ -14,11 +14,11 @@ And adapt the following launch script : [https://github.com/ICIJ/datashare/blob/
 
 Go to [datashare.icij.org](https://datashare.icij.org), scroll down and click '**Download .deb'**
 
-![](<../../.gitbook/assets/install (1).png>)
+![](../../.gitbook/assets/install.png)
 
 Save the Debian package as a file
 
-![save as file](<../../.gitbook/assets/save\_as (1).png>)
+![save as file](../../.gitbook/assets/save\_as.png)
 
 ### 2. Install the package
 
