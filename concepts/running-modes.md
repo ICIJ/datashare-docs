@@ -10,7 +10,7 @@ In **server mode**, Datashare operates as a centralized server-based system. Use
 
 In **cli mode**, Datashare starts without a web server and allow user to perform task over their documents. This mode can be used in conjunction both with local and server modes, while allowing users to distribute heaving task between several servers.
 
-## Comparaison between the two modes
+## Comparaison between modes
 
 The running modes offer advantages and limitations. This matrix summarizes the differences:
 
