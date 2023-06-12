@@ -6,12 +6,10 @@ Column | Type | Nullable | Default
 `user_id` | `character varying(96)` | `not null` | 
 `creation_date` | `timestamp without time zone` | `not null` | 
 
-
-
 ### Constraints and indexes
 
-* `api_key_pkey PRIMARY KEY, btree (id) api_key_user_id_key UNIQUE CONSTRAINT, btree (user_id)`
-
+* `api_key_pkey PRIMARY KEY, btree (id)`
+* `api_key_user_id_key UNIQUE CONSTRAINT, btree (user_id)`
 
 *****
 
@@ -34,14 +32,20 @@ Column | Type | Nullable | Default
 `batch_results` | `integer` |  | `0`
 `error_query` | `text` |  | 
 
-
-
 ### Constraints and indexes
 
-* `batch_search_pkey PRIMARY KEY, btree (uuid) batch_search_date btree (batch_date) batch_search_published btree (published) batch_search_user_id btree (user_id)`
+* `batch_search_pkey PRIMARY KEY, btree (uuid)`
+* `batch_search_date btree (batch_date)`
+* `batch_search_published btree (published)`
+* `batch_search_user_id btree (user_id)`
 
 ### Referenced by
 
+* `batch_search_pkey PRIMARY KEY, btree (uuid)`
+* `batch_search_date btree (batch_date)`
+* `batch_search_published btree (published)`
+* `batch_search_user_id btree (user_id)`
+* `Referenced by:`
 * `TABLE batch_search_project CONSTRAINT batch_search_project_batch_search_uuid_fk FOREIGN KEY (search_uuid) REFERENCES batch_search(uuid)`
 
 *****
@@ -53,12 +57,10 @@ Column | Type | Nullable | Default
 `search_uuid` | `character(36)` | `not null` | 
 `prj_id` | `character varying(96)` | `not null` | 
 
-
-
 ### Constraints and indexes
 
-* `batch_search_project_unique UNIQUE, btree (search_uuid, prj_id) batch_search_project_batch_search_uuid_fk FOREIGN KEY (search_uuid) REFERENCES batch_search(uuid)`
-
+* `batch_search_project_unique UNIQUE, btree (search_uuid, prj_id)`
+* `batch_search_project_batch_search_uuid_fk FOREIGN KEY (search_uuid) REFERENCES batch_search(uuid)`
 
 *****
 
@@ -71,12 +73,10 @@ Column | Type | Nullable | Default
 `query` | `text` | `not null` | 
 `query_results` | `integer` |  | `0`
 
-
-
 ### Constraints and indexes
 
-* `batch_search_query_search_id btree (search_uuid) idx_query_result_batch_unique UNIQUE, btree (search_uuid, query)`
-
+* `batch_search_query_search_id btree (search_uuid)`
+* `idx_query_result_batch_unique UNIQUE, btree (search_uuid, query)`
 
 *****
 
@@ -95,12 +95,11 @@ Column | Type | Nullable | Default
 `content_length` | `bigint` |  | 
 `prj_id` | `character varying(96)` |  | 
 
-
-
 ### Constraints and indexes
 
-* `batch_search_result_prj_id btree (prj_id) batch_search_result_query btree (query) batch_search_result_uuid btree (search_uuid)`
-
+* `batch_search_result_prj_id btree (prj_id)`
+* `batch_search_result_query btree (query)`
+* `batch_search_result_uuid btree (search_uuid)`
 
 *****
 
@@ -124,12 +123,11 @@ Column | Type | Nullable | Default
 `charset` | `character varying(32)` |  | 
 `ner_mask` | `smallint` |  | 
 
-
-
 ### Constraints and indexes
 
-* `document_pkey PRIMARY KEY, btree (id) document_parent_id btree (parent_id) document_status btree (status)`
-
+* `document_pkey PRIMARY KEY, btree (id)`
+* `document_parent_id btree (parent_id)`
+* `document_status btree (status)`
 
 *****
 
@@ -143,12 +141,12 @@ Column | Type | Nullable | Default
 `user_id` | `character varying(255)` |  | 
 `creation_date` | `timestamp without time zone` | `not null` | `'1970-01-01 00:00:00'::timestamp without time zone`
 
-
-
 ### Constraints and indexes
 
-* `document_tag_doc_id btree (doc_id) document_tag_label btree (label) document_tag_project_id btree (prj_id) idx_document_tag_unique UNIQUE, btree (doc_id, label)`
-
+* `document_tag_doc_id btree (doc_id)`
+* `document_tag_label btree (label)`
+* `document_tag_project_id btree (prj_id)`
+* `idx_document_tag_unique UNIQUE, btree (doc_id, label)`
 
 *****
 
@@ -160,12 +158,12 @@ Column | Type | Nullable | Default
 `user_id` | `character varying(96)` | `not null` | 
 `prj_id` | `character varying(96)` |  | 
 
-
-
 ### Constraints and indexes
 
-* `document_user_mark_read_doc_id btree (doc_id) document_user_mark_read_project_id btree (prj_id) document_user_mark_read_user_id btree (user_id) idx_document_mark_read_unique UNIQUE, btree (doc_id, user_id, prj_id)`
-
+* `document_user_mark_read_doc_id btree (doc_id)`
+* `document_user_mark_read_project_id btree (prj_id)`
+* `document_user_mark_read_user_id btree (user_id)`
+* `idx_document_mark_read_unique UNIQUE, btree (doc_id, user_id, prj_id)`
 
 *****
 
@@ -177,12 +175,12 @@ Column | Type | Nullable | Default
 `user_id` | `character varying(96)` | `not null` | 
 `prj_id` | `character varying(96)` |  | 
 
-
-
 ### Constraints and indexes
 
-* `document_user_star_doc_id btree (doc_id) document_user_star_project_id btree (prj_id) document_user_star_user_id btree (user_id) idx_document_star_unique UNIQUE, btree (doc_id, user_id, prj_id)`
-
+* `document_user_star_doc_id btree (doc_id)`
+* `document_user_star_project_id btree (prj_id)`
+* `document_user_star_user_id btree (user_id)`
+* `idx_document_star_unique UNIQUE, btree (doc_id, user_id, prj_id)`
 
 *****
 
@@ -200,12 +198,10 @@ Column | Type | Nullable | Default
 `extractor_language` | `character(2)` |  | 
 `hidden` | `boolean` |  | 
 
-
-
 ### Constraints and indexes
 
-* `named_entity_pkey PRIMARY KEY, btree (id) named_entity_doc_id btree (doc_id)`
-
+* `named_entity_pkey PRIMARY KEY, btree (id)`
+* `named_entity_doc_id btree (doc_id)`
 
 *****
 
@@ -218,12 +214,10 @@ Column | Type | Nullable | Default
 `note` | `text` |  | 
 `variant` | `character varying(16)` |  | 
 
-
-
 ### Constraints and indexes
 
-* `idx_unique_note_path_project UNIQUE, btree (project_id, path) note_project btree (project_id)`
-
+* `idx_unique_note_path_project UNIQUE, btree (project_id, path)`
+* `note_project btree (project_id)`
 
 *****
 
@@ -242,12 +236,9 @@ Column | Type | Nullable | Default
 `creation_date` | `timestamp without time zone` |  | `now()`
 `update_date` | `timestamp without time zone` |  | `now()`
 
-
-
 ### Constraints and indexes
 
 * `project_pkey PRIMARY KEY, btree (id)`
-
 
 *****
 
@@ -263,14 +254,22 @@ Column | Type | Nullable | Default
 `name` | `text` |  | 
 `uri` | `text` | `not null` | 
 
-
-
 ### Constraints and indexes
 
-* `user_history_pkey PRIMARY KEY, btree (id) idx_user_history_unique UNIQUE, btree (user_id, uri) user_history_creation_date btree (creation_date) user_history_type btree (type) user_history_user_id btree (user_id)`
+* `user_history_pkey PRIMARY KEY, btree (id)`
+* `idx_user_history_unique UNIQUE, btree (user_id, uri)`
+* `user_history_creation_date btree (creation_date)`
+* `user_history_type btree (type)`
+* `user_history_user_id btree (user_id)`
 
 ### Referenced by
 
+* `user_history_pkey PRIMARY KEY, btree (id)`
+* `idx_user_history_unique UNIQUE, btree (user_id, uri)`
+* `user_history_creation_date btree (creation_date)`
+* `user_history_type btree (type)`
+* `user_history_user_id btree (user_id)`
+* `Referenced by:`
 * `TABLE user_history_project CONSTRAINT user_history_project_user_history_id_fk FOREIGN KEY (user_history_id) REFERENCES user_history(id)`
 
 *****
@@ -282,12 +281,10 @@ Column | Type | Nullable | Default
 `user_history_id` | `integer` | `not null` | 
 `prj_id` | `character varying(96)` | `not null` | 
 
-
-
 ### Constraints and indexes
 
-* `user_history_project_unique UNIQUE, btree (user_history_id, prj_id) user_history_project_user_history_id_fk FOREIGN KEY (user_history_id) REFERENCES user_history(id)`
-
+* `user_history_project_unique UNIQUE, btree (user_history_id, prj_id)`
+* `user_history_project_user_history_id_fk FOREIGN KEY (user_history_id) REFERENCES user_history(id)`
 
 *****
 
@@ -301,12 +298,9 @@ Column | Type | Nullable | Default
 `provider` | `character varying(255)` |  | 
 `details` | `text` |  | `'{}'::text`
 
-
-
 ### Constraints and indexes
 
 * `user_inventory_pkey PRIMARY KEY, btree (id)`
-
 
 *****
 
