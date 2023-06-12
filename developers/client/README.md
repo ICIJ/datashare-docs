@@ -23,35 +23,35 @@ datashare.replaceWidget('default-text', {
 Class representing the core application with public methods for plugins.
 
 **Kind**: global class  
-**Mixes**: [`FiltersMixin`](#FiltersMixin), [`HooksMixin`](#HooksMixin), [`I18nMixin`](#I18nMixin), [`PipelinesMixin`](#PipelinesMixin), [`ProjectsMixin`](#ProjectsMixin), [`WidgetsMixin`](#WidgetsMixin)  
+**Mixes**: [`FiltersMixin`](#filtersmixin), [`HooksMixin`](#hooksmixin), [`I18nMixin`](#i18nmixin), [`PipelinesMixin`](#pipelinesmixin), [`ProjectsMixin`](#projectsmixin), [`WidgetsMixin`](#widgetsmixin)  
 
 * [Core](#core)
     * [new Core(LocalVue, api, mode)](#new_core_new)
     * _instance_
         * [.ready](#core+ready) : Promise.&lt;Object&gt;
-        * <del>[.app](#core+app) : [`Core`](#Core)</del>
-        * [.core](#core+core) : [`Core`](#Core)
+        * <del>[.app](#core+app) : [`Core`](#core)</del>
+        * [.core](#core+core) : [`Core`](#core)
         * [.localVue](#core+localvue) : Vue
         * [.store](#core+store) : Vuex.Store
         * [.auth](#core+auth) : Auth
         * [.config](#core+config) : Object
         * [.api](#core+api) : Api
-        * [.use(Plugin, options)](#core+use) ⇒ [`Core`](#Core)
-        * [.useAll()](#core+useall) ⇒ [`Core`](#Core)
-        * [.useI18n()](#core+usei18n) ⇒ [`Core`](#Core)
-        * [.useBootstrapVue()](#core+usebootstrapvue) ⇒ [`Core`](#Core)
-        * [.useRouter()](#core+userouter) ⇒ [`Core`](#Core)
-        * [.useCommons()](#core+usecommons) ⇒ [`Core`](#Core)
-        * [.useWait()](#core+usewait) ⇒ [`Core`](#Core)
-        * [.useCore()](#core+usecore) ⇒ [`Core`](#Core)
+        * [.use(Plugin, options)](#core+use) ⇒ [`Core`](#core)
+        * [.useAll()](#core+useall) ⇒ [`Core`](#core)
+        * [.useI18n()](#core+usei18n) ⇒ [`Core`](#core)
+        * [.useBootstrapVue()](#core+usebootstrapvue) ⇒ [`Core`](#core)
+        * [.useRouter()](#core+userouter) ⇒ [`Core`](#core)
+        * [.useCommons()](#core+usecommons) ⇒ [`Core`](#core)
+        * [.useWait()](#core+usewait) ⇒ [`Core`](#core)
+        * [.useCore()](#core+usecore) ⇒ [`Core`](#core)
         * [.configure()](#core+configure) ⇒ Promise.&lt;Object&gt;
         * [.mount([selector])](#core+mount) ⇒ Vue
         * [.defer()](#core+defer)
-        * [.dispatch(name, ...args)](#core+dispatch) ⇒ [`Core`](#Core)
+        * [.dispatch(name, ...args)](#core+dispatch) ⇒ [`Core`](#core)
         * [.getUser()](#core+getuser) : Promise.&lt;Object&gt;
         * [.setPageTitle(title, [suffix])](#core+setpagetitle)
     * _static_
-        * [.init(...options)](#core.init) ⇒ [`Core`](#Core)
+        * [.init(...options)](#core.init) ⇒ [`Core`](#core)
 
 
 *****
@@ -90,30 +90,30 @@ Create an application
 
 Get a promise that is resolved when the application is ready
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 **Fullfil**: Object The actual application core instance.  
 
 *****
 
 <a id="core+app"></a>
 
-### <del>datashare.app : [`Core`](#Core)</del>
+### <del>datashare.app : [`Core`](#core)</del>
 
 ***Deprecated***
 
 The application core instance. Deprecated in favor or the `core` property.
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
 <a id="core+core"></a>
 
-### datashare.core : [`Core`](#Core)
+### datashare.core : [`Core`](#core)
 
 The application core instance
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
@@ -123,7 +123,7 @@ The application core instance
 
 The Vue class to instantiate the application with
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
@@ -133,7 +133,7 @@ The Vue class to instantiate the application with
 
 The Vuex instance
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
@@ -143,7 +143,7 @@ The Vuex instance
 
 The Auth module instance
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
@@ -153,7 +153,7 @@ The Auth module instance
 
 The configuration object provided by Murmur
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
@@ -163,18 +163,18 @@ The configuration object provided by Murmur
 
 The Datashare api interface
 
-**Kind**: instance property of [`Core`](#Core)  
+**Kind**: instance property of [`Core`](#core)  
 
 *****
 
 <a id="core+use"></a>
 
-### datashare.use(Plugin, options) ⇒ [`Core`](#Core)
+### datashare.use(Plugin, options) ⇒ [`Core`](#core)
 
 Add a Vue plugin to the instance's LocalVue
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 <table>
   <thead>
     <tr>
@@ -196,78 +196,78 @@ Add a Vue plugin to the instance's LocalVue
 
 <a id="core+useall"></a>
 
-### datashare.useAll() ⇒ [`Core`](#Core)
+### datashare.useAll() ⇒ [`Core`](#core)
 
 Configure all default Vue plugins for this application
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
 <a id="core+usei18n"></a>
 
-### datashare.useI18n() ⇒ [`Core`](#Core)
+### datashare.useI18n() ⇒ [`Core`](#core)
 
 Configure vue-i18n plugin
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
 <a id="core+usebootstrapvue"></a>
 
-### datashare.useBootstrapVue() ⇒ [`Core`](#Core)
+### datashare.useBootstrapVue() ⇒ [`Core`](#core)
 
 Configure bootstrap-vue plugin
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
 <a id="core+userouter"></a>
 
-### datashare.useRouter() ⇒ [`Core`](#Core)
+### datashare.useRouter() ⇒ [`Core`](#core)
 
 Configure vue-router plugin
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
 <a id="core+usecommons"></a>
 
-### datashare.useCommons() ⇒ [`Core`](#Core)
+### datashare.useCommons() ⇒ [`Core`](#core)
 
 Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrollTo and VueCalendar)
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
 <a id="core+usewait"></a>
 
-### datashare.useWait() ⇒ [`Core`](#Core)
+### datashare.useWait() ⇒ [`Core`](#core)
 
 Configure vue-wait plugin
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
 <a id="core+usecore"></a>
 
-### datashare.useCore() ⇒ [`Core`](#Core)
+### datashare.useCore() ⇒ [`Core`](#core)
 
 Add a $core property to the instance's Vue
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 
 *****
 
@@ -277,8 +277,8 @@ Add a $core property to the instance's Vue
 
 Load settings from the server and instantiate most the application configuration.
 
-**Kind**: instance method of [`Core`](#Core)  
-**Fullfil**: [`Core`](#Core) - The instance of the core application  
+**Kind**: instance method of [`Core`](#core)  
+**Fullfil**: [`Core`](#core) - The instance of the core application  
 **Reject**: Object - The Error object  
 
 *****
@@ -289,7 +289,7 @@ Load settings from the server and instantiate most the application configuration
 
 Mount the instance's vue application
 
-**Kind**: instance method of [`Core`](#Core)  
+**Kind**: instance method of [`Core`](#core)  
 **Returns**: Vue - The instantiated Vue  
 <table>
   <thead>
@@ -313,18 +313,18 @@ Mount the instance's vue application
 
 Build a promise to be resolved when the application is configured.
 
-**Kind**: instance method of [`Core`](#Core)  
+**Kind**: instance method of [`Core`](#core)  
 
 *****
 
 <a id="core+dispatch"></a>
 
-### datashare.dispatch(name, ...args) ⇒ [`Core`](#Core)
+### datashare.dispatch(name, ...args) ⇒ [`Core`](#core)
 
 Dispatch an event from the document root, passing the core application through event message.
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
 <table>
   <thead>
     <tr>
@@ -350,7 +350,7 @@ Dispatch an event from the document root, passing the core application through e
 
 Get the current signed user.
 
-**Kind**: instance method of [`Core`](#Core)  
+**Kind**: instance method of [`Core`](#core)  
 **Fullfil**: Object Current user  
 
 *****
@@ -361,7 +361,7 @@ Get the current signed user.
 
 Append the given title to the page title
 
-**Kind**: instance method of [`Core`](#Core)  
+**Kind**: instance method of [`Core`](#core)  
 <table>
   <thead>
     <tr>
@@ -383,11 +383,11 @@ Append the given title to the page title
 
 <a id="core.init"></a>
 
-### Core.init(...options) ⇒ [`Core`](#Core)
+### Core.init(...options) ⇒ [`Core`](#core)
 
 instantiate a Core class (useful for chaining usage or mapping)
 
-**Kind**: static method of [`Core`](#Core)  
+**Kind**: static method of [`Core`](#core)  
 <table>
   <thead>
     <tr>
@@ -427,7 +427,7 @@ Mixin class extending the core to add helpers for filters.
 
 Register a filter
 
-**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#filtersmixin)  
 <table>
   <thead>
     <tr>
@@ -474,7 +474,7 @@ Register a filter
 
 Unregister a filter
 
-**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#filtersmixin)  
 <table>
   <thead>
     <tr>
@@ -497,7 +497,7 @@ Unregister a filter
 
 Register a filter only for a specific project
 
-**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#filtersmixin)  
 <table>
   <thead>
     <tr>
@@ -532,7 +532,7 @@ Register a filter only for a specific project
 
 Unregister a filter only for a specific project
 
-**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#filtersmixin)  
 <table>
   <thead>
     <tr>
@@ -576,7 +576,7 @@ Mixin class extending the core to add helpers for hooks.
 
 Register a hook
 
-**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#hooksmixin)  
 <table>
   <thead>
     <tr>
@@ -611,7 +611,7 @@ Register a hook
 
 Unregister a specific hook
 
-**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#hooksmixin)  
 <table>
   <thead>
     <tr>
@@ -634,7 +634,7 @@ Unregister a specific hook
 
 Unregister all hooks from a target
 
-**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#hooksmixin)  
 <table>
   <thead>
     <tr>
@@ -657,7 +657,7 @@ Unregister all hooks from a target
 
 Unregister all hooks, on every targets
 
-**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#hooksmixin)  
 
 *****
 
@@ -667,7 +667,7 @@ Unregister all hooks, on every targets
 
 Register a hook for a specific project
 
-**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#hooksmixin)  
 <table>
   <thead>
     <tr>
@@ -723,7 +723,7 @@ Mixin class extending the core to add helpers for i18n.
 Initialize i18N using the local storage and load
 the necessary locale's messages
 
-**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#i18nmixin)  
 
 *****
 
@@ -733,7 +733,7 @@ the necessary locale's messages
 
 Set the active locale both in local stoage and VueI18n.
 
-**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#i18nmixin)  
 <table>
   <thead>
     <tr>
@@ -756,7 +756,7 @@ Set the active locale both in local stoage and VueI18n.
 
 Check the given locale storage was loaded.
 
-**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#i18nmixin)  
 <table>
   <thead>
     <tr>
@@ -780,7 +780,7 @@ Check the given locale storage was loaded.
 Load i18n messages for the given locale (if needed)
 and set it as the current locale.
 
-**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#i18nmixin)  
 <table>
   <thead>
     <tr>
@@ -820,7 +820,7 @@ Mixin class extending the core to add helpers for pipelines.
 
 Register a pipeline
 
-**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#pipelinesmixin)  
 <table>
   <thead>
     <tr>
@@ -852,7 +852,7 @@ Register a pipeline
 
 Unregister a pipeline
 
-**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#pipelinesmixin)  
 <table>
   <thead>
     <tr>
@@ -875,7 +875,7 @@ Unregister a pipeline
 
 Register a pipeline for a specific project
 
-**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#pipelinesmixin)  
 <table>
   <thead>
     <tr>
@@ -910,7 +910,7 @@ Register a pipeline for a specific project
 
 Unregister a pipeline for a specific project
 
-**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#pipelinesmixin)  
 <table>
   <thead>
     <tr>
@@ -951,7 +951,7 @@ Mixin class extending the core to add helpers for projects.
 
 Call a function when a project is selected
 
-**Kind**: instance method of [`ProjectsMixin`](#ProjectsMixin)  
+**Kind**: instance method of [`ProjectsMixin`](#projectsmixin)  
 <table>
   <thead>
     <tr>
@@ -986,7 +986,7 @@ Call a function when a project is selected
 
 Create a default project on Datashare using the API
 
-**Kind**: instance method of [`ProjectsMixin`](#ProjectsMixin)  
+**Kind**: instance method of [`ProjectsMixin`](#projectsmixin)  
 **Returns**: Promise:Object - The HTTP response object  
 
 *****
@@ -1016,7 +1016,7 @@ Mixin class extending the core to add helpers for widgets.
 
 Register a widget
 
-**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#widgetsmixin)  
 <table>
   <thead>
     <tr>
@@ -1051,7 +1051,7 @@ Register a widget
 
 Unregister a widget
 
-**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#widgetsmixin)  
 <table>
   <thead>
     <tr>
@@ -1074,7 +1074,7 @@ Unregister a widget
 
 Unregister all widgets
 
-**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#widgetsmixin)  
 
 *****
 
@@ -1084,7 +1084,7 @@ Unregister all widgets
 
 Register a widget for a specific project
 
-**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#widgetsmixin)  
 <table>
   <thead>
     <tr>
@@ -1122,7 +1122,7 @@ Register a widget for a specific project
 
 Replace an existing widget
 
-**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#widgetsmixin)  
 <table>
   <thead>
     <tr>
@@ -1168,7 +1168,7 @@ datashare.replaceWidget('default-text', {
 
 Replace an existing widget for a specific project
 
-**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#widgetsmixin)  
 <table>
   <thead>
     <tr>
