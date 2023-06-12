@@ -1,12 +1,12 @@
 # Table of contents
 
 * [About Datashare](README.md)
-* [About ICIJ][https://icij.org/about](https://www.icij.org/about/)
 * [Ask for help](ask-for-help.md)
 * [Concepts](concepts/README.md)
   * [Running modes](concepts/running-modes.md)
   * [CLI stages](concepts/cli-stages.md)
   * [Data model](concepts/data-model.md)
+* [About ICIJ](https://www.icij.org/about/)
 * [Github](https://github.com/ICIJ/datashare)
 
 ## 💻 On your computer <a href="#local-mode" id="local-mode"></a>
