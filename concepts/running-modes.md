@@ -6,11 +6,11 @@ description: Datashare runs using different modes with their own specifities.
 
 | Mode | Category | Description |
 | --- | --- | --- |
-| `local` | Web | To run Datashare on a single computer for a single user. |
-| `server` | Web | To run Datashare on a server for multiple users. |
-| `cli` | CLI | To index documents and analyze them directly in the command-line. |
-| `batch_search` | Daemon | To execute pending [batch searches](/usage/batch-search-documents.md). |
-| `batch_download` | Daemon | To execute pending batch downloads. |
+| `LOCAL` | Web | To run Datashare on a single computer for a single user. |
+| `SERVER` | Web | To run Datashare on a server for multiple users. |
+| `CLI` | CLI | To index documents and analyze them directly in the command-line. |
+| `BATCH_SEARCH` | Daemon | To execute pending [batch searches](/usage/batch-search-documents.md). |
+| `BATCH_DOWNLOAD` | Daemon | To execute pending batch downloads. |
 
 ## Web modes
 
@@ -55,7 +55,7 @@ In **batch search mode**, the daemon wait for a user to request a batch search o
 
 ## How to change modes
 
-Datashare is shipped as a single executable, with both modes available. As previously mentioned, the default mpode is the embedded mode. Yet when starting Datashare in command line, you can explicitely specify the running mode. For instance on Ubuntu/Debian:
+Datashare is shipped as a single executable, with all modes available. As previously mentioned, the default mpode is the embedded mode. Yet when starting Datashare in command line, you can explicitely specify the running mode. For instance on Ubuntu/Debian:
 
 ```sh
 datashare \
