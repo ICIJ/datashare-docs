@@ -87,8 +87,9 @@
 ## 🤓 Developers
 
 * [How to contribute](developers/how-to-contribute.md)
-* [Backend](developers/backend.md)
-  * [API](developers/backend/api.md)   
+* [Backend](developers/backend/README.md)
+  * [API](developers/backend/api.md)
+  * [Database Schema](developers/backend/api/database.md)
 * [Frontend API](developers/client/README.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
