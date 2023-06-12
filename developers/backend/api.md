@@ -1,5 +1,5 @@
-Generated with https://github.com/ICIJ/fluent-http-apigen
 # Table of Content
+
 - [/api/key](#/api/key)
   - [Options /api/key/:userId](#options__api_key__userid)
   - [Put /api/key/:userId](#put__api_key__userid)
