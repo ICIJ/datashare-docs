@@ -29,7 +29,7 @@ The running modes offer advantages and limitations. This matrix summarizes the d
 
 When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default.
 
-## How to switch between running modes
+## How to change modes
 
 Datashare is shipped as a single executable, with both modes available. As previously mentioned, the default mpode is the embedded mode. Yet when starting Datashare in command line, you can explicitely specify the running mode. For instance on Ubuntu/Debian:
 
