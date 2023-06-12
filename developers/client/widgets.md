@@ -1,6 +1,6 @@
 # Insight widgets 
 
-<a id="WidgetDiskUsage"></a>
+<a id="widgetdiskusage"></a>
 
 ## WidgetDiskUsage
 
@@ -10,7 +10,7 @@ Widget to display the disk space occupied by indexed files on the insights page.
 
 *****
 
-<a id="WidgetDocumentsByCreationDate"></a>
+<a id="widgetdocumentsbycreationdate"></a>
 
 ## WidgetDocumentsByCreationDate
 
@@ -20,7 +20,7 @@ Widget to display the number of file by creation date on the insights page.
 
 *****
 
-<a id="WidgetDocumentsByCreationDateByPath"></a>
+<a id="widgetdocumentsbycreationdatebypath"></a>
 
 ## WidgetDocumentsByCreationDateByPath
 
@@ -30,7 +30,7 @@ Widget to display number of files by creation date by path
 
 *****
 
-<a id="WidgetDuplicates"></a>
+<a id="widgetduplicates"></a>
 
 ## WidgetDuplicates
 
@@ -40,7 +40,7 @@ Widget for the insights page indicating the proportion of duplicates in the data
 
 *****
 
-<a id="WidgetEmpty"></a>
+<a id="widgetempty"></a>
 
 ## WidgetEmpty
 
@@ -50,7 +50,7 @@ Class representing the Empty widget. This widget is not intended to be used dire
 
 *****
 
-<a id="new_WidgetEmpty_new"></a>
+<a id="new_widgetempty_new"></a>
 
 ### new WidgetEmpty(name, card, cols, order)
 
@@ -82,7 +82,7 @@ Create a new WidgetEmpty
 
 *****
 
-<a id="WidgetEntities"></a>
+<a id="widgetentities"></a>
 
 ## WidgetEntities
 
@@ -92,7 +92,7 @@ Widget to display text on the insights page
 
 *****
 
-<a id="WidgetFileBarometer"></a>
+<a id="widgetfilebarometer"></a>
 
 ## WidgetFileBarometer
 
@@ -102,7 +102,7 @@ Widget to display the number of indexed files on the insights page
 
 *****
 
-<a id="WidgetListGroup"></a>
+<a id="widgetlistgroup"></a>
 
 ## WidgetListGroup
 
@@ -112,7 +112,7 @@ Widget to display a list of items or links on the insights page
 
 *****
 
-<a id="new_WidgetListGroup_new"></a>
+<a id="new_widgetlistgroup_new"></a>
 
 ### new WidgetListGroup(title, items, pipeline, options)
 
@@ -143,7 +143,7 @@ Create a new WidgetListGroup
 
 *****
 
-<a id="WidgetText"></a>
+<a id="widgettext"></a>
 
 ## WidgetText
 
@@ -153,7 +153,7 @@ Widget to display text on the insights page
 
 *****
 
-<a id="new_WidgetText_new"></a>
+<a id="new_widgettext_new"></a>
 
 ### new WidgetText(title, content, pipeline, options)
 
@@ -184,7 +184,7 @@ Create a new WidgetText based on a WidgetEmpty
 
 *****
 
-<a id="WidgetTreeMap"></a>
+<a id="widgettreemap"></a>
 
 ## WidgetTreeMap
 
@@ -194,7 +194,7 @@ Class representing the TreeMap widget
 
 *****
 
-<a id="new_WidgetTreeMap_new"></a>
+<a id="new_widgettreemap_new"></a>
 
 ### new WidgetTreeMap(title, index, options)
 

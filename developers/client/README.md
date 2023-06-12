@@ -16,7 +16,7 @@ datashare.replaceWidget('default-text', {
 })
 ```
 
-<a id="Core"></a>
+<a id="core"></a>
 
 ## Core
 
@@ -25,38 +25,38 @@ Class representing the core application with public methods for plugins.
 **Kind**: global class  
 **Mixes**: [`FiltersMixin`](#FiltersMixin), [`HooksMixin`](#HooksMixin), [`I18nMixin`](#I18nMixin), [`PipelinesMixin`](#PipelinesMixin), [`ProjectsMixin`](#ProjectsMixin), [`WidgetsMixin`](#WidgetsMixin)  
 
-* [Core](#Core)
-    * [new Core(LocalVue, api, mode)](#new_Core_new)
+* [Core](#core)
+    * [new Core(LocalVue, api, mode)](#new_core_new)
     * _instance_
-        * [.ready](#Core+ready) : Promise.&lt;Object&gt;
-        * <del>[.app](#Core+app) : [`Core`](#Core)</del>
-        * [.core](#Core+core) : [`Core`](#Core)
-        * [.localVue](#Core+localVue) : Vue
-        * [.store](#Core+store) : Vuex.Store
-        * [.auth](#Core+auth) : Auth
-        * [.config](#Core+config) : Object
-        * [.api](#Core+api) : Api
-        * [.use(Plugin, options)](#Core+use) ⇒ [`Core`](#Core)
-        * [.useAll()](#Core+useAll) ⇒ [`Core`](#Core)
-        * [.useI18n()](#Core+useI18n) ⇒ [`Core`](#Core)
-        * [.useBootstrapVue()](#Core+useBootstrapVue) ⇒ [`Core`](#Core)
-        * [.useRouter()](#Core+useRouter) ⇒ [`Core`](#Core)
-        * [.useCommons()](#Core+useCommons) ⇒ [`Core`](#Core)
-        * [.useWait()](#Core+useWait) ⇒ [`Core`](#Core)
-        * [.useCore()](#Core+useCore) ⇒ [`Core`](#Core)
-        * [.configure()](#Core+configure) ⇒ Promise.&lt;Object&gt;
-        * [.mount([selector])](#Core+mount) ⇒ Vue
-        * [.defer()](#Core+defer)
-        * [.dispatch(name, ...args)](#Core+dispatch) ⇒ [`Core`](#Core)
-        * [.getUser()](#Core+getUser) : Promise.&lt;Object&gt;
-        * [.setPageTitle(title, [suffix])](#Core+setPageTitle)
+        * [.ready](#core+ready) : Promise.&lt;Object&gt;
+        * <del>[.app](#core+app) : [`Core`](#Core)</del>
+        * [.core](#core+core) : [`Core`](#Core)
+        * [.localVue](#core+localvue) : Vue
+        * [.store](#core+store) : Vuex.Store
+        * [.auth](#core+auth) : Auth
+        * [.config](#core+config) : Object
+        * [.api](#core+api) : Api
+        * [.use(Plugin, options)](#core+use) ⇒ [`Core`](#Core)
+        * [.useAll()](#core+useall) ⇒ [`Core`](#Core)
+        * [.useI18n()](#core+usei18n) ⇒ [`Core`](#Core)
+        * [.useBootstrapVue()](#core+usebootstrapvue) ⇒ [`Core`](#Core)
+        * [.useRouter()](#core+userouter) ⇒ [`Core`](#Core)
+        * [.useCommons()](#core+usecommons) ⇒ [`Core`](#Core)
+        * [.useWait()](#core+usewait) ⇒ [`Core`](#Core)
+        * [.useCore()](#core+usecore) ⇒ [`Core`](#Core)
+        * [.configure()](#core+configure) ⇒ Promise.&lt;Object&gt;
+        * [.mount([selector])](#core+mount) ⇒ Vue
+        * [.defer()](#core+defer)
+        * [.dispatch(name, ...args)](#core+dispatch) ⇒ [`Core`](#Core)
+        * [.getUser()](#core+getuser) : Promise.&lt;Object&gt;
+        * [.setPageTitle(title, [suffix])](#core+setpagetitle)
     * _static_
-        * [.init(...options)](#Core.init) ⇒ [`Core`](#Core)
+        * [.init(...options)](#core.init) ⇒ [`Core`](#Core)
 
 
 *****
 
-<a id="new_Core_new"></a>
+<a id="new_core_new"></a>
 
 ### new Core(LocalVue, api, mode)
 
@@ -84,7 +84,7 @@ Create an application
 
 *****
 
-<a id="Core+ready"></a>
+<a id="core+ready"></a>
 
 ### datashare.ready : Promise.&lt;Object&gt;
 
@@ -95,7 +95,7 @@ Get a promise that is resolved when the application is ready
 
 *****
 
-<a id="Core+app"></a>
+<a id="core+app"></a>
 
 ### <del>datashare.app : [`Core`](#Core)</del>
 
@@ -107,7 +107,7 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-<a id="Core+core"></a>
+<a id="core+core"></a>
 
 ### datashare.core : [`Core`](#Core)
 
@@ -117,7 +117,7 @@ The application core instance
 
 *****
 
-<a id="Core+localVue"></a>
+<a id="core+localvue"></a>
 
 ### datashare.localVue : Vue
 
@@ -127,7 +127,7 @@ The Vue class to instantiate the application with
 
 *****
 
-<a id="Core+store"></a>
+<a id="core+store"></a>
 
 ### datashare.store : Vuex.Store
 
@@ -137,7 +137,7 @@ The Vuex instance
 
 *****
 
-<a id="Core+auth"></a>
+<a id="core+auth"></a>
 
 ### datashare.auth : Auth
 
@@ -147,7 +147,7 @@ The Auth module instance
 
 *****
 
-<a id="Core+config"></a>
+<a id="core+config"></a>
 
 ### datashare.config : Object
 
@@ -157,7 +157,7 @@ The configuration object provided by Murmur
 
 *****
 
-<a id="Core+api"></a>
+<a id="core+api"></a>
 
 ### datashare.api : Api
 
@@ -167,7 +167,7 @@ The Datashare api interface
 
 *****
 
-<a id="Core+use"></a>
+<a id="core+use"></a>
 
 ### datashare.use(Plugin, options) ⇒ [`Core`](#Core)
 
@@ -194,7 +194,7 @@ Add a Vue plugin to the instance's LocalVue
 
 *****
 
-<a id="Core+useAll"></a>
+<a id="core+useall"></a>
 
 ### datashare.useAll() ⇒ [`Core`](#Core)
 
@@ -205,7 +205,7 @@ Configure all default Vue plugins for this application
 
 *****
 
-<a id="Core+useI18n"></a>
+<a id="core+usei18n"></a>
 
 ### datashare.useI18n() ⇒ [`Core`](#Core)
 
@@ -216,7 +216,7 @@ Configure vue-i18n plugin
 
 *****
 
-<a id="Core+useBootstrapVue"></a>
+<a id="core+usebootstrapvue"></a>
 
 ### datashare.useBootstrapVue() ⇒ [`Core`](#Core)
 
@@ -227,7 +227,7 @@ Configure bootstrap-vue plugin
 
 *****
 
-<a id="Core+useRouter"></a>
+<a id="core+userouter"></a>
 
 ### datashare.useRouter() ⇒ [`Core`](#Core)
 
@@ -238,7 +238,7 @@ Configure vue-router plugin
 
 *****
 
-<a id="Core+useCommons"></a>
+<a id="core+usecommons"></a>
 
 ### datashare.useCommons() ⇒ [`Core`](#Core)
 
@@ -249,7 +249,7 @@ Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrol
 
 *****
 
-<a id="Core+useWait"></a>
+<a id="core+usewait"></a>
 
 ### datashare.useWait() ⇒ [`Core`](#Core)
 
@@ -260,7 +260,7 @@ Configure vue-wait plugin
 
 *****
 
-<a id="Core+useCore"></a>
+<a id="core+usecore"></a>
 
 ### datashare.useCore() ⇒ [`Core`](#Core)
 
@@ -271,7 +271,7 @@ Add a $core property to the instance's Vue
 
 *****
 
-<a id="Core+configure"></a>
+<a id="core+configure"></a>
 
 ### datashare.configure() ⇒ Promise.&lt;Object&gt;
 
@@ -283,7 +283,7 @@ Load settings from the server and instantiate most the application configuration
 
 *****
 
-<a id="Core+mount"></a>
+<a id="core+mount"></a>
 
 ### datashare.mount([selector]) ⇒ Vue
 
@@ -307,7 +307,7 @@ Mount the instance's vue application
 
 *****
 
-<a id="Core+defer"></a>
+<a id="core+defer"></a>
 
 ### datashare.defer()
 
@@ -317,7 +317,7 @@ Build a promise to be resolved when the application is configured.
 
 *****
 
-<a id="Core+dispatch"></a>
+<a id="core+dispatch"></a>
 
 ### datashare.dispatch(name, ...args) ⇒ [`Core`](#Core)
 
@@ -344,7 +344,7 @@ Dispatch an event from the document root, passing the core application through e
 
 *****
 
-<a id="Core+getUser"></a>
+<a id="core+getuser"></a>
 
 ### datashare.getUser() : Promise.&lt;Object&gt;
 
@@ -355,7 +355,7 @@ Get the current signed user.
 
 *****
 
-<a id="Core+setPageTitle"></a>
+<a id="core+setpagetitle"></a>
 
 ### datashare.setPageTitle(title, [suffix])
 
@@ -381,7 +381,7 @@ Append the given title to the page title
 
 *****
 
-<a id="Core.init"></a>
+<a id="core.init"></a>
 
 ### Core.init(...options) ⇒ [`Core`](#Core)
 
@@ -404,7 +404,7 @@ instantiate a Core class (useful for chaining usage or mapping)
 
 *****
 
-<a id="FiltersMixin"></a>
+<a id="filtersmixin"></a>
 
 ## FiltersMixin
 
@@ -412,16 +412,16 @@ Mixin class extending the core to add helpers for filters.
 
 **Kind**: global mixin  
 
-* [FiltersMixin](#FiltersMixin)
-    * [.registerFilter(...args)](#FiltersMixin+registerFilter)
-    * [.unregisterFilter(name)](#FiltersMixin+unregisterFilter)
-    * [.registerFilterForProject(name, ...args)](#FiltersMixin+registerFilterForProject)
-    * [.unregisterFilterForProject(name, name)](#FiltersMixin+unregisterFilterForProject)
+* [FiltersMixin](#filtersmixin)
+    * [.registerFilter(...args)](#filtersmixin+registerfilter)
+    * [.unregisterFilter(name)](#filtersmixin+unregisterfilter)
+    * [.registerFilterForProject(name, ...args)](#filtersmixin+registerfilterforproject)
+    * [.unregisterFilterForProject(name, name)](#filtersmixin+unregisterfilterforproject)
 
 
 *****
 
-<a id="FiltersMixin+registerFilter"></a>
+<a id="filtersmixin+registerfilter"></a>
 
 ### datashare.registerFilter(...args)
 
@@ -468,7 +468,7 @@ Register a filter
 
 *****
 
-<a id="FiltersMixin+unregisterFilter"></a>
+<a id="filtersmixin+unregisterfilter"></a>
 
 ### datashare.unregisterFilter(name)
 
@@ -491,7 +491,7 @@ Unregister a filter
 
 *****
 
-<a id="FiltersMixin+registerFilterForProject"></a>
+<a id="filtersmixin+registerfilterforproject"></a>
 
 ### datashare.registerFilterForProject(name, ...args)
 
@@ -526,7 +526,7 @@ Register a filter only for a specific project
 
 *****
 
-<a id="FiltersMixin+unregisterFilterForProject"></a>
+<a id="filtersmixin+unregisterfilterforproject"></a>
 
 ### datashare.unregisterFilterForProject(name, name)
 
@@ -552,7 +552,7 @@ Unregister a filter only for a specific project
 
 *****
 
-<a id="HooksMixin"></a>
+<a id="hooksmixin"></a>
 
 ## HooksMixin
 
@@ -560,17 +560,17 @@ Mixin class extending the core to add helpers for hooks.
 
 **Kind**: global mixin  
 
-* [HooksMixin](#HooksMixin)
-    * [.registerHook(...args)](#HooksMixin+registerHook)
-    * [.unregisterHook(name)](#HooksMixin+unregisterHook)
-    * [.resetHook(name)](#HooksMixin+resetHook)
-    * [.resetHooks()](#HooksMixin+resetHooks)
-    * [.registerHookForProject(project, options)](#HooksMixin+registerHookForProject)
+* [HooksMixin](#hooksmixin)
+    * [.registerHook(...args)](#hooksmixin+registerhook)
+    * [.unregisterHook(name)](#hooksmixin+unregisterhook)
+    * [.resetHook(name)](#hooksmixin+resethook)
+    * [.resetHooks()](#hooksmixin+resethooks)
+    * [.registerHookForProject(project, options)](#hooksmixin+registerhookforproject)
 
 
 *****
 
-<a id="HooksMixin+registerHook"></a>
+<a id="hooksmixin+registerhook"></a>
 
 ### datashare.registerHook(...args)
 
@@ -605,7 +605,7 @@ Register a hook
 
 *****
 
-<a id="HooksMixin+unregisterHook"></a>
+<a id="hooksmixin+unregisterhook"></a>
 
 ### datashare.unregisterHook(name)
 
@@ -628,7 +628,7 @@ Unregister a specific hook
 
 *****
 
-<a id="HooksMixin+resetHook"></a>
+<a id="hooksmixin+resethook"></a>
 
 ### datashare.resetHook(name)
 
@@ -651,7 +651,7 @@ Unregister all hooks from a target
 
 *****
 
-<a id="HooksMixin+resetHooks"></a>
+<a id="hooksmixin+resethooks"></a>
 
 ### datashare.resetHooks()
 
@@ -661,7 +661,7 @@ Unregister all hooks, on every targets
 
 *****
 
-<a id="HooksMixin+registerHookForProject"></a>
+<a id="hooksmixin+registerhookforproject"></a>
 
 ### datashare.registerHookForProject(project, options)
 
@@ -699,7 +699,7 @@ Register a hook for a specific project
 
 *****
 
-<a id="I18nMixin"></a>
+<a id="i18nmixin"></a>
 
 ## I18nMixin
 
@@ -707,16 +707,16 @@ Mixin class extending the core to add helpers for i18n.
 
 **Kind**: global mixin  
 
-* [I18nMixin](#I18nMixin)
-    * [.initializeI18n()](#I18nMixin+initializeI18n) ⇒ Promise
-    * [.setI18nLocale(locale)](#I18nMixin+setI18nLocale) ⇒ String
-    * [.hasI18Locale(locale)](#I18nMixin+hasI18Locale) ⇒ Boolean
-    * [.loadI18Locale(locale)](#I18nMixin+loadI18Locale) ⇒ Promise
+* [I18nMixin](#i18nmixin)
+    * [.initializeI18n()](#i18nmixin+initializei18n) ⇒ Promise
+    * [.setI18nLocale(locale)](#i18nmixin+seti18nlocale) ⇒ String
+    * [.hasI18Locale(locale)](#i18nmixin+hasi18locale) ⇒ Boolean
+    * [.loadI18Locale(locale)](#i18nmixin+loadi18locale) ⇒ Promise
 
 
 *****
 
-<a id="I18nMixin+initializeI18n"></a>
+<a id="i18nmixin+initializei18n"></a>
 
 ### datashare.initializeI18n() ⇒ Promise
 
@@ -727,7 +727,7 @@ the necessary locale's messages
 
 *****
 
-<a id="I18nMixin+setI18nLocale"></a>
+<a id="i18nmixin+seti18nlocale"></a>
 
 ### datashare.setI18nLocale(locale) ⇒ String
 
@@ -750,7 +750,7 @@ Set the active locale both in local stoage and VueI18n.
 
 *****
 
-<a id="I18nMixin+hasI18Locale"></a>
+<a id="i18nmixin+hasi18locale"></a>
 
 ### datashare.hasI18Locale(locale) ⇒ Boolean
 
@@ -773,7 +773,7 @@ Check the given locale storage was loaded.
 
 *****
 
-<a id="I18nMixin+loadI18Locale"></a>
+<a id="i18nmixin+loadi18locale"></a>
 
 ### datashare.loadI18Locale(locale) ⇒ Promise
 
@@ -797,7 +797,7 @@ and set it as the current locale.
 
 *****
 
-<a id="PipelinesMixin"></a>
+<a id="pipelinesmixin"></a>
 
 ## PipelinesMixin
 
@@ -805,16 +805,16 @@ Mixin class extending the core to add helpers for pipelines.
 
 **Kind**: global mixin  
 
-* [PipelinesMixin](#PipelinesMixin)
-    * [.registerPipeline(...args, category)](#PipelinesMixin+registerPipeline)
-    * [.unregisterPipeline(name)](#PipelinesMixin+unregisterPipeline)
-    * [.registerPipelineForProject(project, ...args, category)](#PipelinesMixin+registerPipelineForProject)
-    * [.unregisterPipelineForProject(project, name)](#PipelinesMixin+unregisterPipelineForProject)
+* [PipelinesMixin](#pipelinesmixin)
+    * [.registerPipeline(...args, category)](#pipelinesmixin+registerpipeline)
+    * [.unregisterPipeline(name)](#pipelinesmixin+unregisterpipeline)
+    * [.registerPipelineForProject(project, ...args, category)](#pipelinesmixin+registerpipelineforproject)
+    * [.unregisterPipelineForProject(project, name)](#pipelinesmixin+unregisterpipelineforproject)
 
 
 *****
 
-<a id="PipelinesMixin+registerPipeline"></a>
+<a id="pipelinesmixin+registerpipeline"></a>
 
 ### datashare.registerPipeline(...args, category)
 
@@ -846,7 +846,7 @@ Register a pipeline
 
 *****
 
-<a id="PipelinesMixin+unregisterPipeline"></a>
+<a id="pipelinesmixin+unregisterpipeline"></a>
 
 ### datashare.unregisterPipeline(name)
 
@@ -869,7 +869,7 @@ Unregister a pipeline
 
 *****
 
-<a id="PipelinesMixin+registerPipelineForProject"></a>
+<a id="pipelinesmixin+registerpipelineforproject"></a>
 
 ### datashare.registerPipelineForProject(project, ...args, category)
 
@@ -904,7 +904,7 @@ Register a pipeline for a specific project
 
 *****
 
-<a id="PipelinesMixin+unregisterPipelineForProject"></a>
+<a id="pipelinesmixin+unregisterpipelineforproject"></a>
 
 ### datashare.unregisterPipelineForProject(project, name)
 
@@ -930,7 +930,7 @@ Unregister a pipeline for a specific project
 
 *****
 
-<a id="ProjectsMixin"></a>
+<a id="projectsmixin"></a>
 
 ## ProjectsMixin
 
@@ -938,14 +938,14 @@ Mixin class extending the core to add helpers for projects.
 
 **Kind**: global mixin  
 
-* [ProjectsMixin](#ProjectsMixin)
-    * [.toggleForProject(name, withFn, withoutFn, mutationType, storePath)](#ProjectsMixin+toggleForProject)
-    * [.createDefaultProject()](#ProjectsMixin+createDefaultProject) ⇒ Promise:Object
+* [ProjectsMixin](#projectsmixin)
+    * [.toggleForProject(name, withFn, withoutFn, mutationType, storePath)](#projectsmixin+toggleforproject)
+    * [.createDefaultProject()](#projectsmixin+createdefaultproject) ⇒ Promise:Object
 
 
 *****
 
-<a id="ProjectsMixin+toggleForProject"></a>
+<a id="projectsmixin+toggleforproject"></a>
 
 ### datashare.toggleForProject(name, withFn, withoutFn, mutationType, storePath)
 
@@ -980,7 +980,7 @@ Call a function when a project is selected
 
 *****
 
-<a id="ProjectsMixin+createDefaultProject"></a>
+<a id="projectsmixin+createdefaultproject"></a>
 
 ### datashare.createDefaultProject() ⇒ Promise:Object
 
@@ -991,7 +991,7 @@ Create a default project on Datashare using the API
 
 *****
 
-<a id="WidgetsMixin"></a>
+<a id="widgetsmixin"></a>
 
 ## WidgetsMixin
 
@@ -999,18 +999,18 @@ Mixin class extending the core to add helpers for widgets.
 
 **Kind**: global mixin  
 
-* [WidgetsMixin](#WidgetsMixin)
-    * [.registerWidget(...args)](#WidgetsMixin+registerWidget)
-    * [.unregisterWidget(name)](#WidgetsMixin+unregisterWidget)
-    * [.clearWidgets()](#WidgetsMixin+clearWidgets)
-    * [.registerWidgetForProject(project, options)](#WidgetsMixin+registerWidgetForProject)
-    * [.replaceWidget(name, options)](#WidgetsMixin+replaceWidget)
-    * [.replaceWidgetForProject(project, name, options)](#WidgetsMixin+replaceWidgetForProject)
+* [WidgetsMixin](#widgetsmixin)
+    * [.registerWidget(...args)](#widgetsmixin+registerwidget)
+    * [.unregisterWidget(name)](#widgetsmixin+unregisterwidget)
+    * [.clearWidgets()](#widgetsmixin+clearwidgets)
+    * [.registerWidgetForProject(project, options)](#widgetsmixin+registerwidgetforproject)
+    * [.replaceWidget(name, options)](#widgetsmixin+replacewidget)
+    * [.replaceWidgetForProject(project, name, options)](#widgetsmixin+replacewidgetforproject)
 
 
 *****
 
-<a id="WidgetsMixin+registerWidget"></a>
+<a id="widgetsmixin+registerwidget"></a>
 
 ### datashare.registerWidget(...args)
 
@@ -1045,7 +1045,7 @@ Register a widget
 
 *****
 
-<a id="WidgetsMixin+unregisterWidget"></a>
+<a id="widgetsmixin+unregisterwidget"></a>
 
 ### datashare.unregisterWidget(name)
 
@@ -1068,7 +1068,7 @@ Unregister a widget
 
 *****
 
-<a id="WidgetsMixin+clearWidgets"></a>
+<a id="widgetsmixin+clearwidgets"></a>
 
 ### datashare.clearWidgets()
 
@@ -1078,7 +1078,7 @@ Unregister all widgets
 
 *****
 
-<a id="WidgetsMixin+registerWidgetForProject"></a>
+<a id="widgetsmixin+registerwidgetforproject"></a>
 
 ### datashare.registerWidgetForProject(project, options)
 
@@ -1116,7 +1116,7 @@ Register a widget for a specific project
 
 *****
 
-<a id="WidgetsMixin+replaceWidget"></a>
+<a id="widgetsmixin+replacewidget"></a>
 
 ### datashare.replaceWidget(name, options)
 
@@ -1162,7 +1162,7 @@ datashare.replaceWidget('default-text', {
 
 *****
 
-<a id="WidgetsMixin+replaceWidgetForProject"></a>
+<a id="widgetsmixin+replacewidgetforproject"></a>
 
 ### datashare.replaceWidgetForProject(project, name, options)
 
