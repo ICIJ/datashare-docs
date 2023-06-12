@@ -4,30 +4,54 @@ description: Datashare runs using different modes with their own specifities.
 
 # Running modes
 
-In **local mode**, Datashare provides a self-contained software application that users can install and run on their own local machines. The software allows users to search into their documents within their own local environments, without relying on external servers or cloud infrastructure. This mode offers enhanced data privacy and control, as the datasets and analysis remain entirely within the user's own infrastructure.
+| Mode | Category | Description |
+| --- | --- | --- |
+| `local` | Web | To run Datashare on a single computer for a single user. |
+| `server` | Web | To run Datashare on a server for multiple users. |
+| `cli` | CLI | To index documents and analyze them directly in the command-line. |
+| `batch_search` | Daemon | To execute pending [batch searches](/usage/batch-search-documents.md). |
+| `batch_download` | Daemon | To execute pending batch downloads. |
+
+## Web modes
+
+Those two modes are the only one who create 
+
+In **local mode** and **embedded mode**, Datashare provides a self-contained software application that users can install and run on their own local machines. The software allows users to search into their documents within their own local environments, without relying on external servers or cloud infrastructure. This mode offers enhanced data privacy and control, as the datasets and analysis remain entirely within the user's own infrastructure.
 
 In **server mode**, Datashare operates as a centralized server-based system. Users can access to the platform through a web interface, and the documents are stored and processed on Datashare's servers. This mode offers the advantage of easy accessibility from anywhere with an internet connection, as users can log in to the platform remotely. It also facilitate seamless collaboration among users, as all the documents and analysis are centralized.
 
-In **cli mode**, Datashare starts without a web server and allow user to perform task over their documents. This mode can be used in conjunction both with local and server modes, while allowing users to distribute heaving task between several servers.
-
-## Comparaison between modes
+### Comparaison between modes
 
 The running modes offer advantages and limitations. This matrix summarizes the differences:
 
-|  | `local` | `server` | `cli` |
-| --- | --- | --- | --- |
-| Multi-users | ❌ | ✅ | ❌ |
-| Multi-projects | ❌ | ✅ | ❌ |
-| Access-control | ❌ | ✅ | ❌ |
-| Indexing UI | ✅ | ❌ | ❌ |
-| Plugins UI | ✅ | ❌ | ❌ |
-| Extension UI | ✅ | ❌ | ❌ |
-| HTTP API | ✅ | ✅ | ❌ |
+|  | `local` | `server` |
+| --- | --- | --- |
+| Multi-users | ❌ | ✅ |
+| Multi-projects | ❌ | ✅ |
+| Access-control | ❌ | ✅ |
+| Indexing UI | ✅ | ❌ |
+| Plugins UI | ✅ | ❌ |
+| Extension UI | ✅ | ❌ |
+| HTTP API | ✅ | ✅ |
 | API Key | ✅ | ✅ | ❌ |
-| Single JVM | ✅ | ❌ | ❌ |
-| Tasks execution | ✅ | ❌ | ✅ |
+| Single JVM | ✅ | ❌ |
+| Tasks execution | ✅ | ❌ |
 
-When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default.
+*When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default.*
+
+## CLI mode
+
+In **cli mode**, Datashare starts without a web server and allow user to perform task over their documents. This mode can be used in conjunction both with local and server modes, while allowing users to distribute heaving task between several servers.
+
+If you want to learn mode which task you can execute in this mode, checkout the [stages documentation](/concepts/cli-stages.md).
+
+## Daemon modes
+
+Those modes are intended to be used for action that requires to "wait" for pendings tasks.
+
+In **batch download mode**, the daemon wait for a user to request a batch download of documents. When a request is receive, the daemon start a task to download the document matching the user search, a bundle them into a zip file.
+
+In **batch search mode**, the daemon wait for a user to request a batch search of documents. To create a batch search, users must go through the dedicated form on Datashare where they can to upload a list of search terms (in CSV format). The daemon will then start a task to search all matching document and store every occurences in the database.
 
 ## How to change modes
 
