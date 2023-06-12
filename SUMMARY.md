@@ -89,7 +89,7 @@
 * [How to contribute](developers/how-to-contribute.md)
 * [Backend](developers/backend/README.md)
   * [API](developers/backend/api.md)
-  * [Database Schema](developers/backend/api/database.md)
+  * [Database Schema](developers/backend/database.md)
 * [Frontend](developers/client/README.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
