@@ -24,7 +24,7 @@ datashare --mode CLI \
 
 ## 2. INDEX
 
-The INDEX stage is probably the most important (and heavy!) one. It pulls documents to index from the queue create in the previous step, then use a combination of Apache Tika and Apache Tesseract to extract text and method data from the documents. The result documents are stored in ElasticSearch. The queue used to store documents to index is a "blocking list", meaning that only one client can pull a concurent value at the time. This allow user to distribute this command on serveral servers.
+The INDEX stage is probably the most important (and heavy!) one. It pulls documents to index from the queue create in the previous step, then use a combination of [Apache Tika](https://tika.apache.org) and [Tesseract](https://tesseract-ocr.github.io/) to extract text, metadata and OCR images. The result documents are stored in ElasticSearch. The queue used to store documents to index is a "blocking list", meaning that only one client can pull a concurent value at the time. This allows users to distribute this command on serveral servers.
 
 ```bash
 datashare --mode CLI \
