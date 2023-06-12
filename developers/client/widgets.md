@@ -2,47 +2,59 @@
 
 <a id="WidgetDiskUsage"></a>
 
-## WidgetDiskUsageWidget to display the disk space occupied by indexed files on the insights page.
+## WidgetDiskUsage
+
+Widget to display the disk space occupied by indexed files on the insights page.
 
 **Kind**: global class  
 
 *****
 
-%<a id="WidgetDocumentsByCreationDate"></a>
+<a id="WidgetDocumentsByCreationDate"></a>
 
-## WidgetDocumentsByCreationDateWidget to display the number of file by creation date on the insights page.
+## WidgetDocumentsByCreationDate
 
-**Kind**: global class  
-
-*****
-
-%<a id="WidgetDocumentsByCreationDateByPath"></a>
-
-## WidgetDocumentsByCreationDateByPathWidget to display number of files by creation date by path
+Widget to display the number of file by creation date on the insights page.
 
 **Kind**: global class  
 
 *****
 
-%<a id="WidgetDuplicates"></a>
+<a id="WidgetDocumentsByCreationDateByPath"></a>
 
-## WidgetDuplicatesWidget for the insights page indicating the proportion of duplicates in the data.
+## WidgetDocumentsByCreationDateByPath
 
-**Kind**: global class  
-
-*****
-
-%<a id="WidgetEmpty"></a>
-
-## WidgetEmptyClass representing the Empty widget. This widget is not intended to be used directly.
+Widget to display number of files by creation date by path
 
 **Kind**: global class  
 
 *****
 
-%<a id="new_WidgetEmpty_new"></a>
+<a id="WidgetDuplicates"></a>
 
-### new WidgetEmpty(name, card, cols, order)Create a new WidgetEmpty
+## WidgetDuplicates
+
+Widget for the insights page indicating the proportion of duplicates in the data.
+
+**Kind**: global class  
+
+*****
+
+<a id="WidgetEmpty"></a>
+
+## WidgetEmpty
+
+Class representing the Empty widget. This widget is not intended to be used directly.
+
+**Kind**: global class  
+
+*****
+
+<a id="new_WidgetEmpty_new"></a>
+
+### new WidgetEmpty(name, card, cols, order)
+
+Create a new WidgetEmpty
 
 <table>
   <thead>
@@ -70,33 +82,41 @@
 
 *****
 
-%<a id="WidgetEntities"></a>
+<a id="WidgetEntities"></a>
 
-## WidgetEntitiesWidget to display text on the insights page
+## WidgetEntities
 
-**Kind**: global class  
-
-*****
-
-%<a id="WidgetFileBarometer"></a>
-
-## WidgetFileBarometerWidget to display the number of indexed files on the insights page
+Widget to display text on the insights page
 
 **Kind**: global class  
 
 *****
 
-%<a id="WidgetListGroup"></a>
+<a id="WidgetFileBarometer"></a>
 
-## WidgetListGroupWidget to display a list of items or links on the insights page
+## WidgetFileBarometer
+
+Widget to display the number of indexed files on the insights page
 
 **Kind**: global class  
 
 *****
 
-%<a id="new_WidgetListGroup_new"></a>
+<a id="WidgetListGroup"></a>
 
-### new WidgetListGroup(title, items, pipeline, options)Create a new WidgetListGroup
+## WidgetListGroup
+
+Widget to display a list of items or links on the insights page
+
+**Kind**: global class  
+
+*****
+
+<a id="new_WidgetListGroup_new"></a>
+
+### new WidgetListGroup(title, items, pipeline, options)
+
+Create a new WidgetListGroup
 
 <table>
   <thead>
@@ -123,17 +143,21 @@
 
 *****
 
-%<a id="WidgetText"></a>
+<a id="WidgetText"></a>
 
-## WidgetTextWidget to display text on the insights page
+## WidgetText
+
+Widget to display text on the insights page
 
 **Kind**: global class  
 
 *****
 
-%<a id="new_WidgetText_new"></a>
+<a id="new_WidgetText_new"></a>
 
-### new WidgetText(title, content, pipeline, options)Create a new WidgetText based on a WidgetEmpty
+### new WidgetText(title, content, pipeline, options)
+
+Create a new WidgetText based on a WidgetEmpty
 
 <table>
   <thead>
@@ -160,17 +184,21 @@
 
 *****
 
-%<a id="WidgetTreeMap"></a>
+<a id="WidgetTreeMap"></a>
 
-## WidgetTreeMapClass representing the TreeMap widget
+## WidgetTreeMap
+
+Class representing the TreeMap widget
 
 **Kind**: global class  
 
 *****
 
-%<a id="new_WidgetTreeMap_new"></a>
+<a id="new_WidgetTreeMap_new"></a>
 
-### new WidgetTreeMap(title, index, options)Create a new WidgetTreeMap based on a WidgetEmpty
+### new WidgetTreeMap(title, index, options)
+
+Create a new WidgetTreeMap based on a WidgetEmpty
 
 <table>
   <thead>
@@ -194,4 +222,3 @@
 
 *****
 
-%

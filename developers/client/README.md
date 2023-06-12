@@ -18,7 +18,9 @@ datashare.replaceWidget('default-text', {
 
 <a id="Core"></a>
 
-## CoreClass representing the core application with public methods for plugins.
+## Core
+
+Class representing the core application with public methods for plugins.
 
 **Kind**: global class  
 **Mixes**: [`FiltersMixin`](#FiltersMixin), [`HooksMixin`](#HooksMixin), [`I18nMixin`](#I18nMixin), [`PipelinesMixin`](#PipelinesMixin), [`ProjectsMixin`](#ProjectsMixin), [`WidgetsMixin`](#WidgetsMixin)  
@@ -54,9 +56,11 @@ datashare.replaceWidget('default-text', {
 
 *****
 
-%<a id="new_Core_new"></a>
+<a id="new_Core_new"></a>
 
-### new Core(LocalVue, api, mode)Create an application
+### new Core(LocalVue, api, mode)
+
+Create an application
 
 <table>
   <thead>
@@ -80,18 +84,22 @@ datashare.replaceWidget('default-text', {
 
 *****
 
-%<a id="Core+ready"></a>
+<a id="Core+ready"></a>
 
-### datashare.ready : Promise.&lt;Object&gt;Get a promise that is resolved when the application is ready
+### datashare.ready : Promise.&lt;Object&gt;
+
+Get a promise that is resolved when the application is ready
 
 **Kind**: instance property of [`Core`](#Core)  
 **Fullfil**: Object The actual application core instance.  
 
 *****
 
-%<a id="Core+app"></a>
+<a id="Core+app"></a>
 
-### <del>datashare.app : [`Core`](#Core)</del>***Deprecated***
+### <del>datashare.app : [`Core`](#Core)</del>
+
+***Deprecated***
 
 The application core instance. Deprecated in favor or the `core` property.
 
@@ -99,57 +107,71 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="Core+core"></a>
+<a id="Core+core"></a>
 
-### datashare.core : [`Core`](#Core)The application core instance
+### datashare.core : [`Core`](#Core)
 
-**Kind**: instance property of [`Core`](#Core)  
-
-*****
-
-%<a id="Core+localVue"></a>
-
-### datashare.localVue : VueThe Vue class to instantiate the application with
+The application core instance
 
 **Kind**: instance property of [`Core`](#Core)  
 
 *****
 
-%<a id="Core+store"></a>
+<a id="Core+localVue"></a>
 
-### datashare.store : Vuex.StoreThe Vuex instance
+### datashare.localVue : Vue
 
-**Kind**: instance property of [`Core`](#Core)  
-
-*****
-
-%<a id="Core+auth"></a>
-
-### datashare.auth : AuthThe Auth module instance
+The Vue class to instantiate the application with
 
 **Kind**: instance property of [`Core`](#Core)  
 
 *****
 
-%<a id="Core+config"></a>
+<a id="Core+store"></a>
 
-### datashare.config : ObjectThe configuration object provided by Murmur
+### datashare.store : Vuex.Store
 
-**Kind**: instance property of [`Core`](#Core)  
-
-*****
-
-%<a id="Core+api"></a>
-
-### datashare.api : ApiThe Datashare api interface
+The Vuex instance
 
 **Kind**: instance property of [`Core`](#Core)  
 
 *****
 
-%<a id="Core+use"></a>
+<a id="Core+auth"></a>
 
-### datashare.use(Plugin, options) ⇒ [`Core`](#Core)Add a Vue plugin to the instance's LocalVue
+### datashare.auth : Auth
+
+The Auth module instance
+
+**Kind**: instance property of [`Core`](#Core)  
+
+*****
+
+<a id="Core+config"></a>
+
+### datashare.config : Object
+
+The configuration object provided by Murmur
+
+**Kind**: instance property of [`Core`](#Core)  
+
+*****
+
+<a id="Core+api"></a>
+
+### datashare.api : Api
+
+The Datashare api interface
+
+**Kind**: instance property of [`Core`](#Core)  
+
+*****
+
+<a id="Core+use"></a>
+
+### datashare.use(Plugin, options) ⇒ [`Core`](#Core)
+
+Add a Vue plugin to the instance's LocalVue
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: [`Core`](#Core) - the current instance of Core  
@@ -172,72 +194,88 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="Core+useAll"></a>
+<a id="Core+useAll"></a>
 
-### datashare.useAll() ⇒ [`Core`](#Core)Configure all default Vue plugins for this application
+### datashare.useAll() ⇒ [`Core`](#Core)
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
-
-*****
-
-%<a id="Core+useI18n"></a>
-
-### datashare.useI18n() ⇒ [`Core`](#Core)Configure vue-i18n plugin
+Configure all default Vue plugins for this application
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: [`Core`](#Core) - the current instance of Core  
 
 *****
 
-%<a id="Core+useBootstrapVue"></a>
+<a id="Core+useI18n"></a>
 
-### datashare.useBootstrapVue() ⇒ [`Core`](#Core)Configure bootstrap-vue plugin
+### datashare.useI18n() ⇒ [`Core`](#Core)
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
-
-*****
-
-%<a id="Core+useRouter"></a>
-
-### datashare.useRouter() ⇒ [`Core`](#Core)Configure vue-router plugin
+Configure vue-i18n plugin
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: [`Core`](#Core) - the current instance of Core  
 
 *****
 
-%<a id="Core+useCommons"></a>
+<a id="Core+useBootstrapVue"></a>
 
-### datashare.useCommons() ⇒ [`Core`](#Core)Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrollTo and VueCalendar)
+### datashare.useBootstrapVue() ⇒ [`Core`](#Core)
 
-**Kind**: instance method of [`Core`](#Core)  
-**Returns**: [`Core`](#Core) - the current instance of Core  
-
-*****
-
-%<a id="Core+useWait"></a>
-
-### datashare.useWait() ⇒ [`Core`](#Core)Configure vue-wait plugin
+Configure bootstrap-vue plugin
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: [`Core`](#Core) - the current instance of Core  
 
 *****
 
-%<a id="Core+useCore"></a>
+<a id="Core+useRouter"></a>
 
-### datashare.useCore() ⇒ [`Core`](#Core)Add a $core property to the instance's Vue
+### datashare.useRouter() ⇒ [`Core`](#Core)
+
+Configure vue-router plugin
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: [`Core`](#Core) - the current instance of Core  
 
 *****
 
-%<a id="Core+configure"></a>
+<a id="Core+useCommons"></a>
 
-### datashare.configure() ⇒ Promise.&lt;Object&gt;Load settings from the server and instantiate most the application configuration.
+### datashare.useCommons() ⇒ [`Core`](#Core)
+
+Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrollTo and VueCalendar)
+
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
+
+*****
+
+<a id="Core+useWait"></a>
+
+### datashare.useWait() ⇒ [`Core`](#Core)
+
+Configure vue-wait plugin
+
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
+
+*****
+
+<a id="Core+useCore"></a>
+
+### datashare.useCore() ⇒ [`Core`](#Core)
+
+Add a $core property to the instance's Vue
+
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
+
+*****
+
+<a id="Core+configure"></a>
+
+### datashare.configure() ⇒ Promise.&lt;Object&gt;
+
+Load settings from the server and instantiate most the application configuration.
 
 **Kind**: instance method of [`Core`](#Core)  
 **Fullfil**: [`Core`](#Core) - The instance of the core application  
@@ -245,9 +283,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="Core+mount"></a>
+<a id="Core+mount"></a>
 
-### datashare.mount([selector]) ⇒ VueMount the instance's vue application
+### datashare.mount([selector]) ⇒ Vue
+
+Mount the instance's vue application
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: Vue - The instantiated Vue  
@@ -267,17 +307,21 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="Core+defer"></a>
+<a id="Core+defer"></a>
 
-### datashare.defer()Build a promise to be resolved when the application is configured.
+### datashare.defer()
+
+Build a promise to be resolved when the application is configured.
 
 **Kind**: instance method of [`Core`](#Core)  
 
 *****
 
-%<a id="Core+dispatch"></a>
+<a id="Core+dispatch"></a>
 
-### datashare.dispatch(name, ...args) ⇒ [`Core`](#Core)Dispatch an event from the document root, passing the core application through event message.
+### datashare.dispatch(name, ...args) ⇒ [`Core`](#Core)
+
+Dispatch an event from the document root, passing the core application through event message.
 
 **Kind**: instance method of [`Core`](#Core)  
 **Returns**: [`Core`](#Core) - the current instance of Core  
@@ -300,18 +344,22 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="Core+getUser"></a>
+<a id="Core+getUser"></a>
 
-### datashare.getUser() : Promise.&lt;Object&gt;Get the current signed user.
+### datashare.getUser() : Promise.&lt;Object&gt;
+
+Get the current signed user.
 
 **Kind**: instance method of [`Core`](#Core)  
 **Fullfil**: Object Current user  
 
 *****
 
-%<a id="Core+setPageTitle"></a>
+<a id="Core+setPageTitle"></a>
 
-### datashare.setPageTitle(title, [suffix])Append the given title to the page title
+### datashare.setPageTitle(title, [suffix])
+
+Append the given title to the page title
 
 **Kind**: instance method of [`Core`](#Core)  
 <table>
@@ -333,9 +381,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="Core.init"></a>
+<a id="Core.init"></a>
 
-### Core.init(...options) ⇒ [`Core`](#Core)instantiate a Core class (useful for chaining usage or mapping)
+### Core.init(...options) ⇒ [`Core`](#Core)
+
+instantiate a Core class (useful for chaining usage or mapping)
 
 **Kind**: static method of [`Core`](#Core)  
 <table>
@@ -354,9 +404,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="FiltersMixin"></a>
+<a id="FiltersMixin"></a>
 
-## FiltersMixinMixin class extending the core to add helpers for filters.
+## FiltersMixin
+
+Mixin class extending the core to add helpers for filters.
 
 **Kind**: global mixin  
 
@@ -369,9 +421,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="FiltersMixin+registerFilter"></a>
+<a id="FiltersMixin+registerFilter"></a>
 
-### datashare.registerFilter(...args)Register a filter
+### datashare.registerFilter(...args)
+
+Register a filter
 
 **Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
@@ -414,9 +468,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="FiltersMixin+unregisterFilter"></a>
+<a id="FiltersMixin+unregisterFilter"></a>
 
-### datashare.unregisterFilter(name)Unregister a filter
+### datashare.unregisterFilter(name)
+
+Unregister a filter
 
 **Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
@@ -435,9 +491,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="FiltersMixin+registerFilterForProject"></a>
+<a id="FiltersMixin+registerFilterForProject"></a>
 
-### datashare.registerFilterForProject(name, ...args)Register a filter only for a specific project
+### datashare.registerFilterForProject(name, ...args)
+
+Register a filter only for a specific project
 
 **Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
@@ -468,9 +526,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="FiltersMixin+unregisterFilterForProject"></a>
+<a id="FiltersMixin+unregisterFilterForProject"></a>
 
-### datashare.unregisterFilterForProject(name, name)Unregister a filter only for a specific project
+### datashare.unregisterFilterForProject(name, name)
+
+Unregister a filter only for a specific project
 
 **Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
@@ -492,9 +552,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="HooksMixin"></a>
+<a id="HooksMixin"></a>
 
-## HooksMixinMixin class extending the core to add helpers for hooks.
+## HooksMixin
+
+Mixin class extending the core to add helpers for hooks.
 
 **Kind**: global mixin  
 
@@ -508,9 +570,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="HooksMixin+registerHook"></a>
+<a id="HooksMixin+registerHook"></a>
 
-### datashare.registerHook(...args)Register a hook
+### datashare.registerHook(...args)
+
+Register a hook
 
 **Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
@@ -541,9 +605,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="HooksMixin+unregisterHook"></a>
+<a id="HooksMixin+unregisterHook"></a>
 
-### datashare.unregisterHook(name)Unregister a specific hook
+### datashare.unregisterHook(name)
+
+Unregister a specific hook
 
 **Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
@@ -562,9 +628,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="HooksMixin+resetHook"></a>
+<a id="HooksMixin+resetHook"></a>
 
-### datashare.resetHook(name)Unregister all hooks from a target
+### datashare.resetHook(name)
+
+Unregister all hooks from a target
 
 **Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
@@ -583,17 +651,21 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="HooksMixin+resetHooks"></a>
+<a id="HooksMixin+resetHooks"></a>
 
-### datashare.resetHooks()Unregister all hooks, on every targets
+### datashare.resetHooks()
+
+Unregister all hooks, on every targets
 
 **Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 
 *****
 
-%<a id="HooksMixin+registerHookForProject"></a>
+<a id="HooksMixin+registerHookForProject"></a>
 
-### datashare.registerHookForProject(project, options)Register a hook for a specific project
+### datashare.registerHookForProject(project, options)
+
+Register a hook for a specific project
 
 **Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
@@ -627,9 +699,11 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="I18nMixin"></a>
+<a id="I18nMixin"></a>
 
-## I18nMixinMixin class extending the core to add helpers for i18n.
+## I18nMixin
+
+Mixin class extending the core to add helpers for i18n.
 
 **Kind**: global mixin  
 
@@ -642,39 +716,22 @@ The application core instance. Deprecated in favor or the `core` property.
 
 *****
 
-%<a id="I18nMixin+initializeI18n"></a>
+<a id="I18nMixin+initializeI18n"></a>
 
-### datashare.initializeI18n() ⇒ PromiseInitialize i18N using the local storage and load
+### datashare.initializeI18n() ⇒ Promise
+
+Initialize i18N using the local storage and load
 the necessary locale's messages
 
 **Kind**: instance method of [`I18nMixin`](#I18nMixin)  
 
 *****
 
-%<a id="I18nMixin+setI18nLocale"></a>
+<a id="I18nMixin+setI18nLocale"></a>
 
-### datashare.setI18nLocale(locale) ⇒ StringSet the active locale both in local stoage and VueI18n.
+### datashare.setI18nLocale(locale) ⇒ String
 
-**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>locale</td><td>String</td><td><p>Key of the local (fr, de, en, ja, ...)</p>
-</td>
-    </tr>  </tbody>
-</table>
-
-
-*****
-
-%<a id="I18nMixin+hasI18Locale"></a>
-
-### datashare.hasI18Locale(locale) ⇒ BooleanCheck the given locale storage was loaded.
+Set the active locale both in local stoage and VueI18n.
 
 **Kind**: instance method of [`I18nMixin`](#I18nMixin)  
 <table>
@@ -693,9 +750,34 @@ the necessary locale's messages
 
 *****
 
-%<a id="I18nMixin+loadI18Locale"></a>
+<a id="I18nMixin+hasI18Locale"></a>
 
-### datashare.loadI18Locale(locale) ⇒ PromiseLoad i18n messages for the given locale (if needed)
+### datashare.hasI18Locale(locale) ⇒ Boolean
+
+Check the given locale storage was loaded.
+
+**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>locale</td><td>String</td><td><p>Key of the local (fr, de, en, ja, ...)</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="I18nMixin+loadI18Locale"></a>
+
+### datashare.loadI18Locale(locale) ⇒ Promise
+
+Load i18n messages for the given locale (if needed)
 and set it as the current locale.
 
 **Kind**: instance method of [`I18nMixin`](#I18nMixin)  
@@ -715,9 +797,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="PipelinesMixin"></a>
+<a id="PipelinesMixin"></a>
 
-## PipelinesMixinMixin class extending the core to add helpers for pipelines.
+## PipelinesMixin
+
+Mixin class extending the core to add helpers for pipelines.
 
 **Kind**: global mixin  
 
@@ -730,9 +814,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="PipelinesMixin+registerPipeline"></a>
+<a id="PipelinesMixin+registerPipeline"></a>
 
-### datashare.registerPipeline(...args, category)Register a pipeline
+### datashare.registerPipeline(...args, category)
+
+Register a pipeline
 
 **Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
@@ -760,9 +846,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="PipelinesMixin+unregisterPipeline"></a>
+<a id="PipelinesMixin+unregisterPipeline"></a>
 
-### datashare.unregisterPipeline(name)Unregister a pipeline
+### datashare.unregisterPipeline(name)
+
+Unregister a pipeline
 
 **Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
@@ -781,9 +869,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="PipelinesMixin+registerPipelineForProject"></a>
+<a id="PipelinesMixin+registerPipelineForProject"></a>
 
-### datashare.registerPipelineForProject(project, ...args, category)Register a pipeline for a specific project
+### datashare.registerPipelineForProject(project, ...args, category)
+
+Register a pipeline for a specific project
 
 **Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
@@ -814,9 +904,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="PipelinesMixin+unregisterPipelineForProject"></a>
+<a id="PipelinesMixin+unregisterPipelineForProject"></a>
 
-### datashare.unregisterPipelineForProject(project, name)Unregister a pipeline for a specific project
+### datashare.unregisterPipelineForProject(project, name)
+
+Unregister a pipeline for a specific project
 
 **Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
@@ -838,9 +930,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="ProjectsMixin"></a>
+<a id="ProjectsMixin"></a>
 
-## ProjectsMixinMixin class extending the core to add helpers for projects.
+## ProjectsMixin
+
+Mixin class extending the core to add helpers for projects.
 
 **Kind**: global mixin  
 
@@ -851,9 +945,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="ProjectsMixin+toggleForProject"></a>
+<a id="ProjectsMixin+toggleForProject"></a>
 
-### datashare.toggleForProject(name, withFn, withoutFn, mutationType, storePath)Call a function when a project is selected
+### datashare.toggleForProject(name, withFn, withoutFn, mutationType, storePath)
+
+Call a function when a project is selected
 
 **Kind**: instance method of [`ProjectsMixin`](#ProjectsMixin)  
 <table>
@@ -884,18 +980,22 @@ and set it as the current locale.
 
 *****
 
-%<a id="ProjectsMixin+createDefaultProject"></a>
+<a id="ProjectsMixin+createDefaultProject"></a>
 
-### datashare.createDefaultProject() ⇒ Promise:ObjectCreate a default project on Datashare using the API
+### datashare.createDefaultProject() ⇒ Promise:Object
+
+Create a default project on Datashare using the API
 
 **Kind**: instance method of [`ProjectsMixin`](#ProjectsMixin)  
 **Returns**: Promise:Object - The HTTP response object  
 
 *****
 
-%<a id="WidgetsMixin"></a>
+<a id="WidgetsMixin"></a>
 
-## WidgetsMixinMixin class extending the core to add helpers for widgets.
+## WidgetsMixin
+
+Mixin class extending the core to add helpers for widgets.
 
 **Kind**: global mixin  
 
@@ -910,9 +1010,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="WidgetsMixin+registerWidget"></a>
+<a id="WidgetsMixin+registerWidget"></a>
 
-### datashare.registerWidget(...args)Register a widget
+### datashare.registerWidget(...args)
+
+Register a widget
 
 **Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
@@ -943,9 +1045,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="WidgetsMixin+unregisterWidget"></a>
+<a id="WidgetsMixin+unregisterWidget"></a>
 
-### datashare.unregisterWidget(name)Unregister a widget
+### datashare.unregisterWidget(name)
+
+Unregister a widget
 
 **Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
@@ -964,17 +1068,21 @@ and set it as the current locale.
 
 *****
 
-%<a id="WidgetsMixin+clearWidgets"></a>
+<a id="WidgetsMixin+clearWidgets"></a>
 
-### datashare.clearWidgets()Unregister all widgets
+### datashare.clearWidgets()
+
+Unregister all widgets
 
 **Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 
 *****
 
-%<a id="WidgetsMixin+registerWidgetForProject"></a>
+<a id="WidgetsMixin+registerWidgetForProject"></a>
 
-### datashare.registerWidgetForProject(project, options)Register a widget for a specific project
+### datashare.registerWidgetForProject(project, options)
+
+Register a widget for a specific project
 
 **Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
@@ -1008,9 +1116,11 @@ and set it as the current locale.
 
 *****
 
-%<a id="WidgetsMixin+replaceWidget"></a>
+<a id="WidgetsMixin+replaceWidget"></a>
 
-### datashare.replaceWidget(name, options)Replace an existing widget
+### datashare.replaceWidget(name, options)
+
+Replace an existing widget
 
 **Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
@@ -1052,9 +1162,11 @@ datashare.replaceWidget('default-text', {
 
 *****
 
-%<a id="WidgetsMixin+replaceWidgetForProject"></a>
+<a id="WidgetsMixin+replaceWidgetForProject"></a>
 
-### datashare.replaceWidgetForProject(project, name, options)Replace an existing widget for a specific project
+### datashare.replaceWidgetForProject(project, name, options)
+
+Replace an existing widget for a specific project
 
 **Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
@@ -1088,12 +1200,13 @@ datashare.replaceWidget('default-text', {
 
 *****
 
-%<a id="projects"></a>
+<a id="projects"></a>
 
-## projects ⇒ Array:StringList all projects this user has access to.
+## projects ⇒ Array:String
+
+List all projects this user has access to.
 
 **Kind**: global variable  
 
 *****
 
-%
