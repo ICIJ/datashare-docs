@@ -1,6 +1,3 @@
----
-description: 👷‍♀️ This page is currently being written by Datashare team.
----
-
 # About the server mode
 
+In **server mode**, Datashare operates as a centralized server-based system. Users can access to the platform through a web interface, and the documents are stored and processed on Datashare's servers. This mode offers the advantage of easy accessibility from anywhere with an internet connection, as users can log in to the platform remotely. It also facilitate seamless collaboration among users, as all the documents and analysis are centralized.
