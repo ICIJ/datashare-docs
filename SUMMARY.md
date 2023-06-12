@@ -90,7 +90,7 @@
 * [Backend](developers/backend/README.md)
   * [API](developers/backend/api.md)
   * [Database Schema](developers/backend/api/database.md)
-* [Frontend API](developers/client/README.md)
+* [Frontend](developers/client/README.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
   * [Vue app](developers/client/vue/README.md)
