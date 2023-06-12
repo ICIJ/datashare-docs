@@ -4,7 +4,7 @@ description: When running Datashare from the command-line, you can pick which "s
 
 # CLI stages
 
-The CLI stages are primarly intented to be run for an instance of Datashare that uses non-embedded resources (ElasticSearch, database, key/value memory store). This allows you to distribute so heaving stage between several servers.
+The CLI stages are primarly intented to be run for an instance of Datashare that uses non-embedded resources (ElasticSearch, database, key/value memory store). This allows you to distribute heaving tasks between servers.
 
 ## 1. SCAN
 
