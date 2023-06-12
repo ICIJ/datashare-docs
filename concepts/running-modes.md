@@ -14,8 +14,8 @@ In **cli mode**, Datashare starts without a web server and allow user to perform
 
 The running modes offer advantages and limitations. This matrix summarizes the differences:
 
-|  | `local` | `server` | `cli`
-| --- | --- | --- |
+|  | `local` | `server` | `cli` |
+| --- | --- | --- | --- |
 | Multi-users | ❌ | ✅ | ❌ |
 | Multi-projects | ❌ | ✅ | ❌ |
 | Access-control | ❌ | ✅ | ❌ |
