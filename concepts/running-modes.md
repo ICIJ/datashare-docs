@@ -1,5 +1,5 @@
 ---
-description: Datashare runs using two different mode with their own specifities.
+description: Datashare runs using different modes with their own specifities.
 ---
 
 # Running modes
