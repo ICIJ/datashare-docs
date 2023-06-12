@@ -8,21 +8,24 @@ In **local mode**, Datashare provides a self-contained software application that
 
 In **server mode**, Datashare operates as a centralized server-based system. Users can access to the platform through a web interface, and the documents are stored and processed on Datashare's servers. This mode offers the advantage of easy accessibility from anywhere with an internet connection, as users can log in to the platform remotely. It also facilitate seamless collaboration among users, as all the documents and analysis are centralized.
 
+In **cli mode**, Datashare starts without a web server and allow user to perform task over their documents. This mode can be used in conjunction both with local and server modes, while allowing users to distribute heaving task between several servers.
+
 ## Comparaison between the two modes
 
-Thye two running modes offer advantages and limitations. This matrix summarizes the differences:
+The running modes offer advantages and limitations. This matrix summarizes the differences:
 
-|  | `local` | `server` |
+|  | `local` | `server` | `cli`
 | --- | --- | --- |
-| Multi-users | ❌ | ✅ |
-| Multi-projects | ❌ | ✅ |
-| Access-control | ❌ | ✅ |
-| Indexing UI | ✅ | ❌ |
-| Plugins UI | ✅ | ❌ |
-| Extension UI | ✅ | ❌ |
-| HTTP API | ✅ | ✅ |
-| API Key | ✅ | ✅ |
-| Single JVM | ✅ | ❌ |
+| Multi-users | ❌ | ✅ | ❌ |
+| Multi-projects | ❌ | ✅ | ❌ |
+| Access-control | ❌ | ✅ | ❌ |
+| Indexing UI | ✅ | ❌ | ❌ |
+| Plugins UI | ✅ | ❌ | ❌ |
+| Extension UI | ✅ | ❌ | ❌ |
+| HTTP API | ✅ | ✅ | ❌ |
+| API Key | ✅ | ✅ | ❌ |
+| Single JVM | ✅ | ❌ | ❌ |
+| Tasks execution | ✅ | ❌ | ✅ |
 
 When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default.
 
