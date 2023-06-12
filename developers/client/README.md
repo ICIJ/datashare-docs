@@ -16,88 +16,47 @@ datashare.replaceWidget('default-text', {
 })
 ```
 
-## Classes
+<a id="Core"></a>
 
-<dl>
-<dt><a href="#Core">Core</a></dt>
-<dd><p>Class representing the core application with public methods for plugins.</p>
-</dd>
-</dl>
-
-## Mixins
-
-<dl>
-<dt><a href="#FiltersMixin">FiltersMixin</a></dt>
-<dd><p>Mixin class extending the core to add helpers for filters.</p>
-</dd>
-<dt><a href="#HooksMixin">HooksMixin</a></dt>
-<dd><p>Mixin class extending the core to add helpers for hooks.</p>
-</dd>
-<dt><a href="#I18nMixin">I18nMixin</a></dt>
-<dd><p>Mixin class extending the core to add helpers for i18n.</p>
-</dd>
-<dt><a href="#PipelinesMixin">PipelinesMixin</a></dt>
-<dd><p>Mixin class extending the core to add helpers for pipelines.</p>
-</dd>
-<dt><a href="#ProjectsMixin">ProjectsMixin</a></dt>
-<dd><p>Mixin class extending the core to add helpers for projects.</p>
-</dd>
-<dt><a href="#WidgetsMixin">WidgetsMixin</a></dt>
-<dd><p>Mixin class extending the core to add helpers for widgets.</p>
-</dd>
-</dl>
-
-## Members
-
-<dl>
-<dt><a href="#projects">projects</a> ⇒ <code>Array:String</code></dt>
-<dd><p>List all projects this user has access to.</p>
-</dd>
-</dl>
-
-<a name="Core"></a>
-
-## Core
-Class representing the core application with public methods for plugins.
+## CoreClass representing the core application with public methods for plugins.
 
 **Kind**: global class  
-**Mixes**: [<code>FiltersMixin</code>](#FiltersMixin), [<code>HooksMixin</code>](#HooksMixin), [<code>I18nMixin</code>](#I18nMixin), [<code>PipelinesMixin</code>](#PipelinesMixin), [<code>ProjectsMixin</code>](#ProjectsMixin), [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Mixes**: [`FiltersMixin`](#FiltersMixin), [`HooksMixin`](#HooksMixin), [`I18nMixin`](#I18nMixin), [`PipelinesMixin`](#PipelinesMixin), [`ProjectsMixin`](#ProjectsMixin), [`WidgetsMixin`](#WidgetsMixin)  
 
 * [Core](#Core)
     * [new Core(LocalVue, api, mode)](#new_Core_new)
     * _instance_
-        * [.ready](#Core+ready) : <code>Promise.&lt;Object&gt;</code>
-        * <del>[.app](#Core+app) : [<code>Core</code>](#Core)</del>
-        * [.core](#Core+core) : [<code>Core</code>](#Core)
-        * [.localVue](#Core+localVue) : <code>Vue</code>
-        * [.store](#Core+store) : <code>Vuex.Store</code>
-        * [.auth](#Core+auth) : <code>Auth</code>
-        * [.config](#Core+config) : <code>Object</code>
-        * [.api](#Core+api) : <code>Api</code>
-        * [.use(Plugin, options)](#Core+use) ⇒ [<code>Core</code>](#Core)
-        * [.useAll()](#Core+useAll) ⇒ [<code>Core</code>](#Core)
-        * [.useI18n()](#Core+useI18n) ⇒ [<code>Core</code>](#Core)
-        * [.useBootstrapVue()](#Core+useBootstrapVue) ⇒ [<code>Core</code>](#Core)
-        * [.useRouter()](#Core+useRouter) ⇒ [<code>Core</code>](#Core)
-        * [.useCommons()](#Core+useCommons) ⇒ [<code>Core</code>](#Core)
-        * [.useWait()](#Core+useWait) ⇒ [<code>Core</code>](#Core)
-        * [.useCore()](#Core+useCore) ⇒ [<code>Core</code>](#Core)
-        * [.configure()](#Core+configure) ⇒ <code>Promise.&lt;Object&gt;</code>
-        * [.mount([selector])](#Core+mount) ⇒ <code>Vue</code>
+        * [.ready](#Core+ready) : Promise.&lt;Object&gt;
+        * <del>[.app](#Core+app) : [`Core`](#Core)</del>
+        * [.core](#Core+core) : [`Core`](#Core)
+        * [.localVue](#Core+localVue) : Vue
+        * [.store](#Core+store) : Vuex.Store
+        * [.auth](#Core+auth) : Auth
+        * [.config](#Core+config) : Object
+        * [.api](#Core+api) : Api
+        * [.use(Plugin, options)](#Core+use) ⇒ [`Core`](#Core)
+        * [.useAll()](#Core+useAll) ⇒ [`Core`](#Core)
+        * [.useI18n()](#Core+useI18n) ⇒ [`Core`](#Core)
+        * [.useBootstrapVue()](#Core+useBootstrapVue) ⇒ [`Core`](#Core)
+        * [.useRouter()](#Core+useRouter) ⇒ [`Core`](#Core)
+        * [.useCommons()](#Core+useCommons) ⇒ [`Core`](#Core)
+        * [.useWait()](#Core+useWait) ⇒ [`Core`](#Core)
+        * [.useCore()](#Core+useCore) ⇒ [`Core`](#Core)
+        * [.configure()](#Core+configure) ⇒ Promise.&lt;Object&gt;
+        * [.mount([selector])](#Core+mount) ⇒ Vue
         * [.defer()](#Core+defer)
-        * [.dispatch(name, ...args)](#Core+dispatch) ⇒ [<code>Core</code>](#Core)
-        * [.getUser()](#Core+getUser) : <code>Promise.&lt;Object&gt;</code>
+        * [.dispatch(name, ...args)](#Core+dispatch) ⇒ [`Core`](#Core)
+        * [.getUser()](#Core+getUser) : Promise.&lt;Object&gt;
         * [.setPageTitle(title, [suffix])](#Core+setPageTitle)
     * _static_
-        * [.init(...options)](#Core.init) ⇒ [<code>Core</code>](#Core)
+        * [.init(...options)](#Core.init) ⇒ [`Core`](#Core)
 
 
-* * *
+*****
 
-<a name="new_Core_new"></a>
+%<a id="new_Core_new"></a>
 
-### new Core(LocalVue, api, mode)
-Create an application
+### new Core(LocalVue, api, mode)Create an application
 
 <table>
   <thead>
@@ -107,7 +66,7 @@ Create an application
   </thead>
   <tbody>
 <tr>
-    <td>LocalVue</td><td><code>Object</code></td><td><p>The Vue class to instantiate the application with.</p>
+    <td>LocalVue</td><td>Object</td><td><p>The Vue class to instantiate the application with.</p>
 </td>
     </tr><tr>
     <td>api</td><td></td><td><p>Datashare api interface</p>
@@ -119,90 +78,81 @@ Create an application
 </table>
 
 
-* * *
+*****
 
-<a name="Core+ready"></a>
+%<a id="Core+ready"></a>
 
-### datashare.ready : <code>Promise.&lt;Object&gt;</code>
-Get a promise that is resolved when the application is ready
+### datashare.ready : Promise.&lt;Object&gt;Get a promise that is resolved when the application is ready
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
-**Fullfil**: <code>Object</code> The actual application core instance.  
+**Kind**: instance property of [`Core`](#Core)  
+**Fullfil**: Object The actual application core instance.  
 
-* * *
+*****
 
-<a name="Core+app"></a>
+%<a id="Core+app"></a>
 
-### <del>datashare.app : [<code>Core</code>](#Core)</del>
-***Deprecated***
+### <del>datashare.app : [`Core`](#Core)</del>***Deprecated***
 
 The application core instance. Deprecated in favor or the `core` property.
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+core"></a>
+%<a id="Core+core"></a>
 
-### datashare.core : [<code>Core</code>](#Core)
-The application core instance
+### datashare.core : [`Core`](#Core)The application core instance
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+localVue"></a>
+%<a id="Core+localVue"></a>
 
-### datashare.localVue : <code>Vue</code>
-The Vue class to instantiate the application with
+### datashare.localVue : VueThe Vue class to instantiate the application with
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+store"></a>
+%<a id="Core+store"></a>
 
-### datashare.store : <code>Vuex.Store</code>
-The Vuex instance
+### datashare.store : Vuex.StoreThe Vuex instance
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+auth"></a>
+%<a id="Core+auth"></a>
 
-### datashare.auth : <code>Auth</code>
-The Auth module instance
+### datashare.auth : AuthThe Auth module instance
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+config"></a>
+%<a id="Core+config"></a>
 
-### datashare.config : <code>Object</code>
-The configuration object provided by Murmur
+### datashare.config : ObjectThe configuration object provided by Murmur
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+api"></a>
+%<a id="Core+api"></a>
 
-### datashare.api : <code>Api</code>
-The Datashare api interface
+### datashare.api : ApiThe Datashare api interface
 
-**Kind**: instance property of [<code>Core</code>](#Core)  
+**Kind**: instance property of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+use"></a>
+%<a id="Core+use"></a>
 
-### datashare.use(Plugin, options) ⇒ [<code>Core</code>](#Core)
-Add a Vue plugin to the instance's LocalVue
+### datashare.use(Plugin, options) ⇒ [`Core`](#Core)Add a Vue plugin to the instance's LocalVue
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 <table>
   <thead>
     <tr>
@@ -211,105 +161,96 @@ Add a Vue plugin to the instance's LocalVue
   </thead>
   <tbody>
 <tr>
-    <td>Plugin</td><td><code>Object</code></td><td><p>The actual Vue plugin class</p>
+    <td>Plugin</td><td>Object</td><td><p>The actual Vue plugin class</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>Object</code></td><td><p>Option to pass to the plugin</p>
+    <td>options</td><td>Object</td><td><p>Option to pass to the plugin</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="Core+useAll"></a>
+%<a id="Core+useAll"></a>
 
-### datashare.useAll() ⇒ [<code>Core</code>](#Core)
-Configure all default Vue plugins for this application
+### datashare.useAll() ⇒ [`Core`](#Core)Configure all default Vue plugins for this application
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+useI18n"></a>
+%<a id="Core+useI18n"></a>
 
-### datashare.useI18n() ⇒ [<code>Core</code>](#Core)
-Configure vue-i18n plugin
+### datashare.useI18n() ⇒ [`Core`](#Core)Configure vue-i18n plugin
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+useBootstrapVue"></a>
+%<a id="Core+useBootstrapVue"></a>
 
-### datashare.useBootstrapVue() ⇒ [<code>Core</code>](#Core)
-Configure bootstrap-vue plugin
+### datashare.useBootstrapVue() ⇒ [`Core`](#Core)Configure bootstrap-vue plugin
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+useRouter"></a>
+%<a id="Core+useRouter"></a>
 
-### datashare.useRouter() ⇒ [<code>Core</code>](#Core)
-Configure vue-router plugin
+### datashare.useRouter() ⇒ [`Core`](#Core)Configure vue-router plugin
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+useCommons"></a>
+%<a id="Core+useCommons"></a>
 
-### datashare.useCommons() ⇒ [<code>Core</code>](#Core)
-Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrollTo and VueCalendar)
+### datashare.useCommons() ⇒ [`Core`](#Core)Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrollTo and VueCalendar)
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+useWait"></a>
+%<a id="Core+useWait"></a>
 
-### datashare.useWait() ⇒ [<code>Core</code>](#Core)
-Configure vue-wait plugin
+### datashare.useWait() ⇒ [`Core`](#Core)Configure vue-wait plugin
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+useCore"></a>
+%<a id="Core+useCore"></a>
 
-### datashare.useCore() ⇒ [<code>Core</code>](#Core)
-Add a $core property to the instance's Vue
+### datashare.useCore() ⇒ [`Core`](#Core)Add a $core property to the instance's Vue
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 
-* * *
+*****
 
-<a name="Core+configure"></a>
+%<a id="Core+configure"></a>
 
-### datashare.configure() ⇒ <code>Promise.&lt;Object&gt;</code>
-Load settings from the server and instantiate most the application configuration.
+### datashare.configure() ⇒ Promise.&lt;Object&gt;Load settings from the server and instantiate most the application configuration.
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Fullfil**: [<code>Core</code>](#Core) - The instance of the core application  
-**Reject**: <code>Object</code> - The Error object  
+**Kind**: instance method of [`Core`](#Core)  
+**Fullfil**: [`Core`](#Core) - The instance of the core application  
+**Reject**: Object - The Error object  
 
-* * *
+*****
 
-<a name="Core+mount"></a>
+%<a id="Core+mount"></a>
 
-### datashare.mount([selector]) ⇒ <code>Vue</code>
-Mount the instance's vue application
+### datashare.mount([selector]) ⇒ VueMount the instance's vue application
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: <code>Vue</code> - The instantiated Vue  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: Vue - The instantiated Vue  
 <table>
   <thead>
     <tr>
@@ -318,30 +259,28 @@ Mount the instance's vue application
   </thead>
   <tbody>
 <tr>
-    <td>[selector]</td><td><code>String</code></td><td><code>#app</code></td><td><p>Query selector to the mounting point</p>
+    <td>[selector]</td><td>String</td><td><code>#app</code></td><td><p>Query selector to the mounting point</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="Core+defer"></a>
+%<a id="Core+defer"></a>
 
-### datashare.defer()
-Build a promise to be resolved when the application is configured.
+### datashare.defer()Build a promise to be resolved when the application is configured.
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
+**Kind**: instance method of [`Core`](#Core)  
 
-* * *
+*****
 
-<a name="Core+dispatch"></a>
+%<a id="Core+dispatch"></a>
 
-### datashare.dispatch(name, ...args) ⇒ [<code>Core</code>](#Core)
-Dispatch an event from the document root, passing the core application through event message.
+### datashare.dispatch(name, ...args) ⇒ [`Core`](#Core)Dispatch an event from the document root, passing the core application through event message.
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Returns**: [<code>Core</code>](#Core) - the current instance of Core  
+**Kind**: instance method of [`Core`](#Core)  
+**Returns**: [`Core`](#Core) - the current instance of Core  
 <table>
   <thead>
     <tr>
@@ -350,33 +289,31 @@ Dispatch an event from the document root, passing the core application through e
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the event to fire</p>
+    <td>name</td><td>String</td><td><p>Name of the event to fire</p>
 </td>
     </tr><tr>
-    <td>...args</td><td><code>Mixed</code></td><td><p>Additional params to pass to the event</p>
+    <td>...args</td><td>Mixed</td><td><p>Additional params to pass to the event</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="Core+getUser"></a>
+%<a id="Core+getUser"></a>
 
-### datashare.getUser() : <code>Promise.&lt;Object&gt;</code>
-Get the current signed user.
+### datashare.getUser() : Promise.&lt;Object&gt;Get the current signed user.
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
-**Fullfil**: <code>Object</code> Current user  
+**Kind**: instance method of [`Core`](#Core)  
+**Fullfil**: Object Current user  
 
-* * *
+*****
 
-<a name="Core+setPageTitle"></a>
+%<a id="Core+setPageTitle"></a>
 
-### datashare.setPageTitle(title, [suffix])
-Append the given title to the page title
+### datashare.setPageTitle(title, [suffix])Append the given title to the page title
 
-**Kind**: instance method of [<code>Core</code>](#Core)  
+**Kind**: instance method of [`Core`](#Core)  
 <table>
   <thead>
     <tr>
@@ -385,23 +322,22 @@ Append the given title to the page title
   </thead>
   <tbody>
 <tr>
-    <td>title</td><td><code>String</code></td><td><code></code></td><td><p>Title to append to the page</p>
+    <td>title</td><td>String</td><td><code></code></td><td><p>Title to append to the page</p>
 </td>
     </tr><tr>
-    <td>[suffix]</td><td><code>String</code></td><td><code>Datashare</code></td><td><p>Suffix to the title</p>
+    <td>[suffix]</td><td>String</td><td><code>Datashare</code></td><td><p>Suffix to the title</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="Core.init"></a>
+%<a id="Core.init"></a>
 
-### Core.init(...options) ⇒ [<code>Core</code>](#Core)
-instantiate a Core class (useful for chaining usage or mapping)
+### Core.init(...options) ⇒ [`Core`](#Core)instantiate a Core class (useful for chaining usage or mapping)
 
-**Kind**: static method of [<code>Core</code>](#Core)  
+**Kind**: static method of [`Core`](#Core)  
 <table>
   <thead>
     <tr>
@@ -410,18 +346,17 @@ instantiate a Core class (useful for chaining usage or mapping)
   </thead>
   <tbody>
 <tr>
-    <td>...options</td><td><code>Mixed</code></td><td><p>Options to pass to the Core constructor</p>
+    <td>...options</td><td>Mixed</td><td><p>Options to pass to the Core constructor</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="FiltersMixin"></a>
+%<a id="FiltersMixin"></a>
 
-## FiltersMixin
-Mixin class extending the core to add helpers for filters.
+## FiltersMixinMixin class extending the core to add helpers for filters.
 
 **Kind**: global mixin  
 
@@ -432,14 +367,13 @@ Mixin class extending the core to add helpers for filters.
     * [.unregisterFilterForProject(name, name)](#FiltersMixin+unregisterFilterForProject)
 
 
-* * *
+*****
 
-<a name="FiltersMixin+registerFilter"></a>
+%<a id="FiltersMixin+registerFilter"></a>
 
-### datashare.registerFilter(...args)
-Register a filter
+### datashare.registerFilter(...args)Register a filter
 
-**Kind**: instance method of [<code>FiltersMixin</code>](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
   <thead>
     <tr>
@@ -448,44 +382,43 @@ Register a filter
   </thead>
   <tbody>
 <tr>
-    <td>...args</td><td><code>Mixed</code></td><td></td><td><p>Filter&#39;s params.</p>
+    <td>...args</td><td>Mixed</td><td></td><td><p>Filter&#39;s params.</p>
 </td>
     </tr><tr>
-    <td>args.type</td><td><code>String</code></td><td></td><td><p>Type of the filter.</p>
+    <td>args.type</td><td>String</td><td></td><td><p>Type of the filter.</p>
 </td>
     </tr><tr>
-    <td>args.options</td><td><code>Object</code></td><td></td><td><p>Options to pass to the filter constructor.</p>
+    <td>args.options</td><td>Object</td><td></td><td><p>Options to pass to the filter constructor.</p>
 </td>
     </tr><tr>
-    <td>args.options.name</td><td><code>String</code></td><td></td><td><p>Name of the filter.</p>
+    <td>args.options.name</td><td>String</td><td></td><td><p>Name of the filter.</p>
 </td>
     </tr><tr>
-    <td>args.options.key</td><td><code>String</code></td><td></td><td><p>Key of the filter. Typically ElasticSearch field name.</p>
+    <td>args.options.key</td><td>String</td><td></td><td><p>Key of the filter. Typically ElasticSearch field name.</p>
 </td>
     </tr><tr>
-    <td>[args.options.icon]</td><td><code>String</code></td><td><code></code></td><td><p>Icon of the filter.</p>
+    <td>[args.options.icon]</td><td>String</td><td><code></code></td><td><p>Icon of the filter.</p>
 </td>
     </tr><tr>
-    <td>[args.options.isSearchable]</td><td><code>Boolean</code></td><td><code>false</code></td><td><p>Set if this filter should be searchable or not.</p>
+    <td>[args.options.isSearchable]</td><td>Boolean</td><td><code>false</code></td><td><p>Set if this filter should be searchable or not.</p>
 </td>
     </tr><tr>
-    <td>[args.options.alternativeSearch]</td><td><code>function</code></td><td><code>()&#x3D;&gt;{})</code></td><td><p>Set a function about how to transform query term before searching for it.</p>
+    <td>[args.options.alternativeSearch]</td><td>function</td><td><code>()&#x3D;&gt;{})</code></td><td><p>Set a function about how to transform query term before searching for it.</p>
 </td>
     </tr><tr>
-    <td>[args.options.order]</td><td><code>Number</code></td><td><code></code></td><td><p>Order of the filter. Will be added as last filter by default.</p>
+    <td>[args.options.order]</td><td>Number</td><td><code></code></td><td><p>Order of the filter. Will be added as last filter by default.</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="FiltersMixin+unregisterFilter"></a>
+%<a id="FiltersMixin+unregisterFilter"></a>
 
-### datashare.unregisterFilter(name)
-Unregister a filter
+### datashare.unregisterFilter(name)Unregister a filter
 
-**Kind**: instance method of [<code>FiltersMixin</code>](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
   <thead>
     <tr>
@@ -494,20 +427,19 @@ Unregister a filter
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the filter to unregister</p>
+    <td>name</td><td>String</td><td><p>Name of the filter to unregister</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="FiltersMixin+registerFilterForProject"></a>
+%<a id="FiltersMixin+registerFilterForProject"></a>
 
-### datashare.registerFilterForProject(name, ...args)
-Register a filter only for a specific project
+### datashare.registerFilterForProject(name, ...args)Register a filter only for a specific project
 
-**Kind**: instance method of [<code>FiltersMixin</code>](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
   <thead>
     <tr>
@@ -516,32 +448,31 @@ Register a filter only for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the project</p>
+    <td>name</td><td>String</td><td><p>Name of the project</p>
 </td>
     </tr><tr>
-    <td>...args</td><td><code>Mixed</code></td><td><p>Filter&#39;s options.</p>
+    <td>...args</td><td>Mixed</td><td><p>Filter&#39;s options.</p>
 </td>
     </tr><tr>
-    <td>args.name</td><td><code>String</code></td><td><p>Name of the filter</p>
+    <td>args.name</td><td>String</td><td><p>Name of the filter</p>
 </td>
     </tr><tr>
-    <td>args.type</td><td><code>String</code></td><td><p>Type of the filter.</p>
+    <td>args.type</td><td>String</td><td><p>Type of the filter.</p>
 </td>
     </tr><tr>
-    <td>args.options</td><td><code>Object</code></td><td><p>Options to pass to the filter constructor</p>
+    <td>args.options</td><td>Object</td><td><p>Options to pass to the filter constructor</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="FiltersMixin+unregisterFilterForProject"></a>
+%<a id="FiltersMixin+unregisterFilterForProject"></a>
 
-### datashare.unregisterFilterForProject(name, name)
-Unregister a filter only for a specific project
+### datashare.unregisterFilterForProject(name, name)Unregister a filter only for a specific project
 
-**Kind**: instance method of [<code>FiltersMixin</code>](#FiltersMixin)  
+**Kind**: instance method of [`FiltersMixin`](#FiltersMixin)  
 <table>
   <thead>
     <tr>
@@ -550,21 +481,20 @@ Unregister a filter only for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the project</p>
+    <td>name</td><td>String</td><td><p>Name of the project</p>
 </td>
     </tr><tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the filter</p>
+    <td>name</td><td>String</td><td><p>Name of the filter</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="HooksMixin"></a>
+%<a id="HooksMixin"></a>
 
-## HooksMixin
-Mixin class extending the core to add helpers for hooks.
+## HooksMixinMixin class extending the core to add helpers for hooks.
 
 **Kind**: global mixin  
 
@@ -576,14 +506,13 @@ Mixin class extending the core to add helpers for hooks.
     * [.registerHookForProject(project, options)](#HooksMixin+registerHookForProject)
 
 
-* * *
+*****
 
-<a name="HooksMixin+registerHook"></a>
+%<a id="HooksMixin+registerHook"></a>
 
-### datashare.registerHook(...args)
-Register a hook
+### datashare.registerHook(...args)Register a hook
 
-**Kind**: instance method of [<code>HooksMixin</code>](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
   <thead>
     <tr>
@@ -592,32 +521,31 @@ Register a hook
   </thead>
   <tbody>
 <tr>
-    <td>...args</td><td><code>Mixed</code></td><td><p>Hook&#39;s options</p>
+    <td>...args</td><td>Mixed</td><td><p>Hook&#39;s options</p>
 </td>
     </tr><tr>
-    <td>args.name</td><td><code>String</code></td><td><p>Name of the hook</p>
+    <td>args.name</td><td>String</td><td><p>Name of the hook</p>
 </td>
     </tr><tr>
-    <td>args.target</td><td><code>String</code></td><td><p>Target of the hook</p>
+    <td>args.target</td><td>String</td><td><p>Target of the hook</p>
 </td>
     </tr><tr>
-    <td>args.order</td><td><code>Number</code></td><td><p>Priority of the hook</p>
+    <td>args.order</td><td>Number</td><td><p>Priority of the hook</p>
 </td>
     </tr><tr>
-    <td>args.definition</td><td><code>Object</code></td><td><p>Options to pass to the hook constructor</p>
+    <td>args.definition</td><td>Object</td><td><p>Options to pass to the hook constructor</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="HooksMixin+unregisterHook"></a>
+%<a id="HooksMixin+unregisterHook"></a>
 
-### datashare.unregisterHook(name)
-Unregister a specific hook
+### datashare.unregisterHook(name)Unregister a specific hook
 
-**Kind**: instance method of [<code>HooksMixin</code>](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
   <thead>
     <tr>
@@ -626,20 +554,19 @@ Unregister a specific hook
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the hook</p>
+    <td>name</td><td>String</td><td><p>Name of the hook</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="HooksMixin+resetHook"></a>
+%<a id="HooksMixin+resetHook"></a>
 
-### datashare.resetHook(name)
-Unregister all hooks from a target
+### datashare.resetHook(name)Unregister all hooks from a target
 
-**Kind**: instance method of [<code>HooksMixin</code>](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
   <thead>
     <tr>
@@ -648,29 +575,27 @@ Unregister all hooks from a target
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the target</p>
+    <td>name</td><td>String</td><td><p>Name of the target</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="HooksMixin+resetHooks"></a>
+%<a id="HooksMixin+resetHooks"></a>
 
-### datashare.resetHooks()
-Unregister all hooks, on every targets
+### datashare.resetHooks()Unregister all hooks, on every targets
 
-**Kind**: instance method of [<code>HooksMixin</code>](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 
-* * *
+*****
 
-<a name="HooksMixin+registerHookForProject"></a>
+%<a id="HooksMixin+registerHookForProject"></a>
 
-### datashare.registerHookForProject(project, options)
-Register a hook for a specific project
+### datashare.registerHookForProject(project, options)Register a hook for a specific project
 
-**Kind**: instance method of [<code>HooksMixin</code>](#HooksMixin)  
+**Kind**: instance method of [`HooksMixin`](#HooksMixin)  
 <table>
   <thead>
     <tr>
@@ -679,61 +604,58 @@ Register a hook for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>project</td><td><code>String</code></td><td><p>Project to add this hook to</p>
+    <td>project</td><td>String</td><td><p>Project to add this hook to</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>Object</code></td><td><p>Hook&#39;s options</p>
+    <td>options</td><td>Object</td><td><p>Hook&#39;s options</p>
 </td>
     </tr><tr>
-    <td>options.name</td><td><code>String</code></td><td><p>Name of the hook</p>
+    <td>options.name</td><td>String</td><td><p>Name of the hook</p>
 </td>
     </tr><tr>
-    <td>options.target</td><td><code>String</code></td><td><p>Target of the hook</p>
+    <td>options.target</td><td>String</td><td><p>Target of the hook</p>
 </td>
     </tr><tr>
-    <td>options.order</td><td><code>Number</code></td><td><p>Priority of the hook</p>
+    <td>options.order</td><td>Number</td><td><p>Priority of the hook</p>
 </td>
     </tr><tr>
-    <td>options.definition</td><td><code>Object</code></td><td><p>Options to pass to the hook constructor</p>
+    <td>options.definition</td><td>Object</td><td><p>Options to pass to the hook constructor</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="I18nMixin"></a>
+%<a id="I18nMixin"></a>
 
-## I18nMixin
-Mixin class extending the core to add helpers for i18n.
+## I18nMixinMixin class extending the core to add helpers for i18n.
 
 **Kind**: global mixin  
 
 * [I18nMixin](#I18nMixin)
-    * [.initializeI18n()](#I18nMixin+initializeI18n) ⇒ <code>Promise</code>
-    * [.setI18nLocale(locale)](#I18nMixin+setI18nLocale) ⇒ <code>String</code>
-    * [.hasI18Locale(locale)](#I18nMixin+hasI18Locale) ⇒ <code>Boolean</code>
-    * [.loadI18Locale(locale)](#I18nMixin+loadI18Locale) ⇒ <code>Promise</code>
+    * [.initializeI18n()](#I18nMixin+initializeI18n) ⇒ Promise
+    * [.setI18nLocale(locale)](#I18nMixin+setI18nLocale) ⇒ String
+    * [.hasI18Locale(locale)](#I18nMixin+hasI18Locale) ⇒ Boolean
+    * [.loadI18Locale(locale)](#I18nMixin+loadI18Locale) ⇒ Promise
 
 
-* * *
+*****
 
-<a name="I18nMixin+initializeI18n"></a>
+%<a id="I18nMixin+initializeI18n"></a>
 
-### datashare.initializeI18n() ⇒ <code>Promise</code>
-Initialize i18N using the local storage and load
+### datashare.initializeI18n() ⇒ PromiseInitialize i18N using the local storage and load
 the necessary locale's messages
 
-**Kind**: instance method of [<code>I18nMixin</code>](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
 
-* * *
+*****
 
-<a name="I18nMixin+setI18nLocale"></a>
+%<a id="I18nMixin+setI18nLocale"></a>
 
-### datashare.setI18nLocale(locale) ⇒ <code>String</code>
-Set the active locale both in local stoage and VueI18n.
+### datashare.setI18nLocale(locale) ⇒ StringSet the active locale both in local stoage and VueI18n.
 
-**Kind**: instance method of [<code>I18nMixin</code>](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
 <table>
   <thead>
     <tr>
@@ -742,20 +664,19 @@ Set the active locale both in local stoage and VueI18n.
   </thead>
   <tbody>
 <tr>
-    <td>locale</td><td><code>String</code></td><td><p>Key of the local (fr, de, en, ja, ...)</p>
+    <td>locale</td><td>String</td><td><p>Key of the local (fr, de, en, ja, ...)</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="I18nMixin+hasI18Locale"></a>
+%<a id="I18nMixin+hasI18Locale"></a>
 
-### datashare.hasI18Locale(locale) ⇒ <code>Boolean</code>
-Check the given locale storage was loaded.
+### datashare.hasI18Locale(locale) ⇒ BooleanCheck the given locale storage was loaded.
 
-**Kind**: instance method of [<code>I18nMixin</code>](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
 <table>
   <thead>
     <tr>
@@ -764,21 +685,20 @@ Check the given locale storage was loaded.
   </thead>
   <tbody>
 <tr>
-    <td>locale</td><td><code>String</code></td><td><p>Key of the local (fr, de, en, ja, ...)</p>
+    <td>locale</td><td>String</td><td><p>Key of the local (fr, de, en, ja, ...)</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="I18nMixin+loadI18Locale"></a>
+%<a id="I18nMixin+loadI18Locale"></a>
 
-### datashare.loadI18Locale(locale) ⇒ <code>Promise</code>
-Load i18n messages for the given locale (if needed)
+### datashare.loadI18Locale(locale) ⇒ PromiseLoad i18n messages for the given locale (if needed)
 and set it as the current locale.
 
-**Kind**: instance method of [<code>I18nMixin</code>](#I18nMixin)  
+**Kind**: instance method of [`I18nMixin`](#I18nMixin)  
 <table>
   <thead>
     <tr>
@@ -787,18 +707,17 @@ and set it as the current locale.
   </thead>
   <tbody>
 <tr>
-    <td>locale</td><td><code>String</code></td><td><p>Key of the local (fr, de, en, ja, ...)</p>
+    <td>locale</td><td>String</td><td><p>Key of the local (fr, de, en, ja, ...)</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="PipelinesMixin"></a>
+%<a id="PipelinesMixin"></a>
 
-## PipelinesMixin
-Mixin class extending the core to add helpers for pipelines.
+## PipelinesMixinMixin class extending the core to add helpers for pipelines.
 
 **Kind**: global mixin  
 
@@ -809,14 +728,13 @@ Mixin class extending the core to add helpers for pipelines.
     * [.unregisterPipelineForProject(project, name)](#PipelinesMixin+unregisterPipelineForProject)
 
 
-* * *
+*****
 
-<a name="PipelinesMixin+registerPipeline"></a>
+%<a id="PipelinesMixin+registerPipeline"></a>
 
-### datashare.registerPipeline(...args, category)
-Register a pipeline
+### datashare.registerPipeline(...args, category)Register a pipeline
 
-**Kind**: instance method of [<code>PipelinesMixin</code>](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
   <thead>
     <tr>
@@ -825,29 +743,28 @@ Register a pipeline
   </thead>
   <tbody>
 <tr>
-    <td>...args</td><td><code>Mixed</code></td><td><p>Pipeline&#39;s options.</p>
+    <td>...args</td><td>Mixed</td><td><p>Pipeline&#39;s options.</p>
 </td>
     </tr><tr>
-    <td>args.name</td><td><code>String</code></td><td><p>Name of the pipeline</p>
+    <td>args.name</td><td>String</td><td><p>Name of the pipeline</p>
 </td>
     </tr><tr>
-    <td>args.type</td><td><code>String</code> | <code>function</code></td><td><p>Type of the pipeline.</p>
+    <td>args.type</td><td>String | function</td><td><p>Type of the pipeline.</p>
 </td>
     </tr><tr>
-    <td>category</td><td><code>String</code></td><td><p>The pipeline to target</p>
+    <td>category</td><td>String</td><td><p>The pipeline to target</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="PipelinesMixin+unregisterPipeline"></a>
+%<a id="PipelinesMixin+unregisterPipeline"></a>
 
-### datashare.unregisterPipeline(name)
-Unregister a pipeline
+### datashare.unregisterPipeline(name)Unregister a pipeline
 
-**Kind**: instance method of [<code>PipelinesMixin</code>](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
   <thead>
     <tr>
@@ -856,20 +773,19 @@ Unregister a pipeline
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the pipeline</p>
+    <td>name</td><td>String</td><td><p>Name of the pipeline</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="PipelinesMixin+registerPipelineForProject"></a>
+%<a id="PipelinesMixin+registerPipelineForProject"></a>
 
-### datashare.registerPipelineForProject(project, ...args, category)
-Register a pipeline for a specific project
+### datashare.registerPipelineForProject(project, ...args, category)Register a pipeline for a specific project
 
-**Kind**: instance method of [<code>PipelinesMixin</code>](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
   <thead>
     <tr>
@@ -878,32 +794,31 @@ Register a pipeline for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>project</td><td><code>String</code></td><td><p>Name of the project</p>
+    <td>project</td><td>String</td><td><p>Name of the project</p>
 </td>
     </tr><tr>
-    <td>...args</td><td><code>Mixed</code></td><td><p>Pipeline&#39;s options.</p>
+    <td>...args</td><td>Mixed</td><td><p>Pipeline&#39;s options.</p>
 </td>
     </tr><tr>
-    <td>args.name</td><td><code>String</code></td><td><p>Name of the pipeline</p>
+    <td>args.name</td><td>String</td><td><p>Name of the pipeline</p>
 </td>
     </tr><tr>
-    <td>args.type</td><td><code>String</code> | <code>function</code></td><td><p>Type of the pipeline.</p>
+    <td>args.type</td><td>String | function</td><td><p>Type of the pipeline.</p>
 </td>
     </tr><tr>
-    <td>category</td><td><code>String</code></td><td><p>The pipeline to target</p>
+    <td>category</td><td>String</td><td><p>The pipeline to target</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="PipelinesMixin+unregisterPipelineForProject"></a>
+%<a id="PipelinesMixin+unregisterPipelineForProject"></a>
 
-### datashare.unregisterPipelineForProject(project, name)
-Unregister a pipeline for a specific project
+### datashare.unregisterPipelineForProject(project, name)Unregister a pipeline for a specific project
 
-**Kind**: instance method of [<code>PipelinesMixin</code>](#PipelinesMixin)  
+**Kind**: instance method of [`PipelinesMixin`](#PipelinesMixin)  
 <table>
   <thead>
     <tr>
@@ -912,37 +827,35 @@ Unregister a pipeline for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>project</td><td><code>String</code></td><td><p>Name of the project</p>
+    <td>project</td><td>String</td><td><p>Name of the project</p>
 </td>
     </tr><tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the pipeline</p>
+    <td>name</td><td>String</td><td><p>Name of the pipeline</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="ProjectsMixin"></a>
+%<a id="ProjectsMixin"></a>
 
-## ProjectsMixin
-Mixin class extending the core to add helpers for projects.
+## ProjectsMixinMixin class extending the core to add helpers for projects.
 
 **Kind**: global mixin  
 
 * [ProjectsMixin](#ProjectsMixin)
     * [.toggleForProject(name, withFn, withoutFn, mutationType, storePath)](#ProjectsMixin+toggleForProject)
-    * [.createDefaultProject()](#ProjectsMixin+createDefaultProject) ⇒ <code>Promise:Object</code>
+    * [.createDefaultProject()](#ProjectsMixin+createDefaultProject) ⇒ Promise:Object
 
 
-* * *
+*****
 
-<a name="ProjectsMixin+toggleForProject"></a>
+%<a id="ProjectsMixin+toggleForProject"></a>
 
-### datashare.toggleForProject(name, withFn, withoutFn, mutationType, storePath)
-Call a function when a project is selected
+### datashare.toggleForProject(name, withFn, withoutFn, mutationType, storePath)Call a function when a project is selected
 
-**Kind**: instance method of [<code>ProjectsMixin</code>](#ProjectsMixin)  
+**Kind**: instance method of [`ProjectsMixin`](#ProjectsMixin)  
 <table>
   <thead>
     <tr>
@@ -951,40 +864,38 @@ Call a function when a project is selected
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the project</p>
+    <td>name</td><td>String</td><td><p>Name of the project</p>
 </td>
     </tr><tr>
-    <td>withFn</td><td><code>function</code></td><td><p>Function to call when the project is selected</p>
+    <td>withFn</td><td>function</td><td><p>Function to call when the project is selected</p>
 </td>
     </tr><tr>
-    <td>withoutFn</td><td><code>function</code></td><td><p>Function to call when the project is unselected</p>
+    <td>withoutFn</td><td>function</td><td><p>Function to call when the project is unselected</p>
 </td>
     </tr><tr>
-    <td>mutationType</td><td><code>String</code></td><td><p>Mutation type that will be watched for changes.</p>
+    <td>mutationType</td><td>String</td><td><p>Mutation type that will be watched for changes.</p>
 </td>
     </tr><tr>
-    <td>storePath</td><td><code>String</code></td><td><p>Path to the project in the store</p>
+    <td>storePath</td><td>String</td><td><p>Path to the project in the store</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="ProjectsMixin+createDefaultProject"></a>
+%<a id="ProjectsMixin+createDefaultProject"></a>
 
-### datashare.createDefaultProject() ⇒ <code>Promise:Object</code>
-Create a default project on Datashare using the API
+### datashare.createDefaultProject() ⇒ Promise:ObjectCreate a default project on Datashare using the API
 
-**Kind**: instance method of [<code>ProjectsMixin</code>](#ProjectsMixin)  
-**Returns**: <code>Promise:Object</code> - The HTTP response object  
+**Kind**: instance method of [`ProjectsMixin`](#ProjectsMixin)  
+**Returns**: Promise:Object - The HTTP response object  
 
-* * *
+*****
 
-<a name="WidgetsMixin"></a>
+%<a id="WidgetsMixin"></a>
 
-## WidgetsMixin
-Mixin class extending the core to add helpers for widgets.
+## WidgetsMixinMixin class extending the core to add helpers for widgets.
 
 **Kind**: global mixin  
 
@@ -997,14 +908,13 @@ Mixin class extending the core to add helpers for widgets.
     * [.replaceWidgetForProject(project, name, options)](#WidgetsMixin+replaceWidgetForProject)
 
 
-* * *
+*****
 
-<a name="WidgetsMixin+registerWidget"></a>
+%<a id="WidgetsMixin+registerWidget"></a>
 
-### datashare.registerWidget(...args)
-Register a widget
+### datashare.registerWidget(...args)Register a widget
 
-**Kind**: instance method of [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
   <thead>
     <tr>
@@ -1013,32 +923,31 @@ Register a widget
   </thead>
   <tbody>
 <tr>
-    <td>...args</td><td><code>Mixed</code></td><td></td><td><p>Widget&#39;s options passed to widget constructor</p>
+    <td>...args</td><td>Mixed</td><td></td><td><p>Widget&#39;s options passed to widget constructor</p>
 </td>
     </tr><tr>
-    <td>args.name</td><td><code>String</code></td><td></td><td><p>Name of the widget</p>
+    <td>args.name</td><td>String</td><td></td><td><p>Name of the widget</p>
 </td>
     </tr><tr>
-    <td>args.card</td><td><code>Boolean</code></td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap.</p>
+    <td>args.card</td><td>Boolean</td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap.</p>
 </td>
     </tr><tr>
-    <td>args.cols</td><td><code>Number</code></td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
+    <td>args.cols</td><td>Number</td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
 </td>
     </tr><tr>
-    <td>[args.type]</td><td><code>String</code></td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
+    <td>[args.type]</td><td>String</td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="WidgetsMixin+unregisterWidget"></a>
+%<a id="WidgetsMixin+unregisterWidget"></a>
 
-### datashare.unregisterWidget(name)
-Unregister a widget
+### datashare.unregisterWidget(name)Unregister a widget
 
-**Kind**: instance method of [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
   <thead>
     <tr>
@@ -1047,29 +956,27 @@ Unregister a widget
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td><p>Name of the widget to unregister</p>
+    <td>name</td><td>String</td><td><p>Name of the widget to unregister</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="WidgetsMixin+clearWidgets"></a>
+%<a id="WidgetsMixin+clearWidgets"></a>
 
-### datashare.clearWidgets()
-Unregister all widgets
+### datashare.clearWidgets()Unregister all widgets
 
-**Kind**: instance method of [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 
-* * *
+*****
 
-<a name="WidgetsMixin+registerWidgetForProject"></a>
+%<a id="WidgetsMixin+registerWidgetForProject"></a>
 
-### datashare.registerWidgetForProject(project, options)
-Register a widget for a specific project
+### datashare.registerWidgetForProject(project, options)Register a widget for a specific project
 
-**Kind**: instance method of [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
   <thead>
     <tr>
@@ -1078,35 +985,34 @@ Register a widget for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>project</td><td><code>String</code></td><td></td><td><p>Name of the project to add this widget to</p>
+    <td>project</td><td>String</td><td></td><td><p>Name of the project to add this widget to</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>Object</code></td><td></td><td><p>Widget&#39;s options passed to widget constructor</p>
+    <td>options</td><td>Object</td><td></td><td><p>Widget&#39;s options passed to widget constructor</p>
 </td>
     </tr><tr>
-    <td>options.name</td><td><code>String</code></td><td></td><td><p>Name of the widget</p>
+    <td>options.name</td><td>String</td><td></td><td><p>Name of the widget</p>
 </td>
     </tr><tr>
-    <td>options.card</td><td><code>Boolean</code></td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap</p>
+    <td>options.card</td><td>Boolean</td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap</p>
 </td>
     </tr><tr>
-    <td>options.cols</td><td><code>Number</code></td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
+    <td>options.cols</td><td>Number</td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
 </td>
     </tr><tr>
-    <td>[options.type]</td><td><code>String</code></td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
+    <td>[options.type]</td><td>String</td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="WidgetsMixin+replaceWidget"></a>
+%<a id="WidgetsMixin+replaceWidget"></a>
 
-### datashare.replaceWidget(name, options)
-Replace an existing widget
+### datashare.replaceWidget(name, options)Replace an existing widget
 
-**Kind**: instance method of [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
   <thead>
     <tr>
@@ -1115,19 +1021,19 @@ Replace an existing widget
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td><code>String</code></td><td></td><td><p>Name of the widget to replace</p>
+    <td>name</td><td>String</td><td></td><td><p>Name of the widget to replace</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>Object</code></td><td></td><td><p>Widget&#39;s options passed to widget constructor.</p>
+    <td>options</td><td>Object</td><td></td><td><p>Widget&#39;s options passed to widget constructor.</p>
 </td>
     </tr><tr>
-    <td>options.card</td><td><code>Boolean</code></td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap</p>
+    <td>options.card</td><td>Boolean</td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap</p>
 </td>
     </tr><tr>
-    <td>options.cols</td><td><code>Number</code></td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
+    <td>options.cols</td><td>Number</td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
 </td>
     </tr><tr>
-    <td>[options.type]</td><td><code>String</code></td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
+    <td>[options.type]</td><td>String</td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -1144,14 +1050,13 @@ datashare.replaceWidget('default-text', {
 })
 ```
 
-* * *
+*****
 
-<a name="WidgetsMixin+replaceWidgetForProject"></a>
+%<a id="WidgetsMixin+replaceWidgetForProject"></a>
 
-### datashare.replaceWidgetForProject(project, name, options)
-Replace an existing widget for a specific project
+### datashare.replaceWidgetForProject(project, name, options)Replace an existing widget for a specific project
 
-**Kind**: instance method of [<code>WidgetsMixin</code>](#WidgetsMixin)  
+**Kind**: instance method of [`WidgetsMixin`](#WidgetsMixin)  
 <table>
   <thead>
     <tr>
@@ -1160,35 +1065,35 @@ Replace an existing widget for a specific project
   </thead>
   <tbody>
 <tr>
-    <td>project</td><td><code>String</code></td><td></td><td><p>Name of the project to add this widget to</p>
+    <td>project</td><td>String</td><td></td><td><p>Name of the project to add this widget to</p>
 </td>
     </tr><tr>
-    <td>name</td><td><code>String</code></td><td></td><td><p>Name of the widget to replace</p>
+    <td>name</td><td>String</td><td></td><td><p>Name of the widget to replace</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>Object</code></td><td></td><td><p>Widget&#39;s options passed to widget constructor. Each widget class can define its own default values.</p>
+    <td>options</td><td>Object</td><td></td><td><p>Widget&#39;s options passed to widget constructor. Each widget class can define its own default values.</p>
 </td>
     </tr><tr>
-    <td>options.card</td><td><code>Boolean</code></td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap</p>
+    <td>options.card</td><td>Boolean</td><td></td><td><p>Either or not this widget should be a <code>card</code> component from Boostrap</p>
 </td>
     </tr><tr>
-    <td>options.cols</td><td><code>Number</code></td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
+    <td>options.cols</td><td>Number</td><td></td><td><p>Number of columns to fill in the grid (from 1 to 12)</p>
 </td>
     </tr><tr>
-    <td>[options.type]</td><td><code>String</code></td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
+    <td>[options.type]</td><td>String</td><td><code>WidgetEmpty</code></td><td><p>Type of the widget</p>
 </td>
     </tr>  </tbody>
 </table>
 
 
-* * *
+*****
 
-<a name="projects"></a>
+%<a id="projects"></a>
 
-## projects ⇒ <code>Array:String</code>
-List all projects this user has access to.
+## projects ⇒ Array:StringList all projects this user has access to.
 
 **Kind**: global variable  
 
-* * *
+*****
 
+%
