@@ -43,7 +43,7 @@ The running modes offer advantages and limitations. This matrix summarizes the d
 
 In **cli mode**, Datashare starts without a web server and allow user to perform task over their documents. This mode can be used in conjunction both with local and server modes, while allowing users to distribute heaving task between several servers.
 
-If you want to learn mode which task you can execute in this mode, checkout the [stages documentation](/concepts/cli-stages.md).
+If you want to learn more about which tasks you can execute in this mode, checkout the [stages documentation](/concepts/cli-stages.md).
 
 ## Daemon modes
 
