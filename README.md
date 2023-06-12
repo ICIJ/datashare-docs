@@ -29,7 +29,7 @@ We setup a [Demo instance of Datashare](https://datashare-demo.icij.org) with a 
 
 ### Can I run it on my server?
 
-Datashare was also built to run on a server. This is how we use it for our collaborative projects. Please refer [to the server documentation](server-mode/about-the-server-mode.md) to know how it works.
+Datashare was also built to run on a server. This is how we use it for our collaborative projects. Please refer [to the server documentation](broken-reference) to know how it works.
 
 ### Can I customize Datashare?
 

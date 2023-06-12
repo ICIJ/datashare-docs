@@ -7,8 +7,8 @@
 
 This search **works** because double quotes are **straight** in the search bar:
 
-![](<../../../.gitbook/assets/Screenshot 2021-07-08 at 15.15.35 (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/Screenshot 2021-07-08 at 15.15.35 (1) (1) (1) (1) (1) (1) (1).png>)
 
 This search **doesn't work** because double quotes are **curly** in the search bar:
 
-![](<../../../.gitbook/assets/Screenshot 2021-07-08 at 15.13.00.png>)
+![](../../../.gitbook/assets/screenshot-2021-07-08-at-15.13.00.png)

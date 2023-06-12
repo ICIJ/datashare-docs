@@ -4,17 +4,17 @@ description: Datashare runs using different modes with their own specifities.
 
 # Running modes
 
-| Mode | Category | Description |
-| --- | --- | --- |
-| `LOCAL` | Web | To run Datashare on a single computer for a single user. |
-| `SERVER` | Web | To run Datashare on a server for multiple users. |
-| `CLI` | CLI | To index documents and analyze them directly [in the command-line](/concepts/cli-stages.md). |
-| `BATCH_SEARCH` | Daemon | To execute pending [batch searches](/usage/batch-search-documents.md). |
-| `BATCH_DOWNLOAD` | Daemon | To execute pending batch downloads. |
+| Mode             | Category | Description                                                                           |
+| ---------------- | -------- | ------------------------------------------------------------------------------------- |
+| `LOCAL`          | Web      | To run Datashare on a single computer for a single user.                              |
+| `SERVER`         | Web      | To run Datashare on a server for multiple users.                                      |
+| `CLI`            | CLI      | To index documents and analyze them directly [in the command-line](broken-reference). |
+| `BATCH_SEARCH`   | Daemon   | To execute pending [batch searches](../usage/batch-search-documents.md).              |
+| `BATCH_DOWNLOAD` | Daemon   | To execute pending batch downloads.                                                   |
 
 ## Web modes
 
-Those two modes are the only one who create 
+Those two modes are the only one who create
 
 In **local mode** and **embedded mode**, Datashare provides a self-contained software application that users can install and run on their own local machines. The software allows users to search into their documents within their own local environments, without relying on external servers or cloud infrastructure. This mode offers enhanced data privacy and control, as the datasets and analysis remain entirely within the user's own infrastructure.
 
@@ -24,26 +24,26 @@ In **server mode**, Datashare operates as a centralized server-based system. Use
 
 The running modes offer advantages and limitations. This matrix summarizes the differences:
 
-|  | `local` | `server` |
-| --- | --- | --- |
-| Multi-users | ❌ | ✅ |
-| Multi-projects | ❌ | ✅ |
-| Access-control | ❌ | ✅ |
-| Indexing UI | ✅ | ❌ |
-| Plugins UI | ✅ | ❌ |
-| Extension UI | ✅ | ❌ |
-| HTTP API | ✅ | ✅ |
-| API Key | ✅ | ✅ | ❌ |
-| Single JVM | ✅ | ❌ |
-| Tasks execution | ✅ | ❌ |
+|                 | `local` | `server` |
+| --------------- | ------- | -------- |
+| Multi-users     | ❌       | ✅        |
+| Multi-projects  | ❌       | ✅        |
+| Access-control  | ❌       | ✅        |
+| Indexing UI     | ✅       | ❌        |
+| Plugins UI      | ✅       | ❌        |
+| Extension UI    | ✅       | ❌        |
+| HTTP API        | ✅       | ✅        |
+| API Key         | ✅       | ✅        |
+| Single JVM      | ✅       | ❌        |
+| Tasks execution | ✅       | ❌        |
 
-*When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default.*
+_When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default._
 
 ## CLI mode
 
 In **cli mode**, Datashare starts without a web server and allow user to perform task over their documents. This mode can be used in conjunction both with local and server modes, while allowing users to distribute heaving task between several servers.
 
-If you want to learn more about which tasks you can execute in this mode, checkout the [stages documentation](/concepts/cli-stages.md).
+If you want to learn more about which tasks you can execute in this mode, checkout the [stages documentation](broken-reference).
 
 ## Daemon modes
 

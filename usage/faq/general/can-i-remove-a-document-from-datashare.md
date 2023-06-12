@@ -4,11 +4,11 @@ Yes, you **can** remove documents from Datashare. But at the moment, **it will r
 
 **Click the pink trash icon on the bottom left of Datashare:**
 
-![](../../../.gitbook/assets/Remove.png)
+![](../../../.gitbook/assets/remove.png)
 
 And then click '**Yes'**:
 
-![](../../../.gitbook/assets/Remove2.png)
+![](../../../.gitbook/assets/remove2.png)
 
 You can them re-analyze a new corpus.
 

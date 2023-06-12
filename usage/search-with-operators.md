@@ -134,17 +134,17 @@ If you're looking for French International Bank Account Number (IBAN) that can o
 
 To find the list of existing metadata fields, **go to a document's 'Tags and details' tab, click 'Show more details'.**
 
-![](<../.gitbook/assets/Screenshot 2019-12-02 at 17.58.36.png>)
+![](../.gitbook/assets/screenshot-2019-12-02-at-17.58.36.png)
 
 **When you hover the lines, you see a magnifying glass on each line. Click on it and Datashare will look for this field.** Here is the one for content language:
 
-![](<../.gitbook/assets/Screenshot 2019-11-26 at 15.27.50.png>)
+![](../.gitbook/assets/screenshot-2019-11-26-at-15.27.50.png)
 
-![](<../.gitbook/assets/Screenshot 2019-11-26 at 15.29.07.png>)
+![](../.gitbook/assets/screenshot-2019-11-26-at-15.29.07.png)
 
 Here is the one for 'indexing date' (also called extraction date here) for instance:
 
-![](<../.gitbook/assets/Screenshot 2019-11-26 at 15.29.40.png>)
+![](../.gitbook/assets/screenshot-2019-11-26-at-15.29.40.png)
 
 So for example, if you are looking for documents that:
 

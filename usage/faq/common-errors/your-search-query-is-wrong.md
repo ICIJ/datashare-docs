@@ -28,11 +28,11 @@ You cannot start a query with OR all uppercase. [OR is reserved as a search oper
 
 ‌You cannot start or type a query with only one parenthesis. [Parenthesis are reserved for combining operators](https://icij.gitbook.io/datashare/all/search-with-operators#please-note-that-you-can-combine-operators).
 
-![](<../../../.gitbook/assets/Screenshot 2019-11-26 at 17.44.42.png>)
+![](../../../.gitbook/assets/screenshot-2019-11-26-at-17.44.42.png)
 
-![](<../../../.gitbook/assets/Screenshot 2019-11-26 at 17.45.17.png>)
+![](../../../.gitbook/assets/screenshot-2019-11-26-at-17.45.17.png)
 
-![](<../../../.gitbook/assets/Screenshot 2019-11-26 at 17.47.25.png>)
+![](../../../.gitbook/assets/screenshot-2019-11-26-at-17.47.25.png)
 
 ### **The query contains only one forward slash (/)**
 
@@ -50,7 +50,7 @@ You cannot start a query with OR all uppercase. [OR is reserved as a search oper
 
 You cannot end a query with question mark (!). [Question mark is reserved as a search operator for excluding a term](https://icij.gitbook.io/datashare/all/search-with-operators#not-or).
 
-![](<../../../.gitbook/assets/Screenshot 2019-11-04 at 18.02.39.png>)
+![](../../../.gitbook/assets/screenshot-2019-11-04-at-18.02.39.png)
 
 ### **The query starts with or contains caret** (^) <a href="#querie-s-start-s-with-or-contain-circumflex" id="querie-s-start-s-with-or-contain-circumflex"></a>
 
@@ -62,4 +62,4 @@ You cannot end a query with question mark (!). [Question mark is reserved as a s
 
 You cannot use square brackets [except for searching for ranges](https://icij.gitbook.io/datashare/all/search-with-operators#advanced-searches-using-metadata-fields).
 
-![](<../../../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (1) (1) (2).png>)
