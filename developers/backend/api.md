@@ -1,4 +1,4 @@
-# Table of Content
+## Table of Content
 
 - [/api/key](#/api/key)
   - [Options /api/key/:userId](#options__api_key__userid)
