@@ -1,6 +1,68 @@
----
-description: 👷‍♀️ This page is currently being written by Datashare team.
----
-
 # Add documents from the CLI
 
+**This document assumes you have installed Datashare [in server mode within Docker](/server-mode/install-with-docker.md).**
+
+In server [mode](/concepts/running-modes.md), it's important to understand that Datashare does not provide an interface to add documents. As there is no build-in roles and permission in Datashare's data model, 
+we have no way to differenciate user to offer admin additional tools.
+
+This is likelly to be changed in the near future, but in the meantime, you can still add documents
+to Datashare using the command-line interface.
+
+Here is a simple command to scan a directory and index its files:
+
+```bash
+docker compose exec datashare_web /entrypoint.sh \
+  --mode CLI \
+  --stage SCAN,INDEX \
+  --defaultProject secret-project \
+  --elasticsearchAddress http://elasticsearch:9200 \
+  --dataDir /home/datashare/Datashare/
+```
+
+What's happening here:
+
+* Datashare starts in "CLI" [mode](/concepts/running-modes.md)
+* We ask to process both SCAN and INDEX [stages](/concepts/cli-stages.md) at the same time
+* The SCAN stage feeds a queue in memory with file to add
+* The INDEX stage pulls files from the queue to add them to ElasticSearch
+* We tell Datashare to use the `elasticsearch` service
+* Files to add are located in `/home/datashare/Datashare/` which is a directory mounted from the host machine
+
+Alternativly, you can do this in two separated phases, as long as you tell Datashare to 
+store the queue in a shared resource. Hhere, we use the redis:
+
+```bash
+docker compose exec datashare_web /entrypoint.sh \
+  --mode CLI \
+  --stage SCAN \
+  --queueType REDIS \
+  --queueName "datashare:queue" \
+  --redisAddress redis://redis:6379 \
+  --defaultProject secret-project \
+  --elasticsearchAddress http://elasticsearch:9200 \
+  --dataDir /home/datashare/Datashare/
+```
+
+Once the opperation is done, I can easily check the content of queue created by Datashare in redis.
+In this example we only display the 20 first files in the `datashare:queue`:
+
+```bash
+docker compose exec redis redis-cli lrange datashare:queue 0 20
+```
+
+The INDEX [stage](/concepts/cli-stages.md) can now be executed in the same container:
+
+```bash
+docker compose exec datashare_web /entrypoint.sh \
+  --mode CLI \
+  --stage INDEX \
+  --queueType REDIS \
+  --queueName "datashare:queue" \
+  --redisAddress redis://redis:6379 \
+  --defaultProject secret-project \
+  --elasticsearchAddress http://elasticsearch:9200 \
+  --dataDir /home/datashare/Datashare/
+```
+
+Once the indexing is done, Datashare will exit gracefully and your document will already
+be visible on Datashare.

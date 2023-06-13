@@ -204,97 +204,10 @@ This will stop and remove the containers, freeing up system resources.
 
 ### Add documents to Datashare
 
-In server [mode](/concepts/running-modes.md), it's important to understand that Datashare does not provide an interface to add documents. As there is no build-in roles and permission in Datashare's data model, 
-we have no way to differenciate user to offer admin additional tools.
-
-This is likelly to be changed in the near future, but in the meantime, you can style add documents
-to Datashare using the command-line interface.
-
-Here is a simple command to scan a directory and index its files:
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCAN,INDEX \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
-
-What's happening here:
-
-* Datashare starts in "CLI" [mode](/concepts/running-modes.md)
-* We ask to process both SCAN and INDEX [stages](/concepts/cli-stages.md) at the same time
-* The SCAN stage feeds a queue in memory with file to add
-* The INDEX stage pulls files from the queue to add them to ElasticSearch
-* We tell Datashare to use the `elasticsearch` service
-* Files to add are located in `/home/datashare/Datashare/` which is a directory mounted from the host machine
-
-Alternativly, you can do this in two separated phases, as long as you tell Datashare to 
-store the queue in a shared resource. Hhere, we use the redis:
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCAN \
-  --queueType REDIS \
-  --queueName "datashare:queue" \
-  --redisAddress redis://redis:6379 \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
-
-Once the opperation is done, I can easily check the content of queue created by Datashare in redis.
-In this example we only display the 20 first files in the `datashare:queue`:
-
-```bash
-docker compose exec redis redis-cli lrange datashare:queue 0 20
-```
-
-The INDEX [stage](/concepts/cli-stages.md) can now be executed in the same container:
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage INDEX \
-  --queueType REDIS \
-  --queueName "datashare:queue" \
-  --redisAddress redis://redis:6379 \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
-
-Once the indexing is done, Datashare will exit gracefully and your document will already
-be visible on Datashare.
+If you reach that point, Datashare is up and running but you will discover very quickly
+that no documents is available in the search results. Next step: **[Add documents from the CLI](/server-mode/add-documents-from-the-cli.md)**!
 
 ### Extract named entities
 
 Datashare as the ability to detect email addresses, name of people, organizations and locations.
-This process use an Natural Language Processing pipeline called CORENLP. Once your
-documents are available in Datashare, you can perform the named entities extraction
-in the same fashion than the previous CLI's [stages](/concepts/cli-stages.md):
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage NLP \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --nlpParallelism 2 \
-  --nlpp CORENLP \
-  --resume
-```
-
-What's happening here:
-
-* Datashare starts in "CLI"[mode](/concepts/running-modes.md)
-* We ask to process the NLP [stage](/concepts/cli-stages.md)
-* We tell Datashare to use the `elasticsearch` service
-* Datashare will pull documents from ElasticSearch directly 
-* Up to 2 documents will be analyzed in parallel
-* Datashare will use the CORENLP pipeline
-
-The first time you run this command you will have to wait a little bit because
-Datashare need to download CORENLP's models which can be big.
+You must perform the named entities extraction in the same fashion than the previous commands. Final step: **[Add named entities from the CLI](/server-mode/add-entities-from-the-cli.md)**!
