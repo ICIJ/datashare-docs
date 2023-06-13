@@ -26,7 +26,7 @@ docker compose exec datashare_web /entrypoint.sh \
 
 What's happening here:
 
-* Datashare starts in "CLI"[mode](/concepts/running-modes.md)
+* Datashare starts in "CLI" [mode](/concepts/running-modes.md)
 * We ask to process the NLP [stage](/concepts/cli-stages.md)
 * We tell Datashare to use the `elasticsearch` service
 * Datashare will pull documents from ElasticSearch directly 
