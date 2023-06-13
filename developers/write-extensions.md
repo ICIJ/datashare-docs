@@ -75,7 +75,7 @@ Unfortunately, you'll have also to make a pull request to datashare-api to add a
 
 Build the jar with its dependencies, and install it in the `/home/user/extensions` then start datashare with the `extensionsDir` set to `/home/user/extensions`. Your plugin will be loaded by datashare.
 
-Finally, your pipeline will be listed in the available pipelines in the UI, when [doing NER](https://icij.gitbook.io/datashare/all/analyze-documents#find-names-of-people-organizations-and-locations).
+Finally, your pipeline will be listed in the available pipelines in the UI, when [doing NER](/usage/analyze-documents#find-names-of-people-organizations-and-locations).
 
 #### HTTP extension
 

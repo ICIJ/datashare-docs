@@ -18,7 +18,7 @@ If you search for similar terms (**to catch typos for example**), use fuzziness.
 
 ### In Batch searches
 
-When you run a [batch search](https://icij.gitbook.io/datashare/all/batch-search-documents), you can set the fuzziness to 0, 1 or 2. It is the same as explained above, it will apply to each word in a query and corresponds to the maximum number of operations (insertions, deletions, substitutions and transpositions) on **characters** needed to make one **term** match the other.
+When you run a [batch search](/usage/batch-search-documents), you can set the fuzziness to 0, 1 or 2. It is the same as explained above, it will apply to each word in a query and corresponds to the maximum number of operations (insertions, deletions, substitutions and transpositions) on **characters** needed to make one **term** match the other.
 
 > kitten -> sitten (1 substitution (k turned into s) = fuzziness is 1)
 

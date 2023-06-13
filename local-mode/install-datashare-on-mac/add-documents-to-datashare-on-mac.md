@@ -42,4 +42,4 @@ Click the 3rd tab '**Analyze your documents**':
 
 <figure><img src="../../.gitbook/assets/Screenshot 2022-10-27 at 12.25.44.png" alt=""><figcaption></figcaption></figure>
 
-You can now [analyze your documents in Datashare](https://icij.gitbook.io/datashare/all/analyze-documents).
+You can now [analyze your documents in Datashare](/usage/analyze-documents).

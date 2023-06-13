@@ -4,5 +4,5 @@
 
 ![](../../../.gitbook/assets/reset-button.png)
 
-* You may not have added documents to Datashare yet. To add documents, see: 'Add documents to Datashare' for [Mac](https://icij.gitbook.io/datashare/mac/add-documents-to-datashare-on-mac), [Windows](https://icij.gitbook.io/datashare/windows/add-documents-to-datashare-on-windows) or [Linux](https://icij.gitbook.io/datashare/linux/add-documents-to-datashare-on-linux).
+* You may not have added documents to Datashare yet. To add documents, see: 'Add documents to Datashare' for [Mac](/mac/add-documents-to-datashare-on-mac), [Windows](/windows/add-documents-to-datashare-on-windows) or [Linux](/linux/add-documents-to-datashare-on-linux).
 * In 'Analyzed documents', if some tasks are not marked as 'Done', **please wait for all tasks to be done**. Depending on the number of documents you analyzed, it can take multiple hours.

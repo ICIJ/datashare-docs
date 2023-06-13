@@ -8,7 +8,7 @@ description: >-
 
 ### Search in documents
 
-&#x20;1\. To see all your documents (you need to have [added documents](https://icij.gitbook.io/datashare/mac/add-documents-to-datashare-on-mac) to Datashare and[ have analyzed](https://icij.gitbook.io/datashare/all/analyze-documents) them before), click '**Search in documents'**:
+&#x20;1\. To see all your documents (you need to have [added documents](/mac/add-documents-to-datashare-on-mac) to Datashare and[ have analyzed](/usage/analyze-documents) them before), click '**Search in documents'**:
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.13.15.png>)
 
@@ -22,11 +22,11 @@ If not collapsed yet, to collapse the left menu in order to gain room, **click t
 
 **IMPORTANT:**
 
-* To make your searches more precise, you can **search with operators (AND, OR, ....):** [**read more here**](https://icij.gitbook.io/datashare/all/search-with-operators)**.**
+* To make your searches more precise, you can **search with operators (AND, OR, ....):** [**read more here**](/usage/search-with-operators)**.**
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.19.10.png>)
 
-* **If you get a message "Your search query is wrong", it is probably because you are misusing one or some reserved characters (like ^ " ? ( \[ \* OR AND etc).** [**Please refer to this page**](https://icij.gitbook.io/datashare/faq-errors/your-search-query-is-wrong)**.**
+* **If you get a message "Your search query is wrong", it is probably because you are misusing one or some reserved characters (like ^ " ? ( \[ \* OR AND etc).** [**Please refer to this page**](/faq-errors/your-search-query-is-wrong)**.**
 
 ![](<../.gitbook/assets/Screenshot 2019-12-03 at 10.31.31 (1) (1) (1) (1) (1) (1) (2).png>)
 
@@ -61,12 +61,12 @@ Once a document is opened, you can **search for terms in this document:**
 * Press **ENTER** to go from one occurrence to the **next** one
 * Presse **SHIFT + ENTER** to go from one occurrence to the **previous** one
 
-_(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts_](https://icij.gitbook.io/datashare/all/use-keyboard-shortcuts)_'.)_
+_(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts_](/usage/use-keyboard-shortcuts)_'.)_
 
 This also counts the number of occurrences of your searched terms in this document:
 
 ![](../.gitbook/assets/find-f.png)
 
-If you run [email extraction](https://icij.gitbook.io/datashare/all/analyze-documents#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
+If you run [email extraction](/usage/analyze-documents#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
 
 ![](../.gitbook/assets/in-metadata.png)

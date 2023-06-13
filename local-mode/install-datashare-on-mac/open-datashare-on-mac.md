@@ -15,7 +15,7 @@ A Terminal window called '**Datashare.command'** opens and describes the technic
 **Keep this Terminal window open as long as you use Datashare.**
 
 **Datashare should now automatically open in your default internet browser.**\
-If it doesn’t, type "[localhost:8080](http://localhost:8080)" in your browser. Datashare **must be accessed from your internet browser** (Firefox, Chome, etc), even though it works offline without Internet connection (see FAQ: [Can I use Datashare with no internet connection?](https://icij.gitbook.io/datashare/faq-general/can-i-use-datashare-with-no-internet-connection)).
+If it doesn’t, type "[localhost:8080](http://localhost:8080)" in your browser. Datashare **must be accessed from your internet browser** (Firefox, Chome, etc), even though it works offline without Internet connection (see FAQ: [Can I use Datashare with no internet connection?](/faq-general/can-i-use-datashare-with-no-internet-connection)).
 
 ![](../../.gitbook/assets/screenshot-2019-08-13-at-10.21.55.png)
 

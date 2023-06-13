@@ -17,7 +17,7 @@ Click **'Terminate**':
 * If you're using Linux: `rm -Rf ~/.local/share/datashare/index`
 
 1. Press **Enter**
-2. **Restart Datashare** (here are the instructions [for Mac](https://icij.gitbook.io/datashare/mac/open-datashare-on-mac), [for Windows](https://icij.gitbook.io/datashare/windows/open-datashare-on-windows) and [for Linux](https://icij.gitbook.io/datashare/linux/open-datashare-on-linux))
+2. **Restart Datashare** (here are the instructions [for Mac](/mac/open-datashare-on-mac), [for Windows](/windows/open-datashare-on-windows) and [for Linux](/linux/open-datashare-on-linux))
 3. Index documents again: go to **'Analyse your documents**' and click '**Extract text**':
 
 ![](../../../.gitbook/assets/screenshot-2021-02-10-at-15.34.23.png)

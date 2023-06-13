@@ -4,9 +4,9 @@
 
 **One or several of your queries contains syntax errors**.
 
-It means that you wrote one or more of your queries the wrong way with some characters that are reserved as operators: [**read the list of syntax errors by clicking here**](https://icij.gitbook.io/datashare/all/batch-search-documents#i-get-a-failure-what-does-that-mean).
+It means that you wrote one or more of your queries the wrong way with some characters that are reserved as operators: [**read the list of syntax errors by clicking here**](/usage/batch-search-documents#i-get-a-failure-what-does-that-mean).
 
-**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Click here to learn how to launch a batch search](https://icij.gitbook.io/datashare/all/batch-search-documents).
+**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Click here to learn how to launch a batch search](/usage/batch-search-documents).
 
 Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your queries** as some errors can remain after correcting the first one.
 
@@ -18,7 +18,7 @@ _SearchException: query='AND ada' message='org.icij.datashare.batch.SearchExcept
 
 If you have a message which contain '_elasticsearch: Name does not resolve_', it means that Datashare can't make Elastic Search, its search engine, work.
 
-In that case, you need to **re-open Datashare**: \*\*\*\*here are the instructions for [Mac](https://icij.gitbook.io/datashare/mac/open-datashare-on-mac), [Windows](https://icij.gitbook.io/datashare/windows/open-datashare-on-windows) or [Linux](https://icij.gitbook.io/datashare/linux/open-datashare-on-linux).
+In that case, you need to **re-open Datashare**: \*\*\*\*here are the instructions for [Mac](/mac/open-datashare-on-mac), [Windows](/windows/open-datashare-on-windows) or [Linux](/linux/open-datashare-on-linux).
 
 Example of a message regarding a problem with ElasticSearch:
 

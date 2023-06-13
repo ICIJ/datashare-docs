@@ -10,7 +10,7 @@ On **Mac:**
 
 * Click '**Restart'**.
 * As long as the icon's little points move, it means that Docker Desktop is still restarting.
-* Once these points stopped moving, either Datashare restarted automatically or you can restart Datashare manually (see '[Open Datashare](https://icij.gitbook.io/datashare/mac/open-datashare-on-mac)').
+* Once these points stopped moving, either Datashare restarted automatically or you can restart Datashare manually (see '[Open Datashare](/mac/open-datashare-on-mac)').
 
 On **Windows:**
 
@@ -30,6 +30,6 @@ On **Windows:**
 
 ![](../../../.gitbook/assets/screenshot-5.png)
 
-* When it says '**Docker Desktop is running'**, either Datashare restarted automatically or you can restart Datashare manually (see '[Open Datashare](https://icij.gitbook.io/datashare/windows/open-datashare-on-windows)').
+* When it says '**Docker Desktop is running'**, either Datashare restarted automatically or you can restart Datashare manually (see '[Open Datashare](/windows/open-datashare-on-windows)').
 
 On **Linux**, please execute: `sudo service docker restart`

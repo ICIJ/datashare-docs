@@ -67,4 +67,4 @@ To extract email addresses in your documents:
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.57.27.png>)
 
-You can now [search documents](https://icij.gitbook.io/datashare/all/search-documents).
+You can now [search documents](/usage/search-documents).

@@ -39,13 +39,13 @@ To open all the attachments in Datashare, click 'See children documents' in Tags
 * Press **ENTER** to go from one occurrence to the **next** one
 * Presse **SHIFT + ENTER** to go from one occurrence to the **previous** one
 
-_(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts_](https://icij.gitbook.io/datashare/all/use-keyboard-shortcuts)_'.)_
+_(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts_](/usage/use-keyboard-shortcuts)_'.)_
 
 This also counts the number of occurrences of your searched terms in this document:
 
 ![](../.gitbook/assets/find-f.png)
 
-If you run [email extraction](https://icij.gitbook.io/datashare/all/analyze-documents#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
+If you run [email extraction](/usage/analyze-documents#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
 
 ![](../.gitbook/assets/in-metadata.png)
 
@@ -67,7 +67,7 @@ You can then search for the documents you tagged:
 
 ![](../.gitbook/assets/search-tags.png)
 
-To learn more about tags, please read '[Tag a document](https://icij.gitbook.io/datashare/all/tag-documents)'.
+To learn more about tags, please read '[Tag a document](/usage/tag-documents)'.
 
 ## **Named Entities**
 

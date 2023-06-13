@@ -44,7 +44,7 @@ Parentheses should be used whenever multiple operators are used together and you
 
 > Example: ((Alicia AND Martinez) OR (Delaware AND Pekin) OR Grey) AND NOT "parking lot"
 
-You can also combine these with 'regular expressions' Regex between two slashes ([see below](https://icij.gitbook.io/datashare/all/search-with-operators#regular-expressions-regex)).
+You can also combine these with 'regular expressions' Regex between two slashes ([see below](/usage/search-with-operators#regular-expressions-regex)).
 
 ### **Wildcards**
 
