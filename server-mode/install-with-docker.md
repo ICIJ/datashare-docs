@@ -205,9 +205,9 @@ This will stop and remove the containers, freeing up system resources.
 ### Add documents to Datashare
 
 If you reach that point, Datashare is up and running but you will discover very quickly
-that no documents is available in the search results. Next step: **[Add documents from the CLI](/server-mode/add-documents-from-the-cli.md)**!
+that no documents is available in the search results. Next step: **[Add documents from the CLI](/server-mode/add-documents-from-the-cli.md)**.
 
 ### Extract named entities
 
 Datashare as the ability to detect email addresses, name of people, organizations and locations.
-You must perform the named entities extraction in the same fashion than the previous commands. Final step: **[Add named entities from the CLI](/server-mode/add-entities-from-the-cli.md)**!
+You must perform the named entities extraction in the same fashion than the previous commands. Final step: **[Add named entities from the CLI](/server-mode/add-entities-from-the-cli.md)**.
