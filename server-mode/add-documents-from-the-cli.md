@@ -29,7 +29,7 @@ What's happening here:
 * Files to add are located in `/home/datashare/Datashare/` which is a directory mounted from the host machine
 
 Alternativly, you can do this in two separated phases, as long as you tell Datashare to 
-store the queue in a shared resource. Hhere, we use the redis:
+store the queue in a shared resource. Here, we use the redis:
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
