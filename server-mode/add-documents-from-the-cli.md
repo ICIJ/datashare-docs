@@ -43,7 +43,7 @@ docker compose exec datashare_web /entrypoint.sh \
   --dataDir /home/datashare/Datashare/
 ```
 
-Once the opperation is done, I can easily check the content of queue created by Datashare in redis.
+Once the opperation is done, we can easily check the content of queue created by Datashare in redis.
 In this example we only display the 20 first files in the `datashare:queue`:
 
 ```bash
