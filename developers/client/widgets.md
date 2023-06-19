@@ -50,7 +50,7 @@ Class representing the Empty widget. This widget is not intended to be used dire
 
 *****
 
-<a id="new_widgetempty_new"></a>
+<a id="new-widgetempty-new"></a>
 
 ### new WidgetEmpty(name, card, cols, order)
 
@@ -112,7 +112,7 @@ Widget to display a list of items or links on the insights page
 
 *****
 
-<a id="new_widgetlistgroup_new"></a>
+<a id="new-widgetlistgroup-new"></a>
 
 ### new WidgetListGroup(title, items, pipeline, options)
 
@@ -153,7 +153,7 @@ Widget to display text on the insights page
 
 *****
 
-<a id="new_widgettext_new"></a>
+<a id="new-widgettext-new"></a>
 
 ### new WidgetText(title, content, pipeline, options)
 
@@ -194,7 +194,7 @@ Class representing the TreeMap widget
 
 *****
 
-<a id="new_widgettreemap_new"></a>
+<a id="new-widgettreemap-new"></a>
 
 ### new WidgetTreeMap(title, index, options)
 
