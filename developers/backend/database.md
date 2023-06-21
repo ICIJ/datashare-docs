@@ -75,8 +75,8 @@ Column | Type | Nullable | Default
 
 ### Constraints and indexes
 
-* `batch_search_query_search_id btree (search_uuid)`
 * `idx_query_result_batch_unique UNIQUE, btree (search_uuid, query)`
+* `batch_search_query_search_id btree (search_uuid)`
 
 *****
 
@@ -143,10 +143,10 @@ Column | Type | Nullable | Default
 
 ### Constraints and indexes
 
+* `idx_document_tag_unique UNIQUE, btree (doc_id, label)`
 * `document_tag_doc_id btree (doc_id)`
 * `document_tag_label btree (label)`
 * `document_tag_project_id btree (prj_id)`
-* `idx_document_tag_unique UNIQUE, btree (doc_id, label)`
 
 *****
 
@@ -160,10 +160,10 @@ Column | Type | Nullable | Default
 
 ### Constraints and indexes
 
+* `idx_document_mark_read_unique UNIQUE, btree (doc_id, user_id, prj_id)`
 * `document_user_mark_read_doc_id btree (doc_id)`
 * `document_user_mark_read_project_id btree (prj_id)`
 * `document_user_mark_read_user_id btree (user_id)`
-* `idx_document_mark_read_unique UNIQUE, btree (doc_id, user_id, prj_id)`
 
 *****
 
@@ -177,10 +177,10 @@ Column | Type | Nullable | Default
 
 ### Constraints and indexes
 
+* `idx_document_star_unique UNIQUE, btree (doc_id, user_id, prj_id)`
 * `document_user_star_doc_id btree (doc_id)`
 * `document_user_star_project_id btree (prj_id)`
 * `document_user_star_user_id btree (user_id)`
-* `idx_document_star_unique UNIQUE, btree (doc_id, user_id, prj_id)`
 
 *****
 
