@@ -89,7 +89,7 @@
 * [Backend](developers/backend/README.md)
   * [API](developers/backend/api.md)
   * [Database](developers/backend/database.md)
-* [Frontend](developers/client/README.md)
+* [Frontend](developers/frontend/README.md)
   * [JSDoc](developers/client/api.md)
   * [Plugin hooks](developers/client/hooks.md)
   * [Insight widgets](developers/client/widgets.md)
@@ -238,10 +238,3 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
-
-
-
-
-
-
-
