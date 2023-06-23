@@ -79,7 +79,7 @@ docker compose exec datashare_web /entrypoint.sh \
   --dataDir /home/datashare/Datashare/
 ```
 
-```
+```bash
 docker compose exec datashare_web /entrypoint.sh \
   --mode CLI \
   --stage SCAN,INDEX \
