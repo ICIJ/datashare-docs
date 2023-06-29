@@ -71,6 +71,9 @@ Generated with https://github.com/ICIJ/fluent-http-apigen
   - [Options /api/plugins/uninstall](#options__api_plugins_uninstall)
   - [Delete /api/plugins/uninstall?id=:pluginId](#delete__api_plugins_uninstall?id=_pluginid)
 - [/api/project](#/api/project)
+  - [Get /api/project/](#get__api_project_)
+  - [Post /api/project/](#post__api_project_)
+  - [Put /api/project/:id](#put__api_project__id)
   - [Get /api/project/:id](#get__api_project__id)
   - [Get /api/project/isDownloadAllowed/:id](#get__api_project_isdownloadallowed__id)
   - [Options /api/project/:id](#options__api_project__id)
@@ -167,7 +170,7 @@ Retrieve the batch search list for the user issuing the request.
 Example :
 ```
 curl localhost:8080/api/batch/search 
-[{"uuid":"f74432db-9ae8-401d-977c-5c44a124f2c8","published":true,"projects":[{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare"}],"name":"test1","description":"desc 1","user":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"state":"SUCCESS","date":"2019-10-15T15:41:18.634+00:00","nbQueries":2,"nbResults":0,"errorMessage":null,"errorQuery":null},{"uuid":"b7bee2d8-5ede-4c56-8b69-987629742146","published":true,"projects":[{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare"}],"name":"search1","description":"desc 1","user":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"state":"SUCCESS","date":"2019-10-15T14:01:21.008+00:00","nbQueries":2,"nbResults":0,"errorMessage":null,"errorQuery":null}]
+[{"uuid":"f74432db-9ae8-401d-977c-5c44a124f2c8","published":true,"projects":[{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare","label":"apigen-datashare","description":null,"publisherName":null,"maintainerName":null,"logoUrl":null,"sourceUrl":null,"creationDate":"2023-06-29T15:59:08.511+00:00","updateDate":"2023-06-29T15:59:08.511+00:00"}],"name":"test1","description":"desc 1","user":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"state":"SUCCESS","date":"2019-10-15T15:41:18.634+00:00","nbQueries":2,"nbResults":0,"errorMessage":null,"errorQuery":null},{"uuid":"b7bee2d8-5ede-4c56-8b69-987629742146","published":true,"projects":[{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare","label":"apigen-datashare","description":null,"publisherName":null,"maintainerName":null,"logoUrl":null,"sourceUrl":null,"creationDate":"2023-06-29T15:59:08.512+00:00","updateDate":"2023-06-29T15:59:08.512+00:00"}],"name":"search1","description":"desc 1","user":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"state":"SUCCESS","date":"2019-10-15T14:01:21.008+00:00","nbQueries":2,"nbResults":0,"errorMessage":null,"errorQuery":null}]
 ```
 ## <a name="post__api_batch_search"></a> Post /api/batch/search
 Retrieve the batch search list for the user issuing the request filter with the given criteria, and the total
@@ -206,7 +209,7 @@ When "withQueries" is set to false, the list of queries is empty and nbQueries c
 Example :
 ```
 curl localhost:8080/api/batch/search/b7bee2d8-5ede-4c56-8b69-987629742146?withQueries=true
-{"uuid":"b7bee2d8-5ede-4c56-8b69-987629742146","published":true,"projects":[{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare"}],"name":"search1","description":"desc 1","user":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"state":"SUCCESS","date":"2019-10-15T14:01:21.008+00:00","nbQueries":2,"nbResults":0,"errorMessage":null,"errorQuery":null,"queries":{"Skype":0,"Trump":0},"fileTypes":[],"paths":[],"fuzziness":0,"phraseMatches":true}
+{"uuid":"b7bee2d8-5ede-4c56-8b69-987629742146","published":true,"projects":[{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare","label":"apigen-datashare","description":null,"publisherName":null,"maintainerName":null,"logoUrl":null,"sourceUrl":null,"creationDate":"2023-06-29T15:59:08.670+00:00","updateDate":"2023-06-29T15:59:08.670+00:00"}],"name":"search1","description":"desc 1","user":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"state":"SUCCESS","date":"2019-10-15T14:01:21.008+00:00","nbQueries":2,"nbResults":0,"errorMessage":null,"errorQuery":null,"queries":{"Skype":0,"Trump":0},"fileTypes":[],"paths":[],"fuzziness":0,"phraseMatches":true}
 ```
 ## <a name="get__api_batch_search__batchid_queries"></a> Get /api/batch/search/:batchid/queries
 Retrieve the batch search queries with the given batch id and returns a list of strings UTF-8 encoded
@@ -253,7 +256,7 @@ HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:21 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:15 GMT; max-age=2147483647
 
 ```
 
@@ -272,7 +275,7 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:21 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:15 GMT; max-age=2147483647
 
 ```
 
@@ -335,7 +338,7 @@ it returns 404 if the source BatchSearch object is not found in the repository.
 Example:
 ```
 curl localhost:8080/api/batch/search/copy/b7bee2d8-5ede-4c56-8b69-987629742146 -H 'Content-Type: application/json' -d "{\"name\": \"my new batch\", \"description\":\"desc\"}"
-9340c71e-e7b3-4908-b7eb-6bf4656ded4e
+7f761a89-79f2-4259-8e0a-11556bc2883e
 ```
 ## <a name="post__api_batch_search_result__batchid"></a> Post /api/batch/search/result/:batchid
 Retrieve the results of a batch search as JSON.
@@ -376,7 +379,7 @@ Content-Type: text/csv
 ETag: af6a4e9eda7d0238b038668b4c9bd004
 Content-Length: 1081
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:21 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:15 GMT; max-age=2147483647
 
 "query", "documentUrl", "documentId","rootId","contentType","contentLength","documentPath","creationDate","documentNumber"
 "Skype","localhost:8080/#/d/apigen-datashare/bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f/bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f","bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f","bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f","text/plain","854","doc1.txt","null","0"
@@ -420,7 +423,7 @@ Content-Type: text/plain
 ETag: 8f1cdb75be4a54bfc6bcfe8be5a2c6f4
 Content-Length: 854
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:16 GMT; max-age=2147483647
 
 This is an embedded doc test on behalf of our client 'Skype Ltd.'.
 
@@ -482,7 +485,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: f3e08ec610a65d7274b42ef66cfb631f
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:16 GMT; max-age=2147483647
 
 {"result":0}
 ```
@@ -505,7 +508,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: cb9cba297da561bff19badc2a44c6b93
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:16 GMT; max-age=2147483647
 
 {"result":1}
 ```
@@ -524,7 +527,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: d751713988987e9331980363e24189ce
 Content-Length: 2
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:16 GMT; max-age=2147483647
 
 []
 ```
@@ -546,7 +549,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: d751713988987e9331980363e24189ce
 Content-Length: 2
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:16 GMT; max-age=2147483647
 
 []
 ```
@@ -578,7 +581,7 @@ Gets all the tags from a document with the user and timestamp.
 Example :
 ```
 curl  http://localhost:8080/api/apigen-datashare/documents/tags/bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f
-[{"label":"tag1","creationDate":"2023-06-21T15:38:15.571+00:00","user":{"id":null,"name":null,"email":null,"provider":"local","details":{}}},{"label":"tag2","creationDate":"2023-06-21T15:38:15.571+00:00","user":{"id":null,"name":null,"email":null,"provider":"local","details":{}}}]
+[{"label":"tag1","creationDate":"2023-06-29T15:59:09.741+00:00","user":{"id":null,"name":null,"email":null,"provider":"local","details":{}}},{"label":"tag2","creationDate":"2023-06-29T15:59:09.741+00:00","user":{"id":null,"name":null,"email":null,"provider":"local","details":{}}}]
 ```
 ## <a name="post__api__project_documents_batchupdate_tag"></a> Post /api/:project/documents/batchUpdate/tag
 Group tag the documents. The document id list and the tag list are passed in the request body.
@@ -596,7 +599,7 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:16 GMT; max-age=2147483647
 
 ```
 ## <a name="post__api__project_documents_batchupdate_untag"></a> Post /api/:project/documents/batchUpdate/untag
@@ -617,7 +620,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: b71633c3c6c82e3d187d0ef9cde9ad65
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:22 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 {"error":""}
 ```
@@ -642,7 +645,7 @@ HTTP/1.1 201 Created
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 ```
 ## <a name="get__api_documents_starred"></a> Get /api/documents/starred
@@ -673,7 +676,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: 5b75634430b29618a96b03dc7f4b657e
 Content-Length: 123
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 {"aggregates":[{"item":{"id":"apigen","name":null,"email":null,"provider":"local","details":{}},"count":1}],"totalCount":1}
 ```
@@ -709,7 +712,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: 522f24330c4e01bd4bfa8f275726b982
 Content-Length: 100
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 ["bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f"]
 ```
@@ -730,7 +733,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: cb9cba297da561bff19badc2a44c6b93
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 {"result":1}
 ```
@@ -752,7 +755,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: cb9cba297da561bff19badc2a44c6b93
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 {"result":1}
 ```
@@ -795,7 +798,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: b71633c3c6c82e3d187d0ef9cde9ad65
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 {"error":""}
 ```
@@ -818,7 +821,7 @@ HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 ```
 # <a name="/api/index"></a>/api/index
@@ -834,7 +837,7 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 ```
 ## <a name="options__api_index__index"></a> Options /api/index/:index
@@ -921,7 +924,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: b71633c3c6c82e3d187d0ef9cde9ad65
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:17 GMT; max-age=2147483647
 
 {"error":""}
 ```
@@ -981,7 +984,7 @@ If the user doesn't have access to the project she gets a 403 Forbidden
 Example:
 ```
 curl localhost:8080/api/apigen-datashare/notes/path/to/note/for/doc.txt
-[{"project":{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare"},"path":"path/to/note","note":"this is a note","variant":"info"}]
+[{"project":{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare","label":"apigen-datashare","description":null,"publisherName":null,"maintainerName":null,"logoUrl":null,"sourceUrl":null,"creationDate":"2023-06-29T15:59:10.453+00:00","updateDate":"2023-06-29T15:59:10.453+00:00"},"path":"path/to/note","note":"this is a note","variant":"info"}]
 ```
 ## <a name="get__api__project_notes"></a> Get /api/:project/notes
 Gets the list of notes for a project.
@@ -995,7 +998,7 @@ If the user doesn't have access to the project she gets a 403 Forbidden
 Example:
 ```
 curl localhost:8080/api/apigen-datashare/notes
-[{"project":{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare"},"path":"path/to/note","note":"this is a note","variant":"info"}]
+[{"project":{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare","label":"apigen-datashare","description":null,"publisherName":null,"maintainerName":null,"logoUrl":null,"sourceUrl":null,"creationDate":"2023-06-29T15:59:10.505+00:00","updateDate":"2023-06-29T15:59:10.505+00:00"},"path":"path/to/note","note":"this is a note","variant":"info"}]
 ```
 # <a name="/api/plugins"></a>/api/plugins
 ## <a name="get__api_plugins"></a> Get /api/plugins
@@ -1009,7 +1012,7 @@ for pattern syntax.
 Example:
 ```
 curl localhost:8080/api/plugins?filter=.*paginator
-[{"deliverableFromRegistry":{"id":"datashare-plugin-text-paginator","name":"Text Paginator","version":"0.0.14","description":"A Datashare plugin to detect pages in text to display them nicely.","url":"https://github.com/ICIJ/datashare-plugin-text-paginator/releases/download/0.0.14/datashare-plugin-text-paginator-0.0.14.tgz","homepage":"https://github.com/ICIJ/datashare-plugin-text-paginator","type":"PLUGIN"},"installed":false,"version":"0.0.14","description":"A Datashare plugin to detect pages in text to display them nicely.","name":"Text Paginator","id":"datashare-plugin-text-paginator","type":"PLUGIN"}]
+[{"deliverableFromRegistry":{"id":"datashare-plugin-text-paginator","name":"Text Paginator","version":"0.0.14","description":"A Datashare plugin to detect pages in text to display them nicely.","url":"https://github.com/ICIJ/datashare-plugin-text-paginator/releases/download/0.0.14/datashare-plugin-text-paginator-0.0.14.tgz","homepage":"https://github.com/ICIJ/datashare-plugin-text-paginator","type":"PLUGIN"},"installed":false,"version":"0.0.14","name":"Text Paginator","id":"datashare-plugin-text-paginator","type":"PLUGIN","description":"A Datashare plugin to detect pages in text to display them nicely."}]
 ```
 ## <a name="options__api_plugins_install"></a> Options /api/plugins/install
 Preflight request
@@ -1034,7 +1037,7 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:18 GMT; max-age=2147483647
 
 ```
 ## <a name="options__api_plugins_uninstall"></a> Options /api/plugins/uninstall
@@ -1057,21 +1060,24 @@ HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:23 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:18 GMT; max-age=2147483647
 
 ```
 # <a name="/api/project"></a>/api/project
+## <a name="get__api_project_"></a> Get /api/project/
+## <a name="post__api_project_"></a> Post /api/project/
+## <a name="put__api_project__id"></a> Put /api/project/:id
 ## <a name="get__api_project__id"></a> Get /api/project/:id
 Gets the project information for the given project id.
 
 * **Parameter** id
-* **Return** 200 and the project from database if it exists else a transient one
-
+* **Return** 200 and the project from database if it exists
+<p>
 Example :
-
+<p>
 ```
 curl -H 'Content-Type:application/json' localhost:8080/api/project/apigen-datashare
-{"name":"apigen-datashare","sourcePath":"file:///vault/apigen-datashare"}
+{"error":"java.lang.NullPointerException"}
 ```
 )
 ## <a name="get__api_project_isdownloadallowed__id"></a> Get /api/project/isDownloadAllowed/:id
@@ -1095,21 +1101,19 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Length: 0
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:24 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:18 GMT; max-age=2147483647
 
 ```
 Example :
 ```
 curl -i -H 'Content-Type:application/json' localhost:8080/api/project/isDownloadAllowed/disallowed-project
-HTTP/1.1 403 Forbidden
-Access-Control-Allow-Origin: *
+HTTP/1.1 500 Internal Server Error
 Content-Type: application/json;charset=UTF-8
-ETag: b71633c3c6c82e3d187d0ef9cde9ad65
-Content-Length: 12
+ETag: cc58fbb068b1997f88ad7c84e81fc2c6
+Content-Length: 42
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:24 GMT; max-age=2147483647
 
-{"error":""}
+{"error":"java.lang.NullPointerException"}
 ```
 ## <a name="options__api_project__id"></a> Options /api/project/:id
 Preflight option request
@@ -1129,13 +1133,11 @@ then it will return 401 (unauthorized)
 Example :
 ```
 curl -I -XDELETE -H 'Content-Type:application/json' localhost:8080/api/project/unknown-project
-HTTP/1.1 401 Unauthorized
-Access-Control-Allow-Origin: *
+HTTP/1.1 500 Internal Server Error
 Content-Type: application/json;charset=UTF-8
-ETag: b71633c3c6c82e3d187d0ef9cde9ad65
-Content-Length: 12
+ETag: b1b6023e69d8821fc4e1e8418ab85f30
+Content-Length: 77
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:24 GMT; max-age=2147483647
 
 ```
 # <a name="/"></a>/
@@ -1160,12 +1162,12 @@ curl -i localhost:8080/settings
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json;charset=UTF-8
-ETag: b949dbc38558db908d6335537ea0caaf
-Content-Length: 840
+ETag: 34c22af863726762891381992c1fc171
+Content-Length: 894
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:24 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:21 GMT; max-age=2147483647
 
-{"parserParallelism":"1","cors":"*","dataDir":"/home/circleci/datashare/doc/apigen/docs","parallelism":"2","batchQueueType":"MEMORY","backHost":"http://localhost:","userAdmin":"icij","scrollSlices":"1","elasticsearchDataPath":"/home/datashare/es","protectedUriPrefix":"/api/","redisPoolSize":"1","mode":"LOCAL","previewHost":"http://localhost:5000","pathSeparator":"/","clusterName":"datashare","nlpParallelism":"1","busType":"MEMORY","defaultProject":"apigen-datashare","scrollSize":"1000","ocr":"true","defaultUserName":"apigen","batchDownloadMaxNbFiles":"10000","frontHost":"http://localhost:","tcpListenPort":"8080","sessionStoreType":"MEMORY","queueName":"extract:queue","batchDownloadTimeToLive":"24","pluginsDir":"/tmp/plugins","queueType":"MEMORY","browserOpenLink":"false","batchDownloadMaxSize":"100M","sessionTtlSeconds":"43200"}
+{"parserParallelism":"1","batchDownloadDir":"/home/circleci/datashare/app/tmp","cors":"*","dataDir":"/home/circleci/datashare/doc/apigen/docs","parallelism":"2","batchQueueType":"MEMORY","backHost":"http://localhost:","userAdmin":"icij","scrollSlices":"1","elasticsearchDataPath":"/home/datashare/es","protectedUriPrefix":"/api/","redisPoolSize":"1","mode":"LOCAL","previewHost":"http://localhost:5000","pathSeparator":"/","clusterName":"datashare","nlpParallelism":"1","busType":"MEMORY","defaultProject":"apigen-datashare","scrollSize":"1000","ocr":"true","defaultUserName":"apigen","batchDownloadMaxNbFiles":"10000","frontHost":"http://localhost:","tcpListenPort":"8080","sessionStoreType":"MEMORY","queueName":"extract:queue","batchDownloadTimeToLive":"24","pluginsDir":"/tmp/plugins","queueType":"MEMORY","browserOpenLink":"false","batchDownloadMaxSize":"100M","sessionTtlSeconds":"43200"}
 ```
 ## <a name="get__version"></a> Get /version
 Gets the versions (front/back/docker) of datashare.
@@ -1178,12 +1180,12 @@ curl -i localhost:8080/version
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json;charset=UTF-8
-ETag: 523c6df0377d85e430c7c8984ef8f054
-Content-Length: 753
+ETag: 91f86104658fd96159c35ef8d3786626
+Content-Length: 799
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:24 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:21 GMT; max-age=2147483647
 
-{"git.tags":"11.2.3-alpha1","git.build.version":"11.2.3-alpha1","git.closest.tag.commit.count":"","git.commit.user.name":"Pierre Romera","git.commit.id.abbrev":"ef72ac3","git.branch":"master","git.build.host":"3f679f768fac","git.commit.id.describe-short":"ef72ac3","git.commit.id.describe":"ef72ac3","git.build.user.email":"","git.commit.id":"ef72ac3e4d2bf35e5351264977220df20ef7551a","git.commit.message.short":"[release] 11.2.3-alpha1","git.commit.user.email":"hello@pirhoo.com","git.closest.tag.name":"","git.build.time":"2023-06-20T14:37:34+0000","git.commit.time":"2023-06-20T14:35:00+0000","git.build.user.name":"","git.dirty":"false","git.commit.message.full":"[release] 11.2.3-alpha1","git.remote.origin.url":"git@github.com:ICIJ/datashare.git"}
+{"git.tags":"","git.build.version":"11.2.3-alpha1","git.closest.tag.commit.count":"","git.commit.user.name":"Pierre Romera","git.commit.id.abbrev":"b6c2fc6","git.branch":"feat/project-metadata","git.build.host":"b24a0023ce5d","git.commit.id.describe-short":"b6c2fc6","git.commit.id.describe":"b6c2fc6","git.build.user.email":"","git.commit.id":"b6c2fc6a2b009ac7757f1667f810d6ffaa41cc4f","git.commit.message.short":"feat: add \"description\" property to project","git.commit.user.email":"hello@pirhoo.com","git.closest.tag.name":"","git.build.time":"2023-06-29T15:45:53+0000","git.commit.time":"2023-06-29T15:43:20+0000","git.build.user.name":"","git.dirty":"false","git.commit.message.full":"feat: add \"description\" property to project","git.remote.origin.url":"git@github.com:ICIJ/datashare.git"}
 ```
 # <a name="/api/settings"></a>/api/settings
 ## <a name="options__api_settings"></a> Options /api/settings
@@ -1218,7 +1220,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: b71633c3c6c82e3d187d0ef9cde9ad65
 Content-Length: 12
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:24 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:21 GMT; max-age=2147483647
 
 {"error":""}
 ```
@@ -1249,11 +1251,11 @@ curl localhost:8080/api/status
 curl localhost:8080/api/status?format=openmetrics
 # HELP datashare The datashare resources status
 # TYPE datashare gauge
-datashare{status="OK",resource="database"} 1 1687361897165
-datashare{status="OK",resource="index"} 1 1687361897165
-datashare{status="OK",resource="databus"} 1 1687361897165
-datashare{status="OK",resource="document_queue_status"} 1 1687361897165
-datashare{resource="document_queue_size"} 0 1687361897165
+datashare{status="OK",resource="database"} 1 1688054354189
+datashare{status="OK",resource="index"} 1 1688054354189
+datashare{status="OK",resource="databus"} 1 1688054354190
+datashare{status="OK",resource="document_queue_status"} 1 1688054354190
+datashare{resource="document_queue_size"} 0 1688054354190
 ```
 # <a name="/api/task"></a>/api/task
 ## <a name="get__api_task_all"></a> Get /api/task/all
@@ -1309,7 +1311,7 @@ if the query is a string it is taken as an ES query string, else it is a raw JSO
 Example :
 ```
 curl -XPOST -H 'Content-Type: application/json' localhost:8080/api/task/batchDownload -d '{"options": {"projectIds": ["genapi-datashare"], "query": "*", "uri": "/?q=&from=0&size=25&indices=genapi-datashare" }}'
-{"name":"org.icij.datashare.tasks.BatchDownloadRunner@63b6a2c6-9e06-4aa3-ad14-54f412e66204","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"properties":{"batchDownload":{"uuid":"63b6a2c6-9e06-4aa3-ad14-54f412e66204","projects":[{"name":"genapi-datashare","sourcePath":"file:///vault/genapi-datashare"}],"filename":"file:///home/circleci/datashare/app/tmp/archive_apigen_2023-06-21T15_38_17.239Z%5BGMT%5D.zip","query":"*","uri":"/?q=&from=0&size=25&indices=genapi-datashare","user":{"id":"apigen","name":null,"email":null,"provider":"local"},"encrypted":false,"zipSize":0,"exists":false}}}
+{"name":"org.icij.datashare.tasks.BatchDownloadRunner@6bfd99dc-cbcc-4ef1-91cf-fa101ec5a6c0","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"properties":{"batchDownload":{"uuid":"6bfd99dc-cbcc-4ef1-91cf-fa101ec5a6c0","projects":[{"name":"genapi-datashare","sourcePath":"file:///vault/genapi-datashare","label":"genapi-datashare","description":null,"publisherName":null,"maintainerName":null,"logoUrl":null,"sourceUrl":null,"creationDate":"2023-06-29T15:59:14.241+00:00","updateDate":"2023-06-29T15:59:14.241+00:00"}],"filename":"file:///home/circleci/datashare/app/tmp/archive_apigen_2023-06-29T15_59_14.241Z%5BGMT%5D.zip","query":"*","uri":"/?q=&from=0&size=25&indices=genapi-datashare","user":{"id":"apigen","name":null,"email":null,"provider":"local"},"encrypted":false,"zipSize":0,"exists":false}}}
 ```
 ## <a name="post__api_task_batchupdate_index"></a> Post /api/task/batchUpdate/index
 index files from the queue
@@ -1320,7 +1322,7 @@ index files from the queue
 Example :
 ```
 curl -XPOST localhost:8080/api/task/batchUpdate/index -d '{}'
-{"name":"org.icij.datashare.tasks.IndexTask@3fe20064","state":"RUNNING","progress":"NaN","user":{"id":"apigen","name":null,"email":null,"provider":"local"}}
+{"name":"org.icij.datashare.tasks.IndexTask@7eb25d8b","state":"RUNNING","progress":"NaN","user":{"id":"apigen","name":null,"email":null,"provider":"local"}}
 ```
 ## <a name="post__api_task_batchupdate_index_file"></a> Post /api/task/batchUpdate/index/file
 Indexes files in a directory (with docker, it is the mounted directory that is scanned)
@@ -1331,7 +1333,7 @@ Indexes files in a directory (with docker, it is the mounted directory that is s
 Example :
 ```
 curl -XPOST localhost:8080/api/task/batchUpdate/index/file -d '{}'
-[{"name":"org.icij.datashare.tasks.ScanTask@29fc70c7","state":"DONE","progress":1.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"result":2},{"name":"org.icij.datashare.tasks.IndexTask@56d0a160","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"}}]
+[{"name":"org.icij.datashare.tasks.ScanTask@7200c124","state":"DONE","progress":1.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"result":2},{"name":"org.icij.datashare.tasks.IndexTask@523ceaf9","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"}}]
 ```
 ## <a name="post__api_task_batchupdate_index__filepath_"></a> Post /api/task/batchUpdate/index/:filePath:
 Indexes all files of a directory with the given path.
@@ -1355,7 +1357,7 @@ mkdir -p /tmp/apigen
 ```
 ```
 curl -XPOST localhost:8080/api/task/batchUpdate/index/tmp/apigen -d '{}'
-[{"name":"org.icij.datashare.tasks.ScanTask@265b8099","state":"DONE","progress":1.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"result":0},{"name":"org.icij.datashare.tasks.IndexTask@4cf64f2b","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"}}]
+[{"name":"org.icij.datashare.tasks.ScanTask@23a15b70","state":"DONE","progress":1.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"result":0},{"name":"org.icij.datashare.tasks.IndexTask@60c7506","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"}}]
 ```
 ## <a name="post__api_task_clean"></a> Post /api/task/clean
 Cleans all DONE tasks.
@@ -1443,7 +1445,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: 94bb68ed0007ef584b80333e5a38916d
 Content-Length: 76
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:27 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:24 GMT; max-age=2147483647
 
 {"uid":"apigen","groups_by_applications":{"datashare":["apigen-datashare"]}}
 ```
@@ -1471,7 +1473,7 @@ Content-Type: application/json;charset=UTF-8
 ETag: 9a3f093e2dc5d929bb25879501d527c7
 Content-Length: 22
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:27 GMT; max-age=2147483647
+Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Tue, 17-Jul-2091 19:13:24 GMT; max-age=2147483647
 
 {"items":[],"total":0}
 ```
@@ -1487,12 +1489,13 @@ It answers 200 when event is added or updated.
 Example :
 ```
 curl -i -XPUT  -H "Content-Type: application/json"  localhost:8080/api/users/me/history -d '{"type": "SEARCH", "projectIds": ["apigen-datashare","local-datashare"], "name": "foo AND bar", "uri": "?q=foo%20AND%20bar&from=0&size=100&sort=relevance&index=luxleaks&field=all&stamp=cotgpe"}'
-HTTP/1.1 200 OK
-Access-Control-Allow-Origin: *
-Content-Length: 0
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json;charset=UTF-8
+ETag: b1b6023e69d8821fc4e1e8418ab85f30
+Content-Length: 77
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:27 GMT; max-age=2147483647
 
+{"error":"org.jooq.exception.DataAccessException: Cannot commit transaction"}
 ```
 ## <a name="delete__api_users_me_history?type=_type"></a> Delete /api/users/me/history?type=:type
 Delete user history by type.
@@ -1505,12 +1508,13 @@ Returns 204 (No Content) : idempotent
 Example :
 ```
 curl -i -XDELETE localhost:8080/api/users/me/history?type=search
-HTTP/1.1 204 No Content
-Access-Control-Allow-Origin: *
-Content-Length: 0
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json;charset=UTF-8
+ETag: b1b6023e69d8821fc4e1e8418ab85f30
+Content-Length: 77
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:27 GMT; max-age=2147483647
 
+{"error":"org.jooq.exception.DataAccessException: Cannot commit transaction"}
 ```
 
 ## <a name="options__api_users_me_history_event"></a> Options /api/users/me/history/event
@@ -1528,11 +1532,12 @@ Returns 204 (No Content) : idempotent
 Example :
 ```
 curl -i -XDELETE localhost:8080/api/users/me/history/event?id=1
-HTTP/1.1 204 No Content
-Access-Control-Allow-Origin: *
-Content-Length: 0
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json;charset=UTF-8
+ETag: b1b6023e69d8821fc4e1e8418ab85f30
+Content-Length: 77
 Connection: keep-alive
-Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirectAfterLogin":"/"}; version=1; path=/; expires=Mon, 09-Jul-2091 18:52:27 GMT; max-age=2147483647
 
+{"error":"org.jooq.exception.DataAccessException: Cannot commit transaction"}
 ```
 

@@ -235,6 +235,7 @@ Column | Type | Nullable | Default
 `logo_url` | `character varying(2048)` |  | `''::character varying`
 `creation_date` | `timestamp without time zone` |  | `now()`
 `update_date` | `timestamp without time zone` |  | `now()`
+`description` | `character varying(4096)` |  | `''::character varying`
 
 ### Constraints and indexes
 
