@@ -43,11 +43,13 @@ All pages components.
 * [DocumentModal](pages/DocumentModal.md) 
 * [DocumentStandalone](pages/DocumentStandalone.md) 
 * [DocumentView](pages/DocumentView.md) 
-* [Error](pages/Error.md) 
+* [Error](pages/Error.md) <br />— _This page display error._
 * [Indexing](pages/Indexing.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
 * [Insights](pages/Insights.md) 
 * [Landing](pages/Landing.md) 
 * [Login](pages/Login.md) 
+* [NewProject](pages/NewProject.md) <br />— _This page display a form to create a new project._
+* [Project](pages/Project.md) 
 * [Search](pages/Search.md) 
 * [Settings](pages/Settings.md) 
 * [Tasks](pages/Tasks.md) 
@@ -109,6 +111,7 @@ All pages components.
 * [Pagination](components/Pagination.md) <br />— _Pagination links (previous, next, first and last) for the global search._
 * [Plugins](components/Plugins.md) <br />— _A list of available plugins._
 * [ProjectCards](components/ProjectCards.md) <br />— _List all the projects with cards linking to the search._
+* [ProjectForm](components/ProjectForm.md) <br />— _Build project form (to create or edit a project)._
 * [ProjectSelector](components/ProjectSelector.md) <br />— _A single-project selector input._
 * [QuickItemNav](components/QuickItemNav.md) <br />— _A simple component to display a next/previous pair of buttons to navigate_
 * [ResetFiltersButton](components/ResetFiltersButton.md) <br />— _Button to reset all search filters._

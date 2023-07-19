@@ -178,6 +178,7 @@
       * [Pagination](developers/client/vue/components/Pagination.md)
       * [Plugins](developers/client/vue/components/Plugins.md)
       * [ProjectCards](developers/client/vue/components/ProjectCards.md)
+      * [ProjectForm](developers/client/vue/components/ProjectForm.md)
       * [ProjectSelector](developers/client/vue/components/ProjectSelector.md)
       * [QuickItemNav](developers/client/vue/components/QuickItemNav.md)
       * [ResetFiltersButton](developers/client/vue/components/ResetFiltersButton.md)
@@ -228,6 +229,8 @@
       * [Insights](developers/client/vue/pages/Insights.md)
       * [Landing](developers/client/vue/pages/Landing.md)
       * [Login](developers/client/vue/pages/Login.md)
+      * [NewProject](developers/client/vue/pages/NewProject.md)
+      * [Project](developers/client/vue/pages/Project.md)
       * [Search](developers/client/vue/pages/Search.md)
       * [Settings](developers/client/vue/pages/Settings.md)
       * [Tasks](developers/client/vue/pages/Tasks.md)
@@ -238,6 +241,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 
