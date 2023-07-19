@@ -180,6 +180,7 @@
       * [ProjectCards](developers/client/vue/components/ProjectCards.md)
       * [ProjectForm](developers/client/vue/components/ProjectForm.md)
       * [ProjectSelector](developers/client/vue/components/ProjectSelector.md)
+      * [ProjectThumbnail](developers/client/vue/components/ProjectThumbnail.md)
       * [QuickItemNav](developers/client/vue/components/QuickItemNav.md)
       * [ResetFiltersButton](developers/client/vue/components/ResetFiltersButton.md)
       * [RouterLinkPopup](developers/client/vue/components/RouterLinkPopup.md)
@@ -241,6 +242,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 
