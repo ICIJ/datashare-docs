@@ -1210,3 +1210,13 @@ List all projects this user has access to.
 
 *****
 
+<a id="projectids"></a>
+
+## projectIds ⇒ Array:String
+
+List all projects this user has access to.
+
+**Kind**: global variable  
+
+*****
+
