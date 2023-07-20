@@ -15,6 +15,8 @@ These widgets are used on the insights page.
 * [WidgetEntities](components/widget/WidgetEntities.md) <br />— _Widget to display a summary of entities_
 * [WidgetFileBarometer](components/widget/WidgetFileBarometer.md) <br />— _Widget to display the number of indexed files on the insights page._
 * [WidgetListGroup](components/widget/WidgetListGroup.md) <br />— _Widget to display a list of items or links on the insights page._
+* [WidgetNames](components/widget/WidgetNames.md) <br />— _Widget to display a summary of names_
+* [WidgetSearchBar](components/widget/WidgetSearchBar.md) <br />— _Widget to display a search bar_
 * [WidgetText](components/widget/WidgetText.md) <br />— _Widget to display text on the insights page._
 * [WidgetTreeMap](components/widget/WidgetTreeMap.md) <br />— _Widget to display a tree map on the insights page._
 

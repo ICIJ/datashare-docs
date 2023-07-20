@@ -215,6 +215,8 @@
         * [WidgetEntities](developers/client/vue/components/widget/WidgetEntities.md)
         * [WidgetFileBarometer](developers/client/vue/components/widget/WidgetFileBarometer.md)
         * [WidgetListGroup](developers/client/vue/components/widget/WidgetListGroup.md)
+        * [WidgetNames](developers/client/vue/components/widget/WidgetNames.md)
+        * [WidgetSearchBar](developers/client/vue/components/widget/WidgetSearchBar.md)
         * [WidgetText](developers/client/vue/components/widget/WidgetText.md)
         * [WidgetTreeMap](developers/client/vue/components/widget/WidgetTreeMap.md)
     * [Pages](developers/client/vue/pages/README.md)
@@ -242,6 +244,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 

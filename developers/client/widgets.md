@@ -143,6 +143,51 @@ Create a new WidgetListGroup
 
 *****
 
+<a id="widgetnames"></a>
+
+## WidgetNames
+
+Widget to display names
+
+**Kind**: global class  
+
+*****
+
+<a id="widgetsearchbar"></a>
+
+## WidgetSearchBar
+
+Widget to to display a search bar
+
+**Kind**: global class  
+
+*****
+
+<a id="new-widgetsearchbar-new"></a>
+
+### new WidgetSearchBar(index, options)
+
+Create a new WidgetSearchBar
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>index</td><td>string</td><td><p>The Elasticsearch project of the Widget</p>
+</td>
+    </tr><tr>
+    <td>options</td><td>Object</td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
 <a id="widgettext"></a>
 
 ## WidgetText
