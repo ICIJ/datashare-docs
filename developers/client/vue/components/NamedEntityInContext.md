@@ -10,4 +10,3 @@
 | namedEntity   | Named entity to highlight in the text | object | -      |         |
 | extractLength | Size of the text extract              | number | -      | 560     |
 
----

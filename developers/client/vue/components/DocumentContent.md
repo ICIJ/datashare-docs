@@ -11,4 +11,3 @@
 | q              | Local search query inside the extracted text. | string | -      | ''      |
 | pageSize       | Page size when loading the document in slices | number | -      | 2500    |
 
----

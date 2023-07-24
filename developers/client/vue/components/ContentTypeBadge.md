@@ -9,4 +9,3 @@
 | value        | Content type to display                                                           | string | -      |         |
 | documentName | Document name to extract the extension in case the content type is not reconized. | string | -      | null    |
 
----

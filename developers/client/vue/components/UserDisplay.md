@@ -17,4 +17,3 @@
 | username            | Username to display                       | string         | -      |                         |
 | usernamePipeline    | Pipeline name to transform the username   | string         | -      | 'user-display-username' |
 
----

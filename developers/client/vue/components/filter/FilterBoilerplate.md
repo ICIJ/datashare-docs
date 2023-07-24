@@ -1,8 +1,6 @@
 # FilterBoilerplate
 
-> A base component to wrap other filter components. Not intended to be used directly.
-> This was created to implement an "extendable" component with template slots because Vue.js doesn't allow to extend
-> a component while redefining only "slots" in its templates.
+> A base component to wrap other filter components. Not intended to be used directly. This was created to implement an "extendable" component with template slots because Vue.js doesn't allow to extend a component while redefining only "slots" in its templates.
 
 ## Props
 
@@ -25,24 +23,23 @@
 
 ## Events
 
-| Event name          | Properties                                     | Description                                                  |
-| ------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
-| update:modelQuery   |                                                |
-| async-search        | **&lt;anonymous1&gt;** `undefined` - undefined | Triggered when user starts to search in the filter values.   |
-| aggregate           |                                                | Triggered when a filter received instruction to be load data |
-| reset-filter-values | **&lt;anonymous1&gt;** `undefined` - undefined |
-| add-filter-values   | **&lt;anonymous1&gt;** `undefined` - undefined |
+| Event name          | Properties                                | Description                                                  |
+| ------------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| update:modelQuery   |                                           |                                                              |
+| async-search        | **\<anonymous1>** `undefined` - undefined | Triggered when user starts to search in the filter values.   |
+| aggregate           |                                           | Triggered when a filter received instruction to be load data |
+| reset-filter-values | **\<anonymous1>** `undefined` - undefined |                                                              |
+| add-filter-values   | **\<anonymous1>** `undefined` - undefined |                                                              |
 
 ## Slots
 
-| Name        | Description | Bindings                       |
-| ----------- | ----------- | ------------------------------ |
-| header      |             |                                |
-| title       |             |                                |
-| search      |             |                                |
-| items       |             | <br/><br/><br/><br/><br/><br/> |
-| all         |             |                                |
-| items-group |             | <br/><br/>                     |
-| item        |             | <br/><br/><br/>                |
+| Name        | Description | Bindings                        |
+| ----------- | ----------- | ------------------------------- |
+| header      |             |                                 |
+| title       |             |                                 |
+| search      |             |                                 |
+| items       |             | <p><br><br><br><br><br><br></p> |
+| all         |             |                                 |
+| items-group |             | <p><br><br></p>                 |
+| item        |             | <p><br><br><br></p>             |
 
----

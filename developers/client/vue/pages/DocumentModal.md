@@ -9,4 +9,3 @@
 | index     |                                               | string | -      |         |
 | q         | Local search query inside the extracted text. | string | -      | ''      |
 
----

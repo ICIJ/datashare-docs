@@ -6,6 +6,5 @@
 
 | Event name        | Properties | Description |
 | ----------------- | ---------- | ----------- |
-| add-filter-values |            |
+| add-filter-values |            |             |
 
----

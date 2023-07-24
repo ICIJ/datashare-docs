@@ -12,6 +12,5 @@
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
-| input      |            |
+| input      |            |             |
 
----

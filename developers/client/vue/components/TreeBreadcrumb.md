@@ -6,7 +6,7 @@
 
 | Prop name      | Description                                                                           | Type                  | Values | Default  |
 | -------------- | ------------------------------------------------------------------------------------- | --------------------- | ------ | -------- |
-| v-model        | Path to use in the breadcrumb.<br/>`@model` true                                      | string                | -      |          |
+| v-model        | <p>Path to use in the breadcrumb.<br><code>@model</code> true</p>                     | string                | -      |          |
 | maxDirectories | Maximum number of directories to display (truncate from the beginning using ellipsis) | number                | -      | 5        |
 | noDatadir      | Hide Datashare's root data directory from the breadcrumb.                             | boolean               | -      |          |
 | datadirIcon    | Data directory icon                                                                   | string\|object\|array | -      | 'folder' |
@@ -16,6 +16,5 @@
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
-| input      |            |
+| input      |            |             |
 
----

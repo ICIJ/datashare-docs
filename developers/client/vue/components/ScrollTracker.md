@@ -8,4 +8,3 @@
 | --------- | ----------------------------------------- | ------ | ------ | ------- |
 | timeout   | Hide the scroll tracker after this delay. | number | -      | 3000    |
 
----

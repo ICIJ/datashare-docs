@@ -2,4 +2,3 @@
 
 > A list of available extensions.
 
----

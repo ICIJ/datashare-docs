@@ -12,4 +12,3 @@
 | textTruncateRtlAttachments | Direction for text truncate.                                    | boolean         | -      |         |
 | showSubject                | Add the document subject (if present)                           | boolean         | -      |         |
 
----

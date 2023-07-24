@@ -88,6 +88,7 @@
 * [How to contribute](developers/how-to-contribute.md)
 * [Backend](developers/backend/README.md)
   * [API](developers/backend/api.md)
+  * [API (deprecated)](developers/backend/api-deprecated.md)
   * [Database](developers/backend/database.md)
 * [Frontend](developers/frontend/README.md)
   * [JSDoc](developers/client/api.md)
@@ -244,19 +245,3 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

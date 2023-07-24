@@ -1,3 +1,2 @@
-# BatchSearches
+# BatchSearch
 
----

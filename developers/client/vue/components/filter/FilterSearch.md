@@ -9,4 +9,3 @@
 | modelQuery |             | string | -      | ''      |
 | filter     |             | object | -      |         |
 
----

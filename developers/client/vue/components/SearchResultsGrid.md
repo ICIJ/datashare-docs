@@ -2,4 +2,3 @@
 
 > Display search results as grid.
 
----

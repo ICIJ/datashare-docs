@@ -10,8 +10,7 @@
 
 ## Slots
 
-| Name     | Description | Bindings |
-| -------- | ----------- | -------- |
-| selector |             | <br/>    |
+| Name     | Description | Bindings    |
+| -------- | ----------- | ----------- |
+| selector |             | <p><br></p> |
 
----

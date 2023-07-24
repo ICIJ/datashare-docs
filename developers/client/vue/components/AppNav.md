@@ -2,4 +2,3 @@
 
 > The global app navigation bar.
 
----

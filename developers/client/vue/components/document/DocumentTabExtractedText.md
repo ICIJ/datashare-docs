@@ -9,4 +9,3 @@
 | document  | The selected document                         | object | -      |         |
 | q         | Local search query inside the extracted text. | string | -      | ''      |
 
----
