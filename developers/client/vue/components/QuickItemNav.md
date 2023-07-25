@@ -15,10 +15,10 @@
 
 ## Events
 
-| Event name | Properties | Description                                         |
-| ---------- | ---------- | --------------------------------------------------- |
-| previous   |            | Triggered when user click on the `previous` button. |
-| next       |            | Triggered when user click on the `next` button.     |
-| input      |            | Triggered when the value of `index` changes.        |
+| Event name | Properties | Description |
+| ---------- | ---------- | ----------- |
+| change     |            |
+| previous   |            |
+| next       |            |
 
 ---

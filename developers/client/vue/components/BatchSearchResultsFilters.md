@@ -8,5 +8,12 @@
 | --------- | --------------------------- | ------------- | ------ | ------- |
 | queryKeys | The batch search query keys | array         | -      | []      |
 | indices   | The batch search indices    | string\|array | -      |         |
+| v-model   |                             | array         | -      | []      |
+
+## Events
+
+| Event name              | Properties | Description |
+| ----------------------- | ---------- | ----------- |
+| update:selected-queries |            |
 
 ---

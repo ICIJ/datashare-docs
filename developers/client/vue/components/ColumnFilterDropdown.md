@@ -2,14 +2,16 @@
 
 ## Props
 
-| Prop name | Description | Type          | Values | Default |
-| --------- | ----------- | ------------- | ------ | ------- |
-| id        |             | string        | -      |         |
-| eq        |             | func          | -      | eq      |
-| name      |             | string        | -      |         |
-| v-model   |             | array\|object | -      | null    |
-| items     |             | array         | -      | []      |
-| multiple  |             | boolean       | -      |         |
+| Prop name    | Description | Type          | Values | Default |
+| ------------ | ----------- | ------------- | ------ | ------- |
+| id           |             | string        | -      |         |
+| eq           |             | func          | -      | eq      |
+| name         |             | string        | -      |         |
+| v-model      |             | array\|object | -      | null    |
+| items        |             | array         | -      | []      |
+| multiple     |             | boolean       | -      |         |
+| counter      |             | number        | -      | null    |
+| popoverWhite |             | boolean       | -      | true    |
 
 ## Events
 
@@ -19,8 +21,9 @@
 
 ## Slots
 
-| Name  | Description | Bindings |
-| ----- | ----------- | -------- |
-| label |             |          |
+| Name     | Description | Bindings |
+| -------- | ----------- | -------- |
+| dropdown |             |          |
+| label    |             |          |
 
 ---

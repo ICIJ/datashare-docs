@@ -108,7 +108,9 @@
       * [BatchSearchFilterDate](developers/client/vue/components/BatchSearchFilterDate.md)
       * [BatchSearchFilterQuery](developers/client/vue/components/BatchSearchFilterQuery.md)
       * [BatchSearchForm](developers/client/vue/components/BatchSearchForm.md)
+      * [BatchSearchResultsDetails](developers/client/vue/components/BatchSearchResultsDetails.md)
       * [BatchSearchResultsFilters](developers/client/vue/components/BatchSearchResultsFilters.md)
+      * [BatchSearchResultsTable](developers/client/vue/components/BatchSearchResultsTable.md)
       * [BatchSearchStatus](developers/client/vue/components/BatchSearchStatus.md)
       * [BatchSearchTable](developers/client/vue/components/BatchSearchTable.md)
       * [ColumnFilter](developers/client/vue/components/ColumnFilter.md)
@@ -138,6 +140,7 @@
       * [DocumentContentSlicePlaceholder](developers/client/vue/components/DocumentContentSlicePlaceholder.md)
       * [DocumentContentSlices](developers/client/vue/components/DocumentContentSlices.md)
       * [DocumentGlobalSearchTermsTags](developers/client/vue/components/DocumentGlobalSearchTermsTags.md)
+      * [DocumentInModal](developers/client/vue/components/DocumentInModal.md)
       * [DocumentLocalSearchInput](developers/client/vue/components/DocumentLocalSearchInput.md)
       * [DocumentSlicedName](developers/client/vue/components/DocumentSlicedName.md)
       * [DocumentTagsForm](developers/client/vue/components/DocumentTagsForm.md)
@@ -245,4 +248,5 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 

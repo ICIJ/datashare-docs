@@ -73,7 +73,9 @@ All pages components.
 * [BatchSearchFilterDate](components/BatchSearchFilterDate.md) 
 * [BatchSearchFilterQuery](components/BatchSearchFilterQuery.md) 
 * [BatchSearchForm](components/BatchSearchForm.md) <br />— _A form to create a new batch search._
+* [BatchSearchResultsDetails](components/BatchSearchResultsDetails.md) <br />— _This page will list all the results of a batch search._
 * [BatchSearchResultsFilters](components/BatchSearchResultsFilters.md) <br />— _Form to filter a batch search results by query_
+* [BatchSearchResultsTable](components/BatchSearchResultsTable.md) <br />— _This page will list all the results of a batch search._
 * [BatchSearchStatus](components/BatchSearchStatus.md) <br />— _A badge to display batch search status._
 * [BatchSearchTable](components/BatchSearchTable.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
 * [ColumnFilter](components/ColumnFilter.md) 
@@ -87,6 +89,7 @@ All pages components.
 * [DocumentContentSlicePlaceholder](components/DocumentContentSlicePlaceholder.md) 
 * [DocumentContentSlices](components/DocumentContentSlices.md) 
 * [DocumentGlobalSearchTermsTags](components/DocumentGlobalSearchTermsTags.md) <br />— _A list of search terms tags._
+* [DocumentInModal](components/DocumentInModal.md) 
 * [DocumentLocalSearchInput](components/DocumentLocalSearchInput.md) <br />— _A form to search for terms inside the current document._
 * [DocumentSlicedName](components/DocumentSlicedName.md) <br />— _Display a document name in a sliced manner (to include parents)._
 * [DocumentTagsForm](components/DocumentTagsForm.md) <br />— _A small form to add tags to one or several documents._
