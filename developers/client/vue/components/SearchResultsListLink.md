@@ -1,4 +1,4 @@
-# SearchResultsListLink
+# SearchResultsLink
 
 > A result link for the search results list.
 
@@ -8,3 +8,4 @@
 | --------- | ------------------------ | ------ | ------ | ------- |
 | document  | The document to link to. | object | -      |         |
 
+---

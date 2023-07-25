@@ -9,3 +9,4 @@
 | disabled  | Disable the preview   | boolean | -      |         |
 | document  | The selected document | object  | -      |         |
 
+---

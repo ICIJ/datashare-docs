@@ -15,3 +15,4 @@
 | noLastPageLink  | Hide the link to the last page.                                | boolean | -               |         |
 | position        | Position of the paginator to choose tooltip's placement        | string  | `top`, `bottom` | 'top'   |
 
+---

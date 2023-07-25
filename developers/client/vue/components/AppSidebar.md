@@ -2,3 +2,4 @@
 
 > The global app sidebar.
 
+---

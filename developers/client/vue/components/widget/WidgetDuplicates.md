@@ -1,4 +1,4 @@
-# WidgetDuplicates
+# WidgetDuplicate
 
 > A widget for the insights page indicating the proportion of duplicates in the data.
 
@@ -8,3 +8,4 @@
 | --------- | ----------------------------- | ------ | ------ | ------- |
 | widget    | The widget definition object. | object | -      |         |
 
+---

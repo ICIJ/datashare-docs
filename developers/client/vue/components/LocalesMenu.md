@@ -11,7 +11,8 @@
 
 ## Slots
 
-| Name    | Description | Bindings    |
-| ------- | ----------- | ----------- |
-| default |             | <p><br></p> |
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| default |             | <br/>    |
 
+---

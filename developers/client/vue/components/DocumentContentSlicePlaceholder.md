@@ -12,3 +12,4 @@
 | ---------- | ---------- | ------------------------------------ |
 | visible    |            | The placeholder enters the viewport. |
 
+---

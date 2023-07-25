@@ -10,3 +10,4 @@
 | readOnly        | Should allow to delete the filter or not | boolean | -      |         |
 | hideFilterLabel | Hide the label of the filter             | boolean | -      |         |
 
+---

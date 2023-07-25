@@ -9,3 +9,4 @@
 | document       | The selected document        | object | -      |         |
 | parentDocument | The parent document (if any) | object | -      |         |
 
+---

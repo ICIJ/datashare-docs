@@ -8,3 +8,4 @@
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ---- | ------ | ------- |
 | finally   | Callback function to call when the form have been submitted (this should be replaced by an event in future versions). | func | -      | noop    |
 
+---

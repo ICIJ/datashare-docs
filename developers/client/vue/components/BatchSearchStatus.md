@@ -9,3 +9,4 @@
 | batchSearch | The batch search meta data | object  | -      |         |
 | noLabel     | Hide the label             | boolean | -      |         |
 
+---

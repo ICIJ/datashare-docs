@@ -13,5 +13,6 @@
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
-| select     |            |             |
+| select     |            |
 
+---

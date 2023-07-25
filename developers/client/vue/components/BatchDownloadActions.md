@@ -17,3 +17,4 @@
 | deleted        |            | The batch download was deleted successfully    |
 | deleteFailed   |            | The batch download couldn't be deleted         |
 
+---

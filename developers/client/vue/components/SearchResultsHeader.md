@@ -12,3 +12,4 @@
 | noFilters  | Hide the active search filters.         | boolean | -               |         |
 | noLabels   | Hide labels when size is too narrow     | boolean | -               | false   |
 
+---

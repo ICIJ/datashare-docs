@@ -10,3 +10,4 @@
 | noIcon           | Hide the version icon (a lighting bolt)     | boolean | -                                                                                                                                                |            |
 | label            | Version prefix label                        | string  | -                                                                                                                                                | 'Version'  |
 
+---

@@ -1,4 +1,4 @@
-# BatchSearchCopyForm
+# BatchSearchAction
 
 > A form to copy batch search
 
@@ -8,3 +8,4 @@
 | ----------- | -------------------------- | ------ | ------ | ------- |
 | batchSearch | The batch search meta data | object | -      | {}      |
 
+---

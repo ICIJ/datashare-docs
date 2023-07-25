@@ -9,3 +9,4 @@
 | email     | Email to display.                                          | string | -      |         |
 | tag       | Specify the HTML tag to render instead of the default tag. | string | -      | 'span'  |
 
+---

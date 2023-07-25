@@ -21,3 +21,4 @@
 | popupBtnLabel          | Show label for the popup button                                | boolean | -                                                                                                                                                |                   |
 | noBtnGroup             | Disable the use of button group around each button             | boolean | -                                                                                                                                                |                   |
 
+---

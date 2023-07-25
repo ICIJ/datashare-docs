@@ -6,6 +6,7 @@
 
 | Prop name | Description                 | Type          | Values | Default |
 | --------- | --------------------------- | ------------- | ------ | ------- |
-| queryKeys | The batch search query keys | array         | -      | \[]     |
+| queryKeys | The batch search query keys | array         | -      | []      |
 | indices   | The batch search indices    | string\|array | -      |         |
 
+---

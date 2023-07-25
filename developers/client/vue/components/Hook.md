@@ -6,9 +6,10 @@
 
 ## Props
 
-| Prop name | Description                                                              | Type   | Values | Default  |
-| --------- | ------------------------------------------------------------------------ | ------ | ------ | -------- |
-| name      | Name of the hook (targeted by plugins).                                  | string | -      |          |
-| debugTag  | Specify the HTML tag to render the debug tag instead of the default tag. | string | -      | 'span'   |
-| bind      | Properties to pass to each hooks.                                        | object | -      | () => {} |
+| Prop name | Description                                                              | Type   | Values | Default     |
+| --------- | ------------------------------------------------------------------------ | ------ | ------ | ----------- |
+| name      | Name of the hook (targeted by plugins).                                  | string | -      |             |
+| debugTag  | Specify the HTML tag to render the debug tag instead of the default tag. | string | -      | 'span'      |
+| bind      | Properties to pass to each hooks.                                        | object | -      | () =&gt; {} |
 
+---

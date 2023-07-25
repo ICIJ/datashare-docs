@@ -8,14 +8,14 @@
 | eq        |             | func          | -      | eq      |
 | name      |             | string        | -      |         |
 | v-model   |             | array\|object | -      | null    |
-| items     |             | array         | -      | \[]     |
+| items     |             | array         | -      | []      |
 | multiple  |             | boolean       | -      |         |
 
 ## Events
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
-| update     |            |             |
+| update     |            |
 
 ## Slots
 
@@ -23,3 +23,4 @@
 | ----- | ----------- | -------- |
 | label |             |          |
 
+---
