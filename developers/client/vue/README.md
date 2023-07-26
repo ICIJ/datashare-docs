@@ -41,7 +41,8 @@ All pages components.
 
 * [App](pages/App.md) 
 * [BatchDownload](pages/BatchDownload.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
-* [BatchSearches](pages/BatchSearch.md) 
+* [BatchSearch](pages/BatchSearch.md) 
+* [BatchSearchList](pages/BatchSearchList.md) 
 * [BatchSearchResults](pages/BatchSearchResults.md) <br />— _This page will list all the results of a batch search._
 * [DocumentModal](pages/DocumentModal.md) 
 * [DocumentStandalone](pages/DocumentStandalone.md) 
@@ -50,6 +51,7 @@ All pages components.
 * [Indexing](pages/Indexing.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
 * [Landing](pages/Landing.md) 
 * [Login](pages/Login.md) 
+* [NewBatchSearch](pages/NewBatchSearch.md) 
 * [NewProject](pages/NewProject.md) <br />— _This page display a form to create a new project._
 * [Project](pages/Project.md) 
 * [ProjectInsights](pages/ProjectInsights.md) 

@@ -228,6 +228,7 @@
       * [App](developers/client/vue/pages/App.md)
       * [BatchDownload](developers/client/vue/pages/BatchDownload.md)
       * [BatchSearch](developers/client/vue/pages/BatchSearch.md)
+      * [BatchSearchList](developers/client/vue/pages/BatchSearchList.md)
       * [BatchSearchResults](developers/client/vue/pages/BatchSearchResults.md)
       * [DocumentModal](developers/client/vue/pages/DocumentModal.md)
       * [DocumentStandalone](developers/client/vue/pages/DocumentStandalone.md)
@@ -236,6 +237,7 @@
       * [Indexing](developers/client/vue/pages/Indexing.md)
       * [Landing](developers/client/vue/pages/Landing.md)
       * [Login](developers/client/vue/pages/Login.md)
+      * [NewBatchSearch](developers/client/vue/pages/NewBatchSearch.md)
       * [NewProject](developers/client/vue/pages/NewProject.md)
       * [Project](developers/client/vue/pages/Project.md)
       * [ProjectInsights](developers/client/vue/pages/ProjectInsights.md)
@@ -251,6 +253,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 
