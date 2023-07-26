@@ -16,6 +16,7 @@ These widgets are used on the insights page.
 * [WidgetFileBarometer](components/widget/WidgetFileBarometer.md) <br />— _Widget to display the number of indexed files on the insights page._
 * [WidgetListGroup](components/widget/WidgetListGroup.md) <br />— _Widget to display a list of items or links on the insights page._
 * [WidgetNames](components/widget/WidgetNames.md) <br />— _Widget to display a summary of names_
+* [WidgetEmpty](components/widget/WidgetProject.md) <br />— _A placeholder widget for the insights page. This widget is not intended to be used directly._
 * [WidgetSearchBar](components/widget/WidgetSearchBar.md) <br />— _Widget to display a search bar_
 * [WidgetText](components/widget/WidgetText.md) <br />— _Widget to display text on the insights page._
 * [WidgetTreeMap](components/widget/WidgetTreeMap.md) <br />— _Widget to display a tree map on the insights page._
@@ -47,11 +48,13 @@ All pages components.
 * [DocumentView](pages/DocumentView.md) 
 * [Error](pages/Error.md) <br />— _This page display error._
 * [Indexing](pages/Indexing.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
-* [Insights](pages/Insights.md) 
 * [Landing](pages/Landing.md) 
 * [Login](pages/Login.md) 
 * [NewProject](pages/NewProject.md) <br />— _This page display a form to create a new project._
 * [Project](pages/Project.md) 
+* [ProjectInsights](pages/ProjectInsights.md) 
+* [ProjectList](pages/ProjectList.md) 
+* [ProjectView](pages/ProjectView.md) 
 * [Search](pages/Search.md) 
 * [Settings](pages/Settings.md) 
 * [Tasks](pages/Tasks.md) 

@@ -36,6 +36,7 @@ Class representing the core application with public methods for plugins.
         * [.auth](#core-auth) : Auth
         * [.config](#core-config) : Object
         * [.api](#core-api) : Api
+        * [.mode](#core-mode) : String
         * [.use(Plugin, options)](#core-use) ⇒ [`Core`](#core)
         * [.useAll()](#core-useall) ⇒ [`Core`](#core)
         * [.useI18n()](#core-usei-n) ⇒ [`Core`](#core)
@@ -48,7 +49,9 @@ Class representing the core application with public methods for plugins.
         * [.mount([selector])](#core-mount) ⇒ Vue
         * [.defer()](#core-defer)
         * [.dispatch(name, ...args)](#core-dispatch) ⇒ [`Core`](#core)
-        * [.getUser()](#core-getuser) : Promise.&lt;Object&gt;
+        * [.getUser()](#core-getuser) ⇒ Promise.&lt;Object&gt;
+        * [.loadUser()](#core-loaduser) ⇒ Promise
+        * [.loadSettings()](#core-loadsettings) ⇒ Promise
         * [.setPageTitle(title, [suffix])](#core-setpagetitle)
     * _static_
         * [.init(...options)](#core-init) ⇒ [`Core`](#core)
@@ -162,6 +165,16 @@ The configuration object provided by Murmur
 ### datashare.api : Api
 
 The Datashare api interface
+
+**Kind**: instance property of [`Core`](#core)  
+
+*****
+
+<a id="core-mode"></a>
+
+### datashare.mode : String
+
+Get current Datashare mode
 
 **Kind**: instance property of [`Core`](#core)  
 
@@ -346,12 +359,32 @@ Dispatch an event from the document root, passing the core application through e
 
 <a id="core-getuser"></a>
 
-### datashare.getUser() : Promise.&lt;Object&gt;
+### datashare.getUser() ⇒ Promise.&lt;Object&gt;
 
 Get the current signed user.
 
 **Kind**: instance method of [`Core`](#core)  
 **Fullfil**: Object Current user  
+
+*****
+
+<a id="core-loaduser"></a>
+
+### datashare.loadUser() ⇒ Promise
+
+Get and update user definitionin place
+
+**Kind**: instance method of [`Core`](#core)  
+
+*****
+
+<a id="core-loadsettings"></a>
+
+### datashare.loadSettings() ⇒ Promise
+
+Get settings (both from the server settings and the current mode)
+
+**Kind**: instance method of [`Core`](#core)  
 
 *****
 
@@ -1217,6 +1250,63 @@ List all projects this user has access to.
 List all projects this user has access to.
 
 **Kind**: global variable  
+
+*****
+
+<a id="defaultprojectexists"></a>
+
+## defaultProjectExists() ⇒ Promise:Boolean
+
+Return true if the default project exist
+
+**Kind**: global function  
+
+*****
+
+<a id="findproject"></a>
+
+## findProject(name) ⇒ Object
+
+Retreive a project by its name
+
+**Kind**: global function  
+**Returns**: Object - The project matching with this name  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td>String</td><td><p>Name of the project to retreive</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="setproject"></a>
+
+## setProject(project) ⇒ Object
+
+Update a project in the list or add it if doesn't exists yet.
+
+**Kind**: global function  
+**Returns**: Object - The project  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>project</td><td>Object</td>
+    </tr>  </tbody>
+</table>
+
 
 *****
 

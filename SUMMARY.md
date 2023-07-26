@@ -220,6 +220,7 @@
         * [WidgetFileBarometer](developers/client/vue/components/widget/WidgetFileBarometer.md)
         * [WidgetListGroup](developers/client/vue/components/widget/WidgetListGroup.md)
         * [WidgetNames](developers/client/vue/components/widget/WidgetNames.md)
+        * [WidgetProject](developers/client/vue/components/widget/WidgetProject.md)
         * [WidgetSearchBar](developers/client/vue/components/widget/WidgetSearchBar.md)
         * [WidgetText](developers/client/vue/components/widget/WidgetText.md)
         * [WidgetTreeMap](developers/client/vue/components/widget/WidgetTreeMap.md)
@@ -233,11 +234,13 @@
       * [DocumentView](developers/client/vue/pages/DocumentView.md)
       * [Error](developers/client/vue/pages/Error.md)
       * [Indexing](developers/client/vue/pages/Indexing.md)
-      * [Insights](developers/client/vue/pages/Insights.md)
       * [Landing](developers/client/vue/pages/Landing.md)
       * [Login](developers/client/vue/pages/Login.md)
       * [NewProject](developers/client/vue/pages/NewProject.md)
       * [Project](developers/client/vue/pages/Project.md)
+      * [ProjectInsights](developers/client/vue/pages/ProjectInsights.md)
+      * [ProjectList](developers/client/vue/pages/ProjectList.md)
+      * [ProjectView](developers/client/vue/pages/ProjectView.md)
       * [Search](developers/client/vue/pages/Search.md)
       * [Settings](developers/client/vue/pages/Settings.md)
       * [Tasks](developers/client/vue/pages/Tasks.md)
@@ -248,5 +251,6 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 

@@ -153,6 +153,38 @@ Widget to display names
 
 *****
 
+<a id="widgetproject"></a>
+
+## WidgetProject
+
+Widget to to display a search bar
+
+**Kind**: global class  
+
+*****
+
+<a id="new-widgetproject-new"></a>
+
+### new WidgetProject(options)
+
+Create a new WidgetProject
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td>Object</td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
 <a id="widgetsearchbar"></a>
 
 ## WidgetSearchBar

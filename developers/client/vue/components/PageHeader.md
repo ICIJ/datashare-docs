@@ -4,12 +4,13 @@
 
 ## Props
 
-| Prop name   | Description                             | Type   | Values | Default       |
-| ----------- | --------------------------------------- | ------ | ------ | ------------- |
-| description | The description of the page as subtitle | string | -      | 'Description' |
-| icon        | A FortAwesome definition object         | string | -      | null          |
-| title       | The title of the page                   | string | -      | 'Title'       |
-| tab         | Index of the active tab                 | number | -      | 0             |
+| Prop name      | Description                             | Type    | Values | Default |
+| -------------- | --------------------------------------- | ------- | ------ | ------- |
+| description    | The description of the page as subtitle | string  | -      | null    |
+| icon           | A FortAwesome definition object         | string  | -      | null    |
+| title          | The title of the page                   | string  | -      | 'Title' |
+| tab            | Index of the active tab                 | number  | -      | 0       |
+| containerFluid | Use fluid container                     | boolean | -      |         |
 
 ## Events
 
