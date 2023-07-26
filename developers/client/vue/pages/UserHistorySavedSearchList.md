@@ -1,4 +1,4 @@
-# UserHistorySearch
+# UserHistorySavedSearchList
 
 ## Props
 

@@ -1,4 +1,4 @@
-# UserHistoryDocument
+# UserHistoryDocumentList
 
 ## Props
 

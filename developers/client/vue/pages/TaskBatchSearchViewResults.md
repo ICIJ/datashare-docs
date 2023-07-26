@@ -1,4 +1,4 @@
-# BatchSearchResults
+# TaskBatchSearchViewResults
 
 > This page will list all the results of a batch search.
 

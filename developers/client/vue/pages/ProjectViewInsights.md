@@ -1,4 +1,4 @@
-# ProjectInsights
+# ProjectViewInsights
 
 ## Props
 

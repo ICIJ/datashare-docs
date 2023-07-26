@@ -40,29 +40,32 @@ These filters are used on the search filters panel.
 All pages components.
 
 * [App](pages/App.md) 
-* [BatchDownload](pages/BatchDownload.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
-* [BatchSearch](pages/BatchSearch.md) 
-* [BatchSearchList](pages/BatchSearchList.md) 
-* [BatchSearchResults](pages/BatchSearchResults.md) <br />— _This page will list all the results of a batch search._
 * [DocumentModal](pages/DocumentModal.md) 
 * [DocumentStandalone](pages/DocumentStandalone.md) 
 * [DocumentView](pages/DocumentView.md) 
 * [Error](pages/Error.md) <br />— _This page display error._
-* [Indexing](pages/Indexing.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
 * [Landing](pages/Landing.md) 
 * [Login](pages/Login.md) 
-* [NewBatchSearch](pages/NewBatchSearch.md) 
-* [NewProject](pages/NewProject.md) <br />— _This page display a form to create a new project._
 * [Project](pages/Project.md) 
-* [ProjectInsights](pages/ProjectInsights.md) 
 * [ProjectList](pages/ProjectList.md) 
+* [ProjectNew](pages/ProjectNew.md) <br />— _This page display a form to create a new project._
 * [ProjectView](pages/ProjectView.md) 
+* [ProjectViewInsights](pages/ProjectViewInsights.md) 
 * [Search](pages/Search.md) 
 * [Settings](pages/Settings.md) 
+* [TaskAnalysis](pages/TaskAnalysis.md) 
+* [TaskAnalysisList](pages/TaskAnalysisList.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
+* [TaskBatchDownload](pages/TaskBatchDownload.md) 
+* [TaskBatchDownloadList](pages/TaskBatchDownloadList.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
+* [TaskBatchSearch](pages/TaskBatchSearch.md) 
+* [TaskBatchSearchList](pages/TaskBatchSearchList.md) 
+* [TaskBatchSearchNew](pages/TaskBatchSearchNew.md) 
+* [TaskBatchSearchView](pages/TaskBatchSearchView.md) 
+* [TaskBatchSearchViewResults](pages/TaskBatchSearchViewResults.md) <br />— _This page will list all the results of a batch search._
 * [Tasks](pages/Tasks.md) 
 * [UserHistory](pages/UserHistory.md) 
-* [UserHistoryDocument](pages/UserHistoryDocument.md) 
-* [UserHistorySearch](pages/UserHistorySearch.md) 
+* [UserHistoryDocumentList](pages/UserHistoryDocumentList.md) 
+* [UserHistorySavedSearchList](pages/UserHistorySavedSearchList.md) 
 
 ## Others
 
