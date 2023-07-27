@@ -49,7 +49,8 @@ All pages components.
 * [Project](pages/Project.md) 
 * [ProjectList](pages/ProjectList.md) 
 * [ProjectNew](pages/ProjectNew.md) <br />— _This page display a form to create a new project._
-* [ProjectView](pages/ProjectView.md) 
+* [ProjectView](pages/ProjectView.md) <br />— _Project view with insights_
+* [ProjectViewEdit](pages/ProjectViewEdit.md) <br />— _Project edit form_
 * [ProjectViewInsights](pages/ProjectViewInsights.md) 
 * [Search](pages/Search.md) 
 * [Settings](pages/Settings.md) 
