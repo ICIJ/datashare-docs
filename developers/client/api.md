@@ -437,6 +437,16 @@ instantiate a Core class (useful for chaining usage or mapping)
 
 *****
 
+<a id="componentmixin"></a>
+
+## ComponentMixin
+
+Mixin class extending the core to add helpers for components.
+
+**Kind**: global mixin  
+
+*****
+
 <a id="filtersmixin"></a>
 
 ## FiltersMixin
@@ -1250,6 +1260,113 @@ List all projects this user has access to.
 List all projects name ids this user has access to.
 
 **Kind**: global variable  
+
+*****
+
+<a id="findcomponent"></a>
+
+## findComponent(name) ⇒ Promise.&lt;(object\|null)&gt;
+
+Asynchronously find a component in the lazyComponents object by its name.
+
+**Kind**: global function  
+**Returns**: Promise.&lt;(object\|null)&gt; - - A promise that resolves with the found component object, or null if not found.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td>string</td><td><p>The name of the component to find.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="getcomponent"></a>
+
+## getComponent(name) ⇒ Promise.&lt;(object\|Error)&gt;
+
+Asynchronously get a component from the lazyComponents object based on its name.
+
+**Kind**: global function  
+**Returns**: Promise.&lt;(object\|Error)&gt; - - A promise that resolves with the found component object, or rejects with an Error if not found.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td>string</td><td><p>The name of the component to retrieve.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="samecomponentnames"></a>
+
+## sameComponentNames(...names) ⇒ boolean
+
+Check if multiple component names are the same when slugified.
+
+**Kind**: global function  
+**Returns**: boolean - - True if all names are the same when slugified, false otherwise.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>...names</td><td>string</td><td><p>The component names to compare.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="componentnameslug"></a>
+
+## componentNameSlug(name) ⇒ string
+
+Generate a slug from the component name using kebab case and lowercase.
+
+**Kind**: global function  
+**Returns**: string - - The slugified component name.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td>string</td><td><p>The name of the component to slugify.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="lazycomponents"></a>
+
+## lazyComponents() ⇒ Object
+
+Get the lazyComponents object using require.context for lazy loading of components.
+
+**Kind**: global function  
+**Returns**: Object - - The lazyComponents object generated using require.context.  
 
 *****
 
