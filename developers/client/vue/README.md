@@ -126,6 +126,7 @@ All pages components.
 * [Plugins](components/Plugins.md) <br />— _A list of available plugins._
 * [ProjectCards](components/ProjectCards.md) <br />— _List all the projects with cards linking to the search._
 * [ProjectForm](components/ProjectForm.md) <br />— _Build project form (to create or edit a project)._
+* [ProjectLink](components/ProjectLink.md) <br />— _Generate a link to a project page_
 * [ProjectSelector](components/ProjectSelector.md) <br />— _A single-project selector input._
 * [ProjectThumbnail](components/ProjectThumbnail.md) <br />— _Generates a thumbnail for a given project_
 * [QuickItemNav](components/QuickItemNav.md) <br />— _A simple component to display a next/previous pair of buttons to navigate_
