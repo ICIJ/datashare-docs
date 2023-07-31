@@ -1247,7 +1247,7 @@ List all projects this user has access to.
 
 ## projectIds ⇒ Array:String
 
-List all projects this user has access to.
+List all projects name ids this user has access to.
 
 **Kind**: global variable  
 
@@ -1257,7 +1257,7 @@ List all projects this user has access to.
 
 ## defaultProjectExists() ⇒ Promise:Boolean
 
-Return true if the default project exist
+Return true if the default project exists
 
 **Kind**: global function  
 
@@ -1267,7 +1267,7 @@ Return true if the default project exist
 
 ## findProject(name) ⇒ Object
 
-Retreive a project by its name
+Retrieve a project by its name
 
 **Kind**: global function  
 **Returns**: Object - The project matching with this name  
@@ -1279,7 +1279,31 @@ Retreive a project by its name
   </thead>
   <tbody>
 <tr>
-    <td>name</td><td>String</td><td><p>Name of the project to retreive</p>
+    <td>name</td><td>String</td><td><p>Name of the project to retrieve</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="deleteproject"></a>
+
+## deleteProject(name) ⇒ Integer
+
+Delete a project by it name identifier.
+
+**Kind**: global function  
+**Returns**: Integer - Index of the project deleted or -1 if project does not exist  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td>String</td><td><p>Name of the project to retrieve</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -1291,7 +1315,7 @@ Retreive a project by its name
 
 ## setProject(project) ⇒ Object
 
-Update a project in the list or add it if doesn't exists yet.
+Update a project in the list or add it if it doesn't exist yet.
 
 **Kind**: global function  
 **Returns**: Object - The project  
