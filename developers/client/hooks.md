@@ -47,9 +47,9 @@ define new Vue Component through plugins.
 | [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L3) | `landing.form:before` |
 | [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L5) | `landing.form.heading:before` |
 | [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L9) | `landing.form.heading:after` |
-| [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L11) | `landing.form.project:before` |
-| [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L20) | `landing.form.project:after` |
-| [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L22) | `landing.form:after` |
+| [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L12) | `landing.form:after` |
+| [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L14) | `landing.form.project:before` |
+| [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L17) | `landing.form.project:after` |
 | [pages/Search.vue](vue/pages/Search.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Search.vue#L3) | `search:before` |
 | [pages/Search.vue](vue/pages/Search.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Search.vue#L21) | `search.body:before` |
 | [pages/Search.vue](vue/pages/Search.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Search.vue#L48) | `search.body:after` |
