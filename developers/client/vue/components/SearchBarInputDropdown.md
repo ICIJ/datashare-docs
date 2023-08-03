@@ -24,6 +24,6 @@
 | Name           | Description | Bindings |
 | -------------- | ----------- | -------- |
 | button-content |             |          |
-| dropdown-item  |             |          |
+| dropdown-item  |             | <br/>    |
 
 ---
