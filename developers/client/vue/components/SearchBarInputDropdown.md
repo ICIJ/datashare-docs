@@ -4,16 +4,26 @@
 
 ## Props
 
-| Prop name        | Description                            | Type   | Values | Default                                            |
-| ---------------- | -------------------------------------- | ------ | ------ | -------------------------------------------------- |
-| fieldOptions     | Search field configuration dictionary. | array  | -      | settings.searchFields.map((field) =&gt; field.key) |
-| fieldOptionsPath | Field option translation path          | array  | -      | ['search', 'field']                                |
-| v-model          | Selected field value                   | string | -      | 'all'                                              |
+| Prop name   | Description                                       | Type          | Values | Default |
+| ----------- | ------------------------------------------------- | ------------- | ------ | ------- |
+| options     | Options list.                                     | array         | -      | []      |
+| optionsPath | Translation path for each option value.           | array         | -      | []      |
+| v-model     | Selected value                                    | string\|array | -      | 'all'   |
+| multiple    | The select value can be a series values.          | boolean       | -      |         |
+| disabled    | The dropdown toggler must be disabled.            | boolean       | -      |         |
+| noCaret     | The caret in the dropdown toggler must be hidden. | boolean       | -      |         |
 
 ## Events
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
 | update     |            |
+
+## Slots
+
+| Name           | Description | Bindings |
+| -------------- | ----------- | -------- |
+| button-content |             |          |
+| dropdown-item  |             |          |
 
 ---

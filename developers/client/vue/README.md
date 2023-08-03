@@ -136,6 +136,8 @@ All pages components.
 * [SearchBar](components/SearchBar.md) <br />— _The general search form._
 * [SearchBarInput](components/SearchBarInput.md) <br />— _The general search input group with field options._
 * [SearchBarInputDropdown](components/SearchBarInputDropdown.md) <br />— _The general search input dropdown._
+* [SearchBarInputDropdownForField](components/SearchBarInputDropdownForField.md) 
+* [SearchBarInputDropdownForProjects](components/SearchBarInputDropdownForProjects.md) 
 * [SearchDocumentNavbar](components/SearchDocumentNavbar.md) <br />— _Document navbar in the context of a search._
 * [SearchFormControl](components/SearchFormControl.md) <br />— _A search input with pill layout._
 * [SearchLayoutSelector](components/SearchLayoutSelector.md) <br />— _Change the search results layout (grid, list or table)._

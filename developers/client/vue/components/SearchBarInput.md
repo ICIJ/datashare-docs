@@ -25,7 +25,7 @@
 
 | Name        | Description | Bindings |
 | ----------- | ----------- | -------- |
-| fields      |             |          |
+| addons      |             |          |
 | suggestions |             |          |
 
 ---

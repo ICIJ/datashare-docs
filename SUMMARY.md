@@ -193,6 +193,8 @@
       * [SearchBar](developers/client/vue/components/SearchBar.md)
       * [SearchBarInput](developers/client/vue/components/SearchBarInput.md)
       * [SearchBarInputDropdown](developers/client/vue/components/SearchBarInputDropdown.md)
+      * [SearchBarInputDropdownForField](developers/client/vue/components/SearchBarInputDropdownForField.md)
+      * [SearchBarInputDropdownForProjects](developers/client/vue/components/SearchBarInputDropdownForProjects.md)
       * [SearchDocumentNavbar](developers/client/vue/components/SearchDocumentNavbar.md)
       * [SearchFormControl](developers/client/vue/components/SearchFormControl.md)
       * [SearchLayoutSelector](developers/client/vue/components/SearchLayoutSelector.md)
@@ -258,6 +260,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 
