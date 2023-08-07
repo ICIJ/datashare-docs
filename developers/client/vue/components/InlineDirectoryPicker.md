@@ -7,6 +7,7 @@
 | dark           |             | boolean | -      |         |
 | v-model        |             | string  | -      |         |
 | hideFolderIcon |             | boolean | -      |         |
+| sourcePath     |             | string  | -      | null    |
 
 ## Events
 
