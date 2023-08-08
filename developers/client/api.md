@@ -68,18 +68,18 @@ Create an application
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>LocalVue</td><td>Object</td><td><p>The Vue class to instantiate the application with.</p>
+    <td>LocalVue</td><td>Object</td><td></td><td><p>The Vue class to instantiate the application with.</p>
 </td>
     </tr><tr>
-    <td>api</td><td></td><td><p>Datashare api interface</p>
+    <td>api</td><td></td><td><code></code></td><td><p>Datashare api interface</p>
 </td>
     </tr><tr>
-    <td>mode</td><td></td><td><p>mode of authentication (&#39;local&#39; or &#39;server&#39;</p>
+    <td>mode</td><td></td><td></td><td><p>mode of authentication (&#39;local&#39; or &#39;server&#39;</p>
 </td>
     </tr>  </tbody>
 </table>
