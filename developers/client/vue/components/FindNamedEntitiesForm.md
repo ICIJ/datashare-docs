@@ -4,8 +4,22 @@
 
 ## Props
 
-| Prop name | Description                                                                                                           | Type | Values | Default |
-| --------- | --------------------------------------------------------------------------------------------------------------------- | ---- | ------ | ------- |
-| finally   | Callback function to call when the form have been submitted (this should be replaced by an event in future versions). | func | -      | noop    |
+| Prop name           | Description                                                    | Type    | Values | Default |
+| ------------------- | -------------------------------------------------------------- | ------- | ------ | ------- |
+| dark                | Dark mode background option                                    | boolean | -      |         |
+| projectName         | Project name to select in the input instead of default project | string  | -      | null    |
+| hideProjectSelector | Force hiding the project selector input                        | boolean | -      | false   |
+
+## Events
+
+| Event name | Properties | Description |
+| ---------- | ---------- | ----------- |
+| submit     |            |
+
+## Slots
+
+| Name   | Description | Bindings |
+| ------ | ----------- | -------- |
+| footer |             |          |
 
 ---

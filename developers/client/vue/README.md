@@ -50,7 +50,9 @@ All pages components.
 * [ProjectList](pages/ProjectList.md) 
 * [ProjectNew](pages/ProjectNew.md) <br />— _This page display a form to create a new project._
 * [ProjectView](pages/ProjectView.md) <br />— _Project view with insights_
+* [ProjectViewAddDocuments](pages/ProjectViewAddDocuments.md) <br />— _This page display a form to create a new project._
 * [ProjectViewEdit](pages/ProjectViewEdit.md) <br />— _Project edit form_
+* [ProjectViewFindNamedEntities](pages/ProjectViewFindNamedEntities.md) <br />— _This page displays a form to create a new project._
 * [ProjectViewInsights](pages/ProjectViewInsights.md) 
 * [Search](pages/Search.md) 
 * [Settings](pages/Settings.md) 

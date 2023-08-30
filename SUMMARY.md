@@ -239,7 +239,9 @@
       * [ProjectList](developers/client/vue/pages/ProjectList.md)
       * [ProjectNew](developers/client/vue/pages/ProjectNew.md)
       * [ProjectView](developers/client/vue/pages/ProjectView.md)
+      * [ProjectViewAddDocuments](developers/client/vue/pages/ProjectViewAddDocuments.md)
       * [ProjectViewEdit](developers/client/vue/pages/ProjectViewEdit.md)
+      * [ProjectViewFindNamedEntities](developers/client/vue/pages/ProjectViewFindNamedEntities.md)
       * [ProjectViewInsights](developers/client/vue/pages/ProjectViewInsights.md)
       * [Search](developers/client/vue/pages/Search.md)
       * [Settings](developers/client/vue/pages/Settings.md)
@@ -260,6 +262,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 
