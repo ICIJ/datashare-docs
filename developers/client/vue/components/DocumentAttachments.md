@@ -8,10 +8,4 @@
 | --------- | --------------------- | ------ | ------ | ------- |
 | document  | The selected document | object | -      |         |
 
-## Events
-
-| Event name           | Properties | Description |
-| -------------------- | ---------- | ----------- |
-| document:attachments |            |
-
 ---
