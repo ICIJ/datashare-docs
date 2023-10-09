@@ -1263,6 +1263,16 @@ List all projects name ids this user has access to.
 
 *****
 
+<a id="defaultproject"></a>
+
+## defaultProject ⇒ String
+
+Get the name of the default project
+
+**Kind**: global variable  
+
+*****
+
 <a id="findcomponent"></a>
 
 ## findComponent(name) ⇒ Promise.&lt;(object\|null)&gt;
@@ -1406,12 +1416,12 @@ Retrieve a project by its name
 
 <a id="deleteproject"></a>
 
-## deleteProject(name) ⇒ Integer
+## deleteProject(name) ⇒ Promise:Integer
 
 Delete a project by it name identifier.
 
 **Kind**: global function  
-**Returns**: Integer - Index of the project deleted or -1 if project does not exist  
+**Returns**: Promise:Integer - Index of the project deleted or -1 if project does not exist  
 <table>
   <thead>
     <tr>
@@ -1421,6 +1431,29 @@ Delete a project by it name identifier.
   <tbody>
 <tr>
     <td>name</td><td>String</td><td><p>Name of the project to retrieve</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="deleteprojectfromsearch"></a>
+
+## deleteProjectFromSearch(name)
+
+Delete a project from the search store
+
+**Kind**: global function  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>name</td><td>String</td><td><p>Name of the project to delete fropm the store</p>
 </td>
     </tr>  </tbody>
 </table>
