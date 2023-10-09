@@ -4,11 +4,11 @@
 
 ## Props
 
-| Prop name | Description                 | Type          | Values | Default |
-| --------- | --------------------------- | ------------- | ------ | ------- |
-| queryKeys | The batch search query keys | array         | -      | []      |
-| indices   | The batch search indices    | string\|array | -      |         |
-| v-model   |                             | array         | -      | []      |
+| Prop name | Description                 | Type   | Values | Default |
+| --------- | --------------------------- | ------ | ------ | ------- |
+| queryKeys | The batch search query keys | array  | -      | []      |
+| indices   | The batch search indices    | string | -      |         |
+| v-model   |                             | array  | -      | []      |
 
 ## Events
 

@@ -4,9 +4,9 @@
 
 ## Props
 
-| Prop name | Description                             | Type          | Values | Default |
-| --------- | --------------------------------------- | ------------- | ------ | ------- |
-| uuid      | The unique id of the batch search       | string        | -      |         |
-| indices   | The indices of the current batch search | string\|array | -      |         |
+| Prop name | Description                             | Type   | Values | Default |
+| --------- | --------------------------------------- | ------ | ------ | ------- |
+| uuid      | The unique id of the batch search       | string | -      |         |
+| indices   | The indices of the current batch search | string | -      |         |
 
 ---
