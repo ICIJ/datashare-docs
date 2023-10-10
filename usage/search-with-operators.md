@@ -132,7 +132,7 @@ If you're looking for French International Bank Account Number (IBAN) that can o
 
 2. Other common Regex examples:
 
-* phone numbers: `/[\+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}/`
+* phone numbers with "-" and/or country code like +919367788755, 8989829304, +16308520397 or 786-307-3615 for instance: `/[\+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}/`
 * emails ([simplified](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression)): `/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+/`
 * credit cards: `/(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35[0-9]{3})[0-9]{11})/`
 
