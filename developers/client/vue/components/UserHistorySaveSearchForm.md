@@ -6,12 +6,14 @@
 
 | Prop name | Description                      | Type          | Values | Default |
 | --------- | -------------------------------- | ------------- | ------ | ------- |
-| indices   | The indices of the current item. | string\|array | -      |         |
+| indices   | The indices of the current item. | string\|array | -      | ''      |
+| event     | The indices of the current item. | object        | -      | null    |
 
 ## Events
 
-| Event name | Properties | Description |
-| ---------- | ---------- | ----------- |
-| submit     |            |
+| Event name    | Properties | Description |
+| ------------- | ---------- | ----------- |
+| submit:rename |            |
+| submit        |            |
 
 ---
