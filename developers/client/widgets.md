@@ -92,6 +92,50 @@ Widget to display text on the insights page
 
 *****
 
+<a id="widgetfieldfacets"></a>
+
+## WidgetFieldFacets
+
+Widget to display a list of items or links on the insights page
+
+**Kind**: global class  
+
+*****
+
+<a id="new-widgetfieldfacets-new"></a>
+
+### new WidgetFieldFacets(title, field, icon, routeQueryField, bucketTranslation, options)
+
+Create a new WidgetFacets
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>title</td><td>string</td><td><code>null</code></td><td><p>The title of the widget</p>
+</td>
+    </tr><tr>
+    <td>field</td><td>string</td><td><code>&quot;\&quot;type\&quot;&quot;</code></td><td><p>Field to build the facet uppon</p>
+</td>
+    </tr><tr>
+    <td>icon</td><td>mixed</td><td><code></code></td><td></td>
+    </tr><tr>
+    <td>routeQueryField</td><td>string</td><td><code>null</code></td><td></td>
+    </tr><tr>
+    <td>bucketTranslation</td><td>mixed</td><td></td><td></td>
+    </tr><tr>
+    <td>options</td><td>Object</td><td></td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
 <a id="widgetfilebarometer"></a>
 
 ## WidgetFileBarometer

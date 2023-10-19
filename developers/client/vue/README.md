@@ -13,6 +13,7 @@ These widgets are used on the insights page.
 * [WidgetDuplicate](components/widget/WidgetDuplicates.md) <br />— _A widget for the insights page indicating the proportion of duplicates in the data._
 * [WidgetEmpty](components/widget/WidgetEmpty.md) <br />— _A placeholder widget for the insights page. This widget is not intended to be used directly._
 * [WidgetEntities](components/widget/WidgetEntities.md) <br />— _Widget to display a summary of entities_
+* [WidgetListGroup](components/widget/WidgetFieldFacets.md) <br />— _Widget to display a list of facets on the insights page._
 * [WidgetFileBarometer](components/widget/WidgetFileBarometer.md) <br />— _Widget to display the number of indexed files on the insights page._
 * [WidgetListGroup](components/widget/WidgetListGroup.md) <br />— _Widget to display a list of items or links on the insights page._
 * [WidgetNames](components/widget/WidgetNames.md) <br />— _Widget to display a summary of names_
