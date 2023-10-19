@@ -4,9 +4,10 @@
 
 ## Props
 
-| Prop name | Description                   | Type   | Values | Default |
-| --------- | ----------------------------- | ------ | ------ | ------- |
-| widget    | The widget definition object. | object | -      |         |
+| Prop name      | Description                   | Type   | Values | Default |
+| -------------- | ----------------------------- | ------ | ------ | ------- |
+| widget         | The widget definition object. | object | -      |         |
+| minColumnWidth | Minimum width of the columns  | number | -      | 45      |
 
 ## Slots
 

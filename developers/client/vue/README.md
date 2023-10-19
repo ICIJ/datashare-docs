@@ -89,6 +89,7 @@ All pages components.
 * [BatchSearchResultsTable](components/BatchSearchResultsTable.md) <br />— _This page will list all the results of a batch search._
 * [BatchSearchStatus](components/BatchSearchStatus.md) <br />— _A badge to display batch search status._
 * [BatchSearchTable](components/BatchSearchTable.md) <br />— _This mixin provides an unified way to poll data from an arbitrary source_
+* [ColumnChartPicker](components/ColumnChartPicker.md) <br />— _Widget to display the number of file by creation date on the insights page._
 * [ColumnFilter](components/ColumnFilter.md) 
 * [ColumnFilterBadge](components/ColumnFilterBadge.md) 
 * [ColumnFilterDropdown](components/ColumnFilterDropdown.md) 

@@ -113,6 +113,7 @@
       * [BatchSearchResultsTable](developers/client/vue/components/BatchSearchResultsTable.md)
       * [BatchSearchStatus](developers/client/vue/components/BatchSearchStatus.md)
       * [BatchSearchTable](developers/client/vue/components/BatchSearchTable.md)
+      * [ColumnChartPicker](developers/client/vue/components/ColumnChartPicker.md)
       * [ColumnFilter](developers/client/vue/components/ColumnFilter.md)
       * [ColumnFilterBadge](developers/client/vue/components/ColumnFilterBadge.md)
       * [ColumnFilterDropdown](developers/client/vue/components/ColumnFilterDropdown.md)
@@ -262,6 +263,7 @@
 * [Introduction to Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
+
 
 
 

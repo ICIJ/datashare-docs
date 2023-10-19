@@ -19,8 +19,8 @@
 | showResultsBeforeReady |                                                                         | boolean | -      | false   |
 | modelQuery             | Search query on the filter                                              | string  | -      | ''      |
 | collapsedIfNoValues    | Etheir or not the items should be collapsed when no values are selected | boolean | -      | true    |
-| infiniteScroll         | Either or not results should be loaded on scroll                        | boolean | -      | true    |
 | dark                   | Display the filter on dark background                                   | boolean | -      | true    |
+| noInfiniteScroll       | Either or not results should be loaded on scroll                        | boolean | -      | false   |
 | noItemTranslation      | Disable the attempt to translate an item value                          | boolean | -      | false   |
 
 ## Events
