@@ -17,6 +17,7 @@
 | compact                  | Display the tree view in compact mode                                                        | boolean | -      | false               |
 | preBodyBuild             | Function to apply to the elasticsearch body before it's build                                | func    | -      | identity            |
 | infiniteScroll           | Either or not results should be loaded on scroll                                             | boolean | -      | true                |
+| searchable               | Display a link to search by path.                                                            | boolean | -      | false               |
 | sortBy                   | Key to sort the directories                                                                  | string  | -      | 'contentLength'     |
 | sortByOrder              | Order to sort by (asc or desc)                                                               | string  | -      | 'desc'              |
 | includeChildrenDocuments | If the true, the document count and size of each directory will include<br/>child documents. | boolean | -      |                     |
