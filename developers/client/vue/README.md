@@ -17,6 +17,7 @@ These widgets are used on the insights page.
 * [WidgetFileBarometer](components/widget/WidgetFileBarometer.md) <br />— _Widget to display the number of indexed files on the insights page._
 * [WidgetListGroup](components/widget/WidgetListGroup.md) <br />— _Widget to display a list of items or links on the insights page._
 * [WidgetNames](components/widget/WidgetNames.md) <br />— _Widget to display a summary of names_
+* [WidgetEmpty](components/widget/WidgetNested.md) <br />— _A widget to include nested widget_
 * [WidgetEmpty](components/widget/WidgetProject.md) <br />— _A placeholder widget for the insights page. This widget is not intended to be used directly._
 * [WidgetRecommendedBy](components/widget/WidgetRecommendedBy.md) <br />— _Widget to display a list of facets on the insights page._
 * [WidgetSearchBar](components/widget/WidgetSearchBar.md) <br />— _Widget to display a search bar_

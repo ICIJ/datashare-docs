@@ -197,6 +197,41 @@ Widget to display names
 
 *****
 
+<a id="widgetnested"></a>
+
+## WidgetNested
+
+Widget to display nested widgets
+
+**Kind**: global class  
+
+*****
+
+<a id="new-widgetnested-new"></a>
+
+### new WidgetNested(widgets, options)
+
+Create a new WidgetProject
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>widgets</td><td>Array</td><td><p>A list of nested widgets</p>
+</td>
+    </tr><tr>
+    <td>options</td><td>Object</td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
 <a id="widgetproject"></a>
 
 ## WidgetProject
