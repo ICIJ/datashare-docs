@@ -229,6 +229,41 @@ Create a new WidgetProject
 
 *****
 
+<a id="widgetrecommendedby"></a>
+
+## WidgetRecommendedBy
+
+Widget to display latest recommend documents.
+
+**Kind**: global class  
+
+*****
+
+<a id="new-widgetrecommendedby-new"></a>
+
+### new WidgetRecommendedBy(hideThumbnails, options)
+
+Create a new WidgetRecommendedBy
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>hideThumbnails</td><td>Boolean</td><td><p>Etheir or not we should hide thumbnails</p>
+</td>
+    </tr><tr>
+    <td>options</td><td>Object</td><td><p>See WidgetEmpty for others options</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
 <a id="widgetsearchbar"></a>
 
 ## WidgetSearchBar

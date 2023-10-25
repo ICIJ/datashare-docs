@@ -11,5 +11,6 @@
 | activeTextTruncate         | Use the active text truncate component to truncate the content. | string\|boolean | -      | null    |
 | textTruncateRtlAttachments | Direction for text truncate.                                    | boolean         | -      |         |
 | showSubject                | Add the document subject (if present)                           | boolean         | -      |         |
+| wrap                       | Wrap title text (and disable activate text truncate)            | boolean         | -      | false   |
 
 ---
