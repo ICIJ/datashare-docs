@@ -16,5 +16,6 @@
 | tag                 | Root tag to use for this component        | string\|object | -      | 'span'                  |
 | username            | Username to display                       | string         | -      |                         |
 | usernamePipeline    | Pipeline name to transform the username   | string         | -      | 'user-display-username' |
+| flip                | Move the avatar after the username        | boolean        | -      | false                   |
 
 ---
