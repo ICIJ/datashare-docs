@@ -41,9 +41,9 @@ define new Vue Component through plugins.
 | [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L30) | `document.header.tags:after` |
 | [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L31) | `document.header.nav:before` |
 | [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L34) | `document.header.nav.items:before` |
-| [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L56) | `document.header.nav.items:after` |
-| [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L59) | `document.header.nav:after` |
-| [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L60) | `document.header:after` |
+| [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L59) | `document.header.nav.items:after` |
+| [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L62) | `document.header.nav:after` |
+| [pages/DocumentView.vue](vue/pages/DocumentView.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/DocumentView.vue#L63) | `document.header:after` |
 | [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L3) | `landing.form:before` |
 | [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L5) | `landing.form.heading:before` |
 | [pages/Landing.vue](vue/pages/Landing.md) — [source](https://github.com/ICIJ/datashare-client/blob/master/src/pages/Landing.vue#L9) | `landing.form.heading:after` |
