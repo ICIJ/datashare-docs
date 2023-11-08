@@ -13,7 +13,7 @@ It is secure as long as the communication to the server is encrypted (with `SSL`
 
 On the server side, you have to provide a user store for Datashare. For now we are using a Redis data store.
 
-So you have to provision users. The passwords are sha256 hex encoded (for example with bash):
+So you have to provision users. The passwords are `sha256 hex` encoded. For example using `bash`:
 ```
 $ echo -n bar | sha256sum
 fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9  -
