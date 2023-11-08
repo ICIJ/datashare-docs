@@ -42,7 +42,7 @@ Then when accessing datashare, you should see this popup:
 ## Example
 
 ```
-docker run -ti ICIJ/datashare:version --mode SERVER \
+docker run -ti ICIJ/datashare --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
