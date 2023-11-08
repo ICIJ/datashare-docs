@@ -10,7 +10,7 @@ Datashare is launched with `--mode SERVER` and you have to provide:
 - a Redis store address `redisAddress`
 - a Redis data bus address `messageBusAddress`
 - a database [JDBC URL](https://docs.oracle.com/cd/E57185_01/ESTUG/apbs02s04s01.html) `dataSourceUrl`
-- the host of datashare (for batch search results URL generation) `rootHost`
+- the host of Datashare (used to generate batch search results URLs) `rootHost`
 - an authentication mechanism and its parameters
 
 Example:
