@@ -9,7 +9,7 @@ Basic authentication is a simple protocol that uses the HTTP headers and the bro
 ```
 Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
-It is secure as long as the communication to the server is encrypted (with SSL for example).
+It is secure as long as the communication to the server is encrypted (with `SSL` for example).
 
 On the server side, you have to provide a user store for Datashare. For now we are using a Redis data store.
 
