@@ -2,7 +2,7 @@
 description: Basic authentication with a database.
 ---
 
-# Basic with a database
+# Basic authentication with a database
 
 Basic authentication is a simple protocol that uses the HTTP headers and the browser to authenticate users. User credentials are sent to the server in the header `Authorization` with `user:password` base64 encoded:
 
