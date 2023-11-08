@@ -13,7 +13,8 @@ But then you can enter whatever user or password, it will enter datashare.
 ## Example
 
 ```
-docker run -ti ICIJ/datashare:version --dataDir /home/dev/data -m SERVER \
+docker run -ti ICIJ/datashare -m SERVER \
+  --dataDir /home/dev/data \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=dstest&password=test'\
     --sessionStoreType REDIS \
