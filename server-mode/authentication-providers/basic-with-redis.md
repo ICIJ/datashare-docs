@@ -39,6 +39,9 @@ Then you should see this popup:
 
 ## Example
 
+Here is an example of launching Datashare with Docker and the 
+basic auth provider filter backed in Redis:
+
 ```
 docker run -ti ICIJ/datashare:version --mode SERVER \
     --batchQueueType REDIS \
