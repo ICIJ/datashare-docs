@@ -2,7 +2,7 @@
 description: Basic authentication with Redis
 ---
 
-# Basic with Redis
+# BasicAuthAdaptorFilter and UsersInRedis
 
 Basic authentication is a simple protocol that uses the HTTP headers and the browser to authenticate users. User credentials are sent to the server in the header `Authorization` with `user:password` base64 encoded:
 
@@ -35,11 +35,11 @@ redis-server.org:6379> set foo '{"uid":"foo", "password":"fcde2b2edba56bf408601f
 
 Then you should see this popup:
 
-![oauth](https://i.imgur.com/qec6c2k.jpg)
+![basic auth popup](https://i.imgur.com/qec6c2k.jpg)
 
 ## Example
 
-Here is an example of launching Datashare with Docker and the 
+Here is an example of launching Datashare with Docker and the
 basic auth provider filter backed in Redis:
 
 ```

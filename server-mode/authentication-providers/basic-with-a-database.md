@@ -2,7 +2,7 @@
 description: Basic authentication with a database.
 ---
 
-# Basic authentication with a database
+# BasicAuthAdaptorFilter and UsersInDb
 
 Basic authentication is a simple protocol that uses the HTTP headers and the browser to authenticate users. User credentials are sent to the server in the header `Authorization` with `user:password` base64 encoded:
 
@@ -37,7 +37,7 @@ Or you can use [PostgreSQL import CSV](https://stackoverflow.com/questions/29874
 
 Then when accessing Datashare, you should see this popup:
 
-![oauth](https://i.imgur.com/qec6c2k.jpg)
+![basic auth popup](https://i.imgur.com/qec6c2k.jpg)
 
 ## Example
 

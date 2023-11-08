@@ -1,7 +1,3 @@
----
-description: 👷‍♀️ This page is currently being written by Datashare team.
----
-
 # Authentication providers
 
 Authentication with Datashare in **server mode** is the most impacting choice that has to be made. It can be one of the followings:
