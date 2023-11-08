@@ -35,7 +35,7 @@ datashare=> insert into user_inventory (id, email, name, provider, details) valu
 
 Or you can use [PostgreSQL import CSV](https://stackoverflow.com/questions/2987433/how-to-import-csv-file-data-into-a-postgresql-table) `COPY` statement if you want to create them all at once.
 
-Then when accessing datashare, you should see this popup:
+Then when accessing Datashare, you should see this popup:
 
 ![oauth](https://i.imgur.com/qec6c2k.jpg)
 
