@@ -4,7 +4,7 @@ description: Dummy authentication provider to disable authentication
 
 # Dummy authentication
 
-You can have a dummy authentication that always accept basic auth. So you should see this popup:
+You can have a dummy authentication that always accepts basic auth. So you should see this popup:
 
 ![oauth](https://i.imgur.com/qec6c2k.jpg)
 
