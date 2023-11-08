@@ -9,4 +9,4 @@ Authentication with Datashare server is the most impacting choice that has to be
 * basic authentication with credentials stored in database (PostgreSQL)
 * basic authentication with credentials stored in Redis
 * oauth2 with credentials provided by an identity provider (KeyCloak for example)
-* dummy auth to disable authentication (⚠️ if the service is exposed to internet, it will leak your documents)
+* dummy basic auth to accept any user (⚠️ if the service is exposed to internet, it will leak your documents)
