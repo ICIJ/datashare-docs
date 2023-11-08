@@ -43,7 +43,7 @@ Here is an example of launching Datashare with Docker and the
 basic auth provider filter backed in Redis:
 
 ```
-docker run -ti ICIJ/datashare:version --mode SERVER \
+docker run -ti ICIJ/datashare --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
