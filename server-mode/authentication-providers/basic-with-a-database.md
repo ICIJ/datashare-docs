@@ -41,6 +41,8 @@ Then when accessing datashare, you should see this popup:
 
 ## Example
 
+Here is an example of launching Datashare with Docker and the basic auth provider filter backed in database:
+
 ```
 docker run -ti ICIJ/datashare --mode SERVER \
     --batchQueueType REDIS \
