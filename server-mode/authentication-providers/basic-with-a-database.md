@@ -11,7 +11,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 It is secure as long as the communication to the server is encrypted (with SSL for example).
 
-On the server side, you have to provide a database user inventory. You can launch datashare first with the full database url, then datashare will automatically migrate your database schema. Datashare support SQLite and PostgreSQL as database backends. SQLite is not recommended for a multiuser server because it cannot be multithreaded, so it will introduce contention on users DB SQL requests.
+On the server side, you have to provide a database user inventory. You can launch datashare first with the full database URL, then datashare will automatically migrate your database schema. Datashare supports SQLite and PostgreSQL as back-end databases. SQLite is not recommended for a multi-user server because it cannot be multithreaded, so it will introduce contention on users' DB SQL requests.
 
 Then you have to provision users. The passwords are sha256 hex encoded (for example with bash):
 ```
