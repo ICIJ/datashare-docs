@@ -8,7 +8,7 @@ You can have a dummy authentication that always accepts basic auth. So you shoul
 
 ![oauth](https://i.imgur.com/qec6c2k.jpg)
 
-But then you can enter whatever user or password, it will enter datashare.
+But then you can enter whatever user or password, it will enter Datashare.
 
 ## Example
 
