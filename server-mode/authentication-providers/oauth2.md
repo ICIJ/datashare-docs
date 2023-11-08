@@ -4,7 +4,7 @@ description: OAuth2 authentication
 
 # OAuth2
 
-With OAuth2 you will need an authorization service. The workflow is this:
+With OAuth2 you will need a third-party authorization service. The diagram below describes the workflow:
 
 ![oauth](https://i.imgur.com/uHVXObS.png)
 
