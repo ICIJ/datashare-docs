@@ -11,7 +11,7 @@ Install the neo4j plugin following instructions available in the [dedicated page
 ![](../../.gitbook/assets/screenshot-2020-11-25-at-09.56.51.png)
 
 2. Make sure the following settings are properly set:
-- `Neo4j Host` should be `localhsot` or the address where your neo4j instance is running
+- `Neo4j Host` should be `localhost` or the address where your neo4j instance is running
 - `Neo4j Port` should be the port where your neo4j instance is running (`7687` by default)
 - `Neo4j User` should be set to your neo4j user name (`neo4j` by default)
 - `Neo4j Password` **should only be set if your neo4j user is using password authentication** 
