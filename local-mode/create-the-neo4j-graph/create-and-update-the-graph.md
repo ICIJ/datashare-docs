@@ -33,5 +33,4 @@ To detect whether a graph update is needed you can compare the number of documen
 The update will **always add missing nodes and relationships, update existing ones if they were modified, but will never delete graph nodes or relationships**.
 
 ## Next steps 
-- [explore the graph](../../usage/explore-the-neo4j-graph.md#exploring-the-graph)  using a visualization tool
-- [query the graph](../../usage/explore-the-neo4j-graph.md#querying-the-graph) using the Cypher and neo4j browser
+- [explore your graph](../../usage/explore-the-neo4j-graph.md#exploring-your-graph) using your favorite visualization tool

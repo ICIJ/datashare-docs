@@ -6,7 +6,7 @@ description: This page explains how to run a neo4j instance inside docker. For a
 
 ## Run neo4j inside docker
 
-1. enrich the `service` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j service: 
+&#x20;1. enrich the `service` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j service: 
 
 {% code fullWidth="true" %}
 ```yaml
@@ -26,7 +26,7 @@ services:
 ```
 {% endcode %}
 
-2. enrich the `volumes` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j volume:
+&#x20;2. enrich the `volumes` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j volume:
 {% code fullWidth="true" %}
 ```yaml
 volumes:
@@ -38,7 +38,7 @@ volumes:
 ```
 {% endcode %}
 
-3. Start the `neo4j` service using:
+&#x20;3. Start the `neo4j` service using:
 
 {% code fullWidth="true" %}
 ```bash

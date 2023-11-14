@@ -59,5 +59,4 @@ compare the number of documents found inside Datashare:
 
 
 ## Next steps 
-- [explore the graph](../../usage/explore-the-neo4j-graph.md#exploring-the-graph)  using a visualization tool
-- [query the graph](../../usage/explore-the-neo4j-graph.md#querying-the-graph) using the Cypher and neo4j browser
+- [explore your graph](../../usage/explore-the-neo4j-graph.md#exploring-your-graph) using your favorite visualization tool

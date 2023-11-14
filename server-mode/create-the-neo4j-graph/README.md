@@ -8,7 +8,7 @@ description: This page explains how to setup neo4j, install the neo4j plugin and
 
 ### Get neo4j up and running
 
-Follow the instructions of the [dedicated FAQ page](..%2F..%2Fusage%2Ffaq%2Fgeneral%2Fhow-to-run-neo4j.md) to get neo4j up and running.
+Follow the instructions of the [dedicated FAQ page](../../usage/faq/general/how-to-run-neo4j.md) to get neo4j up and running.
 
 ### Add entities
  
