@@ -30,6 +30,12 @@ services:
 
 If your choose a different neo4j user or set a password for your neo4j user make sure to also set `DS_DOCKER_NEO4J_USER` and `DS_DOCKER_NEO4J_PASSWORD`.
 
+**When running `Neo4j Community Edition`, set the `DS_DOCKER_NEO4J_SINGLE_PROJECT` value**. 
+In community edition, the neo4j DBMS is restricted to a single database.
+Since Datashare supports multiple projects, you must set the `DS_DOCKER_NEO4J_SINGLE_PROJECT` with the name of the project which will use neo4j plugin.
+**Other projects won't be able to use the neo4j plugin**.
+
+
 ## Next step
 
 **You can now [create the graph](create-and-update-the-graph.md) !**

@@ -51,9 +51,9 @@ The update will **always add missing nodes and relationships, update existing on
 
 To detect whether a graph update is needed, open the '**Projects'** page and select your project:
 ![projects](../../.gitbook/assets/neo4j/projects.png)
-compare the number of documents found inside Datashare:
+compare the number of documents and entities found inside Datashare:
 ![datashare-stats](../../.gitbook/assets/neo4j/project-insights.png)
- to the number found in the '**Graph statistics'** and run an update in case of mismatch:
+ to the numbers found in the '**Graph statistics'** and run an update in case of mismatch:
 ![stats](../../.gitbook/assets/neo4j/neo4j-widget-statistics.png)
 
 
