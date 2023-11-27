@@ -34,7 +34,7 @@ Open your Applications. You should see Datashare. Double click on it:
 
 ![](<../../.gitbook/assets/Group 28 (1) (1) (1) (1) (1) (2).png>)
 
-Datashare opens in your default internet browser. Click '**Tasks**':&#x20;
+Datashare opens in your default internet browser. Click '**Tasks**':
 
 <figure><img src="../../.gitbook/assets/Screenshot 2022-10-27 at 12.25.34.png" alt=""><figcaption></figcaption></figure>
 
@@ -42,4 +42,4 @@ Click the 3rd tab '**Analyze your documents**':
 
 <figure><img src="../../.gitbook/assets/Screenshot 2022-10-27 at 12.25.44.png" alt=""><figcaption></figcaption></figure>
 
-You can now [analyze your documents in Datashare](/usage/analyze-documents).
+You can now [analyze your documents in Datashare](../analyze-documents.md).
