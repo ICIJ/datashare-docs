@@ -8,15 +8,15 @@ description: >-
 
 ## Add documents
 
-&#x20;1\. To add your documents in Datashare, click 'Tasks' in the left menu:
+1\. To add your documents in Datashare, click 'Tasks' in the left menu:
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.39.39.png>)
 
-&#x20; 2\. Click '**Analyze your documents'**:
+2\. Click '**Analyze your documents'**:
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.39.55.png>)
 
-&#x20;3\. Click **'Add documents'** so Datashare can extract the texts from your files:&#x20;
+3\. Click **'Add documents'** so Datashare can extract the texts from your files:
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-11-09 at 16.51.32.png" alt=""><figcaption></figcaption></figure>
 
@@ -27,7 +27,7 @@ You can:
 * Select the specific folder or sub-folder containing the documents you want to add.
 * Extract text also from images/PDFs (OCR). Be aware the indexing can be up to 10 times longer.
 * Select the language of you document if you don't want Datashare to guess it automatically.\
-  **Note:** if you choose to also extract text from images (previous option), you might need to install the appropriate language package on your system. Datashare will tell you if the language package is missing. Refer to the documentation to know [how to install language packages](add-more-languages.md).&#x20;
+  **Note:** if you choose to also extract text from images (previous option), you might need to install the appropriate language package on your system. Datashare will tell you if the language package is missing. Refer to the documentation to know [how to install language packages](add-more-languages.md).
 * Skip already indexed files.
 
 <figure><img src="../.gitbook/assets/Screen Shot 2023-01-13 at 12.39.55.png" alt=""><figcaption></figcaption></figure>
@@ -42,7 +42,7 @@ When tasks are done, you can start exploring documents by clicking '**Search'** 
 
 ## Extract names of people, organizations and locations
 
-&#x20;1\. After the text is extracted, you can launch named entities recognition by clicking the button '**Find people, organizations and locations'**.
+1\. After the text is extracted, you can launch named entities recognition by clicking the button '**Find people, organizations and locations'**.
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.40.26 (1).png>)
 
@@ -54,7 +54,7 @@ You can now see running tasks and their progress. After they are done, you can c
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.40.49.png>)
 
-&#x20;3\. You can search your indexed documents without having to wait for all tasks to be done. To access your documents, click '**Search'**:
+3\. You can search your indexed documents without having to wait for all tasks to be done. To access your documents, click '**Search'**:
 
 ![](<../.gitbook/assets/ Search.png>)
 
@@ -67,4 +67,4 @@ To extract email addresses in your documents:
 
 ![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.57.27.png>)
 
-You can now [search documents](/usage/search-documents).
+You can now [search documents](../usage/search-documents.md).
