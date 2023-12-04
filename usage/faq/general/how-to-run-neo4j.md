@@ -49,7 +49,7 @@ docker compose up -d neo4j
 
 ## Run Neo4j Desktop
 
-1. install with  [Neo4j Desktop](https://neo4j.com/docs/desktop-manual/current/), follow installation instructions found [here](https://neo4j.com/docs/desktop-manual/current/installation/)
+1. install with [Neo4j Desktop](https://neo4j.com/docs/desktop-manual/current/), follow installation instructions found [here](https://neo4j.com/docs/desktop-manual/current/installation/)
 2. [create a new local DBMS](https://neo4j.com/docs/desktop-manual/current/operations/create-dbms/) and save your password for later
 3. if the installer notifies you of any ports modification, check the [DBMS settings](https://neo4j.com/docs/desktop-manual/current/visual-tour/#dbms) and save the `server.bolt.listen_address` for later  
 
