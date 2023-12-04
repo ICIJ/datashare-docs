@@ -4,6 +4,7 @@
 
 | Prop name | Description                        | Type   | Values | Default |
 | --------- | ---------------------------------- | ------ | ------ | ------- |
+| id        | Name of the batch download's task  | string | -      |         |
 | name      | Name of the batch download's task  | string | -      |         |
 | state     | State of the batch download's task | string | -      | ''      |
 | value     | Attributes of the batch download   | object | -      | {}      |
