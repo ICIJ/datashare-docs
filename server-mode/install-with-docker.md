@@ -48,7 +48,9 @@ services:
         condition: service_healthy
     command: >-
       --mode SERVER
-      --dataDir /home/datashare/Datashare    
+      --dataDir /home/datashare/Datashare
+      --pluginsDir /home/datashare/plugins
+      --extensionsDir /home/datashare/extensions
       --authFilter org.icij.datashare.session.YesCookieAuthFilter
       --busType REDIS
       --batchQueueType REDIS
