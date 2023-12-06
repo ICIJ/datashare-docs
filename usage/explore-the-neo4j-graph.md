@@ -64,7 +64,7 @@ Once your graph is created and that you can access it (see [this section ](#impo
 ### Visualize and explore with Neo4j Bloom
 
 [Neo4j Bloom](https://neo4j.com/product/bloom/) is a simple and powerful tool developed by neo4j to quickly visualize and query graphs, **if you run Neo4j Enterprise Edition**.
-Bloom lets you navigate and exploration the graph through a simple a user interface similar to the one below:
+Bloom lets you navigate and explore the graph through a user interface similar to the one below:
 
 ![bloom-viz](../.gitbook/assets/neo4j/bloom-viz.png)
 
