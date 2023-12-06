@@ -9,8 +9,9 @@ docker compose exec datashare_web /entrypoint.sh \
   --pluginInstall datashare-plugin-neo4j-graph-widget 
 ```
 
-Installing the plugin will also install the `datashare-extension-neo4j` backend extension inside `/home/datashare/extensions`.
-This location can be changed providing the `--extensionsDir` parameter. 
+Installing the plugin install the `datashare-plugin-neo4j-graph-widget` plugin inside `/home/datashare/plugings` and
+will also install the `datashare-extension-neo4j` backend extension inside `/home/datashare/extensions`.
+These locations can be changed changed by updating the `docker-compose.yml`.
 
 ## Configure the neo4j extension
 
@@ -25,6 +26,7 @@ services:
       environment:
         - DS_DOCKER_NEO4J_HOST=neo4j
         - DS_DOCKER_NEO4J_PORT=7687
+        - DS_DOCKER_NEO4J_SINGLE_PROJECT=secret-project  # This is for community edition only
 ```
 {% endcode %}
 
@@ -35,6 +37,11 @@ In community edition, the neo4j DBMS is restricted to a single database.
 Since Datashare supports multiple projects, you must set the `DS_DOCKER_NEO4J_SINGLE_PROJECT` with the name of the project which will use neo4j plugin.
 **Other projects won't be able to use the neo4j plugin**.
 
+## Restart Datasahre
+After installing the plugin a restart might be needed for the plugin to display:
+```
+docker compose restart datashare_web
+```
 
 ## Next step
 
