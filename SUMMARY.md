@@ -24,6 +24,10 @@
 * [Add documents](local-mode/analyze-documents.md)
 * [Add more languages](local-mode/add-more-languages.md)
 * [Install plugins and extensions](local-mode/plugins-and-extensions.md)
+* [Setup Neo4j](local-mode/create-the-neo4j-graph/README.md)
+* [Create and update Neo4j graph](local-mode/create-and-update-the-graph.md)
+* [Install Neo4j plugin](local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
+
 
 ## 🌐 On your server <a href="#server-mode" id="server-mode"></a>
 
@@ -36,6 +40,9 @@
   * [Basic with a database](server-mode/authentication-providers/basic-with-a-database.md)
   * [Basic with Redis](server-mode/authentication-providers/basic-with-redis.md)
   * [Dummy](server-mode/authentication-providers/dummy.md)
+* [Setup Neo4j](server-mode/create-the-neo4j-graph/README.md)
+* [Create and update Neo4j graph](server-mode/create-and-update-the-graph.md)
+* [Install Neo4j plugin](server-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
 
 ## ⚡ Usage
 
@@ -49,6 +56,7 @@
 * [Tag documents](usage/tag-documents.md)
 * [Recommend documents](usage/recommend-documents.md)
 * [Keyboard shortcuts](usage/use-keyboard-shortcuts.md)
+* [Explore Neo4j Graph](usage/explore-the-neo4j-graph.md)
 * [FAQ](usage/faq/README.md)
   * [General](usage/faq/general/README.md)
     * [Can I use Datashare with no internet connection?](usage/faq/general/can-i-use-datashare-with-no-internet-connection.md)
@@ -63,6 +71,7 @@
     * [Advanced: how can I do bulk actions with Tarentula?](usage/faq/general/advanced-how-can-i-do-bulk-actions-with-tarentula.md)
     * [How can I specify the language of my documents?](usage/faq/general/how-can-i-specify-the-language-of-my-documents.md)
     * [What should I do if I get more than 10,000 results?](usage/faq/general/what-should-i-do-if-i-get-more-than-10-000-results.md)
+    * [How to run Neo4j?](usage/faq/general/how-to-run-neo4j.md)
   * [Definitions](usage/faq/definitions/README.md)
     * [What is a named entity?](usage/faq/definitions/what-is-a-named-entity.md)
     * [What are NLP pipelines?](usage/faq/definitions/what-are-nlp-pipelines.md)
