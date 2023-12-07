@@ -24,9 +24,9 @@
 * [Add documents](local-mode/analyze-documents.md)
 * [Add more languages](local-mode/add-more-languages.md)
 * [Install plugins and extensions](local-mode/plugins-and-extensions.md)
-* [Setup Neo4j](local-mode/create-the-neo4j-graph/README.md)
-* [Create and update Neo4j graph](local-mode/create-and-update-the-graph.md)
-* [Install Neo4j plugin](local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
+* [Neo4j](local-mode/create-the-neo4j-graph/README.md)
+  * [Create and update Neo4j graph](local-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
+  * [Install Neo4j plugin](local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
 
 
 ## 🌐 On your server <a href="#server-mode" id="server-mode"></a>
@@ -40,9 +40,9 @@
   * [Basic with a database](server-mode/authentication-providers/basic-with-a-database.md)
   * [Basic with Redis](server-mode/authentication-providers/basic-with-redis.md)
   * [Dummy](server-mode/authentication-providers/dummy.md)
-* [Setup Neo4j](server-mode/create-the-neo4j-graph/README.md)
-* [Create and update Neo4j graph](server-mode/create-and-update-the-graph.md)
-* [Install Neo4j plugin](server-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
+* [Neo4j](server-mode/create-the-neo4j-graph/README.md)
+  * [Create and update Neo4j graph](server-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
+  * [Install Neo4j plugin](server-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
 
 ## ⚡ Usage
 
