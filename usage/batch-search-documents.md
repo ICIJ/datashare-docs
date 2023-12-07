@@ -45,17 +45,17 @@ To delete line break(s) in your spreadsheet, you can use the "**Find and replace
 
 ### Want to search only on some documents?
 
-In the [new Batch Search's form > Advanced Filters](/usage/batch-search-documents#launch-your-batch-search), you will be able to select some file types and some paths if you want to search only in some documents.
+In the [new Batch Search's form > Advanced Filters](batch-search-documents/#launch-your-batch-search), you will be able to select some file types and some paths if you want to search only in some documents.
 
-But you can also use [fields directly in your queries in the CSV](/usage/search-with-operators#advanced-searches-using-metadata-fields).
+But you can also use [fields directly in your queries in the CSV](search-with-operators/#advanced-searches-using-metadata-fields).
 
 For instance, if you want to search only in some documents with certain tag(s), you can write your queries like this: "Paris AND (tags:London OR tags:Madrid NOT tags:Cotonou)".
 
 ### Use operators in your CSV
 
-[The operators](/usage/search-with-operators) AND NOT \* ? ! + - do work in batch searches (as they do in the regular search bar) **but only if "Do phrase match" in Advanced filters is turned off.**
+[The operators](search-with-operators/) AND NOT \* ? ! + - do work in batch searches (as they do in the regular search bar) **but only if "Do phrase match" in Advanced filters is turned off.**
 
-Reserved characters, when misused, can lead to [**failures**](/usage/batch-search-documents#i-get-a-failure-what-does-that-mean) **because of syntax errors.**
+Reserved characters, when misused, can lead to [**failures**](batch-search-documents/#i-get-a-failure-what-does-that-mean) **because of syntax errors.**
 
 Please also note that searches are **not case sensitive**: if you search 'HeLlo', it will look for all occurrences of 'Hello', 'hello', 'hEllo', 'heLLo', etc. in the documents.
 
@@ -103,7 +103,7 @@ Export your spreadsheet in a CSV format like this:
 
 ### What is fuzziness?
 
-When you run a [batch search](/usage/batch-search-documents), you can set the fuzziness to 0, 1 or 2. It will apply to each term in a query. It corresponds to **the maximum number of operations (insertions, deletions, substitutions and transpositions)** on _**characters**_ needed to make one _**term**_ match the other.
+When you run a [batch search](batch-search-documents/), you can set the fuzziness to 0, 1 or 2. It will apply to each term in a query. It corresponds to **the maximum number of operations (insertions, deletions, substitutions and transpositions)** on _**characters**_ needed to make one _**term**_ match the other.
 
 > kitten -> sitten (1 substitution (k turned into s) = fuzziness is 1)
 
@@ -137,7 +137,7 @@ When you turn on 'Do phrase matches', you can set, in 'Proximity searches', the 
 
 * Open your batch search by clicking its name:
 
-![](<../.gitbook/assets/Screenshot 2020-08-21 at 15.55.14 (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/screenshot-2020-08-21-at-15.55.14 (1).png>)
 
 * You see your results and you can **sort them** by clicking the column's name. 'Rank' means the order by which each queries would be sorted out if run in Datashare's main search bar. They are thus sorted by **relevance score by default**.
 
@@ -174,7 +174,7 @@ Notes:
 
 1. Edit the name and the description of your batch search if needed:
 
-![](<../.gitbook/assets/Screenshot 2021-02-09 at 15.05.46 (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/screenshot-2021-02-09-at-15.05.46 (1).png>)
 
 1. You can choose to delete the current batch search after relaunching it:
 
@@ -204,7 +204,7 @@ Check this first failure-generating query in the error window:
 
 ![](../.gitbook/assets/screenshot-2020-12-09-at-17.30.14.png)
 
-In the case above, the slash (/) used between 'Heroin' and 'Opiates' is a [reserved character that was not escaped by a backslash](/usage/batch-search-documents#the-query-uses-square-brackets) so Datashare interpreted this query as a syntax error, failed and didn't go further so the batch search stopped.
+In the case above, the slash (/) used between 'Heroin' and 'Opiates' is a [reserved character that was not escaped by a backslash](batch-search-documents/#the-query-uses-square-brackets) so Datashare interpreted this query as a syntax error, failed and didn't go further so the batch search stopped.
 
 We recommend to remove the slash, as well as any reserved characters, and re-run the batch search again.
 
@@ -212,7 +212,7 @@ We recommend to remove the slash, as well as any reserved characters, and re-run
 
 If you have a message which contain '_elasticsearch: Name does not resolve_', it means that Datashare can't make Elastic Search, its search engine, work.
 
-In that case, you need to **re-open Datashare**: \*\*\*\*here are the instructions for [Mac](/mac/open-datashare-on-mac), [Windows](/windows/open-datashare-on-windows) or [Linux](/linux/open-datashare-on-linux).
+In that case, you need to **re-open Datashare**: \*\*\*\*here are the instructions for [Mac](../mac/open-datashare-on-mac/), [Windows](../windows/open-datashare-on-windows/) or [Linux](../linux/open-datashare-on-linux/).
 
 Example of a message regarding a problem with ElasticSearch:
 
@@ -236,7 +236,7 @@ We recommend to **remove the query responsible for the error and re-start your b
 
 It means that you wrote one or more of your queries the wrong way with some characters that are reserved as operators (see below).
 
-**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Click here to learn how to launch a batch search](/usage/batch-search-documents).
+**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Click here to learn how to launch a batch search](batch-search-documents/).
 
 Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your queries** as some errors can remain after correcting the first one.
 
@@ -254,19 +254,19 @@ Here are **the most common errors:**
 
 ### **- A query starts with AND** (all uppercase)
 
-You cannot start a query with AND all uppercase, neither in Datashare's main search bar nor in your CSV. [AND is reserved as a search operator](/usage/search-with-operators#and).
+You cannot start a query with AND all uppercase, neither in Datashare's main search bar nor in your CSV. [AND is reserved as a search operator](search-with-operators/#and).
 
 ![](../.gitbook/assets/screenshot-2019-10-31-at-14.53.32.png)
 
 ### **- A query starts with OR** (all uppercase)
 
-You cannot start a query with OR all uppercase, neither in Datashare's main search bar nor in your CSV. [OR is reserved as a search operator](/usage/search-with-operators#or-or-space).
+You cannot start a query with OR all uppercase, neither in Datashare's main search bar nor in your CSV. [OR is reserved as a search operator](search-with-operators/#or-or-space).
 
-![](<../.gitbook/assets/Screenshot 2019-10-31 at 14.58.08 (1) (1) (1) (1) (1) (1).png>)
+![](../.gitbook/assets/screenshot-2019-10-31-at-14.58.08.png)
 
 ### **- A query contains only one double quote or a double quote in a word**
 
-You cannot type a query with only one double quote, neither in Datashare's main search bar nor in your CSV. [Double quotes are reserved as a search operator](/usage/search-with-operators#exact-phrase).
+You cannot type a query with only one double quote, neither in Datashare's main search bar nor in your CSV. [Double quotes are reserved as a search operator](search-with-operators/#exact-phrase).
 
 ![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.41.png)
 
@@ -276,7 +276,7 @@ You cannot type a query with only one double quote, neither in Datashare's main 
 
 ### **- A query starts with or contains tilde** (\~) inside a term
 
-You cannot start a query with tilde (\~) or make one contain a tilde, neither in Datashare's main search bar nor in your CSV. Tilde is reserved as a search operator for [fuzziness](/faq-definitions/what-is-fuzziness) or [proximity searches](/faq-definitions/what-are-proximity-searches).
+You cannot start a query with tilde (\~) or make one contain a tilde, neither in Datashare's main search bar nor in your CSV. Tilde is reserved as a search operator for [fuzziness](../faq-definitions/what-is-fuzziness/) or [proximity searches](../faq-definitions/what-are-proximity-searches/).
 
 ![](../.gitbook/assets/screenshot-2019-10-31-at-15.03.59.png)
 
@@ -286,7 +286,7 @@ You cannot start a query with tilde (\~) or make one contain a tilde, neither in
 
 ### **- A query starts with or contains a caret** (^)
 
-You cannot start a query with caret (^) or make it contain a caret, neither in Datashare's main search bar nor in your CSV. [Caret is reserved as a boosting operator](/usage/search-with-operators#boosting-operators).
+You cannot start a query with caret (^) or make it contain a caret, neither in Datashare's main search bar nor in your CSV. [Caret is reserved as a boosting operator](search-with-operators/#boosting-operators).
 
 ![](../.gitbook/assets/screenshot-2019-10-31-at-15.05.05.png)
 
@@ -294,17 +294,17 @@ You cannot start a query with caret (^) or make it contain a caret, neither in D
 
 ### - A query contains one slash (/) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
 
-You cannot start a query with slash (/) or make it contain a slash, neither in Datashare's main search bar nor in your CSV. [Slash is a reserved character to open Regex ('regular expressions')](/usage/search-with-operators#regular-expressions-regex). Note that you can use Regex in batch searches.
+You cannot start a query with slash (/) or make it contain a slash, neither in Datashare's main search bar nor in your CSV. [Slash is a reserved character to open Regex ('regular expressions')](search-with-operators/#regular-expressions-regex). Note that you can use Regex in batch searches.
 
 ![](../.gitbook/assets/screenshot-2020-12-09-at-17.54.23.png)
 
 ![](../.gitbook/assets/screenshot-2020-12-09-at-17.55.02.png)
 
-![](<../.gitbook/assets/Screenshot 2020-12-09 at 17.54.51 (1) (1) (1) (1) (1) (1) (1).png>)
+![](../.gitbook/assets/screenshot-2020-12-09-at-17.54.51.png)
 
 ### - A query uses square brackets (\[ ]) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
 
-You cannot use square brackets [except for searching for ranges](/usage/search-with-operators#advanced-searches-using-metadata-fields).![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LvAEiaXbwQuvR2FuRkC%2F-LvAHL6A3cm6S0jBS0Ef%2FScreenshot%202019-12-03%20at%2010.31.31.png?alt=media\&token=dcf90492-48ee-4b50-9464-e729a41b56dc)
+You cannot use square brackets [except for searching for ranges](search-with-operators/#advanced-searches-using-metadata-fields).![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LvAEiaXbwQuvR2FuRkC%2F-LvAHL6A3cm6S0jBS0Ef%2FScreenshot%202019-12-03%20at%2010.31.31.png?alt=media\&token=dcf90492-48ee-4b50-9464-e729a41b56dc)
 
 ## Delete your batch search
 

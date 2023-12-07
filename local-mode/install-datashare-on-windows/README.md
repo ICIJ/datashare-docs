@@ -14,7 +14,7 @@ Before we start, please **uninstall any prior standard version of Datashare** if
 
 Go to [datashare.icij.org](https://datashare.icij.org), scroll down and click '**Download for free**'.
 
-![](<../../.gitbook/assets/Capture d’écran 2020-09-24 à 09.59.47 (1) (1) (1) (1) (1) (2).png>)
+![](<../../.gitbook/assets/capture-de-cran-2020-09-24-a-09.59.47 (1).png>)
 
 The file "**datashare-X.Y.Z.exe"** is now downloaded. **Double click** on the name of the file in order to execute it.
 
