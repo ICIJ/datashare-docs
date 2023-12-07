@@ -1,5 +1,5 @@
 ---
-description: TODO
+description: This page explains how to leverage neo4j to explore your Datashare projects
 ---
 
 # Explore your project using [neo4j](https://neo4j.com/) 
