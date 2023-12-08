@@ -12,7 +12,7 @@ The neo4j related features are added to the DatashareCLI through the extension m
 
 ```bash
 docker compose exec \
-  -e CLASSPATH=/home/datashare/extensions/datashare-extension-*.jar \
+  -e CLASSPATH=/home/datashare/extensions/* \
   datashare_web /entrypoint.sh \
   --mode CLI \
   --ext neo4j \
@@ -25,7 +25,7 @@ In order to create the graph, run the `--fullImport` command for your project:
 
 ```bash
 docker compose exec \
-  -e CLASSPATH=/home/datashare/extensions/datashare-extension-*.jar \
+  -e CLASSPATH=/home/datashare/extensions/* \
   datashare_web /entrypoint.sh \
   --mode CLI \
   --ext neo4j \
