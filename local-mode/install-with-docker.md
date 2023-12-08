@@ -38,7 +38,7 @@ version: "3.7"
 services:
 
   datashare:
-    image: icij/datashare:11.1.9
+    image: icij/datashare:13.9.0
     hostname: datashare
     ports:
       - 8080:8080
