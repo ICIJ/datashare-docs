@@ -53,8 +53,8 @@ To use the plugin to create a graph, follow these instructions:
 
 After the graph is created, navigate to the '**Projects'** page and select your project.
 You should be able to visualize a new neo4j widget displaying the number of documents and entities found inside the graph:
-![graph-widget](../.gitbook/assets/neo4j/neo4j-widget.png)
 
+![graph-widget](../.gitbook/assets/neo4j/neo4j-widget.png)
 
 ## Exploring your graph
 
@@ -139,7 +139,8 @@ You will now be able to import the dumped file into your own neo4j.
 
 ### Neo4j Desktop import
 - open '**Cypher shell'**:
-    ![desktop-shell](../.gitbook/assets/neo4j/desktop-shell.png)
+
+![desktop-shell](../.gitbook/assets/neo4j/desktop-shell.png)
   
 - copy your the graph dump inside your neo4j instance import directory:
     ```bash 
