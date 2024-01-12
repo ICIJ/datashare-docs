@@ -24,6 +24,7 @@ Since Datashare supports multiple projects, you must set the `Neo4j Single Proje
 &#x20;4\. Restart Datashare to apply the changes
 
 &#x20;5\. You should be able to see the neo4j widget in your project page, after a little while its status should be `RUNNING`:
+
 ![neo4j-widget-empty.png](../../.gitbook/assets/neo4j/neo4j-widget-empty.png)
 
 ## Next step
