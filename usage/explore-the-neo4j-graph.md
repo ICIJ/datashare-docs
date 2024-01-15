@@ -17,7 +17,7 @@ In the above graph, we can see 3 email document nodes in orange, 3 email address
 Reading the relationship types on the arrows, we can deduce the following information from the graph:
 - `shapp@caiso.com` emailed `20participants@caiso.com`, the sent email has an id starting with `f4db344...`
 - one person named `vincent` is mentioned inside this email, as well as the `california` location
-- finally, the email also mentions the `dle@caiso.com` email address which is also mentioned in 2 other email documents (with id starting with `11df197...` and `	033b4a2...`)
+- finally, the email also mentions the `dle@caiso.com` email address which is also mentioned in 2 other email documents (with id starting with `11df197...` and `   033b4a2...`)
 
 
 If you are not familiar with graph and neo4j, take a look at the following resources:
@@ -44,7 +44,7 @@ When an `:EMAIL` address entity is neither `:SENT` or `:RECEIVED`, like it is th
 When a document is embedded inside another document (as an email attachment for instance), the child document is connected to its parent through the `:HAS_PARENT` relationship.
 
 
-## Creating your project's graph
+## Create your Datashare project's graph
 
 The creation of a neo4j graph inside Datashare is supported through a plugin.
 To use the plugin to create a graph, follow these instructions:
@@ -56,9 +56,82 @@ You should be able to visualize a new neo4j widget displaying the number of docu
 
 ![graph-widget](../.gitbook/assets/neo4j/neo4j-widget.png)
 
-## Exploring your graph
 
-Once your graph is created and that you can access it (see [this section ](#importing-a-graph-into-your-own-neo4j-instance) if you can't access the Datashare's neo4j instance), you will be able to use your favorite tool to extract meaningful information from it.   
+## Access your project's graph
+
+Depending on your access to the neo4j database behind Datashare, you might need to export the neo4j graph and import it locally to access it from [visualization tools](#explore-and-visualize-entity-links).   
+
+Exporting and importing the graph into your own DB is also useful when you want to perform write operations on your graph without any consequences on Datashare.
+
+### With read access to Datashare's neo4j database
+
+If you have read access to the neo4j database (it should be the case if you are running Datashare on your computer), you will be able to plug [visualization tools](#explore-and-visualize-entity-links) to it and start exploring.
+
+### Without read access to Datashare's neo4j database
+If you can't have read access to the database, you will need to export it and import it into your own neo4j instance (running on your laptop for instance).
+
+#### Ask for a DB dump
+
+If it's possible, ask you system administrator for a DB dump obtained using the [neo4j-admin database dump command](https://neo4j.com/docs/operations-manual/current/backup-restore/offline-backup/).
+
+#### Export your graph from Datashare
+In case you don't have access to the DB and can't be provided with a dump, you can export the graph from inside. Be aware that limits might be applied on the size of the exported graph.
+
+To export the graph, navigate to Datashare's '**Projects'** page, select your project, select the '**Cypher shell'** export format and click the '**Export graph'** button:
+
+![graph-dump](../.gitbook/assets/neo4j/neo4j-widget-neo4-dump.png)
+
+In case you want to restrict the size of the exported graph, you can restrict the export to a subset of documents and their entities using the '**File types'** and '**Project directory**' filters.
+
+
+
+##### DB import
+Depending on [how you run neo4j on your laptop](faq/general/how-to-run-neo4j.md) use one of the following ways to import your graph into your DB:
+
+###### Docker
+- identify your neo4j instance container ID:
+    ```bash
+    docker ps | grep neo4j # Should display your running neo4j container ID
+    ```
+- copy your the graph dump inside your neo4j container import directory:
+    ```bash 
+    docker cp \
+        <export-path> \
+        <neo4j-container-id>:/var/lib/neo4j/imports/datashare-graph.dump
+    ```
+- import the dumped file using the [cypher-shell](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/) command: 
+    ```bash 
+    docker exec -it <neo4j-container-id> /bin/bash
+    ./bin/cypher-shell -f imports/datashare-graph.dump 
+    ```
+
+###### Neo4j Desktop import
+- open '**Cypher shell'**:
+
+![desktop-shell](../.gitbook/assets/neo4j/desktop-shell.png)
+  
+- copy your the graph dump inside your neo4j instance import directory:
+    ```bash 
+    cp <export-path> imports
+    ```
+
+- import the dumped file using the [cypher-shell](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/) command: 
+    ```bash
+    ./bin/cypher-shell -f imports/datashare-graph.dump 
+    ```
+
+You will now be able to explore the graph imported in your own neo4j instance. 
+
+
+## Explore and visualize entity links
+
+Once your graph is created and that you can access it (see [this section ](#importing-a-graph-into-your-own-neo4j-instance) if you can't access the Datashare's neo4j instance), you will be able to use your favorite tool to extract meaningful information from it.
+
+
+### Connect to your database
+
+Once you can [access your neo4j database](#access-your-projects-graph), you can use different tools to visualize and explore it.
+You can start by connection the [Neo4j Desktop](https://neo4j.com/docs/desktop-manual/current/visual-tour/) to your DB.  
 
 
 ### Visualize and explore with Neo4j Bloom
@@ -67,6 +140,8 @@ Once your graph is created and that you can access it (see [this section ](#impo
 Bloom lets you navigate and explore the graph through a user interface similar to the one below:
 
 ![bloom-viz](../.gitbook/assets/neo4j/bloom-viz.png)
+
+Neo4j Bloom is accessible from inside Neo4j Desktop app.
 
 Find out more information about to use Neo4j Bloom to explore your graph with:
 - Bloom's [User Guide](https://neo4j.com/docs/bloom-user-guide/current/about-bloom/)
@@ -106,54 +181,6 @@ Find out more information about:
 - how to [get started](https://gephi.org/users/quick-start/) with Gephi
 
 
-## Importing a graph into your own neo4j instance
-
-When using Datashare without direct access to the neo4j database, it can be useful to export the graph to re-import in into your own neo4j instance.
-
-To import the graph in your own noe4j database you will need to [run your own neo4j instance](faq/general/how-to-run-neo4j.md).
-
-When your instance is up and running, navigate to Datashare's '**Projects'** page, select your project, select the '**Cypher shell'** export format and click the '**Export graph'** button:
-
-![graph-dump](../.gitbook/assets/neo4j/neo4j-widget-neo4-dump.png)
-
-In case you want to restrict the size of the exported graph, you can restrict the export to a subset of documents and their entities using the '**File types'** and '**Project directory**' filters.
-
-You will now be able to import the dumped file into your own neo4j. 
- 
-### Docker import
-- identify your neo4j instance container ID:
-    ```bash
-    docker ps | grep neo4j # Should display your running neo4j container ID
-    ```
-- copy your the graph dump inside your neo4j container import directory:
-    ```bash 
-    docker cp \
-        <export-path> \
-        <neo4j-container-id>:/var/lib/neo4j/imports/datashare-graph.dump
-    ```
-- import the dumped file using the [cypher-shell](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/) command: 
-    ```bash 
-    docker exec -it <neo4j-container-id> /bin/bash
-    ./bin/cypher-shell -f imports/datashare-graph.dump 
-    ```
-
-### Neo4j Desktop import
-- open '**Cypher shell'**:
-
-![desktop-shell](../.gitbook/assets/neo4j/desktop-shell.png)
-  
-- copy your the graph dump inside your neo4j instance import directory:
-    ```bash 
-    cp <export-path> imports
-    ```
-
-- import the dumped file using the [cypher-shell](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/) command: 
-    ```bash
-    ./bin/cypher-shell -f imports/datashare-graph.dump 
-    ```
-
-You will now be able to [explore the graph](#exploring-your-graph) imported in your own neo4j instance. 
-
 ## Export your graph in the GraphML format
 
 To export the graph in the [GraphML file format](http://graphml.graphdrawing.org/), navigate to the '**Projects'**, select your project, choose the '**Graph ML'** export format and click the '**Export graph'** button:
@@ -163,5 +190,3 @@ To export the graph in the [GraphML file format](http://graphml.graphdrawing.org
 In case you want to restrict the size of the exported graph, you can restrict the export to a subset of documents and their entities using the '**File types'** and '**Project directory**' filters.
 
 You will now be able to [visualize the graph using Gephi](#visualize-with-gephi) by opening the exported GraphML file in it.
-
-
