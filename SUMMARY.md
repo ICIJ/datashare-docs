@@ -55,7 +55,7 @@
 * [Tag documents](usage/tag-documents.md)
 * [Recommend documents](usage/recommend-documents.md)
 * [Keyboard shortcuts](usage/use-keyboard-shortcuts.md)
-* [Create a Neo4j Graph and explore it](usage/explore-the-neo4j-graph.md)
+* [Create a Neo4j graph and explore it](usage/explore-the-neo4j-graph.md)
 * [FAQ](usage/faq/README.md)
   * [General](usage/faq/general/README.md)
     * [Can I use Datashare with no internet connection?](usage/faq/general/can-i-use-datashare-with-no-internet-connection.md)
