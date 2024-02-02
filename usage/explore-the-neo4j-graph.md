@@ -1,8 +1,13 @@
 ---
-description: This page explains how to leverage neo4j to explore your Datashare projects
+description: >- 
+  This page explains how to leverage neo4j to explore your Datashare projects.
+  
+  We recommend using a **recent release** of Datashare (`>= 13.9.2`) to use this feature, click on the
+  '**Other platforms and versions'** button when downloading to access versions if necessary.
 ---
 
-# Explore your project using [neo4j](https://neo4j.com/) 
+
+# Explore your project using [neo4j](https://neo4j.com/)
 
 ## The documents and entities graph
 
