@@ -62,7 +62,7 @@ docker compose exec datashare_web /entrypoint.sh \
 
 Once the indexing is done, Datashare will exit gracefully and your document will already be visible on Datashare.
 
-Sometimes you will face the case where you have an existing index and you want to index additional documents inside your working directory without processing every document again. It can be done in two steps :
+Sometimes you will face the case where you have an existing index, and you want to index additional documents inside your working directory without processing every document again. It can be done in two steps :
 
 * Scan the existing ElasticSearch index and gather document paths to store it inside a report queue
 * Scan and index (with OCR) the documents in the directory, thanks to the previous report queue, it will skip the paths inside of it
