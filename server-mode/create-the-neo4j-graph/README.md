@@ -10,7 +10,7 @@ description: This page explains how to setup neo4j, install the neo4j plugin and
 
 Follow the instructions of the [dedicated FAQ page](../../usage/faq/general/how-to-run-neo4j.md) to get neo4j up and running.
 
-We recommend using a **recent release** of Datashare (`>= 13.9.2`) to use this feature, click on the
+We recommend using a **recent release** of Datashare (`>= 14.0.0`) to use this feature, click on the
 '**Other platforms and versions'** button when downloading to access versions if necessary.
 
 ### Add entities
