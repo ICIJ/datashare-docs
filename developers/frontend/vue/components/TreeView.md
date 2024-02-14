@@ -21,6 +21,7 @@
 | sortBy                   | Key to sort the directories                                                                  | string  | -      | 'contentLength'     |
 | sortByOrder              | Order to sort by (asc or desc)                                                               | string  | -      | 'desc'              |
 | includeChildrenDocuments | If the true, the document count and size of each directory will include<br/>child documents. | boolean | -      |                     |
+| query                    | Query to filter the directory by name.                                                       | string  | -      |                     |
 
 ## Events
 
