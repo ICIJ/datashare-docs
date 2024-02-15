@@ -16,12 +16,17 @@
 | rounded         | Round the border of the input                                                       | boolean        | -      | true    |
 | loading         | Change the state of the input to "loading" (with a spinner)                         | boolean        | -      | false   |
 | dark            | Display the input and button on a dark background                                   | boolean        | -      | false   |
+| autocomplete    | Disable autocomplete by default.                                                    | string         | -      | 'off'   |
 
 ## Events
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
 | submit     |            |
+| up         |            |
+| down       |            |
+| enter      |            |
 | input      |            |
+| blur       |            |
 
 ---
