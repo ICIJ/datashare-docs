@@ -17,6 +17,7 @@
 | -------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------- |
 | toggle-filter        |                                                | Triggered when the filter is "inverted" (excluding selected values).            |
 | contextualize-filter |                                                | Triggered when the filter is "contextualized" (relative to the search results). |
+| sorted               |                                                |
 | open-filter-search   | **&lt;anonymous1&gt;** `undefined` - undefined | Triggered when user starts to search in the filter values.                      |
 
 ---
