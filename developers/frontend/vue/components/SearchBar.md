@@ -6,7 +6,6 @@
 
 | Prop name         | Description                                      | Type    | Values           | Default                                                |
 | ----------------- | ------------------------------------------------ | ------- | ---------------- | ------------------------------------------------------ |
-| animated          | Animate the focus on the search input.           | boolean | -                |                                                        |
 | placeholder       | Placeholder in the search bar.                   | string  | -                | function () {<br/> this.$t('search.placeholder')<br/>} |
 | settings          | Display the shortcuts button.                    | boolean | -                |                                                        |
 | hideFieldDropdown | Hide the field dropdown                          | boolean | -                |                                                        |

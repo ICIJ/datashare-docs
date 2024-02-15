@@ -20,6 +20,8 @@
 | ---------- | ---------- | ----------- |
 | update     |            |
 | selected   |            |
+| hide       |            |
+| changed    |            |
 
 ## Slots
 

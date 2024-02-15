@@ -14,6 +14,8 @@
 
 | Event name | Properties | Description |
 | ---------- | ---------- | ----------- |
+| hidden     |            |
+| changed    |            |
 | input      |            |
 
 ---
