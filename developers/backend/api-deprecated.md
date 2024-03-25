@@ -324,7 +324,7 @@ true
 --BOUNDARY--
 ```
 
-Then replace  with `\r` with a sed like this:
+Then replace with  with a sed like this:
 
 `sed -i 's/$/^M/g' ~/multipart.txt`
 
@@ -947,14 +947,14 @@ Preflight for index creation.
 * **Parameter** index
 * **Return** 200 with PUT
 
-### Head /api/index/search/:path: <a href="#head__api_index_search__path_" id="head__api_index_search__path_"></a>
+### Head /api/index/search/:path: <a href="#head__api_index_search__path" id="head__api_index_search__path"></a>
 
 Head request useful for JS api (for example to test if an index exists)
 
 * **Parameter** path
 * **Return** 200
 
-### Post /api/index/search/:path: <a href="#post__api_index_search__path_" id="post__api_index_search__path_"></a>
+### Post /api/index/search/:path: <a href="#post__api_index_search__path" id="post__api_index_search__path"></a>
 
 The search endpoint is just a proxy in front of Elasticsearch, everything sent is forwarded to Elasticsearch. DELETE method is not allowed.
 
@@ -977,7 +977,7 @@ curl -XPOST -H 'Content-Type: application/json' http://dsenv:8080/api/index/sear
 
 ```
 
-### Get /api/index/search/:path: <a href="#get__api_index_search__path_" id="get__api_index_search__path_"></a>
+### Get /api/index/search/:path: <a href="#get__api_index_search__path" id="get__api_index_search__path"></a>
 
 Search GET request to Elasticsearch
 
@@ -995,7 +995,7 @@ curl -H 'Content-Type: application/json' 'http://dsenv:8080/api/index/search/api
 
 ```
 
-### Options /api/index/search/:path: <a href="#options__api_index_search__path_" id="options__api_index_search__path_"></a>
+### Options /api/index/search/:path: <a href="#options__api_index_search__path" id="options__api_index_search__path"></a>
 
 Prefligth option request
 
@@ -1079,7 +1079,7 @@ curl -XPOST http://dsenv:8080/api/ner/findNames/CORENLP -d "Please find attached
 
 ## /api <a href="#api" id="api"></a>
 
-### Get /api/:project/notes/:path: <a href="#get__api__project_notes__path_" id="get__api__project_notes__path_"></a>
+### Get /api/:project/notes/:path: <a href="#get__api__project_notes__path" id="get__api__project_notes__path"></a>
 
 Gets the list of notes for a project and a document path.
 
@@ -1218,9 +1218,9 @@ Set-Cookie: _ds_session_id={"login":null,"roles":null,"sessionId":null,"redirect
 
 ## /api/project <a href="#api-project" id="api-project"></a>
 
-### Get /api/project/ <a href="#get__api_project_" id="get__api_project_"></a>
+### Get /api/project/ <a href="#get__api_project" id="get__api_project"></a>
 
-### Post /api/project/ <a href="#post__api_project_" id="post__api_project_"></a>
+### Post /api/project/ <a href="#post__api_project" id="post__api_project"></a>
 
 ### Put /api/project/:id <a href="#put__api_project__id" id="put__api_project__id"></a>
 
@@ -1298,7 +1298,7 @@ Connection: keep-alive
 
 ## / <a href="#undefined" id="undefined"></a>
 
-### Get / <a href="#get__" id="get__"></a>
+### Get / <a href="#get" id="get"></a>
 
 gets the root of the front-end app ie: ./app/index.html
 
@@ -1522,7 +1522,7 @@ curl -XPOST localhost:8080/api/task/batchUpdate/index/file -d '{}'
 [{"name":"org.icij.datashare.tasks.ScanTask@7631c2fc","state":"DONE","progress":1.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"},"result":2},{"name":"org.icij.datashare.tasks.IndexTask@68b4ff8d","state":"RUNNING","progress":0.0,"user":{"id":"apigen","name":null,"email":null,"provider":"local"}}]
 ```
 
-### Post /api/task/batchUpdate/index/:filePath: <a href="#post__api_task_batchupdate_index__filepath_" id="post__api_task_batchupdate_index__filepath_"></a>
+### Post /api/task/batchUpdate/index/:filePath: <a href="#post__api_task_batchupdate_index__filepath" id="post__api_task_batchupdate_index__filepath"></a>
 
 Indexes all files of a directory with the given path.
 
@@ -1532,7 +1532,7 @@ Indexes all files of a directory with the given path.
 
 Example $(curl -XPOST localhost:8080/api/task/batchUpdate/index/home/dev/myfile.txt)
 
-### Post /api/task/batchUpdate/scan/:filePath: <a href="#post__api_task_batchupdate_scan__filepath_" id="post__api_task_batchupdate_scan__filepath_"></a>
+### Post /api/task/batchUpdate/scan/:filePath: <a href="#post__api_task_batchupdate_scan__filepath" id="post__api_task_batchupdate_scan__filepath"></a>
 
 Scans recursively a directory with the given path
 
@@ -1565,7 +1565,7 @@ curl -XPOST -d '{}' http://dsenv:8080/api/task/clean/
 
 ```
 
-### Delete /api/task/clean/:taskName: <a href="#delete__api_task_clean__taskname_" id="delete__api_task_clean__taskname_"></a>
+### Delete /api/task/clean/:taskName: <a href="#delete__api_task_clean__taskname" id="delete__api_task_clean__taskname"></a>
 
 Cleans a specific task.
 
@@ -1579,16 +1579,16 @@ curl -XDELETE -d '{}' http://dsenv:8080/api/task/clean/TASK_NAME
 
 ```
 
-### Options /api/task/clean/:taskName: <a href="#options__api_task_clean__taskname_" id="options__api_task_clean__taskname_"></a>
+### Options /api/task/clean/:taskName: <a href="#options__api_task_clean__taskname" id="options__api_task_clean__taskname"></a>
 
-### Put /api/task/stop/:taskId: <a href="#put__api_task_stop__taskid_" id="put__api_task_stop__taskid_"></a>
+### Put /api/task/stop/:taskId: <a href="#put__api_task_stop__taskid" id="put__api_task_stop__taskid"></a>
 
 Cancels the task with the given name. It answers 200 with the cancellation status `true|false`
 
 * **Parameter** taskId
 * **Return**
 
-### Options /api/task/stop/:taskName: <a href="#options__api_task_stop__taskname_" id="options__api_task_stop__taskname_"></a>
+### Options /api/task/stop/:taskName: <a href="#options__api_task_stop__taskname" id="options__api_task_stop__taskname"></a>
 
 ### Put /api/task/stopAll <a href="#put__api_task_stopall" id="put__api_task_stopall"></a>
 
@@ -1625,7 +1625,7 @@ curl -XPOST http://dsenv:8080/api/task/findNames/CORENLP -d {}
 
 ## /api/tree <a href="#api-tree" id="api-tree"></a>
 
-### Get /api/tree:dirPath: <a href="#get__api_tree_dirpath_" id="get__api_tree_dirpath_"></a>
+### Get /api/tree:dirPath: <a href="#get__api_tree_dirpath" id="get__api_tree_dirpath"></a>
 
 List all files and directory for the given path. This endpoint returns a JSON using the same specification than the `tree` command on UNIX. It is roughly the equivalent of:
 
