@@ -1,2 +1,0 @@
-# WidgetEmpty
-
