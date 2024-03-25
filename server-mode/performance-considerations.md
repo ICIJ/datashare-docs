@@ -24,7 +24,7 @@ For projects like the [Pandora Papers](https://www.icij.org/investigations/pando
 
 ### **Leverage Parallelism**
 
-Datashare offer option Use the `--parallelism` and `--parserParallelism` options to enhance processing speed.
+Datashare offer `--parallelism` and `--parserParallelism` options to enhance processing speed.
 
 _Example (for `g4dn.8xlarge` with 32 CPUs):_
 
@@ -35,7 +35,7 @@ datashare --mode CLI --stage NLP --parallelism 14 --nlpParallelism 14
 
 ### **Optimize ElasticSearch**
 
-ElasticSearch can significantly consume CPU and memory, potentially becoming a bottleneck. For production instance of Datashare, we recommend deploying ElasticSearch on a remote server to improve performance.
+ElasticSearch can significantly consume CPU and memory, potentially becoming a bottleneck. For production instance of Datashare, we recommend deploying ElasticSearch on a remote server to improve performances.
 
 ### **Adjust JAVA\_OPTS**
 
