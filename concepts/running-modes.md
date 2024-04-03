@@ -4,13 +4,12 @@ description: Datashare runs using different modes with their own specifities.
 
 # Running modes
 
-| Mode             | Category | Description                                                                           |
-| ---------------- | -------- | ------------------------------------------------------------------------------------- |
-| `LOCAL`          | Web      | To run Datashare on a single computer for a single user.                              |
-| `SERVER`         | Web      | To run Datashare on a server for multiple users.                                      |
-| `CLI`            | CLI      | To index documents and analyze them directly [in the command-line](broken-reference). |
-| `BATCH_SEARCH`   | Daemon   | To execute pending [batch searches](../usage/batch-search-documents.md).              |
-| `BATCH_DOWNLOAD` | Daemon   | To execute pending batch downloads.                                                   |
+| Mode             | Category | Description                                                                                                                 |
+|------------------| -------- |-----------------------------------------------------------------------------------------------------------------------------|
+| `LOCAL`          | Web      | To run Datashare on a single computer for a single user.                                                                    |
+| `SERVER`         | Web      | To run Datashare on a server for multiple users.                                                                            |
+| `CLI`            | CLI      | To index documents and analyze them directly [in the command-line](broken-reference).                                       |
+| `TASK_RUNNER`    | Daemon   | To execute async tasks ([batch searches](../usage/batch-search-documents.md), batch downloads, scan, index, NER extraction  | 
 
 ## Web modes
 
