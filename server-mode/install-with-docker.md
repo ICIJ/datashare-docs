@@ -86,7 +86,7 @@ services:
     depends_on:
       - datashare_web
     command: >-
-      --mode BATCH_SEARCH 
+      --mode TASK_RUNNER
       --batchQueueType REDIS
       --batchThrottleMilliseconds 500
       --busType REDIS
@@ -97,34 +97,6 @@ services:
       --redisAddress redis://redis:6379
       --scrollSize 100  
       
-  # This service starts a deamon that wait for new batch downloads
-  # so it can run them (and save them in the database).
-  datashare_batch_downloads:
-    image: icij/datashare:11.1.9
-    depends_on:
-      - datashare_web
-    volumes:
-      - type: bind
-        source: ${HOME}/Datashare
-        target: /home/datashare/Datashare
-      - type: volume
-        source: datashare-batchdownload-dir
-        target: /home/datashare/app/tmp
-        read_only: false
-    command: >-
-      --mode BATCH_DOWNLOAD 
-      --dataDir /home/datashare/Datashare    
-      --batchDownloadTimeToLive 336
-      --batchQueueType REDIS
-      --batchThrottleMilliseconds 500
-      --busType REDIS
-      --dataSourceUrl jdbc:postgresql://postgresql/datashare?user=datashare\&password=password
-      --defaultProject secret-project 
-      --elasticsearchAddress http://elasticsearch:9200  
-      --queueType REDIS
-      --redisAddress redis://redis:6379
-      --scrollSize 100
-
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
     restart: on-failure
