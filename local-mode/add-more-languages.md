@@ -6,11 +6,24 @@ description: >-
 
 # Add more languages
 
-To be able to perform OCR, Datashare uses an open source technology called **Apache Tesseract**. When Tesseract extracts text from images, it uses "language packages" especially trained for each specific languages. Unfortunately, those packages can be heavy and to ensure a lightweight installation of Datashare, the installer doesn't use them all by default. In the case Datashare informs you of a missing package, this guide will explain you how to manually install it  on your system.
+To be able to perform OCR, Datashare uses an open source technology called **Apache Tesseract**. When Tesseract extracts text from images, it uses "language packages" especially trained for each specific languages. Unfortunately, those packages can be heavy and to ensure a lightweight installation of Datashare, the installer doesn't use them all by default. In the case Datashare informs you of a missing package, this guide will explain you how to manually install it on your system.
+
+### Install packages on Linux
+
+To add ocr languages on linux, simply use the following command:
+
+```
+sudo apt install tesseract-ocr-[lang]
+```
+
+Where \`\[lang]\` is can be : &#x20;
+
+* `all`  if you want to install all languages
+* a language code (ex: `fra`, for French), the list of languages is available [here](https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html)
 
 ### Install packages on Mac
 
-The Datashare Installer for Mac checks for the existence of either [MacPorts](https://ports.macports.org/) or [Homebrew](https://brew.sh/), which packages managers are used for the installation of Tesseract. If none of those two package managers is present, the Datashare Installer will install **MacPorts by default**.&#x20;
+The Datashare Installer for Mac checks for the existence of either [MacPorts](https://ports.macports.org/) or [Homebrew](https://brew.sh/), which packages managers are used for the installation of Tesseract. If none of those two package managers is present, the Datashare Installer will install **MacPorts by default**.
 
 #### With MacPorts (default)
 
@@ -26,7 +39,7 @@ You should see an output similar to this:
 
 If you get a `command not found: port`, this either means you are using Homebrew (see next section) or you did not [run the Datashare installer for Mac](install-datashare-on-mac/) yet.
 
-x²If MacPort is installed on your computer, you should be able to add the missing Tesseract language package with the following command (for German):
+If MacPort is installed on your computer, you should be able to add the missing Tesseract language package with the following command (for German):
 
 ```
 port install tesseract-deu
@@ -51,8 +64,6 @@ You should see an output similar to this:
 <figure><img src="../.gitbook/assets/Screenshot 2023-01-13 at 04.43.22 (1).png" alt=""><figcaption></figcaption></figure>
 
 If you get a `command not found: brew` error, this mean Homebrew is not installed on your system. You might either use MacPorts (see previous section) or [run the Datashare installer for Mac](install-datashare-on-mac/) on your computer.
-
-
 
 ### Install languages on Windows
 
