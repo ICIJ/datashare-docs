@@ -26,25 +26,32 @@ Class representing the core application with public methods for plugins.
 **Mixes**: [`FiltersMixin`](#filtersmixin), [`HooksMixin`](#hooksmixin), [`I18nMixin`](#i-nmixin), [`PipelinesMixin`](#pipelinesmixin), [`ProjectsMixin`](#projectsmixin), [`WidgetsMixin`](#widgetsmixin)  
 
 * [Core](#core)
-    * [new Core(LocalVue, api, mode)](#new-core-new)
+    * [new Core(api, mode)](#new-core-new)
     * _instance_
         * [.ready](#core-ready) : Promise.&lt;Object&gt;
         * <del>[.app](#core-app) : [`Core`](#core)</del>
         * [.core](#core-core) : [`Core`](#core)
-        * [.localVue](#core-localvue) : Vue
+        * [.bootstrapVue](#core-bootstrapvue) ⇒ Plugin
+        * [.i18n](#core-i-n) : I18n
+        * [.router](#core-router) : VueRouter
         * [.store](#core-store) : Vuex.Store
+        * [.plugin](#core-plugin) ⇒ \*
         * [.auth](#core-auth) : Auth
         * [.config](#core-config) : Object
         * [.api](#core-api) : Api
+        * [.vue](#core-vue) : Vue
+        * [.wait](#core-wait) : VueWait
         * [.mode](#core-mode) : String
         * [.use(Plugin, options)](#core-use) ⇒ [`Core`](#core)
         * [.useAll()](#core-useall) ⇒ [`Core`](#core)
         * [.useI18n()](#core-usei-n) ⇒ [`Core`](#core)
         * [.useBootstrapVue()](#core-usebootstrapvue) ⇒ [`Core`](#core)
         * [.useRouter()](#core-userouter) ⇒ [`Core`](#core)
+        * [.useVuex()](#core-usevuex) ⇒ [`Core`](#core)
         * [.useCommons()](#core-usecommons) ⇒ [`Core`](#core)
         * [.useWait()](#core-usewait) ⇒ [`Core`](#core)
         * [.useCore()](#core-usecore) ⇒ [`Core`](#core)
+        * [.buildCorePlugin()](#core-buildcoreplugin) ⇒ VueCore
         * [.configure()](#core-configure) ⇒ Promise.&lt;Object&gt;
         * [.mount([selector])](#core-mount) ⇒ Vue
         * [.defer()](#core-defer)
@@ -53,6 +60,9 @@ Class representing the core application with public methods for plugins.
         * [.loadUser()](#core-loaduser) ⇒ Promise
         * [.loadSettings()](#core-loadsettings) ⇒ Promise
         * [.setPageTitle(title, [suffix])](#core-setpagetitle)
+        * [.on(event, callback)](#core-on)
+        * [.off(event, callback)](#core-off)
+        * [.emit(event, payload)](#core-emit)
     * _static_
         * [.init(...options)](#core-init) ⇒ [`Core`](#core)
 
@@ -61,25 +71,22 @@ Class representing the core application with public methods for plugins.
 
 <a id="new-core-new"></a>
 
-### new Core(LocalVue, api, mode)
+### new Core(api, mode)
 
 Create an application
 
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+      <th>Param</th><th>Default</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>LocalVue</td><td>Object</td><td></td><td><p>The Vue class to instantiate the application with.</p>
+    <td>api</td><td><code></code></td><td><p>Datashare api interface</p>
 </td>
     </tr><tr>
-    <td>api</td><td></td><td><code></code></td><td><p>Datashare api interface</p>
-</td>
-    </tr><tr>
-    <td>mode</td><td></td><td></td><td><p>mode of authentication (&#39;local&#39; or &#39;server&#39;</p>
+    <td>mode</td><td></td><td><p>mode of authentication (&#39;local&#39; or &#39;server&#39;</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -120,11 +127,31 @@ The application core instance
 
 *****
 
-<a id="core-localvue"></a>
+<a id="core-bootstrapvue"></a>
 
-### datashare.localVue : Vue
+### datashare.bootstrapVue ⇒ Plugin
 
-The Vue class to instantiate the application with
+The Bootstrap Vue plugin instance.
+
+**Kind**: instance property of [`Core`](#core)  
+
+*****
+
+<a id="core-i-n"></a>
+
+### datashare.i18n : I18n
+
+The I18n instance
+
+**Kind**: instance property of [`Core`](#core)  
+
+*****
+
+<a id="core-router"></a>
+
+### datashare.router : VueRouter
+
+The VueRouter instance
 
 **Kind**: instance property of [`Core`](#core)  
 
@@ -135,6 +162,16 @@ The Vue class to instantiate the application with
 ### datashare.store : Vuex.Store
 
 The Vuex instance
+
+**Kind**: instance property of [`Core`](#core)  
+
+*****
+
+<a id="core-plugin"></a>
+
+### datashare.plugin ⇒ \*
+
+The CorePlugin instance
 
 **Kind**: instance property of [`Core`](#core)  
 
@@ -170,6 +207,26 @@ The Datashare api interface
 
 *****
 
+<a id="core-vue"></a>
+
+### datashare.vue : Vue
+
+The Vue app
+
+**Kind**: instance property of [`Core`](#core)  
+
+*****
+
+<a id="core-wait"></a>
+
+### datashare.wait : VueWait
+
+The VueWait
+
+**Kind**: instance property of [`Core`](#core)  
+
+*****
+
 <a id="core-mode"></a>
 
 ### datashare.mode : String
@@ -184,7 +241,7 @@ Get current Datashare mode
 
 ### datashare.use(Plugin, options) ⇒ [`Core`](#core)
 
-Add a Vue plugin to the instance's LocalVue
+Add a Vue plugin to the app
 
 **Kind**: instance method of [`Core`](#core)  
 **Returns**: [`Core`](#core) - the current instance of Core  
@@ -251,11 +308,22 @@ Configure vue-router plugin
 
 *****
 
+<a id="core-usevuex"></a>
+
+### datashare.useVuex() ⇒ [`Core`](#core)
+
+Configure vuex plugin
+
+**Kind**: instance method of [`Core`](#core)  
+**Returns**: [`Core`](#core) - the current instance of Core  
+
+*****
+
 <a id="core-usecommons"></a>
 
 ### datashare.useCommons() ⇒ [`Core`](#core)
 
-Configure most common Vue plugins (Murmur, VueProgressBar, VueShortkey, VueScrollTo and VueCalendar)
+Configure most common Vue plugins (Murmur, VueShortkey, VueScrollTo and VueCalendar)
 
 **Kind**: instance method of [`Core`](#core)  
 **Returns**: [`Core`](#core) - the current instance of Core  
@@ -281,6 +349,17 @@ Add a $core property to the instance's Vue
 
 **Kind**: instance method of [`Core`](#core)  
 **Returns**: [`Core`](#core) - the current instance of Core  
+
+*****
+
+<a id="core-buildcoreplugin"></a>
+
+### datashare.buildCorePlugin() ⇒ VueCore
+
+Build a VueCore instance with the current Core instance
+as parameter of the global properties.
+
+**Kind**: instance method of [`Core`](#core)  
 
 *****
 
@@ -372,7 +451,7 @@ Get the current signed user.
 
 ### datashare.loadUser() ⇒ Promise
 
-Get and update user definitionin place
+Get and update user definition in place
 
 **Kind**: instance method of [`Core`](#core)  
 
@@ -408,6 +487,78 @@ Append the given title to the page title
     </tr><tr>
     <td>[suffix]</td><td>String</td><td><code>Datashare</code></td><td><p>Suffix to the title</p>
 </td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="core-on"></a>
+
+### datashare.on(event, callback)
+
+Register a callback to an event using the EventBus singleton.
+
+**Kind**: instance method of [`Core`](#core)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td>String</td>
+    </tr><tr>
+    <td>callback</td><td>*</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="core-off"></a>
+
+### datashare.off(event, callback)
+
+Unregister a callback to an event using the EventBus singleton.
+
+**Kind**: instance method of [`Core`](#core)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td>String</td>
+    </tr><tr>
+    <td>callback</td><td>*</td>
+    </tr>  </tbody>
+</table>
+
+
+*****
+
+<a id="core-emit"></a>
+
+### datashare.emit(event, payload)
+
+Emit an event using the EventBus singleton.
+
+**Kind**: instance method of [`Core`](#core)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td>String</td>
+    </tr><tr>
+    <td>payload</td><td>*</td>
     </tr>  </tbody>
 </table>
 
