@@ -69,7 +69,6 @@
     * [Why results from a simple search and a batch search can be slightly different?](usage/faq/general/why-results-from-a-simple-search-and-a-batch-search-can-be-sligthly-different.md)
     * [How can I uninstall Datashare?](usage/faq/general/how-can-i-uninstall-datashare.md)
     * [Advanced: how can I do bulk actions with Tarentula?](usage/faq/general/advanced-how-can-i-do-bulk-actions-with-tarentula.md)
-    * [How can I specify the language of my documents?](usage/faq/general/how-can-i-specify-the-language-of-my-documents.md)
     * [What should I do if I get more than 10,000 results?](usage/faq/general/what-should-i-do-if-i-get-more-than-10-000-results.md)
     * [How to run Neo4j?](usage/faq/general/how-to-run-neo4j.md)
   * [Definitions](usage/faq/definitions/README.md)

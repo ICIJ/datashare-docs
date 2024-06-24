@@ -2,7 +2,7 @@
 
 **Warning**: this requires some technological knowledge.
 
-You can make Datashare follow soft links : add --followSymlinks when Datashare is launched.
+You can make Datashare follow soft links : add `--followSymlinks` when Datashare is launched.
 
 If you're on Mac or Windows, you must change the launch script.
 
