@@ -11,7 +11,7 @@ The installer will setup:
 * **Xcode Command Line Tools** (if neither XCode or [Xcode Command Line Tools](https://mac.install.guide/commandlinetools/index.html) are installed)
 * **MacPorts** (if neither Homebrew or MacPorts are installed)
 * **Apache Tesseract** with MacPorts or Homenrew
-* **Java JRE 11**
+* **Java JRE 17**
 * **Datashare** executable
 
 **Note:** previous versions of this document refered to a "Docker Installer". We do not provide this installer anymore but Datashare is still [published on the Docker Hub](https://hub.docker.com/r/icij/datashare) and supported with Docker.
