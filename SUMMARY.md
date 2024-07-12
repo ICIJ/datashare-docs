@@ -271,6 +271,6 @@
       * [UserHistoryDocumentList](developers/frontend/vue-app/pages/userhistorydocumentlist.md)
       * [UserHistorySavedSearchList](developers/frontend/vue-app/pages/userhistorysavedsearchlist.md)
 * [Introduction to Tarentula](developers/introduction-to-tarentula.md)
-* [Introduction to Playground](developers/introduction-to-playground.md)
+* [Index operations with Playground](developers/introduction-to-playground.md)
 * [Write extensions](developers/write-extensions.md)
 * [Write plugins](developers/write-plugins.md)
