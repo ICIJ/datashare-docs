@@ -34,7 +34,7 @@ You can:
 
 Two extraction tasks are now running: the first is the scanning of your Datashare folder which sees if there are new documents to analyze (ScanTask). The second is the indexing of these files (IndexTask):
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.40.26.png>)
+<figure><img src="../.gitbook/assets/cap1.png" alt=""><figcaption></figcaption></figure>
 
 It is not possible to 'Find people, organizations and locations' while of these two tasks is still running.
 
@@ -44,7 +44,7 @@ When tasks are done, you can start exploring documents by clicking '**Search'** 
 
 1\. After the text is extracted, you can launch named entities recognition by clicking the button '**Find people, organizations and locations'**.
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.40.26 (1).png>)
+<figure><img src="../.gitbook/assets/Tasks NER.png" alt=""><figcaption></figcaption></figure>
 
 2\. In the window below, you are asked to choose between finding Named Entities or finding email addresses (you cannot do both simultaneously, you need to do one after the other, no matter the order):
 
@@ -52,11 +52,11 @@ When tasks are done, you can start exploring documents by clicking '**Search'** 
 
 You can now see running tasks and their progress. After they are done, you can click '**Clear done tasks'** to stop displaying tasks that are completed.
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 13.40.49.png>)
+<figure><img src="../.gitbook/assets/Tasks clear.png" alt=""><figcaption></figcaption></figure>
 
 3\. You can search your indexed documents without having to wait for all tasks to be done. To access your documents, click '**Search'**:
 
-![](<../.gitbook/assets/ Search.png>)
+<figure><img src="../.gitbook/assets/Tasks search.png" alt=""><figcaption></figcaption></figure>
 
 ## Extract email addresses
 
