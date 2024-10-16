@@ -52,14 +52,13 @@ JAVA_OPTS="-Xms10g -Xmx50g" datashare --mode CLI --stage INDEX
 If the document language is known, explicitly setting it can save processing time.
 
 * **Use `--language`** for general language setting (e.g., `FRENCH`, `ENGLISH`).
-* **Use `--ocrLanguage`** for OCR tasks to specify the Tesseract model (e.g., `fra`, `eng`).
 
 _Example:_
 
 ```bash
-datashare --mode CLI --stage INDEX --language FRENCH --ocrLanguage fra
-datashare --mode CLI --stage INDEX --language CHINESE --ocrLanguage chi_sim
-datashare --mode CLI --stage INDEX --language GREEK --ocrLanguage ell
+datashare --mode CLI --stage INDEX --language FRENCH
+datashare --mode CLI --stage INDEX --language CHINESE
+datashare --mode CLI --stage INDEX --language GREEK
 ```
 
 ### **Manage OCR Tasks Wisely**
