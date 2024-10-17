@@ -20,7 +20,7 @@ docker run --mount src=$HOME/Datashare,target=/home/datashare/data,type=bind -p 
 
 _Make sure the `Datashare` folder exists in your homedir or this command will fail. This is an example about how to use Datashare with Docker, data will not be persisted._
 
-### Starting Datashare with multiple containers&#x20;
+### Starting Datashare with multiple containers
 
 Within Datashare, Docker Compose can play a significant role in enabling the setup of separated and persistent services for essential components such as the database (PostgreSQL), the search index (Elasticsearch), and the key-value store (Redis).
 
@@ -38,7 +38,7 @@ version: "3.7"
 services:
 
   datashare:
-    image: icij/datashare:13.9.0
+    image: icij/datashare:18.1.3
     hostname: datashare
     ports:
       - 8080:8080

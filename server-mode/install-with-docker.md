@@ -10,7 +10,7 @@ Datashare platform is designed to function effectively by utilizing a combinatio
 
 [**Read more about how to install Docker on your system.**](https://docs.docker.com/engine/install/)
 
-### Starting Datashare with multiple containers&#x20;
+### Starting Datashare with multiple containers
 
 Within Datashare, Docker Compose can play a significant role in enabling the setup of separated and persistent services for essential components. By utilizing Docker Compose, you can define and manage multiple containers as part of a unified service. This allows for seamless orchestration and deployment of interconnected services, each serving a specific purpose within the Datashare ecosystem.
 
@@ -29,7 +29,7 @@ services:
   # Here it is configured with a "dummy" authentication backend which 
   # creates epehemeral user sessions.
   datashare_web:
-    image: icij/datashare:11.1.9
+    image: icij/datashare:18.1.3
     hostname: datashare
     ports:
       - 8080:8080
@@ -68,7 +68,7 @@ services:
   # We use a service to create the "secret-project". In theory you only need 
   # to run it the first time you start Datashare. 
   datashare_create_project:
-    image: icij/datashare:11.1.9
+    image: icij/datashare:18.1.3
     restart: no
     depends_on:
       elasticsearch:
@@ -79,10 +79,10 @@ services:
       --stage INDEX 
       --elasticsearchAddress http://elasticsearch:9200
 
-  # This service starts a deamon that wait for new batch searches 
+  # This service starts a deamon that wait for background tasks
   # so it can run them (and save them in the database).
-  datashare_batch_searches:
-    image: icij/datashare:11.1.9
+  datashare_task:
+    image: icij/datashare:18.1.3
     depends_on:
       - datashare_web
     command: >-
@@ -178,10 +178,8 @@ This will stop and remove the containers, freeing up system resources.
 
 ### Add documents to Datashare
 
-If you reach that point, Datashare is up and running but you will discover very quickly
-that no documents is available in the search results. Next step: **[Add documents from the CLI](/server-mode/add-documents-from-the-cli.md)**.
+If you reach that point, Datashare is up and running but you will discover very quickly that no documents is available in the search results. Next step: [**Add documents from the CLI**](add-documents-from-the-cli.md).
 
 ### Extract named entities
 
-Datashare as the ability to detect email addresses, name of people, organizations and locations.
-You must perform the named entities extraction in the same fashion than the previous commands. Final step: **[Add named entities from the CLI](/server-mode/add-entities-from-the-cli.md)**.
+Datashare as the ability to detect email addresses, name of people, organizations and locations. You must perform the named entities extraction in the same fashion than the previous commands. Final step: [**Add named entities from the CLI**](add-entities-from-the-cli.md).
