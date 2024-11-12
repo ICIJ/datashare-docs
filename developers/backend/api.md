@@ -1,5 +1,4 @@
 # API
-
 {% swagger src="./ds_openapi.json" path="/api/key/:userId" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/key/:userId" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/key/:userId" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
@@ -80,4 +79,4 @@
 {% swagger src="./ds_openapi.json" path="/api/users/me/history" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/users/me/history/event" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/users/me/history/event?id=:eventId" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me/history?type=:type" method="delete"" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/users/me/history?type=:type" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
