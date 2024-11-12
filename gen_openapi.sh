@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
+if [ $# -ne 1 ]
+  then
+    echo "usage:"
+    echo "$0 <open_api_http_url>"
+    exit 1
+fi
+
+URL=$1
+
 echo "# API"
 
-curl -s localhost:8080/api/openapi |
+curl -s $URL |
   jq  '.paths | to_entries | map("path=" + (.key | tojson)  + " method=" + (.value | keys[] | tojson)) ' |
   sed '1d' | # remove first line
   sed '$d' | # remove last line
