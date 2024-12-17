@@ -11,9 +11,6 @@
 {% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid/queries" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/:coma_separated_projects" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/copy/:sourcebatchid" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/copy/:sourcebatchid" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/batch/search/result/csv/:batchid" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/:project/documents/recommendations?userids=:coma_separated_users" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/:project/documents/starred" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
@@ -64,6 +61,9 @@
 {% swagger src="./ds_openapi.json" path="/api/task/all" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/batchDownload" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/batchDownload" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/task/batchSearch/:coma_separated_projects" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/task/batchSearch/copy/:sourcebatchid" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/task/batchSearch/copy/:sourcebatchid" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/batchUpdate/index" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/batchUpdate/index/file" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/clean" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
