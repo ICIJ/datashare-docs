@@ -1,82 +1,49 @@
 # API
-{% swagger src="./ds_openapi.json" path="/api/key/:userId" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/key/:userId" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/key/:userId" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/key/:userId" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/:batchid/queries" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/batch/search/result/csv/:batchid" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/documents/recommendations?userids=:coma_separated_users" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/documents/starred" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/documents/tags/:docId" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/documents/tags/:docId" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/documents/untag/:docId" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:projects/documents/tagged/:coma_separated_tags" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/documents/starred" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/recommendations?project=:project" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/recommendationsby?project=:project&docIds=:coma_separated_docIds" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/document-user-recommendation/" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/document-user-recommendation/" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/extensions" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/extensions/install" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/extensions/install" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/extensions/uninstall" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/extensions/uninstall?id=:extensionId" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/ftm/:project/:docId" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/index/:index" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/index/:index" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/index/search/:path:" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/index/search/:path:" method="head" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/namedEntities/hide/:mentionNorm" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/namedEntities/hide/:mentionNorm" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/ner/findNames/:pipeline" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/ner/pipelines" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/:project/notes" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/openapi" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/plugins" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/plugins/install" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/plugins/install" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/plugins/uninstall" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/plugins/uninstall?id=:pluginId" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/:id" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/:id" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/:id" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/project/isDownloadAllowed/:id" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/settings" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/version" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/status" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/:id" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/:id" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/:id/result" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/all" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchDownload" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchDownload" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchSearch/:coma_separated_projects" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchSearch/copy/:sourcebatchid" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchSearch/copy/:sourcebatchid" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchUpdate/index" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/batchUpdate/index/file" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/clean" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/clean/:taskName:" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/clean/:taskName:" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/stop/:taskId:" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/stop/:taskName:" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/stopAll" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/stopAll" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/tree/:dirPath:" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me/history" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me/history" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me/history/event" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me/history/event?id=:eventId" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/users/me/history?type=:type" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/key/:userId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/batch/search:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/batch/search/:batchid:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/batch/search/:batchid/queries:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/batch/search/result/csv/:batchid:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:project/documents/recommendations?userids=:coma_separated_users:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:project/documents/starred:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:project/documents/tags/:docId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:project/documents/untag/:docId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:projects/documents/tagged/:coma_separated_tags:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/documents/starred:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/recommendations?project=:project:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/recommendationsby?project=:project&docIds=:coma_separated_docIds:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/document-user-recommendation/:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/extensions:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/extensions/install:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/extensions/uninstall:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/extensions/uninstall?id=:extensionId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/ftm/:project/:docId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/index/:index:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:project/namedEntities/hide/:mentionNorm:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/ner/findNames/:pipeline:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/ner/pipelines:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/:project/notes:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/openapi?format=:format:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/plugins:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/plugins/install:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/plugins/uninstall:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/plugins/uninstall?id=:pluginId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/project/:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/project/:id:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/project/isDownloadAllowed/:id:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/status:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/:id:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/:id/result:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/all:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/batchDownload:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/batchSearch/:coma_separated_projects:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/batchSearch/copy/:sourcebatchid:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/batchUpdate/index:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/batchUpdate/index/file:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/clean:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/task/stopAll:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/me:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/me/history:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/me/history/event:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/me/history/event?id=:eventId:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
+{% swagger src="./ds_openapi.yaml" path="/api/users/me/history?type=:type:" %} [ds_openapi.yaml](./ds_openapi.yaml) {% endswagger %}
