@@ -380,127 +380,6 @@
         }
       }
     },
-    "/api/batch/search/:coma_separated_projects": {
-      "post": {
-        "description": "Creates a new batch search. This is a multipart form with 9 fields:<br/>name, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template<br><br/>Queries with less than two characters are filtered.<br><br>To make a request manually, you can create a file like:<br><pre>--BOUNDARY<br/>\"Content-Disposition: form-data; name=\"name\"<br/><br/>my batch search<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"description\"<br/><br/>search description<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"<br/>Content-Type: text/csv<br/><br/>Obama<br/>skype<br/>test<br/>query three<br/>--BOUNDARY--<br/>Content-Disposition: form-data; name=\"published\"<br/><br/>true<br/>--BOUNDARY--<br/></pre><br/><br/>Then curl with<pre>curl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt</pre>you'll maybe have to replace \\n with \\n\\r with <pre>sed -i 's/$/^M/g' ~/multipart.txt</pre>",
-        "operationId": "search",
-        "parameters": [
-          {
-            "in": "path",
-            "description": "Coma-separated list of projects",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "example": {
-              "value": "prj1,prj2"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "multipart form",
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "csvFile": {
-                    "type": "string"
-                  },
-                  "published": {
-                    "type": "boolean"
-                  },
-                  "fileTypes": {},
-                  "tags": {},
-                  "paths": {},
-                  "fuzziness": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "phrase_matches": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "413": {
-            "description": "if the CSV file is more than 60K lines"
-          },
-          "400": {
-            "description": "if either name or CSV file is missing"
-          }
-        }
-      }
-    },
-    "/api/batch/search/copy/:sourcebatchid": {
-      "post": {
-        "description": "Creates a new batch search based on a previous one given its id, and enqueue it for running",
-        "operationId": "copySearch",
-        "parameters": [
-          {
-            "name": "sourcebatchid",
-            "in": "path",
-            "description": "source batch id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "batch parameters",
-          "content": {
-            "application/json": {
-              "example": {
-                "name": "my new batch",
-                "description": "desc"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "404": {
-            "description": "if the source batch search is not found in database"
-          },
-          "200": {
-            "description": "returns the id of the created batch search",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "options": {
-        "description": "Preflight request",
-        "operationId": "optionsCopy",
-        "responses": {
-          "default": {
-            "description": "returns POST",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Payload"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/batch/search/result/csv/:batchid": {
       "get": {
         "description": "Retrieves the results of a batch search as an attached CSV file.",
@@ -1642,11 +1521,11 @@
     },
     "/api/task/all": {
       "get": {
-        "description": "Gets all the user tasks.<br>A filter can be added with a pattern contained in the task name.",
+        "description": "Gets all the user tasks.<br>Filters can be added with <pre>name=value</pre>. For example if <pre>name=foo</pre> is given in the request url query,the tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys. For example if <pre>args.dataDir=bar</pre> is provided, tasks with \"dataDir\" containing \"bar\" are going to be selected.",
         "operationId": "tasks",
         "parameters": [
           {
-            "name": "filter",
+            "name": "name",
             "in": "query",
             "description": "pattern contained in the task name",
             "schema": {
@@ -1705,6 +1584,127 @@
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS and POST"
+          }
+        }
+      }
+    },
+    "/api/task/batchSearch/:coma_separated_projects": {
+      "post": {
+        "description": "Creates a new batch search. This is a multipart form with 9 fields:<br/>name, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template<br><br/>Queries with less than two characters are filtered.<br><br>To make a request manually, you can create a file like:<br><pre>--BOUNDARY<br/>\"Content-Disposition: form-data; name=\"name\"<br/><br/>my batch search<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"description\"<br/><br/>search description<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"<br/>Content-Type: text/csv<br/><br/>Obama<br/>skype<br/>test<br/>query three<br/>--BOUNDARY--<br/>Content-Disposition: form-data; name=\"published\"<br/><br/>true<br/>--BOUNDARY--<br/></pre><br/><br/>Then curl with<pre>curl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt</pre>you'll maybe have to replace \\n with \\n\\r with <pre>sed -i 's/$/^M/g' ~/multipart.txt</pre>",
+        "operationId": "search",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Coma-separated list of projects",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": {
+              "value": "prj1,prj2"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "multipart form",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "csvFile": {
+                    "type": "string"
+                  },
+                  "published": {
+                    "type": "boolean"
+                  },
+                  "fileTypes": {},
+                  "tags": {},
+                  "paths": {},
+                  "fuzziness": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "phrase_matches": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "413": {
+            "description": "if the CSV file is more than 60K lines"
+          },
+          "400": {
+            "description": "if either name or CSV file is missing"
+          }
+        }
+      }
+    },
+    "/api/task/batchSearch/copy/:sourcebatchid": {
+      "post": {
+        "description": "Creates a new batch search based on a previous one given its id, and enqueue it for running",
+        "operationId": "copySearch",
+        "parameters": [
+          {
+            "name": "sourcebatchid",
+            "in": "path",
+            "description": "source batch id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "batch parameters",
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "my new batch",
+                "description": "desc"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "if the source batch search is not found in database"
+          },
+          "200": {
+            "description": "returns the id of the created batch search",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "optionsCopy",
+        "responses": {
+          "default": {
+            "description": "returns POST",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
           }
         }
       }
@@ -2521,6 +2521,39 @@
       },
       "Document": {
         "properties": {
+          "generator": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "bodyText": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
           "contentHash": {
             "type": "string"
           },
@@ -2561,37 +2594,32 @@
           "processedAt": {
             "type": "string"
           },
-          "generator": {
+          "name": {
             "type": "string"
           },
-          "parent": {
-            "$ref": "#/components/schemas/Folder"
-          },
-          "fileName": {
+          "address": {
             "type": "string"
           },
-          "language": {
+          "country": {
             "type": "string"
           },
-          "encoding": {
+          "description": {
             "type": "string"
           },
-          "date": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
-          "extension": {
+          "publisher": {
             "type": "string"
           },
-          "bodyText": {
+          "summary": {
             "type": "string"
           },
-          "mimeType": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "author": {
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -2640,34 +2668,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "alias": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -2807,6 +2807,31 @@
           "remarks": {
             "type": "string"
           },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
           "previousName": {
             "type": "string"
           },
@@ -2854,31 +2879,6 @@
           },
           "retrievedAt": {
             "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "alias": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
           }
         }
       },
@@ -2888,6 +2888,33 @@
             "$ref": "#/components/schemas/Folder"
           },
           "title": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "bodyText": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -2930,31 +2957,32 @@
           "processedAt": {
             "type": "string"
           },
-          "generator": {
+          "name": {
             "type": "string"
           },
-          "fileName": {
+          "address": {
             "type": "string"
           },
-          "language": {
+          "country": {
             "type": "string"
           },
-          "encoding": {
+          "description": {
             "type": "string"
           },
-          "date": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
-          "extension": {
+          "publisher": {
             "type": "string"
           },
-          "bodyText": {
+          "summary": {
             "type": "string"
           },
-          "mimeType": {
-            "type": "string"
-          },
-          "author": {
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3003,34 +3031,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "alias": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -3067,6 +3067,64 @@
       },
       "FtmDocument": {
         "properties": {
+          "generator": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "address": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "bodyText": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
           "contentHash": {
             "type": "string"
           },
@@ -3105,6 +3163,9 @@
             "type": "string"
           },
           "processedAt": {
+            "type": "string"
+          },
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3184,72 +3245,14 @@
           },
           "emailMentioned": {
             "type": "string"
-          },
-          "generator": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "parent": {
-            "$ref": "#/components/schemas/Folder"
-          },
-          "address": {
-            "type": "string"
-          },
-          "fileName": {
-            "type": "string"
-          },
-          "language": {
-            "type": "string"
-          },
-          "encoding": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "date": {
-            "type": "string"
-          },
-          "extension": {
-            "type": "string"
-          },
-          "bodyText": {
-            "type": "string"
-          },
-          "alias": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
           }
         }
       },
       "Request": {
         "properties": {
+          "secure": {
+            "type": "boolean"
+          },
           "urlEncodedForm": {
             "type": "boolean"
           },
@@ -3257,9 +3260,6 @@
             "type": "boolean"
           },
           "preflight": {
-            "type": "boolean"
-          },
-          "secure": {
             "type": "boolean"
           }
         }
@@ -4081,15 +4081,15 @@
               "$ref": "#/components/schemas/AbstractFileReport"
             }
           },
-          "prot": {
-            "type": "string"
-          },
           "type": {
             "type": "string",
             "enum": [
               "directory",
               "file"
             ]
+          },
+          "prot": {
+            "type": "string"
           },
           "name": {
             "type": "string"
