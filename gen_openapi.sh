@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 if [ $# -ne 1 ]
   then
     echo "usage:"
@@ -11,8 +10,12 @@ URL=$1
 
 echo "# API"
 
-curl -s $URL |
-  jq  '.paths | to_entries | map("path=" + (.key | tojson)  + " method=" + (.value | keys[] | tojson)) ' |
+if [[ $URL == *"yaml"* ]]; then
+curl -s "$URL" | yq e '.paths ' - | grep -E "^/api" | 
+	sed 's/\(.*\)/{% swagger src=".\/ds_openapi.yaml" path=\"\1\" %} [ds_openapi.yaml](.\/ds_openapi.yaml) {% endswagger %}/'
+else
+curl -s "$URL" |
+  jq '.paths | to_entries | map("path=" + (.key | tojson)  + " method=" + (.value | keys[] | tojson)) ' |
   sed '1d' | # remove first line
   sed '$d' | # remove last line
   sed 's/,$//' | # remove end line comas
@@ -20,3 +23,4 @@ curl -s $URL |
   sed 's/^"\(.*\)"$/\1/' | # remove double quotes
   sed 's/\\\"/"/g' | # remove escaped json double quotes
   sed 's/\(.*\)/{% swagger src=".\/ds_openapi.json" \1 %} [ds_openapi.json](.\/ds_openapi.json) {% endswagger %}/' # finally generate proper gitbook lines
+fi
