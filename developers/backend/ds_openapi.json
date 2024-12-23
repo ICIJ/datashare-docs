@@ -61,7 +61,7 @@
         }
       },
       "delete": {
-        "description": "Deletes an apikey for current user. Only available in SERVER mode.",
+        "description": "Deletes an apikey for current user. Only available in <pre>SERVER</pre> `SERVER` mode.",
         "operationId": "deleteKey",
         "parameters": [
           {
