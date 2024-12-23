@@ -11,8 +11,9 @@ URL=$1
 echo "# API"
 
 if [[ $URL == *"yaml"* ]]; then
-curl -s "$URL" | yq e '.paths ' - | grep -E "^/api" | 
-	sed 's/\(.*\)/{% swagger src=".\/ds_openapi.yaml" path=\"\1\" %} [ds_openapi.yaml](.\/ds_openapi.yaml) {% endswagger %}/'
+curl -s "$URL" | yq e '.paths ' - | grep -A 1 -E "^/api" | 
+	sed 's/^\s*//' | grep -v "\-\-" | sed 'N;s/\n/ /' | sed 's/:$//' | 
+ 	sed 's/\(.*\) \(.*\)/{% swagger src=".\/ds_openapi.yaml" path=\"\1\" method=\"\2\" %} [ds_openapi.yaml](.\/ds_openapi.yaml) {% endswagger %}/'
 else
 curl -s "$URL" |
   jq '.paths | to_entries | map("path=" + (.key | tojson)  + " method=" + (.value | keys[] | tojson)) ' |
