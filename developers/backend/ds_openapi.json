@@ -61,7 +61,7 @@
         }
       },
       "delete": {
-        "description": "Deletes an apikey for current user. Only available in <pre>SERVER</pre> `SERVER` mode.",
+        "description": "Deletes an \r\napikey for \n\ncurrent user. <br /><br />Only available in `SERVER` mode.",
         "operationId": "deleteKey",
         "parameters": [
           {

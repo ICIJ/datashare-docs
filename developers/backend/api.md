@@ -1,2 +1,2 @@
 # API
-{% swagger src="./ds_openapi.yaml" path="/api/key/:userId" method="delete" %} [ds_openapi.yaml](<./ds_openapi.yaml>) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/key/:userId" method="delete" %} [ds_openapi.json](<./ds_openapi.json>) {% endswagger %}
