@@ -1,1 +1,4133 @@
-{"openapi":"3.0.1","info":{"title":"Datashare HTTP API","version":"v1"},"paths":{"/api/key/:userId":{"get":{"description":"Get the private key for an existing user. Only available in SERVER mode.","operationId":"getKey","parameters":[{"name":"userId","in":"path","description":"user identifier","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns the hashed key JSON","content":{"*/*":{"example":{"hashedKey":"c3e7766f7605659f2b97f2a6f5bcf34611997fc31173931eefcea91df1b465ffe35c2b9b4b91e8bbe2eec3730ce2a74a"}}}}}},"put":{"description":"Creates a new private key and saves its SHA384 hash into database for current user. Only available in SERVER mode.","operationId":"createKey_1","parameters":[{"name":"userId","in":"path","description":"user identifier","required":true,"schema":{"type":"string"}}],"responses":{"201":{"description":"returns the api key JSON","content":{"*/*":{"example":{"apiKey":"SrcasvUmaAD6NsZ3+VmUkFFWVfRggIRNmWR5aHx7Kfc="}}}}}},"delete":{"description":"Deletes an apikey for current user.\nOnly available in `SERVER` mode.","operationId":"deleteKey","parameters":[{"name":"userId","in":"path","description":"user identifier","required":true,"schema":{"type":"string"}}],"responses":{"204":{"description":"when key has been deleted"}}},"options":{"description":"Preflight for key management","operationId":"createKey","parameters":[{"name":"userId","in":"path","description":"user identifier","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns OPTIONS, GET, PUT and DELETE"}}}},"/api/batch/search":{"get":{"description":"Retrieves the list of batch searches","operationId":"getSearchesFiltered","parameters":[{"name":"query","in":"query","description":"'freetext' search filter. Empty string or '*' to select all. Default is '*'","schema":{"type":"string"}},{"name":"field","in":"query","description":"specifies field on query filter ('all','author'...). Default is 'all' ","schema":{"type":"string"}},{"name":"queries","in":"query","description":"list of selected queries in the batch search (to invert selection put 'queriesExcluded' parameter to true)","schema":{"type":"string"}},{"name":"queriesExcluded","in":"query","description":"Associated with 'queries', if true it excludes the listed queries from the results","schema":{"type":"string"}},{"name":"contentTypes","in":"query","description":"filters by contentTypes","schema":{"type":"string"}},{"name":"project","in":"query","description":"filters by projects. Empty array corresponds to no projects","schema":{"type":"string"}},{"name":"batchDate","in":"query","description":"filters by date range timestamps with [dateStart, dateEnd]","schema":{"type":"string"}},{"name":"state","in":"query","description":"filters by task status (RUNNING, QUEUED, DONE, FAILED)","schema":{"type":"string"}},{"name":"publishState","in":"query","description":"filters by published state (0: private to the user, 1: public on the platform)","schema":{"type":"string"}},{"name":"withQueries","in":"query","description":"boolean, if true it includes list of queries","schema":{"type":"string"}},{"name":"size","in":"query","description":"if not provided default is 100","schema":{"type":"string"}},{"name":"from","in":"query","description":"if not provided it starts from 0","schema":{"type":"string"}}],"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"$ref":"#/components/schemas/WebResponseBatchSearchRecord"}}}}}},"post":{"description":"Retrieves the batch search list for the user issuing the request filter with the given criteria, and the total of batch searches matching the criteria.<br>If from/size are not given their default values are 0, meaning that all the results are returned. BatchDate must be a list of 2 items (the first one for the starting date and the second one for the ending date) If defined publishState is a string equals to \"0\" or \"1\"","operationId":"getBatchSearchesFiltered","requestBody":{"description":"the json webQuery request body","content":{"*/*":{"schema":{"$ref":"#/components/schemas/WebQuery"}}},"required":true},"responses":{"200":{"description":"the list of batch searches with the total batch searches for the query","content":{"*/*":{"schema":{"$ref":"#/components/schemas/WebResponseBatchSearchRecord"}}}}}},"delete":{"description":"Deletes batch searches and results for the current user.","operationId":"deleteSearches","responses":{"204":{"description":"no content: idempotent"}}},"options":{"description":"Preflight request","operationId":"optionsSearches","responses":{"200":{"description":"returns 200 with DELETE"}}}},"/api/batch/search/:batchid":{"get":{"description":"Retrieves the batch search with the given id. The query param \"withQueries\" accepts a boolean value.When \"withQueries\" is set to false, the list of queries is empty and nbQueries contains the number of queries.","operationId":"getBatch","parameters":[{"name":"batchId","in":"path","required":true,"schema":{"type":"string"}}],"responses":{"200":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/BatchSearch"}}}},"404":{"description":"if batchsearch is not found"}}},"delete":{"description":"Deletes a batch search and its results with the given id. It won't delete running batch searches, because results would be orphans.","operationId":"deleteBatch","responses":{"204":{"description":"Returns 204 (No Content) : idempotent"}}},"options":{"description":"Preflight request","operationId":"optionsDelete","responses":{"200":{"description":"returns 200 with DELETE"}}}},"/api/batch/search/:batchid/queries":{"get":{"description":"Retrieves the batch search queries with the given batch id and returns a list of strings UTF-8 encoded","operationId":"getBatchQueries","parameters":[{"name":"from","in":"query","description":"if not provided it starts from 0","schema":{"type":"string"}},{"name":"size","in":"query","description":"if not provided all queries are returned from the \"from\" parameter","schema":{"type":"string"}},{"name":"format","in":"query","description":"if set to csv, it answers with content-disposition attachment (file downloading)","schema":{"type":"string"}},{"name":"search","in":"query","description":"if provided it will filter the queries accordingly","schema":{"type":"string"}},{"name":"orderBy","in":"query","description":"field name to order by asc, \"query_number\" by default (if it does not exist it will return a 500 error)","schema":{"type":"string"}},{"name":"maxResult","in":"query","description":"number of maximum results for each returned query (-1 means no maxResults)","schema":{"type":"string"}},{"name":"batchId","in":"path","description":"identifier of the batch search","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"the batch search queries map [(query, nbResults), ...]"}}}},"/api/batch/search/result/csv/:batchid":{"get":{"description":"Retrieves the results of a batch search as an attached CSV file.","operationId":"getResultAsCsv","responses":{"200":{"description":"returns the results of the batch search as CSV attached file."}}}},"/api/:project/documents/recommendations?userids=:coma_separated_users":{"get":{"description":"Retrieves the set of recommended documents for the given project id and a list of users","operationId":"getProjectRecommendationsBy","parameters":[{"name":"project","in":"path","required":true,"schema":{"type":"string"}},{"name":"userids","in":"query","description":"comma separated users","schema":{"type":"string"}}],"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"array","items":{"type":"string"},"uniqueItems":true}}}}}}},"/api/:project/documents/starred":{"get":{"description":"Retrieves the list of starred documents for a given project.","operationId":"getProjectStarredDocuments","parameters":[{"name":"project","in":"path","description":"the project id","required":true,"schema":{"type":"string"}}],"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"array","items":{"type":"string"}}}}}}}},"/api/:project/documents/tags/:docId":{"get":{"description":"Gets tags by document id","operationId":"getDocumentTags","parameters":[{"name":"project","in":"path","description":"the project id","required":true,"schema":{"type":"string"}},{"name":"docId","in":"path","description":"document id","required":true,"schema":{"type":"string"}}],"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Tag"}}}}}}},"options":{"description":"Preflight request for document tagging","operationId":"tagDocument","parameters":[{"name":"project","in":"path","description":"the project id","required":true,"schema":{"type":"string"}},{"name":"docId","in":"path","description":"document id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 with PUT"}}}},"/api/:project/documents/untag/:docId":{"options":{"description":"Preflight request for document untagging","operationId":"untagDocument","parameters":[{"name":"project","in":"path","description":"the project id","required":true,"schema":{"type":"string"}},{"name":"docId","in":"path","description":"document id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 with PUT"}}}},"/api/:projects/documents/tagged/:coma_separated_tags":{"get":{"description":"Retrieves the list of tagged documents for a given project id filtered by a given string of coma-separated list of tags.","operationId":"getProjectTaggedDocuments","parameters":[{"name":"project","in":"path","description":"the project id","required":true,"schema":{"type":"string"}},{"name":"comaSeparatedTags","in":"path","description":"comma separated tags","required":true,"schema":{"type":"string"}}],"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"array","items":{"type":"string"}}}}}}}},"/api/documents/starred":{"get":{"description":"Retrieves the list of starred document for all projects for the current user.","operationId":"getStarredDocuments","responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Document"}}}}}}}},"/api/users/recommendations?project=:project":{"get":{"description":"Retrieves the list of users who recommended a document with the total count of recommended documents for the given project id","operationId":"getProjectRecommendations","responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"$ref":"#/components/schemas/AggregateListUser"}}}}}}},"/api/users/recommendationsby?project=:project&docIds=:coma_separated_docIds":{"get":{"description":"Gets all users who recommended a document with the count of all recommended documents for project and documents ids.","operationId":"getProjectRecommendations_1","parameters":[{"name":"project","in":"query","schema":{"type":"string"}},{"name":"docIds","in":"query","description":"comma separated document ids","schema":{"type":"string"}}],"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"$ref":"#/components/schemas/AggregateListUser"}}}}}}},"/api/document-user-recommendation/":{"get":{"description":"Gets all user's document recommendations.","operationId":"get","parameters":[{"name":"from","in":"query","description":"if not provided it starts from 0","schema":{"type":"string"}},{"name":"size","in":"query","description":"if not provided, the 50 first record from the \"from\" parameter","schema":{"type":"string"}},{"name":"project","in":"query","description":"if not provided, return every recommendations for every project","schema":{"type":"string"}}],"responses":{"200":{"description":"returns the user's document recommendations","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}},"400":{"description":"if either `from` or `size` are present and cannot be parsed"}}},"options":{"description":"Preflight options request","operationId":"options","responses":{"200":{"description":"returns 200 with OPTIONS and GET"}}}},"/api/extensions":{"get":{"description":"Gets the extension set in JSON.<br>If a request parameter \"filter\" is provided, the regular expression will be applied to the list.<br>See https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.","operationId":"getExtensionList","parameters":[{"name":"filter","in":"query","description":"regular expression to apply","schema":{"type":"string"}}],"responses":{"200":{"description":"returns the extensions set","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/DeliverablePackage"},"uniqueItems":true}}}}}}},"/api/extensions/install":{"put":{"description":"Download (if necessary) and install extension specified by its id or url.Request parameter `id` or `url` must be present.","operationId":"installExtension","parameters":[{"name":"id","in":"query","description":"id of the extension","schema":{"type":"string"}},{"name":"url","in":"query","description":"url of the extension","schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 if the extension is installed"},"400":{"description":"returns 400 if neither id nor url is provided"},"404":{"description":"returns 404 if the extension is not found by the provided id or url"}}},"options":{"description":"Preflight request","operationId":"installExtensionPreflight","responses":{"200":{"description":"returns OPTIONS and PUT"}}}},"/api/extensions/uninstall":{"options":{"description":"Preflight request","operationId":"uninstallExtensionPreflight","responses":{"200":{"description":"returns OPTIONS and DELETE"}}}},"/api/extensions/uninstall?id=:extensionId":{"delete":{"description":"Uninstall extension specified by its id.","operationId":"uninstallExtension","parameters":[{"name":"extensionId","in":"query","description":"id of the extension to uninstall","schema":{"type":"string"}}],"responses":{"204":{"description":"returns 204 if the extension is uninstalled (idempotent)"}}}},"/api/ftm/:project/:docId":{"get":{"description":"Get the FtM document from its project and id (content hash)","operationId":"getDocument","parameters":[{"name":"project","in":"path","description":"project identifier","required":true,"schema":{"type":"string"}},{"name":"docId","in":"path","description":"document identifier","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns the JSON document","content":{"*/*":{"schema":{"$ref":"#/components/schemas/FtmDocument"}}}}}}},"/api/index/:index":{"put":{"description":"Create the index for the current user if it doesn't exist.","operationId":"createIndex","parameters":[{"name":"index","in":"path","description":"index to create","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 if the index already exists"},"201":{"description":"returns 201 if the index has been created"}}},"options":{"description":"Preflight for index creation.","operationId":"createIndexPreflight","responses":{"200":{"description":"returns 200 with PUT"},"400":{"description":"returns 400 if there is an error from ElasticSearch"}}}},"/api/index/search/:path:":{"get":{"description":"Search GET request to Elasticsearch. As it is a GET method, all paths are accepted.<br>if a body is provided, the body will be sent to ES as source=urlencoded(body)&source_content_type=application%2Fjson<br>In that case, request parameters are not taken into account.","operationId":"esGet","parameters":[{"name":"path","in":"path","description":"elasticsearch path","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200"},"400":{"description":"returns 400 if there is an error from ElasticSearch"}}},"head":{"description":"Head request useful for JavaScript API (for example to test if an index exists)","operationId":"esHead","responses":{"200":{"description":"returns 200"},"400":{"description":"returns 400 if there is an error from ElasticSearch"}}}},"/api/:project/namedEntities/hide/:mentionNorm":{"put":{"description":"Hide all named entities with the given normalized mention","operationId":"hide","parameters":[{"name":"project","in":"path","description":"current project","required":true,"schema":{"type":"string"}},{"name":"mentionNorm","in":"path","description":"normalized mention","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 OK"}}},"options":{"description":"Preflight request for hide endpoint","operationId":"hidePreflight","responses":{"200":{"description":"returns PUT"}}}},"/api/ner/findNames/:pipeline":{"post":{"description":"When datashare is launched in NER mode (without index) it exposes a name finding HTTP API.<br>The text is sent with the HTTP body.","operationId":"getAnnotations","parameters":[{"name":"pipeline","in":"path","description":"pipeline to use","required":true,"schema":{"type":"string"}},{"name":"text","in":"query","description":"text to analyze in the request body","schema":{"type":"string"}}],"responses":{"200":{"description":"returns the list of NamedEntities annotations","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/NamedEntity"}}}}}}}},"/api/ner/pipelines":{"get":{"description":"Gets the list of registered pipelines.","operationId":"getRegisteredPipelines","responses":{"200":{"description":"returns the pipeline set","content":{"*/*":{"schema":{"type":"array","items":{"type":"string","enum":["TEST","CORENLP","GATENLP","IXAPIPE","MITIE","OPENNLP","EMAIL","SPACY"]},"uniqueItems":true}}}}}}},"/api/:project/notes":{"get":{"description":"Gets the list of notes for a project.","operationId":"getProjectNotes","parameters":[{"name":"project","in":"path","description":"the project id","required":true,"schema":{"type":"string"}}],"responses":{"403":{"description":"if the user is not granted for the project"}}}},"/api/openapi":{"get":{"description":"Get the JSON OpenAPI v3 contract specification","operationId":"get_1","responses":{"200":{"description":"returns the JSON file"}}}},"/api/plugins":{"get":{"description":"Gets the plugins set in JSON.<br>If a request parameter \"filter\" is provided, the regular expression will be applied to the list.<br>See https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.","operationId":"getPluginList","parameters":[{"name":"filter","in":"query","description":"regular expression to apply","schema":{"type":"string"}}],"responses":{"200":{"description":"returns the plugins set","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/DeliverablePackage"},"uniqueItems":true}}}}}}},"/api/plugins/install":{"put":{"description":"Download (if necessary) and install plugin specified by its id or url.Request parameter `id` or `url` must be present.","operationId":"installPlugin","parameters":[{"name":"id","in":"query","description":"id of the plugin","schema":{"type":"string"}},{"name":"url","in":"query","description":"url of the plugin","schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 if the plugin is installed"},"400":{"description":"returns 400 if neither id nor url is provided"},"404":{"description":"returns 404 if the plugin is not found by the provided id or url"}}},"options":{"description":"Preflight request","operationId":"installPluginPreflight","responses":{"200":{"description":"returns OPTIONS and PUT"}}}},"/api/plugins/uninstall":{"options":{"description":"Preflight request","operationId":"uninstallPluginPreflight","responses":{"200":{"description":"returns 200 with OPTIONS and DELETE"}}}},"/api/plugins/uninstall?id=:pluginId":{"delete":{"description":"Uninstall plugin specified by its id.","operationId":"uninstallPlugin","responses":{"204":{"description":"returns 204 if the plugin is uninstalled (idempotent)"}}}},"/api/project/":{"get":{"description":"Get all user's projects","operationId":"getProjects","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Project"}}}}}}},"post":{"description":"Creates a project","operationId":"createProject","requestBody":{"content":{"application/json":{}}},"responses":{"201":{"description":"if project and index have been created"},"400":{"description":"if project path is null or not allowed for the project"},"409":{"description":"if project exists"},"500":{"description":"project creation in DB or index creation failed"}}},"delete":{"description":"Deletes all user's projects from database and elasticsearch index.","operationId":"deleteProjects","responses":{"204":{"description":"if projects are deleted"}}},"options":{"description":"Preflight option request","operationId":"rootProjectOpt","responses":{"200":{"description":"returns 200 with OPTIONS, POST, GET and DELETE"}}}},"/api/project/:id":{"get":{"description":"Gets the project information for the given id","operationId":"getProject","parameters":[{"name":"id","in":"query","schema":{"type":"string"}}],"responses":{"404":{"description":"if the project is not found in database"}}},"delete":{"description":"Deletes the project from database and elasticsearch index.","operationId":"deleteProject","responses":{"204":{"description":"if project is deleted"},"401":{"description":"if project id is not in the current user's projects"}}},"options":{"description":"Preflight option request","operationId":"deleteProjectOpt","responses":{"200":{"description":"returns 200 with OPTIONS and DELETE"}}}},"/api/project/isDownloadAllowed/:id":{"get":{"description":"Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.<br/>Ex : <pre>192.168.*.*</pre> will match all subnetwork 192.168.0.0 IP's and only users with an IP in.","operationId":"isDownloadAllowed","responses":{"200":{"description":"if project download is allowed for this project and IP"},"403":{"description":"if project download is not allowed"}}}},"/settings":{"get":{"description":"Gets the public (i.e. without user's information) datashare settings parameters.<br>These parameters are used for the client app for the init process.<br>The endpoint is removing all fields that contain Address or Secret or Url or Key","operationId":"getPublicSettings","responses":{"200":{"description":"returns the list of public settings","content":{"*/*":{"schema":{"type":"object","additionalProperties":{}}}}}}}},"/version":{"get":{"description":"Gets the versions (front/back/docker) of datashare.","operationId":"getGitVersions","responses":{"200":{"description":"returns the list of versions of datashare","content":{"*/*":{"schema":{"type":"object","additionalProperties":{"type":"string"}}}}}}}},"/api/status":{"get":{"description":"Retrieve the status of databus connection, database connection and index.","operationId":"getStatus","parameters":[{"name":"format=openmetrics","in":"query","description":"if provided in the URL it will return the status in openmetrics format","schema":{"type":"string"}}],"responses":{"200":{"description":"returns the status of datashare elements","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}},"504":{"description":"proxy error when elasticsearch is down","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}},"503":{"description":"service unavailable when other services are down","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}}}}},"/api/task/:id":{"get":{"description":"Gets one task with its id.","operationId":"getTask","parameters":[{"name":"id","in":"path","description":"task id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns the task from its id","content":{"*/*":{"schema":{"$ref":"#/components/schemas/TaskObject"}}}}}},"put":{"description":"Create a task with JSON body","operationId":"createTask","parameters":[{"name":"id","in":"path","description":"task id","required":true,"schema":{"type":"string"}}],"requestBody":{"description":"the task creation body","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Task"}}},"required":true},"responses":{"201":{"description":"the task has been created","content":{"*/*":{"schema":{"$ref":"#/components/schemas/TaskResponse"}}}},"200":{"description":"the task was already existing"},"400":{"description":"bad request, for example the task payload id is not the same as the url id","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ErrorResponse"}}}}}}},"/api/task/:id/result":{"get":{"description":"Gets task result with its id","operationId":"getTaskResult","parameters":[{"name":"id","in":"path","description":"task id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 and the result"},"204":{"description":"returns 204 if there is no result"},"403":{"description":"returns 403 if the task is not belonging to current user"},"404":{"description":"returns 404 if the task doesn't exist"}}}},"/api/task/all":{"get":{"description":"Gets all the user tasks.<br>Filters can be added with <pre>name=value</pre>. For example if <pre>name=foo</pre> is given in the request url query,the tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys. For example if <pre>args.dataDir=bar</pre> is provided, tasks with \"dataDir\" containing \"bar\" are going to be selected.","operationId":"tasks","parameters":[{"name":"name","in":"query","description":"pattern contained in the task name","schema":{"type":"string"}}],"responses":{"200":{"description":"returns the list of tasks","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/TaskObject"}}}}}}}},"/api/task/batchDownload":{"post":{"description":"Download files from a search query.<br>Expected parameters are :<br>- project: string<br>- query: string or elasticsearch JSON query<br>If the query is a string it is taken as an ES query string, else it is a raw JSON query (without the query part),see org.elasticsearch.index.query.WrapperQueryBuilder that is used to wrap the query","operationId":"batchDownload","requestBody":{"description":"the json used to wrap the query","content":{"*/*":{"schema":{"$ref":"#/components/schemas/OptionsWrapper"}}},"required":true},"responses":{"200":{"description":"returns 200 and the json task id","content":{"*/*":{"schema":{"$ref":"#/components/schemas/TaskResponse"}}}}}},"options":{"description":"Preflight request for batch download.","operationId":"batchDownloadPreflight","responses":{"200":{"description":"returns 200 with OPTIONS and POST"}}}},"/api/task/batchSearch/:coma_separated_projects":{"post":{"description":"Creates a new batch search. This is a multipart form with 9 fields:<br/>name, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template<br><br/>Queries with less than two characters are filtered.<br><br>To make a request manually, you can create a file like:<br><pre>--BOUNDARY<br/>\"Content-Disposition: form-data; name=\"name\"<br/><br/>my batch search<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"description\"<br/><br/>search description<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"<br/>Content-Type: text/csv<br/><br/>Obama<br/>skype<br/>test<br/>query three<br/>--BOUNDARY--<br/>Content-Disposition: form-data; name=\"published\"<br/><br/>true<br/>--BOUNDARY--<br/></pre><br/><br/>Then curl with<pre>curl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt</pre>you'll maybe have to replace \\n with \\n\\r with <pre>sed -i 's/$/^M/g' ~/multipart.txt</pre>","operationId":"search","parameters":[{"in":"path","description":"Coma-separated list of projects","required":true,"schema":{"type":"string"},"example":{"value":"prj1,prj2"}}],"requestBody":{"description":"multipart form","content":{"multipart/form-data":{"schema":{"properties":{"name":{"type":"string"},"description":{"type":"string"},"csvFile":{"type":"string"},"published":{"type":"boolean"},"fileTypes":{},"tags":{},"paths":{},"fuzziness":{"type":"integer","format":"int32"},"phrase_matches":{"type":"boolean"}}}}},"required":true},"responses":{"413":{"description":"if the CSV file is more than 60K lines"},"400":{"description":"if either name or CSV file is missing"}}}},"/api/task/batchSearch/copy/:sourcebatchid":{"post":{"description":"Creates a new batch search based on a previous one given its id, and enqueue it for running","operationId":"copySearch","parameters":[{"name":"sourcebatchid","in":"path","description":"source batch id","required":true,"schema":{"type":"string"}}],"requestBody":{"description":"batch parameters","content":{"application/json":{"example":{"name":"my new batch","description":"desc"}}},"required":true},"responses":{"404":{"description":"if the source batch search is not found in database"},"200":{"description":"returns the id of the created batch search","content":{"*/*":{"schema":{"type":"string"}}}}}},"options":{"description":"Preflight request","operationId":"optionsCopy","responses":{"default":{"description":"returns POST","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}}}}},"/api/task/batchUpdate/index":{"post":{"description":"Indexes files from the queue.","operationId":"indexQueue","requestBody":{"description":"wrapper for options json","content":{"*/*":{"schema":{"$ref":"#/components/schemas/OptionsWrapper"}}},"required":true},"responses":{"200":{"description":"returns 200 and the json task id","content":{"*/*":{"schema":{"$ref":"#/components/schemas/TaskResponse"}}}},"500":{"description":"returns an error when stat task fails","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ErrorResponse"}}}}}}},"/api/task/batchUpdate/index/file":{"post":{"description":"Indexes files in a directory (with docker, it is the mounted directory that is scanned).","operationId":"indexDefault","requestBody":{"description":"wrapper for options json","content":{"*/*":{"schema":{"$ref":"#/components/schemas/OptionsWrapper"}}},"required":true},"responses":{"200":{"description":"returns 200 and the list of tasks created","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}}}}},"/api/task/clean":{"post":{"description":"Cleans all DONE tasks.","operationId":"cleanDoneTasks","responses":{"200":{"description":"returns 200 and the list of removed tasks","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/TaskObject"}}}}}}}},"/api/task/clean/:taskName:":{"delete":{"description":"Cleans a specific task.","operationId":"cleanTask","parameters":[{"name":"taskName","in":"path","description":"name of the task to delete","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 if the task is removed"},"403":{"description":"returns 403 if the task is still in RUNNING state"}}},"options":{"description":"Preflight request for task cleaning.","operationId":"cleanTaskPreflight","responses":{"200":{"description":"returns OPTIONS and DELETE"}}}},"/api/task/stop/:taskId:":{"put":{"description":"Cancels the task with the given name.","operationId":"stopTask","parameters":[{"name":"taskName","in":"path","description":"name of the task to cancel","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns 200 with the cancellation status (true/false)","content":{"*/*":{"schema":{"type":"boolean"}}}}}}},"/api/task/stop/:taskName:":{"options":{"description":"Preflight request to stop tasks.","operationId":"stopTaskPreflight","responses":{"200":{"description":"returns 200 with OPTIONS and PUT"}}}},"/api/task/stopAll":{"put":{"description":"Cancels the running tasks. It returns a map with task name/stop statuses.<br>If the status is false, it means that the thread has not been stopped.","operationId":"stopAllTasks","responses":{"200":{"description":"returns 200 and the tasks stop result map","content":{"*/*":{"schema":{"type":"object","additionalProperties":{"type":"boolean"}}}}}}},"options":{"description":"Preflight request to stop all tasks.","operationId":"stopAllTasksPreflight","responses":{"200":{"description":"returns 200 with OPTIONS and PUT"}}}},"/api/tree/:dirPath:":{"get":{"description":"Lists all files and directory for the given path. This endpoint returns a JSON using the same specification than the `tree` command on UNIX. It is roughly the equivalent of:<br><pre>tree -L 1 -spJ --noreport /home/datashare/data</pre>","operationId":"getTree","parameters":[{"name":"dirPath","in":"path","description":"directory path in the tree","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"returns the list of files and directory","content":{"*/*":{"schema":{"$ref":"#/components/schemas/DirectoryReport"}}}}}}},"/api/users/me":{"get":{"description":"Gets the user's session information.","operationId":"getUser","responses":{"200":{"description":"returns the user map","content":{"*/*":{"schema":{"type":"object","additionalProperties":{}}}}}}}},"/api/users/me/history":{"put":{"description":"Add or update an event to user's history. The event's type, the project ids and the uri are passed in the request body.<br>To update the event's name, the eventId is required to retrieve the corresponding event.The project list related to the event is stored in database but is never queried (no filters on project)","operationId":"addToUserHistory","parameters":[{"name":"query","in":"query","description":"user history query to save","schema":{"$ref":"#/components/schemas/UserHistoryQuery"}}],"responses":{"200":{"description":"returns 200 when event is added or updated."}}},"options":{"description":"Preflight request for history","operationId":"getUserHistory","responses":{"200":{"description":"returns 200 with OPTIONS, GET, PUT and DELETE"}}}},"/api/users/me/history/event":{"options":{"description":"Preflight request for history","operationId":"deleteUserEvent","responses":{"200":{"description":"returns OPTIONS and DELETE"}}}},"/api/users/me/history/event?id=:eventId":{"delete":{"description":"Delete user event by id.","operationId":"deleteUserEvent_1","parameters":[{"name":"eventId","in":"query","description":"user history event id to delete","schema":{"type":"string"}}],"responses":{"204":{"description":"Returns 204 (No Content) : idempotent"}}}},"/api/users/me/history?type=:type":{"delete":{"description":"Delete user history by type.","operationId":"deleteUserHistory","parameters":[{"name":"type","in":"query","description":"type of user history event","schema":{"type":"string"}}],"responses":{"204":{"description":"Returns 204 (No Content) : idempotent","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Payload"}}}}}}}},"components":{"schemas":{"Payload":{"properties":{"error":{"type":"boolean"},"success":{"type":"boolean"}}},"Context":{"properties":{"currentUser":{"$ref":"#/components/schemas/User"}}},"User":{},"BatchSearchRecord":{"properties":{"uuid":{"type":"string"},"published":{"type":"boolean"},"projects":{"type":"array","items":{"$ref":"#/components/schemas/ProjectProxy"}},"name":{"type":"string"},"description":{"type":"string"},"user":{"$ref":"#/components/schemas/User"},"state":{"type":"string","enum":["QUEUED","RUNNING","SUCCESS","FAILURE"]},"date":{"type":"string","format":"date-time"},"nbQueries":{"type":"integer","format":"int32"},"nbResults":{"type":"integer","format":"int32"},"errorMessage":{"type":"string"},"errorQuery":{"type":"string"}}},"Pagination":{},"ProjectProxy":{"properties":{"name":{"type":"string"},"id":{"type":"string"}}},"WebResponseBatchSearchRecord":{"properties":{"items":{"type":"array","items":{"$ref":"#/components/schemas/BatchSearchRecord"}},"pagination":{"$ref":"#/components/schemas/Pagination"}}},"WebQuery":{"properties":{"size":{"type":"integer","format":"int32"},"from":{"type":"integer","format":"int32"},"sort":{"type":"string"},"order":{"type":"string"},"query":{"type":"string"},"field":{"type":"string"},"queries":{"type":"array","items":{"type":"string"}},"project":{"type":"array","items":{"$ref":"#/components/schemas/ProjectProxy"}},"batchDate":{"type":"array","items":{"type":"string"}},"state":{"type":"array","items":{"type":"string"}},"publishState":{"type":"string"},"withQueries":{"type":"boolean"},"queriesExcluded":{"type":"boolean"},"contentTypes":{"type":"array","items":{"type":"string"}},"sorted":{"type":"boolean"}}},"BatchSearch":{"properties":{"uuid":{"type":"string"},"published":{"type":"boolean"},"projects":{"type":"array","items":{"$ref":"#/components/schemas/ProjectProxy"}},"name":{"type":"string"},"description":{"type":"string"},"user":{"$ref":"#/components/schemas/User"},"state":{"type":"string","enum":["QUEUED","RUNNING","SUCCESS","FAILURE"]},"date":{"type":"string","format":"date-time"},"nbQueries":{"type":"integer","format":"int32"},"nbResults":{"type":"integer","format":"int32"},"errorMessage":{"type":"string"},"errorQuery":{"type":"string"},"queries":{"type":"object","additionalProperties":{"type":"integer","format":"int32"}},"fileTypes":{"type":"array","items":{"type":"string"}},"paths":{"type":"array","items":{"type":"string"}},"fuzziness":{"type":"integer","format":"int32"},"phraseMatches":{"type":"boolean"},"queryTemplate":{"$ref":"#/components/schemas/SearchQuery"}}},"SearchQuery":{"properties":{"query":{"type":"string","writeOnly":true}}},"JsonData":{"properties":{"data":{"type":"object","additionalProperties":{"type":"object"}}}},"SearchResult":{"properties":{"query":{"type":"string"},"project":{"$ref":"#/components/schemas/ProjectProxy"},"documentId":{"type":"string"},"rootId":{"type":"string"},"documentPath":{"type":"object","properties":{"absolute":{"type":"boolean"},"parent":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"root":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"fileName":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"creationDate":{"type":"string","format":"date-time"},"contentType":{"type":"string"},"contentLength":{"type":"integer","format":"int64"},"documentNumber":{"type":"integer","format":"int32"}}},"WebResponseSearchResult":{"properties":{"items":{"type":"array","items":{"$ref":"#/components/schemas/SearchResult"}},"pagination":{"$ref":"#/components/schemas/Pagination"}}},"ResultInteger":{},"BatchTagQuery":{"properties":{"tags":{"type":"array","items":{"type":"string"},"writeOnly":true},"docIds":{"type":"array","items":{"type":"string"},"writeOnly":true}}},"Tag":{"properties":{"label":{"type":"string"},"creationDate":{"type":"string","format":"date-time"},"user":{"$ref":"#/components/schemas/User"}}},"Document":{"properties":{"generator":{"type":"string"},"parent":{"$ref":"#/components/schemas/Folder"},"fileName":{"type":"string"},"language":{"type":"string"},"encoding":{"type":"string"},"date":{"type":"string"},"extension":{"type":"string"},"bodyText":{"type":"string"},"title":{"type":"string"},"author":{"type":"string"},"mimeType":{"type":"string"},"contentHash":{"type":"string"},"fileSize":{"type":"integer","format":"int32"},"processingStatus":{"type":"string"},"translatedLanguage":{"type":"string"},"translatedText":{"type":"string"},"crawler":{"type":"string"},"messageId":{"type":"string"},"authoredAt":{"type":"string"},"publishedAt":{"type":"string"},"ancestors":{"$ref":"#/components/schemas/Folder"},"processingError":{"type":"string"},"processingAgent":{"type":"string"},"processedAt":{"type":"string"},"name":{"type":"string"},"address":{"type":"string"},"country":{"type":"string"},"description":{"type":"string"},"sourceUrl":{"type":"string","format":"url"},"notes":{"type":"string"},"publisher":{"type":"string"},"summary":{"type":"string"},"alias":{"type":"string"},"previousName":{"type":"string"},"weakAlias":{"type":"string"},"publisherUrl":{"type":"string","format":"url"},"alephUrl":{"type":"string","format":"url"},"wikipediaUrl":{"type":"string","format":"url"},"wikidataId":{"type":"string"},"keywords":{"type":"string"},"topics":{"type":"string"},"addressEntity":{"$ref":"#/components/schemas/Address"},"program":{"type":"string"},"proof":{"$ref":"#/components/schemas/Document"},"indexText":{"type":"string"},"createdAt":{"type":"string"},"modifiedAt":{"type":"string"},"retrievedAt":{"type":"string"},"detectedLanguage":{"type":"string"},"detectedCountry":{"type":"string"},"namesMentioned":{"type":"string"},"peopleMentioned":{"type":"string"},"companiesMentioned":{"type":"string"},"ibanMentioned":{"type":"string"},"ipMentioned":{"type":"string"},"locationMentioned":{"type":"string"},"phoneMentioned":{"type":"string"},"emailMentioned":{"type":"string"}}},"AggregateListUser":{"properties":{"aggregates":{"type":"array","items":{"$ref":"#/components/schemas/AggregateUser"}},"totalCount":{"type":"integer","format":"int32"}}},"AggregateUser":{"properties":{"item":{"$ref":"#/components/schemas/User"},"count":{"type":"integer","format":"int32"}}},"DeliverablePackage":{"properties":{"deliverableInstalled":{"type":"boolean"},"deliverableFromRegistryInstalled":{"type":"boolean"},"installed":{"type":"boolean"},"name":{"type":"string"},"id":{"type":"string"},"type":{"type":"string","enum":["NLP","WEB","PLUGIN","UNKNOWN"]},"version":{"type":"string"},"description":{"type":"string"}}},"Address":{"properties":{"full":{"type":"string"},"city":{"type":"string"},"street":{"type":"string"},"postOfficeBox":{"type":"string"},"street2":{"type":"string"},"postalCode":{"type":"string"},"latitude":{"type":"integer","format":"int32"},"longitude":{"type":"integer","format":"int32"},"osmId":{"type":"string"},"googlePlaceId":{"type":"string"},"state":{"type":"string"},"country":{"type":"string"},"region":{"type":"string"},"remarks":{"type":"string"},"name":{"type":"string"},"address":{"type":"string"},"description":{"type":"string"},"sourceUrl":{"type":"string","format":"url"},"notes":{"type":"string"},"publisher":{"type":"string"},"summary":{"type":"string"},"alias":{"type":"string"},"previousName":{"type":"string"},"weakAlias":{"type":"string"},"publisherUrl":{"type":"string","format":"url"},"alephUrl":{"type":"string","format":"url"},"wikipediaUrl":{"type":"string","format":"url"},"wikidataId":{"type":"string"},"keywords":{"type":"string"},"topics":{"type":"string"},"addressEntity":{"$ref":"#/components/schemas/Address"},"program":{"type":"string"},"proof":{"$ref":"#/components/schemas/Document"},"indexText":{"type":"string"},"createdAt":{"type":"string"},"modifiedAt":{"type":"string"},"retrievedAt":{"type":"string"}}},"Folder":{"properties":{"parent":{"$ref":"#/components/schemas/Folder"},"title":{"type":"string"},"generator":{"type":"string"},"fileName":{"type":"string"},"language":{"type":"string"},"encoding":{"type":"string"},"date":{"type":"string"},"extension":{"type":"string"},"bodyText":{"type":"string"},"author":{"type":"string"},"mimeType":{"type":"string"},"contentHash":{"type":"string"},"fileSize":{"type":"integer","format":"int32"},"processingStatus":{"type":"string"},"translatedLanguage":{"type":"string"},"translatedText":{"type":"string"},"crawler":{"type":"string"},"messageId":{"type":"string"},"authoredAt":{"type":"string"},"publishedAt":{"type":"string"},"ancestors":{"$ref":"#/components/schemas/Folder"},"processingError":{"type":"string"},"processingAgent":{"type":"string"},"processedAt":{"type":"string"},"name":{"type":"string"},"address":{"type":"string"},"country":{"type":"string"},"description":{"type":"string"},"sourceUrl":{"type":"string","format":"url"},"notes":{"type":"string"},"publisher":{"type":"string"},"summary":{"type":"string"},"alias":{"type":"string"},"previousName":{"type":"string"},"weakAlias":{"type":"string"},"publisherUrl":{"type":"string","format":"url"},"alephUrl":{"type":"string","format":"url"},"wikipediaUrl":{"type":"string","format":"url"},"wikidataId":{"type":"string"},"keywords":{"type":"string"},"topics":{"type":"string"},"addressEntity":{"$ref":"#/components/schemas/Address"},"program":{"type":"string"},"proof":{"$ref":"#/components/schemas/Document"},"indexText":{"type":"string"},"createdAt":{"type":"string"},"modifiedAt":{"type":"string"},"retrievedAt":{"type":"string"},"detectedLanguage":{"type":"string"},"detectedCountry":{"type":"string"},"namesMentioned":{"type":"string"},"peopleMentioned":{"type":"string"},"companiesMentioned":{"type":"string"},"ibanMentioned":{"type":"string"},"ipMentioned":{"type":"string"},"locationMentioned":{"type":"string"},"phoneMentioned":{"type":"string"},"emailMentioned":{"type":"string"}}},"FtmDocument":{"properties":{"generator":{"type":"string"},"name":{"type":"string"},"parent":{"$ref":"#/components/schemas/Folder"},"address":{"type":"string"},"fileName":{"type":"string"},"language":{"type":"string"},"encoding":{"type":"string"},"country":{"type":"string"},"date":{"type":"string"},"extension":{"type":"string"},"bodyText":{"type":"string"},"description":{"type":"string"},"sourceUrl":{"type":"string","format":"url"},"notes":{"type":"string"},"title":{"type":"string"},"publisher":{"type":"string"},"author":{"type":"string"},"summary":{"type":"string"},"mimeType":{"type":"string"},"contentHash":{"type":"string"},"fileSize":{"type":"integer","format":"int32"},"processingStatus":{"type":"string"},"translatedLanguage":{"type":"string"},"translatedText":{"type":"string"},"crawler":{"type":"string"},"messageId":{"type":"string"},"authoredAt":{"type":"string"},"publishedAt":{"type":"string"},"ancestors":{"$ref":"#/components/schemas/Folder"},"processingError":{"type":"string"},"processingAgent":{"type":"string"},"processedAt":{"type":"string"},"alias":{"type":"string"},"previousName":{"type":"string"},"weakAlias":{"type":"string"},"publisherUrl":{"type":"string","format":"url"},"alephUrl":{"type":"string","format":"url"},"wikipediaUrl":{"type":"string","format":"url"},"wikidataId":{"type":"string"},"keywords":{"type":"string"},"topics":{"type":"string"},"addressEntity":{"$ref":"#/components/schemas/Address"},"program":{"type":"string"},"proof":{"$ref":"#/components/schemas/Document"},"indexText":{"type":"string"},"createdAt":{"type":"string"},"modifiedAt":{"type":"string"},"retrievedAt":{"type":"string"},"detectedLanguage":{"type":"string"},"detectedCountry":{"type":"string"},"namesMentioned":{"type":"string"},"peopleMentioned":{"type":"string"},"companiesMentioned":{"type":"string"},"ibanMentioned":{"type":"string"},"ipMentioned":{"type":"string"},"locationMentioned":{"type":"string"},"phoneMentioned":{"type":"string"},"emailMentioned":{"type":"string"}}},"Request":{"properties":{"secure":{"type":"boolean"},"urlEncodedForm":{"type":"boolean"},"cors":{"type":"boolean"},"preflight":{"type":"boolean"}}},"NamedEntity":{"properties":{"category":{"type":"string","enum":["PERSON","ORGANIZATION","LOCATION","EMAIL","DATE","MONEY","NUMBER","NONE","UNKNOWN"]},"mention":{"type":"string"},"offsets":{"type":"array","items":{"type":"integer","format":"int64"}},"documentId":{"type":"string","writeOnly":true},"rootDocument":{"type":"string","writeOnly":true},"extractor":{"type":"string","enum":["TEST","CORENLP","GATENLP","IXAPIPE","MITIE","OPENNLP","EMAIL","SPACY"]},"extractorLanguage":{"type":"string","enum":["ABKHAZIAN","AFAR","AFRIKAANS","AKAN","ALBANIAN","AMHARIC","ARABIC","ARAGONESE","ARMENIAN","ASSAMESE","AVARIC","AVESTAN","AYMARA","AZERBAIJANI","BAMBARA","BASHKIR","BASQUE","BELARUSIAN","BENGALI","BIHARI","BISLAMA","BOSNIAN","BRETON","BULGARIAN","BURMESE","CATALAN","CHAMORRO","CHECHEN","CHICHEWA","CHINESE","CHUVASH","CORNISH","CORSICAN","CREE","CROATIAN","CZECH","DANISH","MALDIVIAN","DUTCH","DZONGKHA","ENGLISH","ESPERANTO","ESTONIAN","EWE","FAROESE","FIJIAN","FINNISH","FRENCH","FULAH","GALICIAN","GEORGIAN","GERMAN","GREEK","GUARANI","GUJARATI","HAITIAN","HAUSA","HEBREW","HERERO","HINDI","HIRIMOTU","HUNGARIAN","INTERLINGUA","INDONESIAN","INTERLIGUE","IRISH","IGBO","INUPIAQ","IDO","ICELANDIC","ITALIAN","INUKTITUT","JAPANESE","JAVANESE","GREENLANDIC","KANNADA","KANURI","KASHMIRI","KAZAKH","CENTRALKHMER","KIKUYU","KINYARWANDA","KIRGHIZ","KOMI","KONGO","KOREAN","KURDISH","KUANYAMA","LATIN","LUXEMBOURGISH","GANDA","LIMBURGAN","LINGALA","LAO","LITHUANIAN","LUBAKATANGA","LATVIAN","MANX","MACEDONIAN","MALAGASY","MALAY","MALAYALAM","MALTESE","MAORI","MARATHI","MARSHALLESE","MONGOLIAN","NAURU","NAVAJO","NORTHNDEBELE","NEPALI","NDONGA","NORWEGIANBOKMAL","NORWEGIANNYNORSK","NORWEGIAN","SICHUANYI","SOUTHNDEBELE","OCCITAN","OJIBWA","OLDSLAVONIC","OROMO","ORIYA","OSSETIAN","PANJABI","PALI","PERSIAN","POLISH","PASHTO","PORTUGUESE","QUECHUA","ROMANSH","ROMANIAN","RUNDI","MOLDAVIAN","MOLDOVAN","RUSSIAN","SANSKRIT","SARDINIAN","SINDHI","NORTHERNSAMI","SAMOAN","SANGO","SERBIAN","GAELIC","SHONA","SINHALESE","SLOVAK","SLOVENIAN","SOMALI","SOUTHERNSOTHO","SPANISH","SUNDANESE","SWAHILI","SWATI","SWEDISH","TAMIL","TELUGU","TAJIK","THAI","TIGRINYA","TIBETAN","TURKMEN","TAGALOG","TSWANA","TONGA","TURKISH","TSONGA","TATAR","TWI","TAHITIAN","UIGHUR","UKRAINIAN","URDU","UZBEK","VENDA","VIETNAMESE","VOLAPUK","WALLOON","WELSH","WOLOF","WESTERNFRISIAN","XHOSA","YIDDISH","YORUBA","ZHUANG","ZULU","UNKNOWN"]},"isHidden":{"type":"boolean"},"partsOfSpeech":{"type":"string"},"metadata":{"type":"object","additionalProperties":{"type":"object"}},"mentionNormTextLength":{"type":"integer","format":"int32"}}},"Note":{"properties":{"project":{"$ref":"#/components/schemas/Project"},"path":{"type":"object","properties":{"absolute":{"type":"boolean"},"parent":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"root":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"fileName":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"note":{"type":"string"},"variant":{"type":"string","enum":["dark","light","danger","info","success","warning","primary","secondary"]}}},"Project":{"properties":{"name":{"type":"string"},"sourcePath":{"type":"object","properties":{"absolute":{"type":"boolean"},"parent":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"root":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"fileName":{"type":"object","properties":{"absolute":{"type":"boolean"},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"fileSystem":{"type":"object","properties":{"open":{"type":"boolean"},"readOnly":{"type":"boolean"},"separator":{"type":"string"},"rootDirectories":{"type":"object"},"fileStores":{"type":"object"},"userPrincipalLookupService":{"type":"object"}}},"nameCount":{"type":"integer","format":"int32"}}},"label":{"type":"string"},"description":{"type":"string"},"publisherName":{"type":"string"},"maintainerName":{"type":"string"},"logoUrl":{"type":"string"},"sourceUrl":{"type":"string"},"creationDate":{"type":"string","format":"date-time"},"updateDate":{"type":"string","format":"date-time"}}},"StacktraceItem":{"properties":{"file":{"type":"string","writeOnly":true},"lineno":{"type":"integer","format":"int32","writeOnly":true},"name":{"type":"string","writeOnly":true}}},"StateLatch":{"properties":{"taskState":{"type":"string","enum":["CREATED","QUEUED","RUNNING","CANCELLED","ERROR","DONE"]}}},"TaskError":{"discriminator":{"propertyName":"@type"},"properties":{"name":{"type":"string","writeOnly":true},"message":{"type":"string"},"cause":{"type":"string","writeOnly":true},"stacktrace":{"type":"array","items":{"$ref":"#/components/schemas/StacktraceItem"},"writeOnly":true},"@type":{"type":"string"}},"required":["@type"]},"TaskObject":{"properties":{"id":{"type":"string"},"name":{"type":"string"},"state":{"type":"string","enum":["CREATED","QUEUED","RUNNING","CANCELLED","ERROR","DONE"]},"progress":{"type":"number","format":"double"},"result":{"type":"object"},"args":{"type":"object","additionalProperties":{"type":"object"}},"createdAt":{"type":"string","format":"date-time"},"error":{"$ref":"#/components/schemas/TaskError"},"latch":{"$ref":"#/components/schemas/StateLatch"}}},"Task":{"properties":{"id":{"type":"string"},"name":{"type":"string"},"state":{"type":"string","enum":["CREATED","QUEUED","RUNNING","CANCELLED","ERROR","DONE"]},"progress":{"type":"number","format":"double"},"result":{"type":"object"},"args":{"type":"object","additionalProperties":{"type":"object"}},"createdAt":{"type":"string","format":"date-time"},"error":{"$ref":"#/components/schemas/TaskError"},"latch":{"$ref":"#/components/schemas/StateLatch"}}},"TaskResponse":{"properties":{"taskId":{"type":"string"}}},"ErrorResponse":{"properties":{"message":{"type":"string"}}},"OptionsWrapper":{"properties":{"options":{"type":"object","additionalProperties":{"type":"object"}}}},"OptionsWrapperObject":{"properties":{"options":{"type":"object","additionalProperties":{"type":"object"}}}},"OptionsWrapperString":{"properties":{"options":{"type":"object","additionalProperties":{"type":"string"}}}},"TasksResponse":{"properties":{"taskIds":{"type":"array","items":{"type":"string"}}}},"AbstractFileReport":{"properties":{"name":{"type":"string"},"size":{"type":"integer","format":"int64"}}},"DirectoryReport":{"properties":{"contents":{"type":"array","items":{"$ref":"#/components/schemas/AbstractFileReport"}},"type":{"type":"string","enum":["directory","file"]},"prot":{"type":"string"},"name":{"type":"string"},"size":{"type":"integer","format":"int64"}}},"UserHistoryQuery":{"properties":{"type":{"type":"string","writeOnly":true},"name":{"type":"string","writeOnly":true},"projectIds":{"type":"array","items":{"type":"string"},"writeOnly":true},"uri":{"type":"string","writeOnly":true},"eventId":{"type":"integer","format":"int32","writeOnly":true}}}}}}
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Datashare HTTP API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/key/:userId": {
+      "get": {
+        "description": "Get the private key for an existing user. Only available in SERVER mode.",
+        "operationId": "getKey",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the hashed key JSON",
+            "content": {
+              "*/*": {
+                "example": {
+                  "hashedKey": "c3e7766f7605659f2b97f2a6f5bcf34611997fc31173931eefcea91df1b465ffe35c2b9b4b91e8bbe2eec3730ce2a74a"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates a new private key and saves its SHA384 hash into database for current user. Only available in SERVER mode.",
+        "operationId": "createKey_1",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "returns the api key JSON",
+            "content": {
+              "*/*": {
+                "example": {
+                  "apiKey": "SrcasvUmaAD6NsZ3+VmUkFFWVfRggIRNmWR5aHx7Kfc="
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes an apikey for current user. Only available in `SERVER` mode.",
+        "operationId": "deleteKey",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "when key has been deleted"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight for key management",
+        "operationId": "createKey",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS, GET, PUT and DELETE"
+          }
+        }
+      }
+    },
+    "/api/batch/search": {
+      "get": {
+        "description": "Retrieves the list of batch searches",
+        "operationId": "getSearchesFiltered",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "'freetext' search filter. Empty string or '*' to select all. Default is '*'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "description": "specifies field on query filter ('all','author'...). Default is 'all' ",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "queries",
+            "in": "query",
+            "description": "list of selected queries in the batch search (to invert selection put 'queriesExcluded' parameter to true)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "queriesExcluded",
+            "in": "query",
+            "description": "Associated with 'queries', if true it excludes the listed queries from the results",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contentTypes",
+            "in": "query",
+            "description": "filters by contentTypes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project",
+            "in": "query",
+            "description": "filters by projects. Empty array corresponds to no projects",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "batchDate",
+            "in": "query",
+            "description": "filters by date range timestamps with [dateStart, dateEnd]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "filters by task status (RUNNING, QUEUED, DONE, FAILED)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "publishState",
+            "in": "query",
+            "description": "filters by published state (0: private to the user, 1: public on the platform)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "withQueries",
+            "in": "query",
+            "description": "boolean, if true it includes list of queries",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "if not provided default is 100",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "if not provided it starts from 0",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebResponseBatchSearchRecord"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Retrieves the batch search list for the user issuing the request filter with the given criteria, and the total of batch searches matching the criteria.\n\nIf from/size are not given their default values are 0, meaning that all the results are returned. BatchDate must be a list of 2 items (the first one for the starting date and the second one for the ending date) If defined publishState is a string equals to \"0\" or \"1\"",
+        "operationId": "getBatchSearchesFiltered",
+        "requestBody": {
+          "description": "the json webQuery request body",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/WebQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the list of batch searches with the total batch searches for the query",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebResponseBatchSearchRecord"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes batch searches and results for the current user.",
+        "operationId": "deleteSearches",
+        "responses": {
+          "204": {
+            "description": "no content: idempotent"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "optionsSearches",
+        "responses": {
+          "200": {
+            "description": "returns 200 with DELETE"
+          }
+        }
+      }
+    },
+    "/api/batch/search/:batchid": {
+      "get": {
+        "description": "Retrieves the batch search with the given id. The query param \"withQueries\" accepts a boolean value.When \"withQueries\" is set to false, the list of queries is empty and nbQueries contains the number of queries.",
+        "operationId": "getBatch",
+        "parameters": [
+          {
+            "name": "batchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchSearch"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "if batchsearch is not found"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a batch search and its results with the given id. It won't delete running batch searches, because results would be orphans.",
+        "operationId": "deleteBatch",
+        "responses": {
+          "204": {
+            "description": "Returns 204 (No Content) : idempotent"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "optionsDelete",
+        "responses": {
+          "200": {
+            "description": "returns 200 with DELETE"
+          }
+        }
+      }
+    },
+    "/api/batch/search/:batchid/queries": {
+      "get": {
+        "description": "Retrieves the batch search queries with the given batch id and returns a list of strings UTF-8 encoded",
+        "operationId": "getBatchQueries",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "if not provided it starts from 0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "if not provided all queries are returned from the \"from\" parameter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "if set to csv, it answers with content-disposition attachment (file downloading)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "if provided it will filter the queries accordingly",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "field name to order by asc, \"query_number\" by default (if it does not exist it will return a 500 error)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxResult",
+            "in": "query",
+            "description": "number of maximum results for each returned query (-1 means no maxResults)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "batchId",
+            "in": "path",
+            "description": "identifier of the batch search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the batch search queries map [(query, nbResults), ...]"
+          }
+        }
+      }
+    },
+    "/api/batch/search/result/csv/:batchid": {
+      "get": {
+        "description": "Retrieves the results of a batch search as an attached CSV file.",
+        "operationId": "getResultAsCsv",
+        "responses": {
+          "200": {
+            "description": "returns the results of the batch search as CSV attached file."
+          }
+        }
+      }
+    },
+    "/api/:project/documents/recommendations?userids=:coma_separated_users": {
+      "get": {
+        "description": "Retrieves the set of recommended documents for the given project id and a list of users",
+        "operationId": "getProjectRecommendationsBy",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userids",
+            "in": "query",
+            "description": "comma separated users",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/:project/documents/starred": {
+      "get": {
+        "description": "Retrieves the list of starred documents for a given project.",
+        "operationId": "getProjectStarredDocuments",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/:project/documents/tags/:docId": {
+      "get": {
+        "description": "Gets tags by document id",
+        "operationId": "getDocumentTags",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docId",
+            "in": "path",
+            "description": "document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tag"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request for document tagging",
+        "operationId": "tagDocument",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docId",
+            "in": "path",
+            "description": "document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 with PUT"
+          }
+        }
+      }
+    },
+    "/api/:project/documents/untag/:docId": {
+      "options": {
+        "description": "Preflight request for document untagging",
+        "operationId": "untagDocument",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docId",
+            "in": "path",
+            "description": "document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 with PUT"
+          }
+        }
+      }
+    },
+    "/api/:projects/documents/tagged/:coma_separated_tags": {
+      "get": {
+        "description": "Retrieves the list of tagged documents for a given project id filtered by a given string of coma-separated list of tags.",
+        "operationId": "getProjectTaggedDocuments",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "comaSeparatedTags",
+            "in": "path",
+            "description": "comma separated tags",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/documents/starred": {
+      "get": {
+        "description": "Retrieves the list of starred document for all projects for the current user.",
+        "operationId": "getStarredDocuments",
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/recommendations?project=:project": {
+      "get": {
+        "description": "Retrieves the list of users who recommended a document with the total count of recommended documents for the given project id",
+        "operationId": "getProjectRecommendations",
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AggregateListUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/recommendationsby?project=:project&docIds=:coma_separated_docIds": {
+      "get": {
+        "description": "Gets all users who recommended a document with the count of all recommended documents for project and documents ids.",
+        "operationId": "getProjectRecommendations_1",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docIds",
+            "in": "query",
+            "description": "comma separated document ids",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AggregateListUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/document-user-recommendation/": {
+      "get": {
+        "description": "Gets all user's document recommendations.",
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "if not provided it starts from 0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "if not provided, the 50 first record from the \"from\" parameter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project",
+            "in": "query",
+            "description": "if not provided, return every recommendations for every project",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the user's document recommendations",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "if either `from` or `size` are present and cannot be parsed"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight options request",
+        "operationId": "options",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and GET"
+          }
+        }
+      }
+    },
+    "/api/extensions": {
+      "get": {
+        "description": "Gets the extension set in JSON.<br>If a request parameter \"filter\" is provided, the regular expression will be applied to the list.<br>See https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.",
+        "operationId": "getExtensionList",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "regular expression to apply",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the extensions set",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeliverablePackage"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/extensions/install": {
+      "put": {
+        "description": "Download (if necessary) and install extension specified by its id or url.Request parameter `id` or `url` must be present.",
+        "operationId": "installExtension",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the extension",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "description": "url of the extension",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 if the extension is installed"
+          },
+          "400": {
+            "description": "returns 400 if neither id nor url is provided"
+          },
+          "404": {
+            "description": "returns 404 if the extension is not found by the provided id or url"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "installExtensionPreflight",
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS and PUT"
+          }
+        }
+      }
+    },
+    "/api/extensions/uninstall": {
+      "options": {
+        "description": "Preflight request",
+        "operationId": "uninstallExtensionPreflight",
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS and DELETE"
+          }
+        }
+      }
+    },
+    "/api/extensions/uninstall?id=:extensionId": {
+      "delete": {
+        "description": "Uninstall extension specified by its id.",
+        "operationId": "uninstallExtension",
+        "parameters": [
+          {
+            "name": "extensionId",
+            "in": "query",
+            "description": "id of the extension to uninstall",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "returns 204 if the extension is uninstalled (idempotent)"
+          }
+        }
+      }
+    },
+    "/api/ftm/:project/:docId": {
+      "get": {
+        "description": "Get the FtM document from its project and id (content hash)",
+        "operationId": "getDocument",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "project identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docId",
+            "in": "path",
+            "description": "document identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the JSON document",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FtmDocument"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/index/:index": {
+      "put": {
+        "description": "Create the index for the current user if it doesn't exist.",
+        "operationId": "createIndex",
+        "parameters": [
+          {
+            "name": "index",
+            "in": "path",
+            "description": "index to create",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 if the index already exists"
+          },
+          "201": {
+            "description": "returns 201 if the index has been created"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight for index creation.",
+        "operationId": "createIndexPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with PUT"
+          },
+          "400": {
+            "description": "returns 400 if there is an error from ElasticSearch"
+          }
+        }
+      }
+    },
+    "/api/index/search/:path:": {
+      "get": {
+        "description": "Search GET request to Elasticsearch. As it is a GET method, all paths are accepted.<br>if a body is provided, the body will be sent to ES as source=urlencoded(body)&source_content_type=application%2Fjson<br>In that case, request parameters are not taken into account.",
+        "operationId": "esGet",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "description": "elasticsearch path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200"
+          },
+          "400": {
+            "description": "returns 400 if there is an error from ElasticSearch"
+          }
+        }
+      },
+      "head": {
+        "description": "Head request useful for JavaScript API (for example to test if an index exists)",
+        "operationId": "esHead",
+        "responses": {
+          "200": {
+            "description": "returns 200"
+          },
+          "400": {
+            "description": "returns 400 if there is an error from ElasticSearch"
+          }
+        }
+      }
+    },
+    "/api/:project/namedEntities/hide/:mentionNorm": {
+      "put": {
+        "description": "Hide all named entities with the given normalized mention",
+        "operationId": "hide",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "current project",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mentionNorm",
+            "in": "path",
+            "description": "normalized mention",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 OK"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request for hide endpoint",
+        "operationId": "hidePreflight",
+        "responses": {
+          "200": {
+            "description": "returns PUT"
+          }
+        }
+      }
+    },
+    "/api/ner/findNames/:pipeline": {
+      "post": {
+        "description": "When datashare is launched in NER mode (without index) it exposes a name finding HTTP API.<br>The text is sent with the HTTP body.",
+        "operationId": "getAnnotations",
+        "parameters": [
+          {
+            "name": "pipeline",
+            "in": "path",
+            "description": "pipeline to use",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "text to analyze in the request body",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the list of NamedEntities annotations",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NamedEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ner/pipelines": {
+      "get": {
+        "description": "Gets the list of registered pipelines.",
+        "operationId": "getRegisteredPipelines",
+        "responses": {
+          "200": {
+            "description": "returns the pipeline set",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "TEST",
+                      "CORENLP",
+                      "GATENLP",
+                      "IXAPIPE",
+                      "MITIE",
+                      "OPENNLP",
+                      "EMAIL",
+                      "SPACY"
+                    ]
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/:project/notes": {
+      "get": {
+        "description": "Gets the list of notes for a project.",
+        "operationId": "getProjectNotes",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "if the user is not granted for the project"
+          }
+        }
+      }
+    },
+    "/api/openapi": {
+      "get": {
+        "description": "Get the JSON OpenAPI v3 contract specification",
+        "operationId": "get_1",
+        "responses": {
+          "200": {
+            "description": "returns the JSON file"
+          }
+        }
+      }
+    },
+    "/api/plugins": {
+      "get": {
+        "description": "Gets the plugins set in JSON.<br>If a request parameter \"filter\" is provided, the regular expression will be applied to the list.<br>See https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.",
+        "operationId": "getPluginList",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "regular expression to apply",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the plugins set",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeliverablePackage"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/install": {
+      "put": {
+        "description": "Download (if necessary) and install plugin specified by its id or url.Request parameter `id` or `url` must be present.",
+        "operationId": "installPlugin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the plugin",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "description": "url of the plugin",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 if the plugin is installed"
+          },
+          "400": {
+            "description": "returns 400 if neither id nor url is provided"
+          },
+          "404": {
+            "description": "returns 404 if the plugin is not found by the provided id or url"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "installPluginPreflight",
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS and PUT"
+          }
+        }
+      }
+    },
+    "/api/plugins/uninstall": {
+      "options": {
+        "description": "Preflight request",
+        "operationId": "uninstallPluginPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and DELETE"
+          }
+        }
+      }
+    },
+    "/api/plugins/uninstall?id=:pluginId": {
+      "delete": {
+        "description": "Uninstall plugin specified by its id.",
+        "operationId": "uninstallPlugin",
+        "responses": {
+          "204": {
+            "description": "returns 204 if the plugin is uninstalled (idempotent)"
+          }
+        }
+      }
+    },
+    "/api/project/": {
+      "get": {
+        "description": "Get all user's projects",
+        "operationId": "getProjects",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Project"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a project",
+        "operationId": "createProject",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "if project and index have been created"
+          },
+          "400": {
+            "description": "if project path is null or not allowed for the project"
+          },
+          "409": {
+            "description": "if project exists"
+          },
+          "500": {
+            "description": "project creation in DB or index creation failed"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes all user's projects from database and elasticsearch index.",
+        "operationId": "deleteProjects",
+        "responses": {
+          "204": {
+            "description": "if projects are deleted"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight option request",
+        "operationId": "rootProjectOpt",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS, POST, GET and DELETE"
+          }
+        }
+      }
+    },
+    "/api/project/:id": {
+      "get": {
+        "description": "Gets the project information for the given id",
+        "operationId": "getProject",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "if the project is not found in database"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the project from database and elasticsearch index.",
+        "operationId": "deleteProject",
+        "responses": {
+          "204": {
+            "description": "if project is deleted"
+          },
+          "401": {
+            "description": "if project id is not in the current user's projects"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight option request",
+        "operationId": "deleteProjectOpt",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and DELETE"
+          }
+        }
+      }
+    },
+    "/api/project/isDownloadAllowed/:id": {
+      "get": {
+        "description": "Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.<br/>Ex : <pre>192.168.*.*</pre> will match all subnetwork 192.168.0.0 IP's and only users with an IP in.",
+        "operationId": "isDownloadAllowed",
+        "responses": {
+          "200": {
+            "description": "if project download is allowed for this project and IP"
+          },
+          "403": {
+            "description": "if project download is not allowed"
+          }
+        }
+      }
+    },
+    "/settings": {
+      "get": {
+        "description": "Gets the public (i.e. without user's information) datashare settings parameters.<br>These parameters are used for the client app for the init process.<br>The endpoint is removing all fields that contain Address or Secret or Url or Key",
+        "operationId": "getPublicSettings",
+        "responses": {
+          "200": {
+            "description": "returns the list of public settings",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/version": {
+      "get": {
+        "description": "Gets the versions (front/back/docker) of datashare.",
+        "operationId": "getGitVersions",
+        "responses": {
+          "200": {
+            "description": "returns the list of versions of datashare",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/status": {
+      "get": {
+        "description": "Retrieve the status of databus connection, database connection and index.",
+        "operationId": "getStatus",
+        "parameters": [
+          {
+            "name": "format=openmetrics",
+            "in": "query",
+            "description": "if provided in the URL it will return the status in openmetrics format",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the status of datashare elements",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "proxy error when elasticsearch is down",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "service unavailable when other services are down",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/:id": {
+      "get": {
+        "description": "Gets one task with its id.",
+        "operationId": "getTask",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the task from its id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Create a task with JSON body",
+        "operationId": "createTask",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the task creation body",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Task"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "the task has been created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "the task was already existing"
+          },
+          "400": {
+            "description": "bad request, for example the task payload id is not the same as the url id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/:id/result": {
+      "get": {
+        "description": "Gets task result with its id",
+        "operationId": "getTaskResult",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 and the result"
+          },
+          "204": {
+            "description": "returns 204 if there is no result"
+          },
+          "403": {
+            "description": "returns 403 if the task is not belonging to current user"
+          },
+          "404": {
+            "description": "returns 404 if the task doesn't exist"
+          }
+        }
+      }
+    },
+    "/api/task/all": {
+      "get": {
+        "description": "Gets all the user tasks.<br>Filters can be added with <pre>name=value</pre>. For example if <pre>name=foo</pre> is given in the request url query,the tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys. For example if <pre>args.dataDir=bar</pre> is provided, tasks with \"dataDir\" containing \"bar\" are going to be selected.",
+        "operationId": "tasks",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "pattern contained in the task name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the list of tasks",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaskObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/batchDownload": {
+      "post": {
+        "description": "Download files from a search query.<br>Expected parameters are :<br>- project: string<br>- query: string or elasticsearch JSON query<br>If the query is a string it is taken as an ES query string, else it is a raw JSON query (without the query part),see org.elasticsearch.index.query.WrapperQueryBuilder that is used to wrap the query",
+        "operationId": "batchDownload",
+        "requestBody": {
+          "description": "the json used to wrap the query",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionsWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200 and the json task id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request for batch download.",
+        "operationId": "batchDownloadPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and POST"
+          }
+        }
+      }
+    },
+    "/api/task/batchSearch/:coma_separated_projects": {
+      "post": {
+        "description": "Creates a new batch search. This is a multipart form with 9 fields:<br/>name, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template<br><br/>Queries with less than two characters are filtered.<br><br>To make a request manually, you can create a file like:<br><pre>--BOUNDARY<br/>\"Content-Disposition: form-data; name=\"name\"<br/><br/>my batch search<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"description\"<br/><br/>search description<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"<br/>Content-Type: text/csv<br/><br/>Obama<br/>skype<br/>test<br/>query three<br/>--BOUNDARY--<br/>Content-Disposition: form-data; name=\"published\"<br/><br/>true<br/>--BOUNDARY--<br/></pre><br/><br/>Then curl with<pre>curl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt</pre>you'll maybe have to replace \\n with \\n\\r with <pre>sed -i 's/$/^M/g' ~/multipart.txt</pre>",
+        "operationId": "search",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Coma-separated list of projects",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": {
+              "value": "prj1,prj2"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "multipart form",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "csvFile": {
+                    "type": "string"
+                  },
+                  "published": {
+                    "type": "boolean"
+                  },
+                  "fileTypes": {},
+                  "tags": {},
+                  "paths": {},
+                  "fuzziness": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "phrase_matches": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "413": {
+            "description": "if the CSV file is more than 60K lines"
+          },
+          "400": {
+            "description": "if either name or CSV file is missing"
+          }
+        }
+      }
+    },
+    "/api/task/batchSearch/copy/:sourcebatchid": {
+      "post": {
+        "description": "Creates a new batch search based on a previous one given its id, and enqueue it for running",
+        "operationId": "copySearch",
+        "parameters": [
+          {
+            "name": "sourcebatchid",
+            "in": "path",
+            "description": "source batch id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "batch parameters",
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "my new batch",
+                "description": "desc"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "if the source batch search is not found in database"
+          },
+          "200": {
+            "description": "returns the id of the created batch search",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "optionsCopy",
+        "responses": {
+          "default": {
+            "description": "returns POST",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/batchUpdate/index": {
+      "post": {
+        "description": "Indexes files from the queue.",
+        "operationId": "indexQueue",
+        "requestBody": {
+          "description": "wrapper for options json",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionsWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200 and the json task id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "returns an error when stat task fails",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/batchUpdate/index/file": {
+      "post": {
+        "description": "Indexes files in a directory (with docker, it is the mounted directory that is scanned).",
+        "operationId": "indexDefault",
+        "requestBody": {
+          "description": "wrapper for options json",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionsWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200 and the list of tasks created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/clean": {
+      "post": {
+        "description": "Cleans all DONE tasks.",
+        "operationId": "cleanDoneTasks",
+        "responses": {
+          "200": {
+            "description": "returns 200 and the list of removed tasks",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaskObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/clean/:taskName:": {
+      "delete": {
+        "description": "Cleans a specific task.",
+        "operationId": "cleanTask",
+        "parameters": [
+          {
+            "name": "taskName",
+            "in": "path",
+            "description": "name of the task to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 if the task is removed"
+          },
+          "403": {
+            "description": "returns 403 if the task is still in RUNNING state"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request for task cleaning.",
+        "operationId": "cleanTaskPreflight",
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS and DELETE"
+          }
+        }
+      }
+    },
+    "/api/task/stop/:taskId:": {
+      "put": {
+        "description": "Cancels the task with the given name.",
+        "operationId": "stopTask",
+        "parameters": [
+          {
+            "name": "taskName",
+            "in": "path",
+            "description": "name of the task to cancel",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 with the cancellation status (true/false)",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/stop/:taskName:": {
+      "options": {
+        "description": "Preflight request to stop tasks.",
+        "operationId": "stopTaskPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and PUT"
+          }
+        }
+      }
+    },
+    "/api/task/stopAll": {
+      "put": {
+        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.<br>If the status is false, it means that the thread has not been stopped.",
+        "operationId": "stopAllTasks",
+        "responses": {
+          "200": {
+            "description": "returns 200 and the tasks stop result map",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request to stop all tasks.",
+        "operationId": "stopAllTasksPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and PUT"
+          }
+        }
+      }
+    },
+    "/api/tree/:dirPath:": {
+      "get": {
+        "description": "Lists all files and directory for the given path. This endpoint returns a JSON using the same specification than the `tree` command on UNIX. It is roughly the equivalent of:<br><pre>tree -L 1 -spJ --noreport /home/datashare/data</pre>",
+        "operationId": "getTree",
+        "parameters": [
+          {
+            "name": "dirPath",
+            "in": "path",
+            "description": "directory path in the tree",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the list of files and directory",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DirectoryReport"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/me": {
+      "get": {
+        "description": "Gets the user's session information.",
+        "operationId": "getUser",
+        "responses": {
+          "200": {
+            "description": "returns the user map",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/me/history": {
+      "put": {
+        "description": "Add or update an event to user's history. The event's type, the project ids and the uri are passed in the request body.<br>To update the event's name, the eventId is required to retrieve the corresponding event.The project list related to the event is stored in database but is never queried (no filters on project)",
+        "operationId": "addToUserHistory",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "user history query to save",
+            "schema": {
+              "$ref": "#/components/schemas/UserHistoryQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 when event is added or updated."
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request for history",
+        "operationId": "getUserHistory",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS, GET, PUT and DELETE"
+          }
+        }
+      }
+    },
+    "/api/users/me/history/event": {
+      "options": {
+        "description": "Preflight request for history",
+        "operationId": "deleteUserEvent",
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS and DELETE"
+          }
+        }
+      }
+    },
+    "/api/users/me/history/event?id=:eventId": {
+      "delete": {
+        "description": "Delete user event by id.",
+        "operationId": "deleteUserEvent_1",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "description": "user history event id to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returns 204 (No Content) : idempotent"
+          }
+        }
+      }
+    },
+    "/api/users/me/history?type=:type": {
+      "delete": {
+        "description": "Delete user history by type.",
+        "operationId": "deleteUserHistory",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type of user history event",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returns 204 (No Content) : idempotent",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Payload": {
+        "properties": {
+          "error": {
+            "type": "boolean"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Context": {
+        "properties": {
+          "currentUser": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "User": {},
+      "BatchSearchRecord": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "published": {
+            "type": "boolean"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectProxy"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "QUEUED",
+              "RUNNING",
+              "SUCCESS",
+              "FAILURE"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nbQueries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errorMessage": {
+            "type": "string"
+          },
+          "errorQuery": {
+            "type": "string"
+          }
+        }
+      },
+      "Pagination": {},
+      "ProjectProxy": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "WebResponseBatchSearchRecord": {
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchSearchRecord"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "WebQuery": {
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "from": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "order": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "project": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectProxy"
+            }
+          },
+          "batchDate": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publishState": {
+            "type": "string"
+          },
+          "withQueries": {
+            "type": "boolean"
+          },
+          "queriesExcluded": {
+            "type": "boolean"
+          },
+          "contentTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sorted": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BatchSearch": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "published": {
+            "type": "boolean"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectProxy"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "QUEUED",
+              "RUNNING",
+              "SUCCESS",
+              "FAILURE"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nbQueries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errorMessage": {
+            "type": "string"
+          },
+          "errorQuery": {
+            "type": "string"
+          },
+          "queries": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "fileTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fuzziness": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "phraseMatches": {
+            "type": "boolean"
+          },
+          "queryTemplate": {
+            "$ref": "#/components/schemas/SearchQuery"
+          }
+        }
+      },
+      "SearchQuery": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "writeOnly": true
+          }
+        }
+      },
+      "JsonData": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "SearchResult": {
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "project": {
+            "$ref": "#/components/schemas/ProjectProxy"
+          },
+          "documentId": {
+            "type": "string"
+          },
+          "rootId": {
+            "type": "string"
+          },
+          "documentPath": {
+            "type": "object",
+            "properties": {
+              "absolute": {
+                "type": "boolean"
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "root": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "fileName": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "fileSystem": {
+                "type": "object",
+                "properties": {
+                  "open": {
+                    "type": "boolean"
+                  },
+                  "readOnly": {
+                    "type": "boolean"
+                  },
+                  "separator": {
+                    "type": "string"
+                  },
+                  "rootDirectories": {
+                    "type": "object"
+                  },
+                  "fileStores": {
+                    "type": "object"
+                  },
+                  "userPrincipalLookupService": {
+                    "type": "object"
+                  }
+                }
+              },
+              "nameCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "contentLength": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "documentNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "WebResponseSearchResult": {
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResult"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "ResultInteger": {},
+      "BatchTagQuery": {
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "writeOnly": true
+          },
+          "docIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "writeOnly": true
+          }
+        }
+      },
+      "Tag": {
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "Document": {
+        "properties": {
+          "generator": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "bodyText": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "contentHash": {
+            "type": "string"
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "processingStatus": {
+            "type": "string"
+          },
+          "translatedLanguage": {
+            "type": "string"
+          },
+          "translatedText": {
+            "type": "string"
+          },
+          "crawler": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "authoredAt": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string"
+          },
+          "ancestors": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "processingError": {
+            "type": "string"
+          },
+          "processingAgent": {
+            "type": "string"
+          },
+          "processedAt": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "previousName": {
+            "type": "string"
+          },
+          "weakAlias": {
+            "type": "string"
+          },
+          "publisherUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "alephUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikipediaUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikidataId": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "string"
+          },
+          "addressEntity": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "program": {
+            "type": "string"
+          },
+          "proof": {
+            "$ref": "#/components/schemas/Document"
+          },
+          "indexText": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "modifiedAt": {
+            "type": "string"
+          },
+          "retrievedAt": {
+            "type": "string"
+          },
+          "detectedLanguage": {
+            "type": "string"
+          },
+          "detectedCountry": {
+            "type": "string"
+          },
+          "namesMentioned": {
+            "type": "string"
+          },
+          "peopleMentioned": {
+            "type": "string"
+          },
+          "companiesMentioned": {
+            "type": "string"
+          },
+          "ibanMentioned": {
+            "type": "string"
+          },
+          "ipMentioned": {
+            "type": "string"
+          },
+          "locationMentioned": {
+            "type": "string"
+          },
+          "phoneMentioned": {
+            "type": "string"
+          },
+          "emailMentioned": {
+            "type": "string"
+          }
+        }
+      },
+      "AggregateListUser": {
+        "properties": {
+          "aggregates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregateUser"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "AggregateUser": {
+        "properties": {
+          "item": {
+            "$ref": "#/components/schemas/User"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DeliverablePackage": {
+        "properties": {
+          "deliverableInstalled": {
+            "type": "boolean"
+          },
+          "deliverableFromRegistryInstalled": {
+            "type": "boolean"
+          },
+          "installed": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "NLP",
+              "WEB",
+              "PLUGIN",
+              "UNKNOWN"
+            ]
+          },
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Address": {
+        "properties": {
+          "full": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "postOfficeBox": {
+            "type": "string"
+          },
+          "street2": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longitude": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "osmId": {
+            "type": "string"
+          },
+          "googlePlaceId": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "previousName": {
+            "type": "string"
+          },
+          "weakAlias": {
+            "type": "string"
+          },
+          "publisherUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "alephUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikipediaUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikidataId": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "string"
+          },
+          "addressEntity": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "program": {
+            "type": "string"
+          },
+          "proof": {
+            "$ref": "#/components/schemas/Document"
+          },
+          "indexText": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "modifiedAt": {
+            "type": "string"
+          },
+          "retrievedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Folder": {
+        "properties": {
+          "parent": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "title": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "bodyText": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "contentHash": {
+            "type": "string"
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "processingStatus": {
+            "type": "string"
+          },
+          "translatedLanguage": {
+            "type": "string"
+          },
+          "translatedText": {
+            "type": "string"
+          },
+          "crawler": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "authoredAt": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string"
+          },
+          "ancestors": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "processingError": {
+            "type": "string"
+          },
+          "processingAgent": {
+            "type": "string"
+          },
+          "processedAt": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "previousName": {
+            "type": "string"
+          },
+          "weakAlias": {
+            "type": "string"
+          },
+          "publisherUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "alephUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikipediaUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikidataId": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "string"
+          },
+          "addressEntity": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "program": {
+            "type": "string"
+          },
+          "proof": {
+            "$ref": "#/components/schemas/Document"
+          },
+          "indexText": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "modifiedAt": {
+            "type": "string"
+          },
+          "retrievedAt": {
+            "type": "string"
+          },
+          "detectedLanguage": {
+            "type": "string"
+          },
+          "detectedCountry": {
+            "type": "string"
+          },
+          "namesMentioned": {
+            "type": "string"
+          },
+          "peopleMentioned": {
+            "type": "string"
+          },
+          "companiesMentioned": {
+            "type": "string"
+          },
+          "ibanMentioned": {
+            "type": "string"
+          },
+          "ipMentioned": {
+            "type": "string"
+          },
+          "locationMentioned": {
+            "type": "string"
+          },
+          "phoneMentioned": {
+            "type": "string"
+          },
+          "emailMentioned": {
+            "type": "string"
+          }
+        }
+      },
+      "FtmDocument": {
+        "properties": {
+          "generator": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "address": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "bodyText": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "contentHash": {
+            "type": "string"
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "processingStatus": {
+            "type": "string"
+          },
+          "translatedLanguage": {
+            "type": "string"
+          },
+          "translatedText": {
+            "type": "string"
+          },
+          "crawler": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "authoredAt": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string"
+          },
+          "ancestors": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "processingError": {
+            "type": "string"
+          },
+          "processingAgent": {
+            "type": "string"
+          },
+          "processedAt": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "previousName": {
+            "type": "string"
+          },
+          "weakAlias": {
+            "type": "string"
+          },
+          "publisherUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "alephUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikipediaUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "wikidataId": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "string"
+          },
+          "addressEntity": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "program": {
+            "type": "string"
+          },
+          "proof": {
+            "$ref": "#/components/schemas/Document"
+          },
+          "indexText": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "modifiedAt": {
+            "type": "string"
+          },
+          "retrievedAt": {
+            "type": "string"
+          },
+          "detectedLanguage": {
+            "type": "string"
+          },
+          "detectedCountry": {
+            "type": "string"
+          },
+          "namesMentioned": {
+            "type": "string"
+          },
+          "peopleMentioned": {
+            "type": "string"
+          },
+          "companiesMentioned": {
+            "type": "string"
+          },
+          "ibanMentioned": {
+            "type": "string"
+          },
+          "ipMentioned": {
+            "type": "string"
+          },
+          "locationMentioned": {
+            "type": "string"
+          },
+          "phoneMentioned": {
+            "type": "string"
+          },
+          "emailMentioned": {
+            "type": "string"
+          }
+        }
+      },
+      "Request": {
+        "properties": {
+          "secure": {
+            "type": "boolean"
+          },
+          "urlEncodedForm": {
+            "type": "boolean"
+          },
+          "cors": {
+            "type": "boolean"
+          },
+          "preflight": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NamedEntity": {
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "PERSON",
+              "ORGANIZATION",
+              "LOCATION",
+              "EMAIL",
+              "DATE",
+              "MONEY",
+              "NUMBER",
+              "NONE",
+              "UNKNOWN"
+            ]
+          },
+          "mention": {
+            "type": "string"
+          },
+          "offsets": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "documentId": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "rootDocument": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "extractor": {
+            "type": "string",
+            "enum": [
+              "TEST",
+              "CORENLP",
+              "GATENLP",
+              "IXAPIPE",
+              "MITIE",
+              "OPENNLP",
+              "EMAIL",
+              "SPACY"
+            ]
+          },
+          "extractorLanguage": {
+            "type": "string",
+            "enum": [
+              "ABKHAZIAN",
+              "AFAR",
+              "AFRIKAANS",
+              "AKAN",
+              "ALBANIAN",
+              "AMHARIC",
+              "ARABIC",
+              "ARAGONESE",
+              "ARMENIAN",
+              "ASSAMESE",
+              "AVARIC",
+              "AVESTAN",
+              "AYMARA",
+              "AZERBAIJANI",
+              "BAMBARA",
+              "BASHKIR",
+              "BASQUE",
+              "BELARUSIAN",
+              "BENGALI",
+              "BIHARI",
+              "BISLAMA",
+              "BOSNIAN",
+              "BRETON",
+              "BULGARIAN",
+              "BURMESE",
+              "CATALAN",
+              "CHAMORRO",
+              "CHECHEN",
+              "CHICHEWA",
+              "CHINESE",
+              "CHUVASH",
+              "CORNISH",
+              "CORSICAN",
+              "CREE",
+              "CROATIAN",
+              "CZECH",
+              "DANISH",
+              "MALDIVIAN",
+              "DUTCH",
+              "DZONGKHA",
+              "ENGLISH",
+              "ESPERANTO",
+              "ESTONIAN",
+              "EWE",
+              "FAROESE",
+              "FIJIAN",
+              "FINNISH",
+              "FRENCH",
+              "FULAH",
+              "GALICIAN",
+              "GEORGIAN",
+              "GERMAN",
+              "GREEK",
+              "GUARANI",
+              "GUJARATI",
+              "HAITIAN",
+              "HAUSA",
+              "HEBREW",
+              "HERERO",
+              "HINDI",
+              "HIRIMOTU",
+              "HUNGARIAN",
+              "INTERLINGUA",
+              "INDONESIAN",
+              "INTERLIGUE",
+              "IRISH",
+              "IGBO",
+              "INUPIAQ",
+              "IDO",
+              "ICELANDIC",
+              "ITALIAN",
+              "INUKTITUT",
+              "JAPANESE",
+              "JAVANESE",
+              "GREENLANDIC",
+              "KANNADA",
+              "KANURI",
+              "KASHMIRI",
+              "KAZAKH",
+              "CENTRALKHMER",
+              "KIKUYU",
+              "KINYARWANDA",
+              "KIRGHIZ",
+              "KOMI",
+              "KONGO",
+              "KOREAN",
+              "KURDISH",
+              "KUANYAMA",
+              "LATIN",
+              "LUXEMBOURGISH",
+              "GANDA",
+              "LIMBURGAN",
+              "LINGALA",
+              "LAO",
+              "LITHUANIAN",
+              "LUBAKATANGA",
+              "LATVIAN",
+              "MANX",
+              "MACEDONIAN",
+              "MALAGASY",
+              "MALAY",
+              "MALAYALAM",
+              "MALTESE",
+              "MAORI",
+              "MARATHI",
+              "MARSHALLESE",
+              "MONGOLIAN",
+              "NAURU",
+              "NAVAJO",
+              "NORTHNDEBELE",
+              "NEPALI",
+              "NDONGA",
+              "NORWEGIANBOKMAL",
+              "NORWEGIANNYNORSK",
+              "NORWEGIAN",
+              "SICHUANYI",
+              "SOUTHNDEBELE",
+              "OCCITAN",
+              "OJIBWA",
+              "OLDSLAVONIC",
+              "OROMO",
+              "ORIYA",
+              "OSSETIAN",
+              "PANJABI",
+              "PALI",
+              "PERSIAN",
+              "POLISH",
+              "PASHTO",
+              "PORTUGUESE",
+              "QUECHUA",
+              "ROMANSH",
+              "ROMANIAN",
+              "RUNDI",
+              "MOLDAVIAN",
+              "MOLDOVAN",
+              "RUSSIAN",
+              "SANSKRIT",
+              "SARDINIAN",
+              "SINDHI",
+              "NORTHERNSAMI",
+              "SAMOAN",
+              "SANGO",
+              "SERBIAN",
+              "GAELIC",
+              "SHONA",
+              "SINHALESE",
+              "SLOVAK",
+              "SLOVENIAN",
+              "SOMALI",
+              "SOUTHERNSOTHO",
+              "SPANISH",
+              "SUNDANESE",
+              "SWAHILI",
+              "SWATI",
+              "SWEDISH",
+              "TAMIL",
+              "TELUGU",
+              "TAJIK",
+              "THAI",
+              "TIGRINYA",
+              "TIBETAN",
+              "TURKMEN",
+              "TAGALOG",
+              "TSWANA",
+              "TONGA",
+              "TURKISH",
+              "TSONGA",
+              "TATAR",
+              "TWI",
+              "TAHITIAN",
+              "UIGHUR",
+              "UKRAINIAN",
+              "URDU",
+              "UZBEK",
+              "VENDA",
+              "VIETNAMESE",
+              "VOLAPUK",
+              "WALLOON",
+              "WELSH",
+              "WOLOF",
+              "WESTERNFRISIAN",
+              "XHOSA",
+              "YIDDISH",
+              "YORUBA",
+              "ZHUANG",
+              "ZULU",
+              "UNKNOWN"
+            ]
+          },
+          "isHidden": {
+            "type": "boolean"
+          },
+          "partsOfSpeech": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "mentionNormTextLength": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Note": {
+        "properties": {
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "path": {
+            "type": "object",
+            "properties": {
+              "absolute": {
+                "type": "boolean"
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "root": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "fileName": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "fileSystem": {
+                "type": "object",
+                "properties": {
+                  "open": {
+                    "type": "boolean"
+                  },
+                  "readOnly": {
+                    "type": "boolean"
+                  },
+                  "separator": {
+                    "type": "string"
+                  },
+                  "rootDirectories": {
+                    "type": "object"
+                  },
+                  "fileStores": {
+                    "type": "object"
+                  },
+                  "userPrincipalLookupService": {
+                    "type": "object"
+                  }
+                }
+              },
+              "nameCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "note": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string",
+            "enum": [
+              "dark",
+              "light",
+              "danger",
+              "info",
+              "success",
+              "warning",
+              "primary",
+              "secondary"
+            ]
+          }
+        }
+      },
+      "Project": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sourcePath": {
+            "type": "object",
+            "properties": {
+              "absolute": {
+                "type": "boolean"
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "root": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "fileName": {
+                "type": "object",
+                "properties": {
+                  "absolute": {
+                    "type": "boolean"
+                  },
+                  "fileSystem": {
+                    "type": "object",
+                    "properties": {
+                      "open": {
+                        "type": "boolean"
+                      },
+                      "readOnly": {
+                        "type": "boolean"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "rootDirectories": {
+                        "type": "object"
+                      },
+                      "fileStores": {
+                        "type": "object"
+                      },
+                      "userPrincipalLookupService": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "nameCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "fileSystem": {
+                "type": "object",
+                "properties": {
+                  "open": {
+                    "type": "boolean"
+                  },
+                  "readOnly": {
+                    "type": "boolean"
+                  },
+                  "separator": {
+                    "type": "string"
+                  },
+                  "rootDirectories": {
+                    "type": "object"
+                  },
+                  "fileStores": {
+                    "type": "object"
+                  },
+                  "userPrincipalLookupService": {
+                    "type": "object"
+                  }
+                }
+              },
+              "nameCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "publisherName": {
+            "type": "string"
+          },
+          "maintainerName": {
+            "type": "string"
+          },
+          "logoUrl": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "StacktraceItem": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "lineno": {
+            "type": "integer",
+            "format": "int32",
+            "writeOnly": true
+          },
+          "name": {
+            "type": "string",
+            "writeOnly": true
+          }
+        }
+      },
+      "StateLatch": {
+        "properties": {
+          "taskState": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "QUEUED",
+              "RUNNING",
+              "CANCELLED",
+              "ERROR",
+              "DONE"
+            ]
+          }
+        }
+      },
+      "TaskError": {
+        "discriminator": {
+          "propertyName": "@type"
+        },
+        "properties": {
+          "name": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "message": {
+            "type": "string"
+          },
+          "cause": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "stacktrace": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StacktraceItem"
+            },
+            "writeOnly": true
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "TaskObject": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "QUEUED",
+              "RUNNING",
+              "CANCELLED",
+              "ERROR",
+              "DONE"
+            ]
+          },
+          "progress": {
+            "type": "number",
+            "format": "double"
+          },
+          "result": {
+            "type": "object"
+          },
+          "args": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TaskError"
+          },
+          "latch": {
+            "$ref": "#/components/schemas/StateLatch"
+          }
+        }
+      },
+      "Task": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "QUEUED",
+              "RUNNING",
+              "CANCELLED",
+              "ERROR",
+              "DONE"
+            ]
+          },
+          "progress": {
+            "type": "number",
+            "format": "double"
+          },
+          "result": {
+            "type": "object"
+          },
+          "args": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TaskError"
+          },
+          "latch": {
+            "$ref": "#/components/schemas/StateLatch"
+          }
+        }
+      },
+      "TaskResponse": {
+        "properties": {
+          "taskId": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "OptionsWrapper": {
+        "properties": {
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "OptionsWrapperObject": {
+        "properties": {
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "OptionsWrapperString": {
+        "properties": {
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "TasksResponse": {
+        "properties": {
+          "taskIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "AbstractFileReport": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "DirectoryReport": {
+        "properties": {
+          "contents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AbstractFileReport"
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "directory",
+              "file"
+            ]
+          },
+          "prot": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "UserHistoryQuery": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "name": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "projectIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "writeOnly": true
+          },
+          "uri": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "eventId": {
+            "type": "integer",
+            "format": "int32",
+            "writeOnly": true
+          }
+        }
+      }
+    }
+  }
+}
