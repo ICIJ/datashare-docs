@@ -41,7 +41,9 @@ paths:
               example:
                 apiKey: SrcasvUmaAD6NsZ3+VmUkFFWVfRggIRNmWR5aHx7Kfc=
     delete:
-      description: Deletes an apikey for current user. \n\n\n\nOnly available in `SERVER` mode.
+      description: "Deletes an apikey for current user.
+
+                    Only available in `SERVER` mode."
       operationId: deleteKey
       parameters:
       - name: userId
