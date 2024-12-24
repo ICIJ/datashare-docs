@@ -38,7 +38,7 @@
 {% swagger src="./ds_openapi.json" path="/api/ner/findNames/:pipeline" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/ner/pipelines" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/:project/notes" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/openapi" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/openapi?format=:format" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/plugins" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/plugins/install" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/plugins/install" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
