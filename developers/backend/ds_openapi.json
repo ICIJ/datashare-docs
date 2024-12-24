@@ -1102,7 +1102,7 @@
     },
     "/api/plugins": {
       "get": {
-        "description": "Gets the plugins set in JSON.<br>If a request parameter \"filter\" is provided, the regular expression will be applied to the list.<br>See https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.",
+        "description": "Gets the plugins set in JSON.\n\nIf a request parameter \"filter\" is provided, the regular expression will be applied to the list.\n\nSee [Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) for pattern syntax.",
         "operationId": "getPluginList",
         "parameters": [
           {
@@ -1308,7 +1308,7 @@
     },
     "/api/project/isDownloadAllowed/:id": {
       "get": {
-        "description": "Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.<br/>Ex : <pre>192.168.*.*</pre> will match all subnetwork 192.168.0.0 IP's and only users with an IP in.",
+        "description": "Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.\n\nEx : `192.168.*.*` will match all subnetwork `192.168.0.0` IP's and only users with an IP in.",
         "operationId": "isDownloadAllowed",
         "responses": {
           "200": {
@@ -1322,7 +1322,7 @@
     },
     "/settings": {
       "get": {
-        "description": "Gets the public (i.e. without user's information) datashare settings parameters.<br>These parameters are used for the client app for the init process.<br>The endpoint is removing all fields that contain Address or Secret or Url or Key",
+        "description": "Gets the public (i.e. without user's information) datashare settings parameters.\n\nThese parameters are used for the client app for the init process.\n\nThe endpoint is removing all fields that contain Address or Secret or Url or Key\n",
         "operationId": "getPublicSettings",
         "responses": {
           "200": {
@@ -1590,7 +1590,7 @@
     },
     "/api/task/batchSearch/:coma_separated_projects": {
       "post": {
-        "description": "Creates a new batch search. This is a multipart form with 9 fields:\n\nname, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template.\n\nQueries with less than two characters are filtered.\n\nTo make a request manually, you can create a file like:\n```\n--BOUNDARY\nContent-Disposition: form-data; name=\"name\"\n\nmy batch search\n --BOUNDARY\nContent-Disposition: form-data; name=\"description\"\n\nsearch description\n --BOUNDARY\nContent-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"\nContent-Type: text/csv\n\nObama\nskype\ntest\nquery three\n--BOUNDARY--\nContent-Disposition: form-data; name=\"published\"\n\ntrue\n--BOUNDARY--\n```\n\nThen curl with\n\n```\ncurl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt\n```\n\nyou'll maybe have to replace \\n with \\n\\r with `sed -i 's/$/^M/g' ~/multipart.txt`",
+        "description": "Creates a new batch search. This is a multipart form with 9 fields:\n\nname, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template.\n\nQueries with less than two characters are filtered.\n\nTo make a request manually, you can create a file like:\n```\n--BOUNDARY\nContent-Disposition: form-data; name=\"name\"\n\nmy batch search\n--BOUNDARY\nContent-Disposition: form-data; name=\"description\"\n\nsearch description\n--BOUNDARY\nContent-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"\nContent-Type: text/csv\n\nObama\nskype\ntest\nquery three\n--BOUNDARY--\nContent-Disposition: form-data; name=\"published\"\n\ntrue\n--BOUNDARY--\n```\n\nThen curl with\n\n```\ncurl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt\n```\n\nyou'll maybe have to replace \\n with \\r\\n with `sed -i 's/$/^M/g' ~/multipart.txt`",
         "operationId": "search",
         "parameters": [
           {
@@ -1904,7 +1904,7 @@
     },
     "/api/tree/:dirPath:": {
       "get": {
-        "description": "Lists all files and directory for the given path. This endpoint returns a JSON using the same specification than the `tree` command on UNIX. It is roughly the equivalent of:<br><pre>tree -L 1 -spJ --noreport /home/datashare/data</pre>",
+        "description": "Lists all files and directory for the given path. This endpoint returns a JSON using the same specification than the `tree` command on UNIX. It is roughly the equivalent of:\n```\ntree -L 1 -spJ --noreport /home/datashare/data\n```\n",
         "operationId": "getTree",
         "parameters": [
           {
@@ -1952,7 +1952,7 @@
     },
     "/api/users/me/history": {
       "put": {
-        "description": "Add or update an event to user's history. The event's type, the project ids and the uri are passed in the request body.<br>To update the event's name, the eventId is required to retrieve the corresponding event.The project list related to the event is stored in database but is never queried (no filters on project)",
+        "description": "Add or update an event to user's history. The event's type, the project ids and the uri are passed in the request body.\n\nTo update the event's name, the eventId is required to retrieve the corresponding event.\nThe project list related to the event is stored in database but is never queried (no filters on project).\n",
         "operationId": "addToUserHistory",
         "parameters": [
           {
@@ -2763,6 +2763,18 @@
       },
       "Address": {
         "properties": {
+          "full": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "postOfficeBox": {
+            "type": "string"
+          },
           "street2": {
             "type": "string"
           },
@@ -2781,18 +2793,6 @@
             "type": "string"
           },
           "googlePlaceId": {
-            "type": "string"
-          },
-          "full": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "street": {
-            "type": "string"
-          },
-          "postOfficeBox": {
             "type": "string"
           },
           "state": {
