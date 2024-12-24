@@ -737,7 +737,7 @@
     },
     "/api/extensions": {
       "get": {
-        "description": "Gets the extension set in JSON.<br>If a request parameter \"filter\" is provided, the regular expression will be applied to the list.<br>See https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.",
+        "description": "Gets the extension set in JSON.\nIf a request parameter \"filter\" is provided, the regular expression will be applied to the list.\n\nSee https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for pattern syntax.",
         "operationId": "getExtensionList",
         "parameters": [
           {
@@ -920,7 +920,7 @@
     },
     "/api/index/search/:path:": {
       "get": {
-        "description": "Search GET request to Elasticsearch. As it is a GET method, all paths are accepted.<br>if a body is provided, the body will be sent to ES as source=urlencoded(body)&source_content_type=application%2Fjson<br>In that case, request parameters are not taken into account.",
+        "description": "Search GET request to Elasticsearch. As it is a GET method, all paths are accepted.\n\nif a body is provided, the body will be sent to ES as source=urlencoded(body)&source_content_type=application%2FjsonIn that case, request parameters are not taken into account.",
         "operationId": "esGet",
         "parameters": [
           {
@@ -997,7 +997,7 @@
     },
     "/api/ner/findNames/:pipeline": {
       "post": {
-        "description": "When datashare is launched in NER mode (without index) it exposes a name finding HTTP API.<br>The text is sent with the HTTP body.",
+        "description": "When datashare is launched in NER mode (without index) it exposes a name finding HTTP API.\n\nThe text is sent with the HTTP body.",
         "operationId": "getAnnotations",
         "parameters": [
           {
@@ -1521,7 +1521,7 @@
     },
     "/api/task/all": {
       "get": {
-        "description": "Gets all the user tasks.<br>Filters can be added with <pre>name=value</pre>. For example if <pre>name=foo</pre> is given in the request url query,the tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys. For example if <pre>args.dataDir=bar</pre> is provided, tasks with \"dataDir\" containing \"bar\" are going to be selected.",
+        "description": "Gets all the user tasks.\n\nFilters can be added with `name=value`. For example if `name=foo` is given in the request url query,\nthe tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys.\nFor example if `args.dataDir=bar` is provided, tasks with \"dataDir\" containing \"bar\" are going to be selected.",
         "operationId": "tasks",
         "parameters": [
           {
@@ -1552,7 +1552,7 @@
     },
     "/api/task/batchDownload": {
       "post": {
-        "description": "Download files from a search query.<br>Expected parameters are :<br>- project: string<br>- query: string or elasticsearch JSON query<br>If the query is a string it is taken as an ES query string, else it is a raw JSON query (without the query part),see org.elasticsearch.index.query.WrapperQueryBuilder that is used to wrap the query",
+        "description": "Download files from a search query.\n\n Expected parameters are:\n\n- project: string\n- query: string or elasticsearch JSON query\n\nIf the query is a string it is taken as an ES query string, else it is a raw JSON query (without the query part),see org.elasticsearch.index.query.WrapperQueryBuilder that is used to wrap the query\n",
         "operationId": "batchDownload",
         "requestBody": {
           "description": "the json used to wrap the query",
@@ -1590,7 +1590,7 @@
     },
     "/api/task/batchSearch/:coma_separated_projects": {
       "post": {
-        "description": "Creates a new batch search. This is a multipart form with 9 fields:<br/>name, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template<br><br/>Queries with less than two characters are filtered.<br><br>To make a request manually, you can create a file like:<br><pre>--BOUNDARY<br/>\"Content-Disposition: form-data; name=\"name\"<br/><br/>my batch search<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"description\"<br/><br/>search description<br/> --BOUNDARY<br/>Content-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"<br/>Content-Type: text/csv<br/><br/>Obama<br/>skype<br/>test<br/>query three<br/>--BOUNDARY--<br/>Content-Disposition: form-data; name=\"published\"<br/><br/>true<br/>--BOUNDARY--<br/></pre><br/><br/>Then curl with<pre>curl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt</pre>you'll maybe have to replace \\n with \\n\\r with <pre>sed -i 's/$/^M/g' ~/multipart.txt</pre>",
+        "description": "Creates a new batch search. This is a multipart form with 9 fields:\n\nname, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template.\n\nQueries with less than two characters are filtered.\n\nTo make a request manually, you can create a file like:\n```\n--BOUNDARY\nContent-Disposition: form-data; name=\"name\"\n\nmy batch search\n --BOUNDARY\nContent-Disposition: form-data; name=\"description\"\n\nsearch description\n --BOUNDARY\nContent-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"\nContent-Type: text/csv\n\nObama\nskype\ntest\nquery three\n--BOUNDARY--\nContent-Disposition: form-data; name=\"published\"\n\ntrue\n--BOUNDARY--\n```\n\nThen curl with\n\n```\ncurl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt\n```\n\nyou'll maybe have to replace \\n with \\n\\r with `sed -i 's/$/^M/g' ~/multipart.txt`",
         "operationId": "search",
         "parameters": [
           {
@@ -1874,7 +1874,7 @@
     },
     "/api/task/stopAll": {
       "put": {
-        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.<br>If the status is false, it means that the thread has not been stopped.",
+        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.\n\nIf the status is false, it means that the thread has not been stopped.",
         "operationId": "stopAllTasks",
         "responses": {
           "200": {
@@ -2763,18 +2763,6 @@
       },
       "Address": {
         "properties": {
-          "full": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "street": {
-            "type": "string"
-          },
-          "postOfficeBox": {
-            "type": "string"
-          },
           "street2": {
             "type": "string"
           },
@@ -2793,6 +2781,18 @@
             "type": "string"
           },
           "googlePlaceId": {
+            "type": "string"
+          },
+          "full": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "postOfficeBox": {
             "type": "string"
           },
           "state": {
