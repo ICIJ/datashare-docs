@@ -1089,13 +1089,23 @@
         }
       }
     },
-    "/api/openapi": {
+    "/api/openapi?format=:format": {
       "get": {
-        "description": "Get the JSON OpenAPI v3 contract specification",
+        "description": "Get the JSON or YAML OpenAPI v3 contract specification",
         "operationId": "get_1",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "format of openapi description. Possible values are \"json\" or \"yaml\". Default=\"json\".",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "returns the JSON file"
+            "description": "returns the JSON or YAML file"
           }
         }
       }
@@ -2729,13 +2739,13 @@
       },
       "DeliverablePackage": {
         "properties": {
+          "installed": {
+            "type": "boolean"
+          },
           "deliverableInstalled": {
             "type": "boolean"
           },
           "deliverableFromRegistryInstalled": {
-            "type": "boolean"
-          },
-          "installed": {
             "type": "boolean"
           },
           "name": {
@@ -3253,13 +3263,13 @@
           "secure": {
             "type": "boolean"
           },
-          "urlEncodedForm": {
-            "type": "boolean"
-          },
           "cors": {
             "type": "boolean"
           },
           "preflight": {
+            "type": "boolean"
+          },
+          "urlEncodedForm": {
             "type": "boolean"
           }
         }
