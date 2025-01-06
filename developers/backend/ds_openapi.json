@@ -2555,13 +2555,13 @@
           "bodyText": {
             "type": "string"
           },
+          "mimeType": {
+            "type": "string"
+          },
           "title": {
             "type": "string"
           },
           "author": {
-            "type": "string"
-          },
-          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -2613,23 +2613,20 @@
           "country": {
             "type": "string"
           },
-          "description": {
+          "alias": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "notes": {
             "type": "string"
           },
           "sourceUrl": {
             "type": "string",
             "format": "url"
           },
-          "notes": {
-            "type": "string"
-          },
           "publisher": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -2678,6 +2675,9 @@
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -2739,13 +2739,13 @@
       },
       "DeliverablePackage": {
         "properties": {
-          "installed": {
-            "type": "boolean"
-          },
           "deliverableInstalled": {
             "type": "boolean"
           },
           "deliverableFromRegistryInstalled": {
+            "type": "boolean"
+          },
+          "installed": {
             "type": "boolean"
           },
           "name": {
@@ -2823,23 +2823,20 @@
           "address": {
             "type": "string"
           },
-          "description": {
+          "alias": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "notes": {
             "type": "string"
           },
           "sourceUrl": {
             "type": "string",
             "format": "url"
           },
-          "notes": {
-            "type": "string"
-          },
           "publisher": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -2889,6 +2886,9 @@
           },
           "retrievedAt": {
             "type": "string"
+          },
+          "description": {
+            "type": "string"
           }
         }
       },
@@ -2921,10 +2921,10 @@
           "bodyText": {
             "type": "string"
           },
-          "author": {
+          "mimeType": {
             "type": "string"
           },
-          "mimeType": {
+          "author": {
             "type": "string"
           },
           "contentHash": {
@@ -2976,23 +2976,20 @@
           "country": {
             "type": "string"
           },
-          "description": {
+          "alias": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "notes": {
             "type": "string"
           },
           "sourceUrl": {
             "type": "string",
             "format": "url"
           },
-          "notes": {
-            "type": "string"
-          },
           "publisher": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3041,6 +3038,9 @@
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -3110,29 +3110,29 @@
           "bodyText": {
             "type": "string"
           },
-          "description": {
+          "alias": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "notes": {
             "type": "string"
           },
           "sourceUrl": {
             "type": "string",
             "format": "url"
           },
-          "notes": {
+          "mimeType": {
             "type": "string"
           },
           "title": {
             "type": "string"
           },
-          "publisher": {
-            "type": "string"
-          },
           "author": {
             "type": "string"
           },
-          "summary": {
-            "type": "string"
-          },
-          "mimeType": {
+          "publisher": {
             "type": "string"
           },
           "contentHash": {
@@ -3173,9 +3173,6 @@
             "type": "string"
           },
           "processedAt": {
-            "type": "string"
-          },
-          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3254,6 +3251,9 @@
             "type": "string"
           },
           "emailMentioned": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           }
         }
