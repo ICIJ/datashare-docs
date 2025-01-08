@@ -61,7 +61,7 @@
         }
       },
       "delete": {
-        "description": "Deletes an apikey for current user. Only available in `SERVER` mode.",
+        "description": "Deletes an apikey for current user. Only available in SERVER mode.",
         "operationId": "deleteKey",
         "parameters": [
           {
@@ -845,7 +845,7 @@
     },
     "/api/ftm/:project/:docId": {
       "get": {
-        "description": "Get the FtM document from its project and id (content hash)",
+        "description": "Get the [FtM](https://followthemoney.tech/) document from its project and id (content hash)",
         "operationId": "getDocument",
         "parameters": [
           {
@@ -877,6 +877,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "if no document is found with provided id"
           }
         }
       }
@@ -1097,7 +1100,7 @@
           {
             "name": "format",
             "in": "query",
-            "description": "format of openapi description. Possible values are \"json\" or \"yaml\". Default=\"json\".",
+            "description": "format of openapi description. Possible values are:\n\n* json (default)\n* yaml\n\n",
             "schema": {
               "type": "string"
             }
@@ -1531,13 +1534,13 @@
     },
     "/api/task/all": {
       "get": {
-        "description": "Gets all the user tasks.\n\nFilters can be added with `name=value`. For example if `name=foo` is given in the request url query,\nthe tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys.\nFor example if `args.dataDir=bar` is provided, tasks with \"dataDir\" containing \"bar\" are going to be selected.",
+        "description": "Gets all the user tasks.\n\nFilters can be added with `name=value`. For example if `name=foo` is given in the request url query,\nthe tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys for nested properties matching.\n\nFor example if `args.dataDir=bar` is provided, tasks with an argument \"dataDir\" containing \"bar\" are going to be selected.\n\nPagination/order parameters can be added:\n\n* sort: task field for sorting\n* order: order (desc/asc)\n* from: offset of the slice\n* size: number of tasks in the slice",
         "operationId": "tasks",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "pattern contained in the task name",
+            "description": "as an example: pattern contained in the task name",
             "schema": {
               "type": "string"
             }
@@ -1562,7 +1565,7 @@
     },
     "/api/task/batchDownload": {
       "post": {
-        "description": "Download files from a search query.\n\n Expected parameters are:\n\n- project: string\n- query: string or elasticsearch JSON query\n\nIf the query is a string it is taken as an ES query string, else it is a raw JSON query (without the query part),see org.elasticsearch.index.query.WrapperQueryBuilder that is used to wrap the query\n",
+        "description": "Download files from a search query.\n\n Expected parameters are:\n\n- project: string\n- query: string or elasticsearch JSON query\n\nIf the query is a string it is taken as an ES query string, else it is a raw JSON query (without the query part),\nsee org.elasticsearch.index.query.WrapperQueryBuilder that is used to wrap the query.\n",
         "operationId": "batchDownload",
         "requestBody": {
           "description": "the json used to wrap the query",
@@ -1884,7 +1887,7 @@
     },
     "/api/task/stopAll": {
       "put": {
-        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.\n\nIf the status is false, it means that the thread has not been stopped.",
+        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.\n\nIf the status is false, it means that some threads have not been stopped.",
         "operationId": "stopAllTasks",
         "responses": {
           "200": {
@@ -2123,7 +2126,26 @@
           }
         }
       },
-      "Pagination": {},
+      "Pagination": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "from": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "ProjectProxy": {
         "properties": {
           "name": {
@@ -2161,7 +2183,11 @@
             "type": "string"
           },
           "order": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
           },
           "query": {
             "type": "string"
@@ -2558,12 +2584,6 @@
           "mimeType": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
           "contentHash": {
             "type": "string"
           },
@@ -2604,6 +2624,12 @@
           "processedAt": {
             "type": "string"
           },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -2617,16 +2643,6 @@
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "publisher": {
             "type": "string"
           },
           "previousName": {
@@ -2675,6 +2691,16 @@
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "description": {
@@ -2829,16 +2855,6 @@
           "summary": {
             "type": "string"
           },
-          "notes": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "publisher": {
-            "type": "string"
-          },
           "previousName": {
             "type": "string"
           },
@@ -2887,6 +2903,16 @@
           "retrievedAt": {
             "type": "string"
           },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
           "description": {
             "type": "string"
           }
@@ -2922,9 +2948,6 @@
             "type": "string"
           },
           "mimeType": {
-            "type": "string"
-          },
-          "author": {
             "type": "string"
           },
           "contentHash": {
@@ -2967,6 +2990,9 @@
           "processedAt": {
             "type": "string"
           },
+          "author": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -2980,16 +3006,6 @@
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "publisher": {
             "type": "string"
           },
           "previousName": {
@@ -3038,6 +3054,16 @@
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "description": {
@@ -3110,29 +3136,13 @@
           "bodyText": {
             "type": "string"
           },
+          "mimeType": {
+            "type": "string"
+          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "contentHash": {
@@ -3253,6 +3263,22 @@
           "emailMentioned": {
             "type": "string"
           },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
           "description": {
             "type": "string"
           }
@@ -3263,13 +3289,13 @@
           "secure": {
             "type": "boolean"
           },
+          "urlEncodedForm": {
+            "type": "boolean"
+          },
           "cors": {
             "type": "boolean"
           },
           "preflight": {
-            "type": "boolean"
-          },
-          "urlEncodedForm": {
             "type": "boolean"
           }
         }
