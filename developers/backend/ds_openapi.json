@@ -2557,9 +2557,6 @@
       },
       "Document": {
         "properties": {
-          "generator": {
-            "type": "string"
-          },
           "parent": {
             "$ref": "#/components/schemas/Folder"
           },
@@ -2579,6 +2576,15 @@
             "type": "string"
           },
           "bodyText": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           },
           "mimeType": {
@@ -2624,12 +2630,6 @@
           "processedAt": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
@@ -2639,11 +2639,21 @@
           "country": {
             "type": "string"
           },
+          "notes": {
+            "type": "string"
+          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
           },
           "previousName": {
             "type": "string"
@@ -2691,16 +2701,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "description": {
@@ -2849,11 +2849,21 @@
           "address": {
             "type": "string"
           },
+          "notes": {
+            "type": "string"
+          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
           },
           "previousName": {
             "type": "string"
@@ -2903,16 +2913,6 @@
           "retrievedAt": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           }
@@ -2924,9 +2924,6 @@
             "$ref": "#/components/schemas/Folder"
           },
           "title": {
-            "type": "string"
-          },
-          "generator": {
             "type": "string"
           },
           "fileName": {
@@ -2945,6 +2942,12 @@
             "type": "string"
           },
           "bodyText": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
             "type": "string"
           },
           "mimeType": {
@@ -2990,9 +2993,6 @@
           "processedAt": {
             "type": "string"
           },
-          "author": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
@@ -3002,11 +3002,21 @@
           "country": {
             "type": "string"
           },
+          "notes": {
+            "type": "string"
+          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
           },
           "previousName": {
             "type": "string"
@@ -3054,16 +3064,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "description": {
@@ -3103,9 +3103,6 @@
       },
       "FtmDocument": {
         "properties": {
-          "generator": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
@@ -3136,13 +3133,32 @@
           "bodyText": {
             "type": "string"
           },
-          "mimeType": {
+          "notes": {
             "type": "string"
           },
           "alias": {
             "type": "string"
           },
           "summary": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -3261,22 +3277,6 @@
             "type": "string"
           },
           "emailMentioned": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "author": {
             "type": "string"
           },
           "description": {
