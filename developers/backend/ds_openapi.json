@@ -2581,10 +2581,10 @@
           "generator": {
             "type": "string"
           },
-          "author": {
+          "title": {
             "type": "string"
           },
-          "title": {
+          "author": {
             "type": "string"
           },
           "mimeType": {
@@ -2639,21 +2639,21 @@
           "country": {
             "type": "string"
           },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
           },
-          "publisher": {
-            "type": "string"
-          },
           "sourceUrl": {
             "type": "string",
             "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
           },
           "previousName": {
             "type": "string"
@@ -2849,21 +2849,21 @@
           "address": {
             "type": "string"
           },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
           },
-          "publisher": {
-            "type": "string"
-          },
           "sourceUrl": {
             "type": "string",
             "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
           },
           "previousName": {
             "type": "string"
@@ -3002,21 +3002,21 @@
           "country": {
             "type": "string"
           },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
           },
-          "publisher": {
-            "type": "string"
-          },
           "sourceUrl": {
             "type": "string",
             "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
           },
           "previousName": {
             "type": "string"
@@ -3133,19 +3133,20 @@
           "bodyText": {
             "type": "string"
           },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
             "type": "string"
           },
-          "generator": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
-          "author": {
+          "generator": {
             "type": "string"
           },
           "title": {
@@ -3154,9 +3155,8 @@
           "publisher": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
+          "author": {
+            "type": "string"
           },
           "mimeType": {
             "type": "string"
