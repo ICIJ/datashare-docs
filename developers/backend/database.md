@@ -248,6 +248,35 @@ Column | Type | Nullable | Default
 
 *****
 
+## `task`
+
+Column | Type | Nullable | Default
+--- | --- | --- | ---
+`id` | `character varying(96)` | `not null` | 
+`name` | `character varying(128)` | `not null` | 
+`state` | `character varying(16)` | `not null` | 
+`user_id` | `character varying(96)` |  | 
+`group_id` | `character varying(128)` |  | 
+`progress` | `double precision` |  | `0`
+`created_at` | `timestamp without time zone` | `not null` | 
+`completed_at` | `timestamp without time zone` |  | 
+`retries_left` | `integer` |  | 
+`max_retries` | `integer` |  | 
+`args` | `text` |  | 
+`result` | `text` |  | 
+`error` | `text` |  | 
+
+### Constraints and indexes
+
+* `task_pkey PRIMARY KEY, btree (id)`
+* `task_created_at btree (created_at)`
+* `task_group btree (group_id)`
+* `task_name btree (name)`
+* `task_state btree (state)`
+* `task_user_id btree (user_id)`
+
+*****
+
 ## `user_history`
 
 Column | Type | Nullable | Default

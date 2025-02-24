@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "paths": {
-    "/api/key/:userId": {
+    "/api/key/{userId}": {
       "get": {
         "description": "Get the private key for an existing user. Only available in SERVER mode.",
         "operationId": "getKey",
@@ -262,7 +262,18 @@
         }
       }
     },
-    "/api/batch/search/:batchid": {
+    "/api/batch/search/result/csv/{batchid}": {
+      "get": {
+        "description": "Retrieves the results of a batch search as an attached CSV file.",
+        "operationId": "getResultAsCsv",
+        "responses": {
+          "200": {
+            "description": "returns the results of the batch search as CSV attached file."
+          }
+        }
+      }
+    },
+    "/api/batch/search/{batchid}": {
       "get": {
         "description": "Retrieves the batch search with the given id. The query param \"withQueries\" accepts a boolean value.When \"withQueries\" is set to false, the list of queries is empty and nbQueries contains the number of queries.",
         "operationId": "getBatch",
@@ -310,7 +321,7 @@
         }
       }
     },
-    "/api/batch/search/:batchid/queries": {
+    "/api/batch/search/{batchid}/queries": {
       "get": {
         "description": "Retrieves the batch search queries with the given batch id and returns a list of strings UTF-8 encoded",
         "operationId": "getBatchQueries",
@@ -380,18 +391,122 @@
         }
       }
     },
-    "/api/batch/search/result/csv/:batchid": {
+    "/api/documents/starred": {
       "get": {
-        "description": "Retrieves the results of a batch search as an attached CSV file.",
-        "operationId": "getResultAsCsv",
+        "description": "Retrieves the list of starred document for all projects for the current user.",
+        "operationId": "getStarredDocuments",
         "responses": {
-          "200": {
-            "description": "returns the results of the batch search as CSV attached file."
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/:project/documents/recommendations?userids=:coma_separated_users": {
+    "/api/users/recommendations?project={project}": {
+      "get": {
+        "description": "Retrieves the list of users who recommended a document with the total count of recommended documents for the given project id",
+        "operationId": "getProjectRecommendations",
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AggregateListUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/recommendationsby?project={project}&docIds={coma_separated_docIds}": {
+      "get": {
+        "description": "Gets all users who recommended a document with the count of all recommended documents for project and documents ids.",
+        "operationId": "getProjectRecommendations_1",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docIds",
+            "in": "query",
+            "description": "comma separated document ids",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AggregateListUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{projects}/documents/tagged/{coma_separated_tags}": {
+      "get": {
+        "description": "Retrieves the list of tagged documents for a given project id filtered by a given string of coma-separated list of tags.",
+        "operationId": "getProjectTaggedDocuments",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "comaSeparatedTags",
+            "in": "path",
+            "description": "comma separated tags",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/recommendations?userids={coma_separated_users}": {
       "get": {
         "description": "Retrieves the set of recommended documents for the given project id and a list of users",
         "operationId": "getProjectRecommendationsBy",
@@ -431,7 +546,7 @@
         }
       }
     },
-    "/api/:project/documents/starred": {
+    "/api/{project}/documents/starred": {
       "get": {
         "description": "Retrieves the list of starred documents for a given project.",
         "operationId": "getProjectStarredDocuments",
@@ -463,7 +578,7 @@
         }
       }
     },
-    "/api/:project/documents/tags/:docId": {
+    "/api/{project}/documents/tags/{docId}": {
       "get": {
         "description": "Gets tags by document id",
         "operationId": "getDocumentTags",
@@ -533,7 +648,7 @@
         }
       }
     },
-    "/api/:project/documents/untag/:docId": {
+    "/api/{project}/documents/untag/{docId}": {
       "options": {
         "description": "Preflight request for document untagging",
         "operationId": "untagDocument",
@@ -560,121 +675,6 @@
         "responses": {
           "200": {
             "description": "returns 200 with PUT"
-          }
-        }
-      }
-    },
-    "/api/:projects/documents/tagged/:coma_separated_tags": {
-      "get": {
-        "description": "Retrieves the list of tagged documents for a given project id filtered by a given string of coma-separated list of tags.",
-        "operationId": "getProjectTaggedDocuments",
-        "parameters": [
-          {
-            "name": "project",
-            "in": "path",
-            "description": "the project id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "comaSeparatedTags",
-            "in": "path",
-            "description": "comma separated tags",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/documents/starred": {
-      "get": {
-        "description": "Retrieves the list of starred document for all projects for the current user.",
-        "operationId": "getStarredDocuments",
-        "responses": {
-          "default": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Document"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/recommendations?project=:project": {
-      "get": {
-        "description": "Retrieves the list of users who recommended a document with the total count of recommended documents for the given project id",
-        "operationId": "getProjectRecommendations",
-        "responses": {
-          "default": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/AggregateListUser"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/recommendationsby?project=:project&docIds=:coma_separated_docIds": {
-      "get": {
-        "description": "Gets all users who recommended a document with the count of all recommended documents for project and documents ids.",
-        "operationId": "getProjectRecommendations_1",
-        "parameters": [
-          {
-            "name": "project",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "docIds",
-            "in": "query",
-            "description": "comma separated document ids",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/AggregateListUser"
-                }
-              }
-            }
           }
         }
       }
@@ -822,7 +822,7 @@
         }
       }
     },
-    "/api/extensions/uninstall?id=:extensionId": {
+    "/api/extensions/uninstall?id={extensionId}": {
       "delete": {
         "description": "Uninstall extension specified by its id.",
         "operationId": "uninstallExtension",
@@ -843,7 +843,7 @@
         }
       }
     },
-    "/api/ftm/:project/:docId": {
+    "/api/ftm/{project}/{docId}": {
       "get": {
         "description": "Get the [FtM](https://followthemoney.tech/) document from its project and id (content hash)",
         "operationId": "getDocument",
@@ -884,44 +884,7 @@
         }
       }
     },
-    "/api/index/:index": {
-      "put": {
-        "description": "Create the index for the current user if it doesn't exist.",
-        "operationId": "createIndex",
-        "parameters": [
-          {
-            "name": "index",
-            "in": "path",
-            "description": "index to create",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "returns 200 if the index already exists"
-          },
-          "201": {
-            "description": "returns 201 if the index has been created"
-          }
-        }
-      },
-      "options": {
-        "description": "Preflight for index creation.",
-        "operationId": "createIndexPreflight",
-        "responses": {
-          "200": {
-            "description": "returns 200 with PUT"
-          },
-          "400": {
-            "description": "returns 400 if there is an error from ElasticSearch"
-          }
-        }
-      }
-    },
-    "/api/index/search/:path:": {
+    "/api/index/search/{path}": {
       "get": {
         "description": "Search GET request to Elasticsearch. As it is a GET method, all paths are accepted.\n\nif a body is provided, the body will be sent to ES as source=urlencoded(body)&source_content_type=application%2FjsonIn that case, request parameters are not taken into account.",
         "operationId": "esGet",
@@ -958,7 +921,44 @@
         }
       }
     },
-    "/api/:project/namedEntities/hide/:mentionNorm": {
+    "/api/index/{index}": {
+      "put": {
+        "description": "Create the index for the current user if it doesn't exist.",
+        "operationId": "createIndex",
+        "parameters": [
+          {
+            "name": "index",
+            "in": "path",
+            "description": "index to create",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 if the index already exists"
+          },
+          "201": {
+            "description": "returns 201 if the index has been created"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight for index creation.",
+        "operationId": "createIndexPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with PUT"
+          },
+          "400": {
+            "description": "returns 400 if there is an error from ElasticSearch"
+          }
+        }
+      }
+    },
+    "/api/{project}/namedEntities/hide/{mentionNorm}": {
       "put": {
         "description": "Hide all named entities with the given normalized mention",
         "operationId": "hide",
@@ -998,7 +998,7 @@
         }
       }
     },
-    "/api/ner/findNames/:pipeline": {
+    "/api/ner/findNames/{pipeline}": {
       "post": {
         "description": "When datashare is launched in NER mode (without index) it exposes a name finding HTTP API.\n\nThe text is sent with the HTTP body.",
         "operationId": "getAnnotations",
@@ -1070,7 +1070,7 @@
         }
       }
     },
-    "/api/:project/notes": {
+    "/api/{project}/notes": {
       "get": {
         "description": "Gets the list of notes for a project.",
         "operationId": "getProjectNotes",
@@ -1092,7 +1092,7 @@
         }
       }
     },
-    "/api/openapi?format=:format": {
+    "/api/openapi?format={format}": {
       "get": {
         "description": "Get the JSON or YAML OpenAPI v3 contract specification",
         "operationId": "get_1",
@@ -1200,7 +1200,7 @@
         }
       }
     },
-    "/api/plugins/uninstall?id=:pluginId": {
+    "/api/plugins/uninstall?id={pluginId}": {
       "delete": {
         "description": "Uninstall plugin specified by its id.",
         "operationId": "uninstallPlugin",
@@ -1217,7 +1217,9 @@
         "operationId": "getProjects",
         "requestBody": {
           "content": {
-            "application/json": {}
+            "application/json": {
+              "schema": {}
+            }
           }
         },
         "responses": {
@@ -1238,10 +1240,14 @@
       },
       "post": {
         "description": "Creates a project",
-        "operationId": "createProject",
+        "operationId": "projectCreate",
         "requestBody": {
           "content": {
-            "application/json": {}
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            }
           }
         },
         "responses": {
@@ -1278,10 +1284,24 @@
         }
       }
     },
-    "/api/project/:id": {
+    "/api/project/isDownloadAllowed/{id}": {
+      "get": {
+        "description": "Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.\n\nEx : `192.168.*.*` will match all subnetwork `192.168.0.0` IP's and only users with an IP in.",
+        "operationId": "isDownloadAllowed",
+        "responses": {
+          "200": {
+            "description": "if project download is allowed for this project and IP"
+          },
+          "403": {
+            "description": "if project download is not allowed"
+          }
+        }
+      }
+    },
+    "/api/project/{id}": {
       "get": {
         "description": "Gets the project information for the given id",
-        "operationId": "getProject",
+        "operationId": "projectRead",
         "parameters": [
           {
             "name": "id",
@@ -1297,9 +1317,34 @@
           }
         }
       },
+      "put": {
+        "description": "Updates a project",
+        "operationId": "projectUpdate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "if project has been updated"
+          },
+          "404": {
+            "description": "if project doesn't exist in database"
+          },
+          "500": {
+            "description": "if project json id is not the same as the url id or if save failed"
+          }
+        }
+      },
       "delete": {
         "description": "Deletes the project from database and elasticsearch index.",
-        "operationId": "deleteProject",
+        "operationId": "projectDelete",
         "responses": {
           "204": {
             "description": "if project is deleted"
@@ -1310,25 +1355,11 @@
         }
       },
       "options": {
-        "description": "Preflight option request",
-        "operationId": "deleteProjectOpt",
+        "description": "Preflight project resource option request",
+        "operationId": "projectOptions",
         "responses": {
           "200": {
-            "description": "returns 200 with OPTIONS and DELETE"
-          }
-        }
-      }
-    },
-    "/api/project/isDownloadAllowed/:id": {
-      "get": {
-        "description": "Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.\n\nEx : `192.168.*.*` will match all subnetwork `192.168.0.0` IP's and only users with an IP in.",
-        "operationId": "isDownloadAllowed",
-        "responses": {
-          "200": {
-            "description": "if project download is allowed for this project and IP"
-          },
-          "403": {
-            "description": "if project download is not allowed"
+            "description": "returns 200 with OPTIONS, PUT and DELETE"
           }
         }
       }
@@ -1421,117 +1452,6 @@
         }
       }
     },
-    "/api/task/:id": {
-      "get": {
-        "description": "Gets one task with its id.",
-        "operationId": "getTask",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "task id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "returns the task from its id",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaskObject"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Create a task with JSON body",
-        "operationId": "createTask",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "task id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "the task creation body",
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/Task"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "the task has been created",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaskResponse"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "the task was already existing"
-          },
-          "400": {
-            "description": "bad request, for example the task payload id is not the same as the url id",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/task/:id/result": {
-      "get": {
-        "description": "Gets task result with its id",
-        "operationId": "getTaskResult",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "task id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "returns 200 and the result"
-          },
-          "204": {
-            "description": "returns 204 if there is no result"
-          },
-          "403": {
-            "description": "returns 403 if the task is not belonging to current user"
-          },
-          "404": {
-            "description": "returns 404 if the task doesn't exist"
-          }
-        }
-      }
-    },
     "/api/task/all": {
       "get": {
         "description": "Gets all the user tasks.\n\nFilters can be added with `name=value`. For example if `name=foo` is given in the request url query,\nthe tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys for nested properties matching.\n\nFor example if `args.dataDir=bar` is provided, tasks with an argument \"dataDir\" containing \"bar\" are going to be selected.\n\nPagination/order parameters can be added:\n\n* sort: task field for sorting\n* order: order (desc/asc)\n* from: offset of the slice\n* size: number of tasks in the slice",
@@ -1601,7 +1521,67 @@
         }
       }
     },
-    "/api/task/batchSearch/:coma_separated_projects": {
+    "/api/task/batchSearch/copy/{sourcebatchid}": {
+      "post": {
+        "description": "Creates a new batch search based on a previous one given its id, and enqueue it for running",
+        "operationId": "copySearch",
+        "parameters": [
+          {
+            "name": "sourcebatchid",
+            "in": "path",
+            "description": "source batch id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "batch parameters",
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "my new batch",
+                "description": "desc"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "if the source batch search is not found in database"
+          },
+          "200": {
+            "description": "returns the id of the created batch search",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request",
+        "operationId": "optionsCopy",
+        "responses": {
+          "default": {
+            "description": "returns POST",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/batchSearch/{coma_separated_projects}": {
       "post": {
         "description": "Creates a new batch search. This is a multipart form with 9 fields:\n\nname, description, csvFile, published, fileTypes, paths, fuzziness, phrase_matches, query_template.\n\nQueries with less than two characters are filtered.\n\nTo make a request manually, you can create a file like:\n```\n--BOUNDARY\nContent-Disposition: form-data; name=\"name\"\n\nmy batch search\n--BOUNDARY\nContent-Disposition: form-data; name=\"description\"\n\nsearch description\n--BOUNDARY\nContent-Disposition: form-data; name=\"csvFile\"; filename=\"search.csv\"\nContent-Type: text/csv\n\nObama\nskype\ntest\nquery three\n--BOUNDARY--\nContent-Disposition: form-data; name=\"published\"\n\ntrue\n--BOUNDARY--\n```\n\nThen curl with\n\n```\ncurl -i -XPOST localhost:8080/api/batch/search/prj1,prj2 -H 'Content-Type: multipart/form-data; boundary=BOUNDARY' --data-binary @/home/dev/multipart.txt\n```\n\nyou'll maybe have to replace \\n with \\r\\n with `sed -i 's/$/^M/g' ~/multipart.txt`",
         "operationId": "search",
@@ -1658,66 +1638,6 @@
           },
           "400": {
             "description": "if either name or CSV file is missing"
-          }
-        }
-      }
-    },
-    "/api/task/batchSearch/copy/:sourcebatchid": {
-      "post": {
-        "description": "Creates a new batch search based on a previous one given its id, and enqueue it for running",
-        "operationId": "copySearch",
-        "parameters": [
-          {
-            "name": "sourcebatchid",
-            "in": "path",
-            "description": "source batch id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "batch parameters",
-          "content": {
-            "application/json": {
-              "example": {
-                "name": "my new batch",
-                "description": "desc"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "404": {
-            "description": "if the source batch search is not found in database"
-          },
-          "200": {
-            "description": "returns the id of the created batch search",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "options": {
-        "description": "Preflight request",
-        "operationId": "optionsCopy",
-        "responses": {
-          "default": {
-            "description": "returns POST",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/Payload"
-                }
-              }
-            }
           }
         }
       }
@@ -1811,7 +1731,7 @@
         }
       }
     },
-    "/api/task/clean/:taskName:": {
+    "/api/task/clean/{taskName}": {
       "delete": {
         "description": "Cleans a specific task.",
         "operationId": "cleanTask",
@@ -1845,7 +1765,7 @@
         }
       }
     },
-    "/api/task/stop/:taskId:": {
+    "/api/task/stop/{taskId}": {
       "put": {
         "description": "Cancels the task with the given name.",
         "operationId": "stopTask",
@@ -1874,7 +1794,7 @@
         }
       }
     },
-    "/api/task/stop/:taskName:": {
+    "/api/task/stop/{taskName}": {
       "options": {
         "description": "Preflight request to stop tasks.",
         "operationId": "stopTaskPreflight",
@@ -1915,7 +1835,118 @@
         }
       }
     },
-    "/api/tree/:dirPath:": {
+    "/api/task/{id}": {
+      "get": {
+        "description": "Gets one task with its id.",
+        "operationId": "getTask",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the task from its id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Create a task with JSON body",
+        "operationId": "createTask",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the task creation body",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Task"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "the task has been created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "the task was already existing"
+          },
+          "400": {
+            "description": "bad request, for example the task payload id is not the same as the url id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/{id}/result": {
+      "get": {
+        "description": "Gets task result with its id",
+        "operationId": "getTaskResult",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 and the result"
+          },
+          "204": {
+            "description": "returns 204 if there is no result"
+          },
+          "403": {
+            "description": "returns 403 if the task is not belonging to current user"
+          },
+          "404": {
+            "description": "returns 404 if the task doesn't exist"
+          }
+        }
+      }
+    },
+    "/api/tree/{dirPath}": {
       "get": {
         "description": "Lists all files and directory for the given path. This endpoint returns a JSON using the same specification than the `tree` command on UNIX. It is roughly the equivalent of:\n```\ntree -L 1 -spJ --noreport /home/datashare/data\n```\n",
         "operationId": "getTree",
@@ -2004,7 +2035,7 @@
         }
       }
     },
-    "/api/users/me/history/event?id=:eventId": {
+    "/api/users/me/history/event?id={eventId}": {
       "delete": {
         "description": "Delete user event by id.",
         "operationId": "deleteUserEvent_1",
@@ -2025,7 +2056,7 @@
         }
       }
     },
-    "/api/users/me/history?type=:type": {
+    "/api/users/me/history?type={type}": {
       "delete": {
         "description": "Delete user history by type.",
         "operationId": "deleteUserHistory",
@@ -2079,13 +2110,10 @@
           "uuid": {
             "type": "string"
           },
-          "published": {
-            "type": "boolean"
-          },
           "projects": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ProjectProxy"
+              "type": "string"
             }
           },
           "name": {
@@ -2094,8 +2122,13 @@
           "description": {
             "type": "string"
           },
-          "user": {
-            "$ref": "#/components/schemas/User"
+          "nbQueries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
           },
           "state": {
             "type": "string",
@@ -2106,17 +2139,15 @@
               "FAILURE"
             ]
           },
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "nbQueries": {
-            "type": "integer",
-            "format": "int32"
+          "user": {
+            "$ref": "#/components/schemas/User"
           },
           "nbResults": {
             "type": "integer",
             "format": "int32"
+          },
+          "published": {
+            "type": "boolean"
           },
           "errorMessage": {
             "type": "string"
@@ -2146,16 +2177,6 @@
           }
         }
       },
-      "ProjectProxy": {
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
       "WebResponseBatchSearchRecord": {
         "properties": {
           "items": {
@@ -2166,6 +2187,13 @@
           },
           "pagination": {
             "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "ProjectProxy": {
+        "properties": {
+          "name": {
+            "type": "string"
           }
         }
       },
@@ -2236,105 +2264,6 @@
           },
           "sorted": {
             "type": "boolean"
-          }
-        }
-      },
-      "BatchSearch": {
-        "properties": {
-          "uuid": {
-            "type": "string"
-          },
-          "published": {
-            "type": "boolean"
-          },
-          "projects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProjectProxy"
-            }
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
-          "state": {
-            "type": "string",
-            "enum": [
-              "QUEUED",
-              "RUNNING",
-              "SUCCESS",
-              "FAILURE"
-            ]
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "nbQueries": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nbResults": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "errorMessage": {
-            "type": "string"
-          },
-          "errorQuery": {
-            "type": "string"
-          },
-          "queries": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          "fileTypes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "paths": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "fuzziness": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "phraseMatches": {
-            "type": "boolean"
-          },
-          "queryTemplate": {
-            "$ref": "#/components/schemas/SearchQuery"
-          }
-        }
-      },
-      "SearchQuery": {
-        "properties": {
-          "query": {
-            "type": "string",
-            "writeOnly": true
-          }
-        }
-      },
-      "JsonData": {
-        "properties": {
-          "data": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
           }
         }
       },
@@ -2522,36 +2451,102 @@
           }
         }
       },
-      "ResultInteger": {},
-      "BatchTagQuery": {
+      "BatchSearch": {
         "properties": {
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "writeOnly": true
+          "uuid": {
+            "type": "string"
           },
-          "docIds": {
+          "published": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "QUEUED",
+              "RUNNING",
+              "SUCCESS",
+              "FAILURE"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nbQueries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errorMessage": {
+            "type": "string"
+          },
+          "errorQuery": {
+            "type": "string"
+          },
+          "queries": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "fileTypes": {
             "type": "array",
             "items": {
               "type": "string"
-            },
+            }
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fuzziness": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "phraseMatches": {
+            "type": "boolean"
+          },
+          "queryTemplate": {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SearchQuery": {
+        "properties": {
+          "query": {
+            "type": "string",
             "writeOnly": true
           }
         }
       },
-      "Tag": {
+      "JsonData": {
         "properties": {
-          "label": {
-            "type": "string"
-          },
-          "creationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
           }
         }
       },
@@ -2584,10 +2579,10 @@
           "title": {
             "type": "string"
           },
-          "author": {
+          "mimeType": {
             "type": "string"
           },
-          "mimeType": {
+          "author": {
             "type": "string"
           },
           "contentHash": {
@@ -2637,6 +2632,9 @@
             "type": "string"
           },
           "country": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "alias": {
@@ -2703,9 +2701,6 @@
           "retrievedAt": {
             "type": "string"
           },
-          "description": {
-            "type": "string"
-          },
           "detectedLanguage": {
             "type": "string"
           },
@@ -2738,6 +2733,20 @@
           }
         }
       },
+      "Tag": {
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
       "AggregateListUser": {
         "properties": {
           "aggregates": {
@@ -2760,6 +2769,25 @@
           "count": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "ResultInteger": {},
+      "BatchTagQuery": {
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "writeOnly": true
+          },
+          "docIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "writeOnly": true
           }
         }
       },
@@ -2849,6 +2877,9 @@
           "address": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "alias": {
             "type": "string"
           },
@@ -2912,9 +2943,6 @@
           },
           "retrievedAt": {
             "type": "string"
-          },
-          "description": {
-            "type": "string"
           }
         }
       },
@@ -2947,10 +2975,10 @@
           "generator": {
             "type": "string"
           },
-          "author": {
+          "mimeType": {
             "type": "string"
           },
-          "mimeType": {
+          "author": {
             "type": "string"
           },
           "contentHash": {
@@ -3002,6 +3030,9 @@
           "country": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "alias": {
             "type": "string"
           },
@@ -3064,9 +3095,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -3130,6 +3158,9 @@
           "extension": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "bodyText": {
             "type": "string"
           },
@@ -3143,22 +3174,22 @@
             "type": "string",
             "format": "url"
           },
-          "notes": {
-            "type": "string"
-          },
           "generator": {
             "type": "string"
           },
           "title": {
             "type": "string"
           },
-          "publisher": {
+          "notes": {
+            "type": "string"
+          },
+          "mimeType": {
             "type": "string"
           },
           "author": {
             "type": "string"
           },
-          "mimeType": {
+          "publisher": {
             "type": "string"
           },
           "contentHash": {
@@ -3278,9 +3309,6 @@
           },
           "emailMentioned": {
             "type": "string"
-          },
-          "description": {
-            "type": "string"
           }
         }
       },
@@ -3289,13 +3317,13 @@
           "secure": {
             "type": "boolean"
           },
-          "urlEncodedForm": {
-            "type": "boolean"
-          },
           "cors": {
             "type": "boolean"
           },
           "preflight": {
+            "type": "boolean"
+          },
+          "urlEncodedForm": {
             "type": "boolean"
           }
         }
@@ -3979,8 +4007,17 @@
             "type": "number",
             "format": "double"
           },
-          "result": {
-            "type": "object"
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "retriesLeft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "args": {
             "type": "object",
@@ -3988,15 +4025,75 @@
               "type": "object"
             }
           },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
+          "result": {
+            "$ref": "#/components/schemas/TaskResultObject"
           },
           "error": {
             "$ref": "#/components/schemas/TaskError"
           },
           "latch": {
             "$ref": "#/components/schemas/StateLatch"
+          }
+        }
+      },
+      "TaskResultObject": {
+        "properties": {
+          "value": {
+            "type": "object"
+          }
+        }
+      },
+      "OptionsWrapper": {
+        "properties": {
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "TaskResponse": {
+        "properties": {
+          "taskId": {
+            "type": "string"
+          }
+        }
+      },
+      "OptionsWrapperObject": {
+        "properties": {
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "OptionsWrapperString": {
+        "properties": {
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "TasksResponse": {
+        "properties": {
+          "taskIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -4023,8 +4120,17 @@
             "type": "number",
             "format": "double"
           },
-          "result": {
-            "type": "object"
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "retriesLeft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "args": {
             "type": "object",
@@ -4032,9 +4138,8 @@
               "type": "object"
             }
           },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
+          "result": {
+            "$ref": "#/components/schemas/TaskResultSerializable"
           },
           "error": {
             "$ref": "#/components/schemas/TaskError"
@@ -4044,57 +4149,62 @@
           }
         }
       },
-      "TaskResponse": {
+      "TaskResultSerializable": {
         "properties": {
-          "taskId": {
-            "type": "string"
+          "value": {
+            "type": "object"
           }
         }
       },
-      "ErrorResponse": {
+      "TaskSerializable": {
         "properties": {
-          "message": {
+          "id": {
             "type": "string"
-          }
-        }
-      },
-      "OptionsWrapper": {
-        "properties": {
-          "options": {
+          },
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "QUEUED",
+              "RUNNING",
+              "CANCELLED",
+              "ERROR",
+              "DONE"
+            ]
+          },
+          "progress": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "retriesLeft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "args": {
             "type": "object",
             "additionalProperties": {
               "type": "object"
             }
-          }
-        }
-      },
-      "OptionsWrapperObject": {
-        "properties": {
-          "options": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
-      "OptionsWrapperString": {
-        "properties": {
-          "options": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "TasksResponse": {
-        "properties": {
-          "taskIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          },
+          "result": {
+            "$ref": "#/components/schemas/TaskResultSerializable"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TaskError"
+          },
+          "latch": {
+            "$ref": "#/components/schemas/StateLatch"
           }
         }
       },
