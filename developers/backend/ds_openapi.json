@@ -1457,10 +1457,78 @@
         }
       }
     },
+    "/api/task": {
+      "get": {
+        "description": "Gets the tasks.\n\nFilters can be added with `name=value`. For example if `name=foo` is given in the request url query,\nthe tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys for nested properties matching.",
+        "operationId": "getTasks",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "the offset of the list, starting from 0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "the number of element retrieved",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "the name of the parameter to sort on (default: modificationDate)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "example: org.icij.datashare.tasks.BatchSearchRunner",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "the name of the parameter to use for sort",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "desc or asc (default)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the list of tasks",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/task/all": {
       "get": {
         "description": "Gets all the user tasks.\n\nFilters can be added with `name=value`. For example if `name=foo` is given in the request url query,\nthe tasks containing the term \"foo\" are going to be returned. It can contain also dotted keys for nested properties matching.\n\nFor example if `args.dataDir=bar` is provided, tasks with an argument \"dataDir\" containing \"bar\" are going to be selected.\n\nPagination/order parameters can be added:\n\n* sort: task field for sorting\n* order: order (desc/asc)\n* from: offset of the slice\n* size: number of tasks in the slice",
-        "operationId": "tasks",
+        "operationId": "getAllTasks",
         "parameters": [
           {
             "name": "name",
@@ -1485,7 +1553,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/task/batchDownload": {
@@ -2613,19 +2682,7 @@
           "extension": {
             "type": "string"
           },
-          "author": {
-            "type": "string"
-          },
           "bodyText": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "generator": {
-            "type": "string"
-          },
-          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -2668,6 +2725,18 @@
           "processedAt": {
             "type": "string"
           },
+          "title": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -2677,23 +2746,10 @@
           "country": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "previousName": {
@@ -2740,6 +2796,19 @@
           },
           "retrievedAt": {
             "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
           },
           "description": {
             "type": "string"
@@ -2940,23 +3009,10 @@
           "address": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "previousName": {
@@ -3004,6 +3060,19 @@
           "retrievedAt": {
             "type": "string"
           },
+          "publisher": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
           "description": {
             "type": "string"
           }
@@ -3032,16 +3101,7 @@
           "extension": {
             "type": "string"
           },
-          "author": {
-            "type": "string"
-          },
           "bodyText": {
-            "type": "string"
-          },
-          "generator": {
-            "type": "string"
-          },
-          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -3084,6 +3144,15 @@
           "processedAt": {
             "type": "string"
           },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -3093,23 +3162,10 @@
           "country": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "previousName": {
@@ -3156,6 +3212,19 @@
           },
           "retrievedAt": {
             "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
           },
           "description": {
             "type": "string"
@@ -3221,16 +3290,6 @@
           "extension": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
           "bodyText": {
             "type": "string"
           },
@@ -3238,21 +3297,6 @@
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "generator": {
-            "type": "string"
-          },
-          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -3370,6 +3414,31 @@
           "emailMentioned": {
             "type": "string"
           },
+          "publisher": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
           "description": {
             "type": "string"
           }
@@ -3380,13 +3449,13 @@
           "secure": {
             "type": "boolean"
           },
-          "urlEncodedForm": {
-            "type": "boolean"
-          },
           "cors": {
             "type": "boolean"
           },
           "preflight": {
+            "type": "boolean"
+          },
+          "urlEncodedForm": {
             "type": "boolean"
           }
         }

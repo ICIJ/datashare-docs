@@ -56,6 +56,7 @@
 {% swagger src="./ds_openapi.json" path="/settings" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/version" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/status" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/task" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/all" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/batchDownload" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/batchDownload" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
