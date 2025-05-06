@@ -33,6 +33,8 @@ Column | Type | Nullable | Default
 `error_query` | `text` |  | 
 `query_template` | `text` |  | 
 `nb_queries` | `integer` |  | `0`
+`uri` | `text` |  | 
+`nb_queries_without_results` | `integer` |  | 
 
 ### Constraints and indexes
 

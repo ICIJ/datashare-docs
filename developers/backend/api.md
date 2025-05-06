@@ -67,12 +67,13 @@
 {% swagger src="./ds_openapi.json" path="/api/task/clean" method="post" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/clean/{taskName}" method="delete" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/clean/{taskName}" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/task/stop" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
+{% swagger src="./ds_openapi.json" path="/api/task/stop" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/stop/{taskId}" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/stop/{taskName}" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/stopAll" method="options" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/stopAll" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/{id}" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
-{% swagger src="./ds_openapi.json" path="/api/task/{id}" method="put" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/task/{id}/result" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/tree/{dirPath}" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}
 {% swagger src="./ds_openapi.json" path="/api/users/me" method="get" %} [ds_openapi.json](./ds_openapi.json) {% endswagger %}

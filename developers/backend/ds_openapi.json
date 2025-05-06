@@ -359,9 +359,17 @@
             }
           },
           {
-            "name": "orderBy",
+            "name": "sort",
             "in": "query",
-            "description": "field name to order by asc, \"query_number\" by default (if it does not exist it will return a 500 error)",
+            "description": "field name to sort by, \"query_number\" by default (if it does not exist it will return a 500 error)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "order to sort by, \"asc\" by default (if it does not exist it will return a 500 error)",
             "schema": {
               "type": "string"
             }
@@ -1054,9 +1062,6 @@
                     "enum": [
                       "TEST",
                       "CORENLP",
-                      "GATENLP",
-                      "IXAPIPE",
-                      "MITIE",
                       "OPENNLP",
                       "EMAIL",
                       "SPACY"
@@ -1610,6 +1615,9 @@
                   "description": {
                     "type": "string"
                   },
+                  "uri": {
+                    "type": "string"
+                  },
                   "csvFile": {
                     "type": "string"
                   },
@@ -1714,6 +1722,16 @@
       "post": {
         "description": "Cleans all DONE tasks.",
         "operationId": "cleanDoneTasks",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "as an example: pattern contained in the task name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "returns 200 and the list of removed tasks",
@@ -1752,6 +1770,9 @@
           },
           "403": {
             "description": "returns 403 if the task is still in RUNNING state"
+          },
+          "404": {
+            "description": "returns 404 if the task doesn't exist"
           }
         }
       },
@@ -1763,6 +1784,47 @@
             "description": "returns OPTIONS and DELETE"
           }
         }
+      }
+    },
+    "/api/task/stop": {
+      "put": {
+        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.\n\nIf the status is false, it means that some threads have not been stopped.",
+        "operationId": "stopTasks",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "as an example: pattern contained in the task name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns 200 and the tasks stop result map",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "description": "[DEPRECATED] Will be removed in version 20.0.0. Use `/api/task/stop`instead.\nPreflight request to stop all tasks.",
+        "operationId": "stopTasksPreflight",
+        "responses": {
+          "200": {
+            "description": "returns 200 with OPTIONS and PUT"
+          }
+        },
+        "deprecated": true
       }
     },
     "/api/task/stop/{taskId}": {
@@ -1790,6 +1852,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "returns 404 if the task doesn't exist"
           }
         }
       }
@@ -1807,8 +1872,18 @@
     },
     "/api/task/stopAll": {
       "put": {
-        "description": "Cancels the running tasks. It returns a map with task name/stop statuses.\n\nIf the status is false, it means that some threads have not been stopped.",
+        "description": "[DEPRECATED] Will be removed in version 20.0.0. Use `/api/task/stop` instead.\nCancels the running tasks. It returns a map with task name/stop statuses.\n\nIf the status is false, it means that some threads have not been stopped.",
         "operationId": "stopAllTasks",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "as an example: pattern contained in the task name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "returns 200 and the tasks stop result map",
@@ -1823,16 +1898,18 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       },
       "options": {
-        "description": "Preflight request to stop all tasks.",
+        "description": "[DEPRECATED] Will be removed in version 20.0.0. Use `/api/task/stop`instead.\nPreflight request to stop all tasks.",
         "operationId": "stopAllTasksPreflight",
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS and PUT"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/task/{id}": {
@@ -1860,57 +1937,9 @@
                 }
               }
             }
-          }
-        }
-      },
-      "put": {
-        "description": "Create a task with JSON body",
-        "operationId": "createTask",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "task id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "the task creation body",
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/Task"
-              }
-            }
           },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "the task has been created",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaskResponse"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "the task was already existing"
-          },
-          "400": {
-            "description": "bad request, for example the task payload id is not the same as the url id",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
+          "404": {
+            "description": "returns 404 if the task doesn't exist"
           }
         }
       }
@@ -2126,6 +2155,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "nbQueriesWithoutResults": {
+            "type": "integer",
+            "format": "int32"
+          },
           "date": {
             "type": "string",
             "format": "date-time"
@@ -2138,6 +2171,9 @@
               "SUCCESS",
               "FAILURE"
             ]
+          },
+          "uri": {
+            "type": "string"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -2481,7 +2517,14 @@
             "type": "string",
             "format": "date-time"
           },
+          "uri": {
+            "type": "string"
+          },
           "nbQueries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbQueriesWithoutResults": {
             "type": "integer",
             "format": "int32"
           },
@@ -2570,19 +2613,19 @@
           "extension": {
             "type": "string"
           },
-          "bodyText": {
+          "author": {
             "type": "string"
           },
-          "generator": {
+          "bodyText": {
             "type": "string"
           },
           "title": {
             "type": "string"
           },
-          "mimeType": {
+          "generator": {
             "type": "string"
           },
-          "author": {
+          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -2634,7 +2677,11 @@
           "country": {
             "type": "string"
           },
-          "description": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
           "alias": {
@@ -2643,11 +2690,7 @@
           "summary": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
+          "createdAt": {
             "type": "string"
           },
           "publisher": {
@@ -2692,13 +2735,13 @@
           "indexText": {
             "type": "string"
           },
-          "createdAt": {
-            "type": "string"
-          },
           "modifiedAt": {
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -2791,6 +2834,26 @@
           }
         }
       },
+      "PairLongLong": {
+        "properties": {
+          "left": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "right": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
       "DeliverablePackage": {
         "properties": {
           "deliverableInstalled": {
@@ -2877,7 +2940,11 @@
           "address": {
             "type": "string"
           },
-          "description": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
           "alias": {
@@ -2886,11 +2953,7 @@
           "summary": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
+          "createdAt": {
             "type": "string"
           },
           "publisher": {
@@ -2935,13 +2998,13 @@
           "indexText": {
             "type": "string"
           },
-          "createdAt": {
-            "type": "string"
-          },
           "modifiedAt": {
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           }
         }
@@ -2969,6 +3032,9 @@
           "extension": {
             "type": "string"
           },
+          "author": {
+            "type": "string"
+          },
           "bodyText": {
             "type": "string"
           },
@@ -2976,9 +3042,6 @@
             "type": "string"
           },
           "mimeType": {
-            "type": "string"
-          },
-          "author": {
             "type": "string"
           },
           "contentHash": {
@@ -3030,7 +3093,11 @@
           "country": {
             "type": "string"
           },
-          "description": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
           "alias": {
@@ -3039,11 +3106,7 @@
           "summary": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
+          "createdAt": {
             "type": "string"
           },
           "publisher": {
@@ -3088,13 +3151,13 @@
           "indexText": {
             "type": "string"
           },
-          "createdAt": {
-            "type": "string"
-          },
           "modifiedAt": {
             "type": "string"
           },
           "retrievedAt": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -3158,7 +3221,14 @@
           "extension": {
             "type": "string"
           },
-          "description": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "author": {
             "type": "string"
           },
           "bodyText": {
@@ -3170,26 +3240,19 @@
           "summary": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "generator": {
+          "createdAt": {
             "type": "string"
           },
           "title": {
             "type": "string"
           },
-          "notes": {
+          "publisher": {
+            "type": "string"
+          },
+          "generator": {
             "type": "string"
           },
           "mimeType": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "publisher": {
             "type": "string"
           },
           "contentHash": {
@@ -3271,9 +3334,6 @@
           "indexText": {
             "type": "string"
           },
-          "createdAt": {
-            "type": "string"
-          },
           "modifiedAt": {
             "type": "string"
           },
@@ -3309,6 +3369,9 @@
           },
           "emailMentioned": {
             "type": "string"
+          },
+          "description": {
+            "type": "string"
           }
         }
       },
@@ -3317,13 +3380,13 @@
           "secure": {
             "type": "boolean"
           },
+          "urlEncodedForm": {
+            "type": "boolean"
+          },
           "cors": {
             "type": "boolean"
           },
           "preflight": {
-            "type": "boolean"
-          },
-          "urlEncodedForm": {
             "type": "boolean"
           }
         }
@@ -3367,9 +3430,6 @@
             "enum": [
               "TEST",
               "CORENLP",
-              "GATENLP",
-              "IXAPIPE",
-              "MITIE",
               "OPENNLP",
               "EMAIL",
               "SPACY"
