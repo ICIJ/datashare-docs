@@ -2688,12 +2688,6 @@
           "bodyText": {
             "type": "string"
           },
-          "author": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
           "contentHash": {
             "type": "string"
           },
@@ -2737,6 +2731,12 @@
           "mimeType": {
             "type": "string"
           },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -2746,20 +2746,10 @@
           "country": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "publisher": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
             "type": "string"
           },
           "previousName": {
@@ -2807,7 +2797,17 @@
           "retrievedAt": {
             "type": "string"
           },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
           "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "description": {
@@ -3009,20 +3009,10 @@
           "address": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "publisher": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
             "type": "string"
           },
           "previousName": {
@@ -3070,7 +3060,17 @@
           "retrievedAt": {
             "type": "string"
           },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
           "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "description": {
@@ -3105,9 +3105,6 @@
             "type": "string"
           },
           "bodyText": {
-            "type": "string"
-          },
-          "author": {
             "type": "string"
           },
           "contentHash": {
@@ -3153,6 +3150,9 @@
           "mimeType": {
             "type": "string"
           },
+          "author": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -3162,20 +3162,10 @@
           "country": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "publisher": {
-            "type": "string"
-          },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
             "type": "string"
           },
           "previousName": {
@@ -3223,7 +3213,17 @@
           "retrievedAt": {
             "type": "string"
           },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
           "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "description": {
@@ -3293,29 +3293,13 @@
           "extension": {
             "type": "string"
           },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
           "bodyText": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "author": {
             "type": "string"
           },
           "alias": {
             "type": "string"
           },
           "summary": {
-            "type": "string"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "title": {
             "type": "string"
           },
           "contentHash": {
@@ -3433,10 +3417,26 @@
           "emailMentioned": {
             "type": "string"
           },
-          "createdAt": {
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
             "type": "string"
           },
           "mimeType": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "author": {
             "type": "string"
           },
           "description": {
