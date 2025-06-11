@@ -47,6 +47,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "returns the api key JSON",
@@ -74,6 +83,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "when key has been deleted"
@@ -203,6 +221,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -246,6 +273,15 @@
       "delete": {
         "description": "Deletes batch searches and results for the current user.",
         "operationId": "deleteSearches",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "no content: idempotent"
@@ -255,6 +291,15 @@
       "options": {
         "description": "Preflight request",
         "operationId": "optionsSearches",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with DELETE"
@@ -266,9 +311,47 @@
       "get": {
         "description": "Retrieves the results of a batch search as an attached CSV file.",
         "operationId": "getResultAsCsv",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the results of the batch search as CSV attached file."
+          }
+        }
+      }
+    },
+    "/api/batch/search/result/{batchid}": {
+      "post": {
+        "description": "Retrieves the results of a batch search as JSON with a list of items and a pagination metadata.\n\nIf from/size are not given their default values are 0, meaning that all the results are returned.",
+        "operationId": "getResult",
+        "requestBody": {
+          "description": "filter ",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/WebQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebResponseSearchResult"
+                }
+              }
+            }
           }
         }
       }
@@ -287,6 +370,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -305,6 +397,15 @@
       "delete": {
         "description": "Deletes a batch search and its results with the given id. It won't delete running batch searches, because results would be orphans.",
         "operationId": "deleteBatch",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "Returns 204 (No Content) : idempotent"
@@ -314,9 +415,39 @@
       "options": {
         "description": "Preflight request",
         "operationId": "optionsDelete",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with DELETE"
+          }
+        }
+      },
+      "patch": {
+        "description": "Updates a batch search with the given id.",
+        "operationId": "updateBatch",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "If the user issuing the request is not the same as the batch owner in database, it will do nothing (thus returning 404)"
+          },
+          "200": {
+            "description": "If the batch has been updated"
           }
         }
       }
@@ -392,6 +523,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "the batch search queries map [(query, nbResults), ...]"
@@ -403,6 +543,15 @@
       "get": {
         "description": "Retrieves the list of starred document for all projects for the current user.",
         "operationId": "getStarredDocuments",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -424,6 +573,15 @@
       "get": {
         "description": "Retrieves the list of users who recommended a document with the total count of recommended documents for the given project id",
         "operationId": "getProjectRecommendations",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -459,6 +617,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -497,6 +664,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -506,6 +682,430 @@
                   "type": "array",
                   "items": {
                     "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/batchUpdate/recommend": {
+      "post": {
+        "description": "Marks the documents as recommended in batch. The id list is passed in the request body as a json list.",
+        "operationId": "groupRecommend",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "the number of marked documents",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInteger"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/batchUpdate/star": {
+      "post": {
+        "description": "'Stars' documents in batch. The list of ids is passed in the request body as a JSON list.",
+        "operationId": "groupStarProject",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": [
+                "docId1",
+                "docId2"
+              ]
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns the number of stared documents"
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/batchUpdate/tag": {
+      "post": {
+        "description": "Tags documents in batch. The document id list and the tag list are passed in the request body.",
+        "operationId": "groupTagDocument",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "docIds": {},
+                  "tags": {}
+                }
+              },
+              "example": {
+                "docIds": [
+                  "bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f",
+                  "7473df320bee9919abe3dc179d7d2861e1ba83ee7fe42c9acee588d886fe9aef0627df6ae26b72f075120c2c9d1c9b61"
+                ],
+                "tags": [
+                  "foo",
+                  "bar"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/batchUpdate/unrecommend": {
+      "post": {
+        "description": "Unmarks the documents as recommended in batch. The id list is passed in the request body as a JSON list.",
+        "operationId": "groupUnrecommend",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "the number of unmarked documents",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInteger"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/batchUpdate/unstar": {
+      "post": {
+        "description": "'Unstars' documents in batch. The list of ids is passed in the request body as a JSON list.",
+        "operationId": "groupUnstarProject",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": [
+                "docId1",
+                "docId2"
+              ]
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns the number of unstared documents"
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/batchUpdate/untag": {
+      "post": {
+        "description": "Untags documents in batch. The document id list and the tag list are passed in the request body.",
+        "operationId": "groupUntagDocument",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "docIds": {},
+                  "tags": {}
+                }
+              },
+              "example": {
+                "docIds": [
+                  "bd2ef02d39043cc5cd8c5050e81f6e73c608cafde339c9b7ed68b2919482e8dc7da92e33aea9cafec2419c97375f684f",
+                  "7473df320bee9919abe3dc179d7d2861e1ba83ee7fe42c9acee588d886fe9aef0627df6ae26b72f075120c2c9d1c9b61"
+                ],
+                "tags": [
+                  "foo",
+                  "bar"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/content/pages/{id?routing=routing}": {
+      "get": {
+        "description": "Fetches document extracted text paginated in a json list of texts. It will use the source document and not the indexed extracted content.",
+        "operationId": "getContentByPage",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "the document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "routing key if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON containing text pages array",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/content/{id?routing=routing&offset=offset&limit=limit&targetLanguage=targetLanguage}": {
+      "get": {
+        "description": "Fetches extracted text by slice (pagination)",
+        "operationId": "getExtractedText",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "the document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "routing key if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "starting byte (starts at 0)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "size of the extracted text slice in bytes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetLanguage",
+            "in": "query",
+            "description": "target language (like \"ENGLISH\") to get slice from translated content",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON containing the extracted text content (\"content\":text), the max offset as last rank index (\"maxOffset\":number), start (\"start\":number) and size (\"size\":number) parameters"
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/pages/{id?routing=routing}": {
+      "get": {
+        "description": "Fetches original document pages indices of extracted text.",
+        "operationId": "getPages",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "the document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "routing key if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON containing pages indices parameters",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PairLongLong"
                   }
                 }
               }
@@ -536,6 +1136,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -550,6 +1159,143 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/searchContent/{id?routing=routing&query=query&targetLanguage=targetLanguage}": {
+      "get": {
+        "description": "Searches for query occurrences in content or translated content (pagination)",
+        "operationId": "searchOccurrences",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "the document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "routing key if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "query string to search occurrences",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetLanguage",
+            "in": "query",
+            "description": "Target language (like \"ENGLISH\") to search in translated content",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON containing the occurrences offsets in the text, and the count of occurrences."
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/src/{id?routing=routing&filter_metadata=filter_metadata}": {
+      "get": {
+        "description": " Returns the file from the index with the index id and the root document (if embedded document).",
+        "operationId": "getSourceFile",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "hash of the document",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "routing key if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "inline",
+            "in": "query",
+            "description": "if true returns the document as attachment",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter_metadata",
+            "in": "query",
+            "description": "if true, do not send document metadata",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns the source of the document.",
+            "content": {
+              "document mime type (from the contentType field or file extension).": {}
+            }
+          },
+          "404": {
+            "description": "if no document is found"
+          },
+          "403": {
+            "description": "forbidden if the user doesn't have access to the project"
           }
         }
       }
@@ -569,6 +1315,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -582,6 +1337,55 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/tags/{docId?routing=routing}": {
+      "put": {
+        "description": "Sets tags for a given document id",
+        "operationId": "tagDocument",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docId",
+            "in": "path",
+            "description": "document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "document routing if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "if tag was already in database"
+          },
+          "201": {
+            "description": "if tag was created"
           }
         }
       }
@@ -610,6 +1414,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "default response",
@@ -628,7 +1441,7 @@
       },
       "options": {
         "description": "Preflight request for document tagging",
-        "operationId": "tagDocument",
+        "operationId": "tagDocument_1",
         "parameters": [
           {
             "name": "project",
@@ -649,6 +1462,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with PUT"
@@ -656,9 +1478,9 @@
         }
       }
     },
-    "/api/{project}/documents/untag/{docId}": {
-      "options": {
-        "description": "Preflight request for document untagging",
+    "/api/{project}/documents/untag/{docId?routing=routing}": {
+      "put": {
+        "description": "Removes tags from a document id in a given project",
         "operationId": "untagDocument",
         "parameters": [
           {
@@ -678,11 +1500,124 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "document routing if not a root document",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Document untagged"
+          },
+          "201": {
+            "description": "Document had tags; Document tag was deleted"
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/untag/{docId}": {
+      "options": {
+        "description": "Preflight request for document untagging",
+        "operationId": "untagDocument_1",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docId",
+            "in": "path",
+            "description": "document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with PUT"
+          }
+        }
+      }
+    },
+    "/api/{project}/documents/{id?routing=routing}": {
+      "get": {
+        "description": "Fetches original datashare document json.",
+        "operationId": "getDoc",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "the document id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "routing",
+            "in": "query",
+            "description": "routing key if not a root document",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Datashare Document JSON",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
           }
         }
       }
@@ -717,6 +1652,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the user's document recommendations",
@@ -757,6 +1701,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the extensions set",
@@ -797,6 +1750,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 if the extension is installed"
@@ -907,6 +1869,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200"
@@ -916,9 +1887,71 @@
           }
         }
       },
+      "post": {
+        "description": "The search endpoint is just a proxy in front of Elasticsearch, everything sent is forwarded to Elasticsearch.\n\nDELETE method is not allowed.\n\nPath can be of the form :\n- _search/scroll\n- index_name/_search\n- index_name1,index_name2/_search\n- index_name/_count\n- index_name1,index_name2/_count\n- index_name/doc/_search\n- index_name1,index_name2/doc/_search\n",
+        "operationId": "esPost",
+        "parameters": [
+          {
+            "name": "index",
+            "in": "path",
+            "description": "elasticsearch path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200"
+          },
+          "400": {
+            "description": "returns 400 if there is an error from ElasticSearch"
+          }
+        }
+      },
+      "options": {
+        "description": "Preflight request with OPTIONS",
+        "operationId": "esOptions",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns OPTIONS"
+          },
+          "400": {
+            "description": "returns 400 if there is an error from ElasticSearch"
+          }
+        }
+      },
       "head": {
         "description": "Head request useful for JavaScript API (for example to test if an index exists)",
         "operationId": "esHead",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200"
@@ -956,6 +1989,15 @@
       "options": {
         "description": "Preflight for index creation.",
         "operationId": "createIndexPreflight",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with PUT"
@@ -999,9 +2041,65 @@
       "options": {
         "description": "Preflight request for hide endpoint",
         "operationId": "hidePreflight",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns PUT"
+          }
+        }
+      }
+    },
+    "/api/{project}/namedEntities/{id?routing=documentId}": {
+      "get": {
+        "description": "Returns the named entity given an id and a document id.",
+        "operationId": "getById",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "current project",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "named entity id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "description": "documentId the root document",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the pipeline set",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NamedEntity"
+                }
+              }
+            }
           }
         }
       }
@@ -1090,6 +2188,55 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "403": {
+            "description": "if the user is not granted for the project"
+          }
+        }
+      }
+    },
+    "/api/{project}/notes/{path}": {
+      "get": {
+        "description": "Gets the list of notes for a project and a document path.\n\nif we have on disk:\n```\n/a/b/doc1\n/a/c/doc2\n/d/doc3\n```\n\nAnd in database:\n```\nprojectId | path | note | variant\n--- | --- | --- | ---\np1 | a | note A | info\np1 | a/b | note B | danger\n```\n\nthen:\n\n- `GET /api/p1/notes/a/b/doc1` will return note A and B\n- `GET /api/p1/notes/a/c/doc2` will return note A\n- `GET /api/p1/notes/d/doc3` will return an empty list\n\nNote the `:path:` it is a greedy parameter at the end of the url\n\n```\n@Get(\"/start/with/:parameter\")\n```\n\nmatches `/start/with/myparameter` but not `/start/with/myparameter/with/slashes`\n\n```\n@Get(\"/start/with/:parameter:\")\n```\n\nmatches `/start/with/myparameter/with/slashes` and the parameter variable will contain `myparameter/with/slashes`\n",
+        "operationId": "getPathNotes",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "description": "the project id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "description": "the path of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "403": {
             "description": "if the user is not granted for the project"
@@ -1111,6 +2258,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the JSON or YAML file"
@@ -1132,6 +2288,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the plugins set",
@@ -1172,6 +2337,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 if the plugin is installed"
@@ -1209,6 +2383,15 @@
       "delete": {
         "description": "Uninstall plugin specified by its id.",
         "operationId": "uninstallPlugin",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "returns 204 if the plugin is uninstalled (idempotent)"
@@ -1273,6 +2456,15 @@
       "delete": {
         "description": "Deletes all user's projects from database and elasticsearch index.",
         "operationId": "deleteProjects",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "if projects are deleted"
@@ -1282,6 +2474,15 @@
       "options": {
         "description": "Preflight option request",
         "operationId": "rootProjectOpt",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS, POST, GET and DELETE"
@@ -1293,6 +2494,15 @@
       "get": {
         "description": "Returns 200 if the project is allowed with this network route : in Datashare database there is the project table that can specify an IP mask that is allowed per project. If the client IP is not in the range, then the file download will be forbidden. In that project table there is a field called `allow_from_mask` that can have a mask with IP and star wildcard.\n\nEx : `192.168.*.*` will match all subnetwork `192.168.0.0` IP's and only users with an IP in.",
         "operationId": "isDownloadAllowed",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "if project download is allowed for this project and IP"
@@ -1316,6 +2526,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "404": {
             "description": "if the project is not found in database"
@@ -1350,6 +2569,15 @@
       "delete": {
         "description": "Deletes the project from database and elasticsearch index.",
         "operationId": "projectDelete",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "if project is deleted"
@@ -1362,6 +2590,15 @@
       "options": {
         "description": "Preflight project resource option request",
         "operationId": "projectOptions",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS, PUT and DELETE"
@@ -1391,7 +2628,7 @@
     "/version": {
       "get": {
         "description": "Gets the versions (front/back/docker) of datashare.",
-        "operationId": "getGitVersions",
+        "operationId": "getVersions",
         "responses": {
           "200": {
             "description": "returns the list of versions of datashare",
@@ -1423,6 +2660,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the status of datashare elements",
@@ -1511,6 +2757,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the list of tasks",
@@ -1539,6 +2794,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the list of tasks",
@@ -1588,6 +2852,15 @@
       "options": {
         "description": "Preflight request for batch download.",
         "operationId": "batchDownloadPreflight",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS and POST"
@@ -1641,6 +2914,15 @@
       "options": {
         "description": "Preflight request",
         "operationId": "optionsCopy",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "returns POST",
@@ -1787,6 +3069,96 @@
         }
       }
     },
+    "/api/task/batchUpdate/index/{filePath}": {
+      "post": {
+        "description": "Indexes all files of a directory with the given path.",
+        "operationId": "indexFile",
+        "parameters": [
+          {
+            "name": "filePath",
+            "in": "path",
+            "description": "path of the directory",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "wrapper for options json",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionsWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200 and the list of tasks created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TasksResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/task/batchUpdate/scan/{filePath}": {
+      "post": {
+        "description": "Scans recursively a directory with the given path.",
+        "operationId": "scanFile",
+        "parameters": [
+          {
+            "name": "filePath",
+            "in": "path",
+            "description": "path of the directory",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "wrapper for options json",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionsWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200 and the created task",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "returns 500 if startTask fails",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/task/clean": {
       "post": {
         "description": "Cleans all DONE tasks.",
@@ -1801,6 +3173,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 and the list of removed tasks",
@@ -1833,6 +3214,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 if the task is removed"
@@ -1848,9 +3238,58 @@
       "options": {
         "description": "Preflight request for task cleaning.",
         "operationId": "cleanTaskPreflight",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns OPTIONS and DELETE"
+          }
+        }
+      }
+    },
+    "/api/task/findNames/{pipeline}": {
+      "post": {
+        "description": "Find names using the given pipeline:\n\n- OPENNLP\n- CORENLP\n- SPACY\n\nThis endpoint is going to find all Documents that are not tagged with the given pipeline and extract named entities for all these documents.\n",
+        "operationId": "extractNlp",
+        "parameters": [
+          {
+            "name": "pipeline",
+            "in": "path",
+            "description": "name of the NLP pipeline to use",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "wrapper for options json",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionsWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "returns 200 and the created task ids",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TasksResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -1869,6 +3308,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 and the tasks stop result map",
@@ -1932,6 +3380,15 @@
       "options": {
         "description": "Preflight request to stop tasks.",
         "operationId": "stopTaskPreflight",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS and PUT"
@@ -1953,6 +3410,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 and the tasks stop result map",
@@ -1996,6 +3462,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the task from its id",
@@ -2003,6 +3478,68 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/TaskObject"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "returns 404 if the task doesn't exist"
+          }
+        }
+      },
+      "put": {
+        "description": "Create a task with JSON body",
+        "operationId": "createTask",
+        "parameters": [
+          {
+            "name": "group",
+            "in": "query",
+            "description": "group id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "task id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the task creation body",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Task"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "the task has been created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "the task was already existing"
+          },
+          "400": {
+            "description": "bad request, for example the task payload id is not the same as the url id",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -2028,6 +3565,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 and the result"
@@ -2059,6 +3605,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the list of files and directory",
@@ -2077,6 +3632,15 @@
       "get": {
         "description": "Gets the user's session information.",
         "operationId": "getUser",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns the user map",
@@ -2106,6 +3670,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 when event is added or updated."
@@ -2115,6 +3688,15 @@
       "options": {
         "description": "Preflight request for history",
         "operationId": "getUserHistory",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns 200 with OPTIONS, GET, PUT and DELETE"
@@ -2126,6 +3708,15 @@
       "options": {
         "description": "Preflight request for history",
         "operationId": "deleteUserEvent",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "returns OPTIONS and DELETE"
@@ -2147,6 +3738,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "Returns 204 (No Content) : idempotent"
@@ -2168,6 +3768,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "Returns 204 (No Content) : idempotent",
@@ -2178,6 +3787,76 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/users/me/history?type={type}&from={from}&size={size}&sort={sort}&desc={desc}&projects={projects}": {
+      "get": {
+        "description": "Gets the user's history by type",
+        "operationId": "getUserHistory_1",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "the offset of the list, starting from 0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "the number of element retrieved",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "string included in 'document' or 'search'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "the name of the parameter to sort on (default: modificationDate)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "desc",
+            "in": "query",
+            "description": "the list is sorted in descending order (default: true)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projects",
+            "in": "query",
+            "description": "projectIds separated by comma to filter by projects (default: none)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns the user's list of events and the total number of events"
           }
         }
       }
@@ -2664,9 +4343,6 @@
       },
       "Document": {
         "properties": {
-          "generator": {
-            "type": "string"
-          },
           "parent": {
             "$ref": "#/components/schemas/Folder"
           },
@@ -2686,6 +4362,18 @@
             "type": "string"
           },
           "bodyText": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -2728,15 +4416,6 @@
           "processedAt": {
             "type": "string"
           },
-          "mimeType": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
@@ -2746,10 +4425,26 @@
           "country": {
             "type": "string"
           },
-          "alias": {
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "summary": {
+            "type": "string"
+          },
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -2795,22 +4490,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -3009,10 +4688,26 @@
           "address": {
             "type": "string"
           },
-          "alias": {
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "summary": {
+            "type": "string"
+          },
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3059,22 +4754,6 @@
           },
           "retrievedAt": {
             "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
           }
         }
       },
@@ -3084,9 +4763,6 @@
             "$ref": "#/components/schemas/Folder"
           },
           "title": {
-            "type": "string"
-          },
-          "generator": {
             "type": "string"
           },
           "fileName": {
@@ -3105,6 +4781,15 @@
             "type": "string"
           },
           "bodyText": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -3147,12 +4832,6 @@
           "processedAt": {
             "type": "string"
           },
-          "mimeType": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
@@ -3162,10 +4841,26 @@
           "country": {
             "type": "string"
           },
-          "alias": {
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "publisher": {
             "type": "string"
           },
           "summary": {
+            "type": "string"
+          },
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3211,22 +4906,6 @@
             "type": "string"
           },
           "retrievedAt": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "detectedLanguage": {
@@ -3263,9 +4942,6 @@
       },
       "FtmDocument": {
         "properties": {
-          "generator": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
@@ -3296,10 +4972,35 @@
           "bodyText": {
             "type": "string"
           },
-          "alias": {
+          "description": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "generator": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "author": {
             "type": "string"
           },
           "summary": {
+            "type": "string"
+          },
+          "mimeType": {
             "type": "string"
           },
           "contentHash": {
@@ -3340,6 +5041,9 @@
             "type": "string"
           },
           "processedAt": {
+            "type": "string"
+          },
+          "alias": {
             "type": "string"
           },
           "previousName": {
@@ -3415,31 +5119,6 @@
             "type": "string"
           },
           "emailMentioned": {
-            "type": "string"
-          },
-          "sourceUrl": {
-            "type": "string",
-            "format": "url"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           }
         }
