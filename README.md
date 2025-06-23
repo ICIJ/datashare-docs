@@ -11,9 +11,7 @@ description: >-
 
 ### What is Datashare?
 
-Welcome to [Datashare](https://datashare.icij.org) - a self-hosted documents search software. It is a free and open-source software developed by the [International Consortium of Investigative Journalists](https://www.icij.org) (ICIJ).&#x20;
-
-Initially created to combine multiple [named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition) pipelines, this tool is now a fully-featured search interface to dig into your documents.&#x20;
+Welcome to [Datashare](https://datashare.icij.org) - a self-hosted documents search software. It is a free and open-source software developed by the [International Consortium of Investigative Journalists](https://www.icij.org) (ICIJ). Initially created to combine multiple [named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition) pipelines, this tool is now a fully-featured search interface to dig into your documents.&#x20;
 
 With the help of several open-source tools ([Extract](https://github.com/icij/extract), [Apache Tika](https://tika.apache.org/), [Apache Tesseract](https://github.com/tesseract-ocr/tesseract), [CoreNLP](https://stanfordnlp.github.io/CoreNLP/), [OpenNLP](https://opennlp.apache.org/), [Elasticsearch](https://www.elastic.co/elasticsearch), and more), Datashare can be used on one single personal computer, as well as on 100 interconnected servers.
 
