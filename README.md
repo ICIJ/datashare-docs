@@ -41,7 +41,7 @@ Datashare was also built to run on a server. This is how we use it for our colla
 
 ### Can I customize Datashare?
 
-When building Datashare, one of our first decisions was to use [Elasticsearch](https://www.elastic.co/elasticsearch) to create an index of documents. It would be fair to describe Datashare as a nice looking web interface for Elasticsearch. We want our search platform to be user-friendly while keeping all the powerful Elasticsearch features available for advanced users. This way we ensure that Datashare is usable by non tech-savvy reporters, but still robust enough to satisfy data analysts and developers who want to query the index directly [with our API](developers/backend/api.md).
+When building Datashare, one of our first decisions was to use [Elasticsearch](https://www.elastic.co/elasticsearch) to create an index of documents. It would be fair to describe Datashare as a nice looking web interface for Elasticsearch. We want our search platform to be user-friendly while keeping all the powerful Elasticsearch features available for advanced users. This way we ensure that Datashare is usable by non tech-savvy reporters, but still robust enough to satisfy data analysts and developers who want to query the index directly [with our API](broken-reference).
 
 We implemented the possibility to create plugins, to make this process more accessible. Instead of modifying Datashare directly, you could isolate your code with a specific set of features and then configure Datashare to use it. Each Datashare user can pick the plugins they need or want, and have a fully customized installation of our search platform. Please have a look at the [documentation](developers/backend/write-extensions.md).
 
