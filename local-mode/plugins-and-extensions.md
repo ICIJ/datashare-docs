@@ -94,5 +94,5 @@ If it is an extension, **restart** Datashare to activate the latest version. Che
 
 People who can code can create their own plugins and extensions by following these steps:
 
-* [**Plugins**](../developers/write-plugins.md)
-* [**Extensions**](../developers/write-extensions.md)
+* [**Plugins**](../developers/frontend/write-plugins.md)
+* [**Extensions**](../developers/backend/write-extensions.md)

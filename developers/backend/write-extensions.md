@@ -2,7 +2,7 @@
 
 What if you want to add features to Datashare backend?
 
-Unlike [plugins](../local-mode/plugins-and-extensions.md) that are providing a way to modify the Datashare frontend, extensions have been created to extend the backend functionalities. There are two extension points that have been defined :
+Unlike [plugins](../../local-mode/plugins-and-extensions.md) that are providing a way to modify the Datashare frontend, extensions have been created to extend the backend functionalities. There are two extension points that have been defined :
 
 * NLP pipelines : you can add a new java NLP pipeline to Datashare
 * HTTP API : you can add HTTP endpoints to Datashare and call the Java API you need in those endpoints
@@ -75,7 +75,7 @@ Unfortunately, you'll have also to make a pull request to datashare-api to add a
 
 Build the jar with its dependencies, and install it in the `/home/user/extensions` then start datashare with the `extensionsDir` set to `/home/user/extensions`. Your plugin will be loaded by datashare.
 
-Finally, your pipeline will be listed in the available pipelines in the UI, when [doing NER](../local-mode/install-datashare-on-linux/add-documents-to-datashare-on-linux.md).
+Finally, your pipeline will be listed in the available pipelines in the UI, when [doing NER](../../local-mode/install-datashare-on-linux/add-documents-to-datashare-on-linux.md).
 
 #### HTTP extension
 
