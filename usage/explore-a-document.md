@@ -1,90 +1,87 @@
 ---
-description: >-
-  Once you opened a document, you can explore the document's data through
-  different tabs.
+description: Explore the document's data through different tabs.
 ---
 
 # Explore a document
 
-## Extracted text
+## See a document in full-screen view
 
-In 'Extracted Text', you can read the text of a document as extracted by Datashare:
+Open a document in '**Search**' > '**Documents**' > **one document** and click the **icon with in and out arrows** (this applies to the List layout while in Grid and Table layout, the documents always open in full-screen view):
 
-![](<../.gitbook/assets/et (1).png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-11 at 14.17.34.png" alt="Screenshot of Datashare&#x27;s search in document page in List view with a document opened and its in out icon on the top right highlighted"><figcaption></figcaption></figure>
 
-Please beware that Datashare show named entities by default. **This can overwrite some original text with wrong named entities.** It is thus important to **always verify original text** by deactivating named entity overwriting. To do so, please:
+You now see the document in full screen view and can **go to the next document in your results** by using the **pagination carousel** on the top of the screen:
 
-* **Turn off** the toggle button ‘**Show named entities**’ and read the extracted text
-* Check the ‘**Preview’** of original document if available
-* Check the original document at its original location or by clicking the pink button ‘**Download**’
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-11 at 14.19.39.png" alt="Screenshot of Datashare&#x27;s document full screen view with the pagination carousel on the top highlighted"><figcaption></figcaption></figure>
 
-\*\*\*\*
+## Search in a document
 
-### **Search for attachments**
+* Open a document in '**Search**' > '**Documents**' > **one document**
+* Stay on the first tab called '**Text**'. This tab shows the text as extracted from your document by Datashare.
+* Click on the **search bar** or press <kbd>**Command (⌘) / Control + F**</kbd>
+* Type the terms you're searching for
+* Press <kbd>**ENTER**</kbd> to go from one occurrence to the **next** one
+* Presse <kbd>**SHIFT**</kbd>**&#x20;+&#x20;**<kbd>**ENTER**</kbd> to go from one occurrence to the **previous** one
 
-If the documents has attachments (technically called 'children documents'), find them at the end of the document. Click their pink button to open them:
+{% hint style="info" %}
+To see all the keyboard shortcuts in Datashare, please read '[Use keyboard shortcuts](use-keyboard-shortcuts.md)'.
+{% endhint %}
 
-![](../.gitbook/assets/screenshot-2019-10-11-at-16.03.06.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 20.04.20.png" alt="Screenshot of Datashare&#x27;s page to search documents in List view with a document open on the &#x27;Text&#x27; tab and the search bar to search within the document highlighted"><figcaption></figcaption></figure>
 
-To open all the attachments in Datashare, click 'See children documents' in Tags and Details:
+## See original document
 
-![](../.gitbook/assets/screenshot-2019-10-11-at-16.07.13.png)
+Go to the '**View**' tab to see the original document.&#x20;
 
-\*\*\*\*
+Note: this visualization of the document is **available only for some file types**: **images, PDF, CSV, xlsx and tiff** but not other file types like Word documents or e-mails for instance.
 
-### **Search for terms within this document**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 20.39.25.png" alt="Screenshot of Datashare&#x27;s page to search documents in List view with a document open on the &#x27;View&#x27; tab which is highlighted"><figcaption></figcaption></figure>
 
-* Press **Command(⌘) + F** (on Mac) or **Control + F** (on Windows and Linux) or click on the search bar above your Extracted Text
-* Type what you search for
-* Press **ENTER** to go from one occurrence to the **next** one
-* Presse **SHIFT + ENTER** to go from one occurrence to the **previous** one
+##
 
-_(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts_](/usage/use-keyboard-shortcuts)_'.)_
+## **Search for attachments and documents in the same folder**
 
-This also counts the number of occurrences of your searched terms in this document:
+{% hint style="info" %}
+**Attachments** are called '**children documents**' in Datashare.
+{% endhint %}
 
-![](../.gitbook/assets/find-f.png)
+Go to the '**Metadata**' tab and click on '**X documents in the same folder**' or '**Y children documents**':
 
-If you run [email extraction](/usage/analyze-documents#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 20.26.48.png" alt="Screenshot of Datashare&#x27;s page to search documents in List view with a document open on the &#x27;Metadata&#x27; tab and the dropdowns &#x27;X documents in the same folder&#x27; and &#x27;Y children documents&#x27; highlighted"><figcaption></figcaption></figure>
 
-![](../.gitbook/assets/in-metadata.png)
+You see the list of documents. To open all the documents in the same folder or all the children documents, click '**Search all**' below. There is no 'Search all' button if there is no documents, as for the children documents below:
 
-## **Tags & Details**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 20.29.24.png" alt="Screenshot of Datashare&#x27;s page to search documents in List view with a document open on the &#x27;Metadata&#x27; tab and the dropdowns &#x27;X documents in the same folder&#x27; and &#x27;Y children documents&#x27; and the &#x27;Search all&#x27; button highlighted"><figcaption></figcaption></figure>
 
-In 'Tags & Details', you can read the document's details. It's all the metadata as they appear in the original file. Please click '**Show more details**' to get all metadata:
+##
 
-![](../.gitbook/assets/t-and-d.png)
+## **Explore metadata**
 
-You can also read the tags you previously wrote for this document, like '**test1**', '**test2**' and '**test3**' in the example below:
+Go the '**Metadata**' tab to explore all the properties of the document:
 
-![](<../.gitbook/assets/tags (1).png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 20.32.23.png" alt="Screenshot of Datashare&#x27;s page to search documents in List view with a document open on the &#x27;Metadata&#x27; tab and list of metadata highlighted"><figcaption></figcaption></figure>
 
-You can then search for the documents you tagged:
+If a metadata is interesting to you and you'd like to know if other documents in your project share the same metadata, click the **search icon**:
 
-* **Type the tag(s)** in the main search bar
-* Click '**All fields**' and select '**Tags**'
-* Click '**Search**' or press '**Enter**'
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 20.35.43.png" alt="Screenshot of Datashare&#x27;s page to search documents in List view with a document open on the &#x27;Metadata&#x27; tab and the search buttons for one metadata with its tooltip &#x27;Search this metadata value&#x27;highlighted"><figcaption></figcaption></figure>
 
-![](../.gitbook/assets/search-tags.png)
+You can also copy or pin a metadata.
 
-To learn more about tags, please read '[Tag a document](/usage/tag-documents)'.
+##
 
-## **Named Entities**
+## **Entities**
 
-In 'Named Entities', you can read the name of people, organizations and locations as well as the number of their occurrences in the document:
+In the '**Entities**' tab, only if you previously run tasks to [Find entities](../local-mode/find-entities.md) in Datashare, you read the name of people, organizations, locations and e-mail adresses, along with the number of their occurrences in the document:
 
-![](../.gitbook/assets/named-entities-tab.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-11 at 14.03.32 (1).png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab"><figcaption></figcaption></figure>
 
-Please beware that there can still be some errors due to the technology of Named Entity Extraction (NER) on which Datashare relies.
+**Hover one entity** to see a popover with all their mentions in context in the document by clicking on the **arrows**:
 
-If you run email extraction, you will see a **list of the extracted emails:**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-11 at 14.04.46 (1).png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab with one entity and its popover on the &#x27;Mentions&#x27; tab highlighted"><figcaption></figcaption></figure>
 
-![](../.gitbook/assets/email-list.png)
+Go to the '**Info**' tab to check how the entity was extracted:
 
-## **Preview**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-11 at 14.06.30 (1).png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab with one entity and its popover on the &#x27;Info&#x27; tab highlighted"><figcaption></figcaption></figure>
 
-In 'Preview', you can read the original document.
 
-'Preview' is available for some formats only.
 
-![](../.gitbook/assets/preview-tab.png)

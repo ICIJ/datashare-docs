@@ -2,13 +2,13 @@
 description: Dummy authentication provider to disable authentication
 ---
 
-# YesBasicAuthFilter
+# Dummy
 
 You can have a dummy authentication that always accepts basic auth. So you should see this popup:
 
-![basic auth popup](https://i.imgur.com/qec6c2k.jpg)
+<figure><img src="https://i.imgur.com/qec6c2k.jpg" alt="Screenshot of an &#x27;authentication required&#x27; window with username and password fields and &#x27;Cancel&#x27; and &#x27;OK&#x27; buttons"><figcaption><p>basic auth popup</p></figcaption></figure>
 
-But then you can enter whatever user or password, it will enter Datashare.
+But then whatever user or password you type, it will enter Datashare.
 
 ## Example
 
@@ -19,3 +19,4 @@ docker run -ti ICIJ/datashare -m SERVER \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=dstest&password=test'\
     --sessionStoreType REDIS \
     --authFilter org.icij.datashare.session.YesBasicAuthFilter
+```

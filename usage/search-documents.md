@@ -1,70 +1,81 @@
 ---
 description: >-
-  You can search with the main search bar, with operators, and also within a
-  document thanks to control or command + F.
+  Search with the main search bar and configure settings to display your
+  search's results.
 ---
 
 # Search documents
 
-### Search in documents
+You must have added documents in Datashare before. Check how for [Mac](../local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac.md), [Windows](../local-mode/install-datashare-on-windows/add-documents-to-datashare-on-windows.md) and [Linux](../local-mode/install-datashare-on-linux/add-documents-to-datashare-on-linux.md).
 
-1\. To see all your documents (you need to have [added documents](../mac/add-documents-to-datashare-on-mac/) to Datashare and[ have analyzed](analyze-documents/) them before), click '**Search in documents'**:
+## Search bar
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.13.15.png>)
+Expand the menu to go to '**Search**' > '**Documents**':
 
-If not collapsed yet, to collapse the left menu in order to gain room, **click the 'hamburger menu'**:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.18.13.png" alt="Screenshot of a Datashare&#x27;s search documents page with the &#x27;Documents&#x27; entry in the &#x27;Search&#x27; category in the menu highlighted"><figcaption></figcaption></figure>
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.15.20.png>)
+Make room by closing the menu:
 
-2\. Search for specific documents. **Type terms** in the search bar, **press Enter** or **click 'Search'**:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.21.04.png" alt="Screenshot of a Datashare&#x27;s search documents page with the menu open and its top right X icon highlighted"><figcaption></figcaption></figure>
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.17.41.png>)
+**Type terms** in the search bar and **press Enter**:
 
-**IMPORTANT:**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.23.54.png" alt="Screenshot of a Datashare&#x27;s search documents page with highlighted &#x27;Ikea&#x27; typed in the search bar "><figcaption></figcaption></figure>
 
-* To make your searches more precise, you can **search with operators (AND, OR, ....):** [**read more here**](search-with-operators/)**.**
+## Default operator is OR
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.19.10.png>)
+If you type **several terms** separated by space, as the **default operator is OR**, Datashare will search for all documents containing at least one of the searched terms.&#x20;
 
-* **If you get a message "Your search query is wrong", it is probably because you are misusing one or some reserved characters (like ^ " ? ( \[ \* OR AND etc).** [**Please refer to this page**](../faq-errors/your-search-query-is-wrong/)**.**
+For instance, Datashare finds documents containing **either 'ikea' or 'paris' or both terms here**:
 
-![](<../.gitbook/assets/screenshot-2019-12-03-at-10.31.31 (1).png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.26.51.png" alt="Screenshot of a Datashare&#x27;s search documents page with highlighted &#x27;Ikea paris&#x27; typed in the search bar "><figcaption></figcaption></figure>
 
-3\. You can search **in specific fields** like tags, title, author, recipient, content, path or thread ID. Click **'All fields**' and **select your choice** in the dropdown menu:
+## Linked entities
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.20.41 (1).png>)
+As you type a term, Datashare **suggest linked entities** - only if a task to find entities in this project was completed.&#x20;
 
-### Choose between views (list, grid, table)
+Press **Esc** on your keyboard to close the dropdown or **click on one of the entities** to replace your term in the search bar:
 
-Select the view on the top right.
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.35.23.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea paris&#x27; typed in the search bar and a dropdown with linked entities below highligted "><figcaption></figcaption></figure>
 
-* **List:**
+## Search in a field
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.42.01 (2).png>)
+Search within a specific field only, by using the dropdown '**All fields**':
 
-* **Grid:**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.43.06.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and the &#x27;All fields&#x27; dropdown button highlighted at the right of the search bar"><figcaption></figcaption></figure>
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.55.28.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.43.39.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and the &#x27;All fields&#x27; dropdown highlighted at the right of the search bar"><figcaption></figcaption></figure>
 
-* **Table:**
+## Search breadcrumb
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 14.55.59.png>)
+To see your queries in the **search breadcrumb**, click on the icon on the left of the search bar:
 
-### Search within a document
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.40.14.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and the &#x27;Your search&#x27; icon button highlighted at the left of the search bar"><figcaption></figcaption></figure>
 
-Once a document is opened, you can **search for terms in this document:**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.44.52.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and the &#x27;Your search&#x27; breadcrumb open and highlighted below the search bar"><figcaption></figcaption></figure>
 
-* Press **Command (⌘) + F** (on Mac) or **Control + F** (on Windows and Linux) or click on the search bar above your Extracted Text
-* Type what you search for
-* Press **ENTER** to go from one occurrence to the **next** one
-* Presse **SHIFT + ENTER** to go from one occurrence to the **previous** one
+If you'd like to remove all searched terms from the search bar, click '**Clear query**':
 
-_(To know all the shortcuts in Datashare, please read '_[_Use keyboard shortcuts_](use-keyboard-shortcuts/)_'.)_
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.46.32.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and the &#x27;Your search&#x27; breadcrumb open and its &#x27;Clear query&#x27; button highlighted"><figcaption></figcaption></figure>
 
-This also counts the number of occurrences of your searched terms in this document:
+## Results settings
 
-![](../.gitbook/assets/find-f.png)
+To change the page settings, click the **Settings icon** on the top right:
 
-If you run [email extraction](analyze-documents/#extract-email-addresses) and searched for one or several email addresses, if the email adresses are in the email's metadata (recipient, sender or other field), there will be a '**in metadata**' label attached to the email addresses:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.51.56.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea paris&#x27; typed in the search bar and the top right Settings icon button highlighted"><figcaption></figcaption></figure>
 
-![](../.gitbook/assets/in-metadata.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.51.25.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and and the &#x27;Results settings&#x27; panel open and highlighted at the right of the page"><figcaption></figcaption></figure>
+
+You can change **Sort by**, **Documents per page**, **Layout** and also **Properties**:
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.54.47.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea&#x27; typed in the search bar and and the &#x27;Results settings&#x27; panel open and its &#x27;Properties&#x27; category highlighted at the right of the page"><figcaption></figcaption></figure>
+
+Ticking these properties will change **which document's metadata are displayed in the results**, in the document cards, in all 3 layouts (List, Grid, Table):
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.56.25.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea paris&#x27; typed in the search bar and the &#x27;Results&#x27; column open and highlighted at the left of the page in a List layout"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.58.17.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea paris&#x27; typed in the search bar and the first document card highlighted at the left of the page in a Grid layout"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.58.48.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea paris&#x27; typed in the search bar and the first document card highlighted at the top of the results in a Table layout"><figcaption></figcaption></figure>
+
+You can now make your search more precise [with operators or Regex (Regular Expressions)](search-with-operators.md).

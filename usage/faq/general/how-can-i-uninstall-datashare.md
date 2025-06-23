@@ -1,21 +1,21 @@
 # How can I uninstall Datashare?
 
-#### Mac
+## Mac
 
-&#x20;1\. Go to Applications
+1\. Go to Applications
 
-![](<../../../.gitbook/assets/Screenshot 2021-10-26 at 09.16.08 (1).png>)
+<figure><img src="../../../.gitbook/assets/Screenshot 2021-10-26 at 09.16.08 (1).png" alt="Screenshot of a Mac&#x27;s &#x27;Applications&#x27; window with the Datashare&#x27;s logo highlighted"><figcaption></figcaption></figure>
 
-&#x20;2\. Click right on 'Datashare' and click 'Move to Bin'
+2\. Click right on 'Datashare' and click 'Move to Bin'
 
-![](<../../../.gitbook/assets/Screenshot 2021-10-26 at 09.17.06.png>)
+<figure><img src="../../../.gitbook/assets/Screenshot 2021-10-26 at 09.17.06.png" alt="Screenshot of a Mac&#x27;s Applications window with the Datashare&#x27;s logo selected and a dropdown menu with the entry &#x27;Move to Bin&#x27; highlighted"><figcaption></figcaption></figure>
 
-#### Windows
+### Windows
 
 Follow the steps here: [https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-10-4b55f974-2cc6-2d2b-d092-5905080eaf98](https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-10-4b55f974-2cc6-2d2b-d092-5905080eaf98)
 
-#### Linux
+### Linux
 
-Use the following command:&#x20;
+Use the following command:
 
 `sudo apt remove datashare-dist`

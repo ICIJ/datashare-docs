@@ -1,12 +1,16 @@
 ---
-description: This page explains how to run a neo4j instance inside docker. For any additional information please refer to the [neo4j documentation](https://neo4j.com/docs/getting-started/)
+description: >-
+  This page explains how to run a neo4j instance inside docker. For any
+  additional information please refer to the [neo4j
+  documentation](https://neo4j.com/docs/getting-started/)
 ---
 
-# Running [neo4j](https://neo4j.com/docs/)
+# How to run Neo4j?
 
-## Run neo4j inside docker
+## Run Neo4j inside docker
 
-&#x20;1\. enrich the `services` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j service:
+1\. enrich the `services` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j service:
+
 {% code fullWidth="true" %}
 ```yaml
 ...
@@ -25,9 +29,9 @@ services:
 ```
 {% endcode %}
 
-make sure not to forget the [APOC plugin](https://neo4j.com/developer/neo4j-apoc/) (`NEO4J_PLUGINS: '["apoc"]'`). 
+make sure not to forget the [APOC plugin](https://neo4j.com/developer/neo4j-apoc/) (`NEO4J_PLUGINS: '["apoc"]'`).
 
-&#x20;2\. enrich the `volumes` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j volumes:
+2\. enrich the `volumes` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j volumes:
 
 {% code fullWidth="true" %}
 ```yaml
@@ -40,12 +44,12 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;3\. Start the `neo4j` service using:
+3\. Start the `neo4j` service using:
 
 {% code fullWidth="true" %}
 ```bash
 docker compose up -d neo4j
-``` 
+```
 {% endcode %}
 
 ## Run Neo4j Desktop
@@ -56,4 +60,5 @@ docker compose up -d neo4j
 4. make sure to install the [APOC Plugin](https://neo4j.com/docs/desktop-manual/current/operations/install-plugin/)
 
 ## Additional options
+
 Additional options to install neo4j are [listed here](https://neo4j.com/docs/operations-manual/current/installation/).

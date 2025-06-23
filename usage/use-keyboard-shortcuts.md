@@ -4,82 +4,14 @@ description: Shortcuts help do some actions faster.
 
 # Keyboard shortcuts
 
-### F**ind these shortcuts in Datashare here:**
+Open the **menu** > '**Search**' > '**Documents**' and click the **keyboard icon** at the bottom of the menu:
 
-![](../.gitbook/assets/screenshot-2019-10-01-at-10.17.49.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 10.40.56.png" alt="Screenshot of Datashare&#x27;s search documents page in List layout where the &#x27;Keyboard&#x27; icon at the bottom of the left menu is highlighted"><figcaption></figcaption></figure>
 
-It will open a window which recalls the shortcuts:
+It opens a window with the **shortcuts for your OS** (Mac, Windows, Linux):
 
-![](../.gitbook/assets/screenshot-2019-10-01-at-10.18.03.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 10.43.40.png" alt="Screenshot of Datashare&#x27;s search documents page in List layout where the &#x27;Keyboard&#x27; icon at the bottom of the left menu is hovered and the &#x27;Keyboard shortcuts&#x27; popover is highlighted"><figcaption></figcaption></figure>
 
-### **Go to the next / previous document**
+Click on '**See all shortcuts**' to reach the full page view:
 
-* Windows / Linux
-
-> Control + →
->
-> Control + ←
-
-* Mac
-
-> Command (⌘) + →
->
-> Command (⌘) + ←
-
-![](../.gitbook/assets/next-document.png)
-
-### **Find in document...**
-
-* Windows / Linux
-
-> Control + F
-
-* Mac
-
-> Command (⌘) + F
-
-![](../.gitbook/assets/find-in-document-f.png)
-
-**... and go from one occurrence to the next / previous occurrence**
-
-* Go to next occurrence
-
-> Enter
->
-> or
->
-> F3
-
-* Go to previous occurrence
-
-> Shift + Enter
->
-> or
->
-> Shift + F3
-
-![](../.gitbook/assets/previous-next-occurrence.png)
-
-### Navigate a document's tabs
-
-* Windows / Linux
-
-> Control (ctrl) + alt + ⇞ (pageup)
->
-> Control (ctrl) + alt + ⇟ (pagedown)
-
-* Mac
-
-> Command (⌘) + option (⌥) + ↑ (arrow up)
->
-> Command (⌘) + option (⌥) + ↓ (arrow down)
-
-![](../.gitbook/assets/navigate-between-tabs-in-a-doc.png)
-
-### Go back to search results
-
-Once you opened a document, go back to search results:
-
-> Esc
-
-![](../.gitbook/assets/back-to-search-results.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 10.44.18.png" alt="Screenshot of Datashare&#x27;s keyboard shortcuts page"><figcaption></figcaption></figure>

@@ -1,65 +1,73 @@
 ---
-description: This can be due to some syntax error(s) in the way you wrote your query.‌
+description: This can be due to some syntax errors in the way you wrote your query.‌
 ---
 
-# 'Your search query is wrong.' What should I do?
+# 'We were unable to perform your search.' What should I do?
 
 Here are **the most common errors that you should correct:** ‌
 
-### **The query starts with AND** (all uppercase) <a href="#querie-s-start-s-with-and-all-uppercase" id="querie-s-start-s-with-and-all-uppercase"></a>
+### **The query starts with AND** <a href="#querie-s-start-s-with-and-all-uppercase" id="querie-s-start-s-with-and-all-uppercase"></a>
 
-You cannot start a query with AND all uppercase. [AND is reserved as a search operator](../../search-with-operators/#and).
+You cannot start a query with AND all uppercase. [AND is reserved as a search operator](../../search-with-operators.md#and-or).
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsX4JZonoD94VtqwHu3%2F-LsX5WHKbgDMRLj7gLDF%2FScreenshot%202019-10-31%20at%2014.53.32.png?alt=media\&token=90097ff8-fc52-48af-9a03-19abbc07b53d)‌
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.21.32.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;AND ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-### **The query starts with OR** (all uppercase) <a href="#querie-s-start-s-with-or-all-uppercase" id="querie-s-start-s-with-or-all-uppercase"></a>
+### **The query starts with OR** <a href="#querie-s-start-s-with-or-all-uppercase" id="querie-s-start-s-with-or-all-uppercase"></a>
 
-You cannot start a query with OR all uppercase. [OR is reserved as a search operator](../../search-with-operators/#or-or-space).
+You cannot start a query with OR all uppercase. [OR is reserved as a search operator](../../search-with-operators.md#or-or-space).
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsXD4rK6gwnKrrzI-JQ%2F-LsXDDL\_CBy1nNslQUzu%2FScreenshot%202019-10-31%20at%2014.58.08.png?alt=media\&token=129e6b4e-d67b-4dd2-85ed-1f5410ab453b)‌
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.22.08.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;OR ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-### **The query contains only one double-quote (")** <a href="#querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word" id="querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word"></a>
+### **The query contains only one double-quote: "** <a href="#querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word" id="querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word"></a>
 
-‌You cannot start or type a query with only one double quote. [Double quotes are reserved as a search operator](../../search-with-operators/#exact-phrase) for exact phrase.
+‌You cannot start or type a query with only one double quote. [Double quotes are reserved as a search operator](../../search-with-operators.md#double-quotes-for-exact-phrase) for exact phrase.
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsXAlZpZqJaQio6ciE-%2F-LsXBx1\_h19OJ\_qW-HgH%2FScreenshot%202019-10-31%20at%2015.23.41.png?alt=media\&token=6ad8fab5-e39c-4b5a-a4fd-9f645142d656)![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsXAlZpZqJaQio6ciE-%2F-LsXC10GQjDB\_KDynR-w%2FScreenshot%202019-10-31%20at%2015.23.51.png?alt=media\&token=4f04d178-75e8-4240-b80f-7653ec1b625f)![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsXAlZpZqJaQio6ciE-%2F-LsXC51OWC9M\_WHdN3Bd%2FScreenshot%202019-10-31%20at%2015.23.01.png?alt=media\&token=dda6576b-fd95-4f2d-b1ab-97a9d7cfb225)‌
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.23.04.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;&#x22;ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-### **The query contains only one parenthesis ((or ))** <a href="#querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word" id="querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word"></a>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.23.58.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ikea&#x22;&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-‌You cannot start or type a query with only one parenthesis. [Parenthesis are reserved for combining operators](../../search-with-operators/#please-note-that-you-can-combine-operators).
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.24.27.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ik&#x22;ea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-![](../../../.gitbook/assets/screenshot-2019-11-26-at-17.44.42.png)
+### **The query contains only one parenthesis: ( or )** <a href="#querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word" id="querie-s-contain-s-only-one-double-quote-or-a-double-quote-in-a-word"></a>
 
-![](../../../.gitbook/assets/screenshot-2019-11-26-at-17.45.17.png)
+‌You cannot start or type a query with only one parenthesis. [Parenthesis are reserved for combining operators](../../search-with-operators.md#combine-operators).
 
-![](../../../.gitbook/assets/screenshot-2019-11-26-at-17.47.25.png)
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.25.01.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;(ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-### **The query contains only one forward slash (/)**
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.25.25.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ikea)&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.25.53.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ik(ea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
+
+### **The query contains only one forward slash: /**
 
 ‌You cannot start or type a query with only one forward slash. Forward slashes are reserved for regular expressions (Regex).
 
-### **The query starts with or contains tilde** (\~) <a href="#querie-s-start-s-with-or-contain-tilde" id="querie-s-start-s-with-or-contain-tilde"></a>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 10.26.49.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;/ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-‌You cannot start a query with tilde (\~) or write one which contains tilde. Tilde is reserved as a search operator for [fuzziness](../../../faq-definitions/what-is-fuzziness/) or [proximity searches](../../../faq-definitions/what-are-proximity-searches/).
+### **The query starts with or contains tilde:** \~ <a href="#querie-s-start-s-with-or-contain-tilde" id="querie-s-start-s-with-or-contain-tilde"></a>
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsX4JZonoD94VtqwHu3%2F-LsX7NMNxxM8MCBAJMe0%2FScreenshot%202019-10-31%20at%2015.03.59.png?alt=media\&token=4001cf1d-8c3f-4bd2-80ec-bfc1ac836b8f) ![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsX4JZonoD94VtqwHu3%2F-LsX77gU4JGqHeuvxo0T%2FScreenshot%202019-10-31%20at%2014.59.36.png?alt=media\&token=ccb8d6a0-54a2-4289-8b33-df155c5acece) ![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsX4JZonoD94VtqwHu3%2F-LsX7BTzS63DgDW0Nyq2%2FScreenshot%202019-10-31%20at%2015.02.40.png?alt=media\&token=30e9de1d-97b3-496b-b596-c83eb14e509f)
+‌You cannot start a query with tilde (\~) or write one which contains tilde. Tilde is reserved as a search operator for [fuzziness](../../search-with-operators.md#fuzziness) or [proximity searches](../../search-with-operators.md#proximity-searches).
 
-​‌
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 16.01.44 (1).png" alt="Screenshot of Datashare&#x27;s search page with &#x27;~ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-### **The query ends with question mark (!)** <a href="#querie-s-start-s-with-or-contain-circumflex" id="querie-s-start-s-with-or-contain-circumflex"></a>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 16.02.17 (1).png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ik~ea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-You cannot end a query with question mark (!). [Question mark is reserved as a search operator for excluding a term](../../search-with-operators/#not-or).
+### **The query ends with question mark: !** <a href="#querie-s-start-s-with-or-contain-circumflex" id="querie-s-start-s-with-or-contain-circumflex"></a>
 
-![](../../../.gitbook/assets/screenshot-2019-11-04-at-18.02.39.png)
+You cannot end a query with question mark (!). [Question mark is reserved as a search operator for excluding a term](../../search-with-operators.md#not-or-or).
 
-### **The query starts with or contains caret** (^) <a href="#querie-s-start-s-with-or-contain-circumflex" id="querie-s-start-s-with-or-contain-circumflex"></a>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 16.16.19.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ikea!&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-‌You cannot start a query with caret (^) or write one which contains caret. [Caret is reserved as a boosting operator](../../search-with-operators/#boosting-operators).
+### **The query starts with or contains caret:** ^ <a href="#querie-s-start-s-with-or-contain-circumflex" id="querie-s-start-s-with-or-contain-circumflex"></a>
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsX4JZonoD94VtqwHu3%2F-LsX7wmdHRn3gT9-9xeL%2FScreenshot%202019-10-31%20at%2015.05.05.png?alt=media\&token=6ac31c7a-dcd1-4b09-bf2c-02ec6e89f2a6) ![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LsX4JZonoD94VtqwHu3%2F-LsX8-0rSV6D\_O2FzzWO%2FScreenshot%202019-10-31%20at%2015.06.28.png?alt=media\&token=8a5b573b-e68f-4bdf-a991-ab4f40e4325c)
+‌You cannot start a query with caret (^) or write one which contains caret. [Caret is reserved as a boosting operator](../../search-with-operators.md#boosting-operators).
 
-### The query **contains** square brackets (\[ ])
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 16.17.40.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;^ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-You cannot use square brackets [except for searching for ranges](../../search-with-operators/#advanced-searches-using-metadata-fields).
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 16.18.07.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ik^ea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-![](../../../.gitbook/assets/screenshot-2019-12-03-at-10.31.31.png)
+### The query **contains** square brackets: \[ or ]
+
+You cannot use square brackets [except for searching for ranges](../../search-with-operators.md#search-with-metadata-fields).
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-17 at 16.19.13.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;[ikea]&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>

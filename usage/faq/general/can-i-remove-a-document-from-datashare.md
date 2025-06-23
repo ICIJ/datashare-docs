@@ -1,18 +1,16 @@
 # Can I remove document(s) from Datashare?
 
-Yes, you **can** remove documents from Datashare. But at the moment, **it will remove all your documents**. You cannot remove only some documents.
+In **local** mode, you _cannot_ remove a single document or a selection of documents from Datashare. But you can remove **all your projects and documents** from Datashare.
 
-**Click the pink trash icon on the bottom left of Datashare:**
+Open the **menu** and on the bottom of the menu, click the **trash icon**:
 
-![](../../../.gitbook/assets/remove.png)
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-10 at 10.54.58.png" alt="Screenshot of Datashare&#x27;s homepage with the menu and the trash icon at the bottom right of the menu highlighted"><figcaption></figcaption></figure>
 
-And then click '**Yes'**:
+A confirmation window opens. The action cannot be undone. It removes all the projects and their documents from Datashare. Click '**Yes**' if you are sure:&#x20;
 
-![](../../../.gitbook/assets/remove2.png)
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-10 at 10.55.13.png" alt="Screenshot of Datashare&#x27;s homepage with a confirmation modal to delete all projects and documents highlighted"><figcaption></figcaption></figure>
 
-You can them re-analyze a new corpus.
-
-_For advanced users only -_ if you'd like to do it with the Terminal, here are the instructions:
+_**For advanced users** -_ if you'd like to do it with the Terminal, here are the instructions:
 
 * If you're using Mac: `rm -Rf ~/Library/Datashare/index`
 * If you're using Windows: `rd /s /q "%APPDATA%"\Datashare\index`

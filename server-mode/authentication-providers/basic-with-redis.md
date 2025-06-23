@@ -2,18 +2,20 @@
 description: Basic authentication with Redis
 ---
 
-# BasicAuthAdaptorFilter and UsersInRedis
+# Basic with Redis
 
 Basic authentication is a simple protocol that uses the HTTP headers and the browser to authenticate users. User credentials are sent to the server in the header `Authorization` with `user:password` base64 encoded:
 
 ```
 Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
+
 It is secure as long as the communication to the server is encrypted (with `SSL` for example).
 
 On the server side, you have to provide a user store for Datashare. For now we are using a Redis data store.
 
 So you have to provision users. The passwords are `sha256 hex` encoded. For example using `bash`:
+
 ```
 $ echo -n bar | sha256sum
 fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9  -
@@ -35,12 +37,11 @@ redis-server.org:6379> set foo '{"uid":"foo", "password":"fcde2b2edba56bf408601f
 
 Then you should see this popup:
 
-![basic auth popup](https://i.imgur.com/qec6c2k.jpg)
+<figure><img src="https://i.imgur.com/qec6c2k.jpg" alt="Screenshot of an &#x27;authentication required&#x27; window with username and password fields and &#x27;Cancel&#x27; and &#x27;OK&#x27; buttons"><figcaption><p>basic auth popup</p></figcaption></figure>
 
 ## Example
 
-Here is an example of launching Datashare with Docker and the
-basic auth provider filter backed in Redis:
+Here is an example of launching Datashare with Docker and the basic auth provider filter backed in Redis:
 
 ```
 docker run -ti ICIJ/datashare --mode SERVER \

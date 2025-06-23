@@ -1,12 +1,12 @@
 # Index operations with Playground
 
-[Datashare Playground](https://github.com/ICIJ/datashare-playground) is a set of batch scripts to interact Datashare's ElasticSearch index.
+[Datashare Playground](https://github.com/ICIJ/datashare-playground) is a set of batch scripts to interact with Datashare's ElasticSearch index.
 
 
 
 ## Use playground to update index's mappings and settings
 
-Some Datashare updates can bring some fixes and improvements on the index, the index has to be reindexed accordingly.&#x20;
+Some Datashare updates can bring some fixes and improvements on the index. The index has to be reindexed accordingly.&#x20;
 
 
 
@@ -16,7 +16,7 @@ Some Datashare updates can bring some fixes and improvements on the index, the i
 ./elasticsearch/index/create.sh <temporary_index> <ds_version_number>
 ```
 
-**2. Reindex all documents (under "/" path) from the original index under to temporary one:**
+**2. Reindex all documents (under "/" path) from the original index under a temporary one:**
 
 This step can take some time if your index has plenty of documents.
 

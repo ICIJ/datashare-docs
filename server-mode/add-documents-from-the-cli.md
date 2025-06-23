@@ -1,10 +1,10 @@
 # Add documents from the CLI
 
-**This document assumes you have installed Datashare** [**in server mode within Docker**](install-with-docker.md)**.**
+**This document assumes that you have installed Datashare** [**in server mode within Docker**](install-with-docker.md)**.**
 
-In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide an interface to add documents. As there is no build-in roles and permission in Datashare's data model, we have no way to differenciate user to offer admin additional tools.
+In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide an interface to add documents. As there is no build-in roles and permission in Datashare's data model, we have no way to differentiate users to offer admin additional tools.
 
-This is likelly to be changed in the near future, but in the meantime, you can still add documents to Datashare using the command-line interface.
+This is likely to be changed in the near future, but in the meantime, you can still add documents to Datashare using the command-line interface.
 
 Here is a simple command to scan a directory and index its files:
 
@@ -26,7 +26,7 @@ What's happening here:
 * We tell Datashare to use the `elasticsearch` service
 * Files to add are located in `/home/datashare/Datashare/` which is a directory mounted from the host machine
 
-Alternativly, you can do this in two separated phases, as long as you tell Datashare to store the queue in a shared resource. Here, we use the redis:
+Alternatively, you can do this in two separated phases, as long as you tell Datashare to store the queue in a shared resource. Here, we use the Redis:
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
@@ -40,7 +40,7 @@ docker compose exec datashare_web /entrypoint.sh \
   --dataDir /home/datashare/Datashare/
 ```
 
-Once the opperation is done, we can easily check the content of queue created by Datashare in redis. In this example we only display the 20 first files in the `datashare:queue`:
+Once the operation is done, we can easily check the content of queue created by Datashare in Redis. In this example we only display the 20 first files in the `datashare:queue`:
 
 ```bash
 docker compose exec redis redis-cli lrange datashare:queue 0 20

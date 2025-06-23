@@ -20,11 +20,11 @@ Distribute the INDEX stage across multiple servers to handle the workload effici
 For projects like the [Pandora Papers](https://www.icij.org/investigations/pandora-papers/) (2.94 TB), we ran the INDEX stage to up to 10 servers at the same time which cost ICIJ several thousand of dollars.\
 
 
-<figure><img src="../.gitbook/assets/How big is the Pandora Papers leak (Twitter)(2).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/How big is the Pandora Papers leak (Twitter)(2).jpg" alt="Screenshot of a bar chart showing the size in terabytes of the Panama Papers (2016) (2.6TB), the Paradise Papers (2017) (1.4TB) and the Pandora Papers (2021) (2.94TB)"><figcaption></figcaption></figure>
 
 ### **Leverage Parallelism**
 
-Datashare offer `--parallelism` and `--parserParallelism` options to enhance processing speed.
+Datashare offers `--parallelism` and `--parserParallelism` options to enhance processing speed.
 
 _Example (for `g4dn.8xlarge` with 32 CPUs):_
 
@@ -41,7 +41,7 @@ ElasticSearch can significantly consume CPU and memory, potentially becoming a b
 
 You can fine-tune the `JAVA_OPTS` environment variable based on your system's configuration to optimize Java Virtual Machine memory usage.\
 \
-_Example (for `g4dn.8xlarge8`with 120 GB Memory):_
+&#xNAN;_&#x45;xample (for `g4dn.8xlarge8`with 120 GB Memory):_
 
 ```shell
 JAVA_OPTS="-Xms10g -Xmx50g" datashare --mode CLI --stage INDEX
@@ -74,9 +74,9 @@ datashare --mode CLI --stage INDEX --ocr false
 
 ### **Efficient Handling of Large Files**
 
-Large PST files or archives can hinder processing efficiency. We recommend extract these files before processing with Datashare. If they are too many of them, keep in mind Datashare will be able to extract them anyway.
+Large PST files or archives can hinder processing efficiency. We recommend extracting these files before processing with Datashare. If they are too many of them, keep in mind that Datashare will be able to extract them anyway.
 
-_Example to split Outlook PST files in multiple `.eml` files with_ [_readpst_](https://linux.die.net/man/1/readpst)_:_
+_Example of splitting Outlook PST files in multiple `.eml` files with_ [_readpst_](https://linux.die.net/man/1/readpst)_:_
 
 ```shell
 readpst -reD <Filename>.pst

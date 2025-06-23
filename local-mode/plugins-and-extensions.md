@@ -1,68 +1,98 @@
 ---
-description: It will help you locally add plugins and extensions to Datashare.
+description: This page explains how to locally add plugins and extensions to Datashare.
 ---
 
 # Install plugins and extensions
 
-**Plugins** are small programs that you can add to Datashare's **front-end** to get new features (the front-end is the interface, "_the part of the software with which the user interacts directly_" - [source](https://languages.oup.com/)).
+**Plugins** are **front-end** modules to add new features in Datashare's user interface.
 
-**Extensions** are small programs that you can add to Datashare's **back-end** to add new features (the back-end is "_the part of the software that is not directly accessed by the user, typically responsible for storing and manipulating data_" - [source](https://languages.oup.com/)).
+**Extensions** are back-end modules to add new features to store and manipulate data with Datashare.
 
-## Add plugins to Datashare (front-end)
+## Add plugins to Datashare's front-end
 
-1. Go to "**Settings**":
+{% stepper %}
+{% step %}
+At the bottom of the menu, click the '**Settings' icon**:
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-09.56.51.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.49.09.png" alt="Screenshot of a Datashare&#x27;s project page with the Settings icon at the bottom of the left menu highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-1. Click "**Plugins**":
+{% step %}
+Open the '**Plugins'** tab:
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-09.58.12.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.50.29.png" alt="Screenshot of a Datashare&#x27;s settings page with the Plugins tab highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-1. Choose the plugin you want to add and click "**Install now**":
+{% step %}
+Choose the plugin you want to add and click '**Install'**:
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-09.59.25.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.51.20.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with a Plugin&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
 
-If you want to install a plugin from an URL, click "Install plugin from URL".
+If you want to install a plugin from an URL, click '**Install from a URL**':
 
-1. Your plugin is installed.
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.51.59.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-10.00.16.png)
+{% step %}
+Your plugin is now installed:
 
-**Refresh your page to see your new plugin activated in Datashare.**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.53.01.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the installed plugin highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-## Add **extensions** to Datashare (back-end)
+{% step %}
+**Refresh your page** to see your new plugin activated in Datashare.
+{% endstep %}
+{% endstepper %}
 
-1. Go to "**Settings**":
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-09.56.51.png)
 
-1. Click "**Extensions**":
+## Add **extensions** to Datashare's back-end
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-10.03.09.png)
+{% stepper %}
+{% step %}
+At the bottom of the menu, click the '**Settings' icon**:
 
-1. Choose the extension you want to add and click "**Install now**":
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.49.09.png" alt="Screenshot of a Datashare&#x27;s project page with the Settings icon at the bottom of the left menu highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-10.04.52.png)
+{% step %}
+Open the '**Extensions'** tab:
 
-If you want to install an extension from an URL, click "Install extension from URL".
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.55.51.png" alt="Screenshot of a Datashare&#x27;s settings page with the Extensions tab highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-1. Your extension is installed.
+{% step %}
+Choose the extension you want to add and click '**Install'**:
 
-![](../.gitbook/assets/screenshot-2020-11-25-at-10.06.03.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.56.36.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with a Extension&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
 
-**Restart Datashare to see your new extension activated in Datashare.**
+If you want to install an extension from an URL, click '**Install from a URL**':
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.57.06.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+Your extension is now installed:
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.58.11.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the installed extension highlighted"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+**Restart Datashare** to see your new extension activated in Datashare. Check how for [Mac](install-datashare-on-mac/open-datashare-on-mac.md), [Windows](install-datashare-on-windows/open-datashare-on-windows.md) and [Linux](install-datashare-on-linux/open-datashare-on-linux.md).
+{% endstep %}
+{% endstepper %}
 
 ## Update plugin or extension with latest version
 
-When a newer version of a plugin or extension is available, you can click on the "**Update**" button to get the latest version.
+When a newer version of a plugin or extension is available, get the latest version.
 
-After that, if it is a plugin, **refresh** your page to activate the latest version.
+If it is a plugin, **refresh** your page to activate the latest version.
 
-If it is an extension, **restart** Datashare to activate the latest version.
+If it is an extension, **restart** Datashare to activate the latest version. Check how for [Mac](install-datashare-on-mac/open-datashare-on-mac.md), [Windows](install-datashare-on-windows/open-datashare-on-windows.md) and [Linux](install-datashare-on-linux/open-datashare-on-linux.md).
 
 ## Create your own plugin or extension
 
-People who code can create their own plugins and extensions by following these steps:
+People who can code can create their own plugins and extensions by following these steps:
 
-* **Plugins**: [https://github.com/ICIJ/datashare/wiki/Client-%E2%80%BA-Plugins](https://github.com/ICIJ/datashare/wiki/Client-%E2%80%BA-Plugins)
-* **Extensions**: [https://github.com/ICIJ/datashare/wiki/Backend-%E2%80%BA-Extensions](https://github.com/ICIJ/datashare/wiki/Backend-%E2%80%BA-Extensions)
+* [**Plugins**](../developers/write-plugins.md)
+* [**Extensions**](../developers/write-extensions.md)

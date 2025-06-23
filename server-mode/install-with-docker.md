@@ -8,7 +8,9 @@ description: This page explain how to start Datashare within a Docker in server 
 
 Datashare platform is designed to function effectively by utilizing a combination of various services. To streamline the development and deployment workflows, Datashare relies on the use of Docker containers. Docker provides a lightweight and efficient way to package and distribute software applications, making it easier to manage dependencies and ensure consistency across different environments.
 
-[**Read more about how to install Docker on your system.**](https://docs.docker.com/engine/install/)
+**Read more about** [**how to install Docker on your system**](https://docs.docker.com/engine/install/)**.**
+
+###
 
 ### Starting Datashare with multiple containers
 
@@ -176,10 +178,14 @@ docker-compose down
 
 This will stop and remove the containers, freeing up system resources.
 
+###
+
 ### Add documents to Datashare
 
 If you reach that point, Datashare is up and running but you will discover very quickly that no documents is available in the search results. Next step: [**Add documents from the CLI**](add-documents-from-the-cli.md).
 
+###
+
 ### Extract named entities
 
-Datashare as the ability to detect email addresses, name of people, organizations and locations. You must perform the named entities extraction in the same fashion than the previous commands. Final step: [**Add named entities from the CLI**](add-entities-from-the-cli.md).
+Datashare has the ability to detect email addresses, name of people, organizations and locations. You must perform the named entities extraction in the same fashion than the previous commands. Final step: [**Add named entities from the CLI**](add-entities-from-the-cli.md).

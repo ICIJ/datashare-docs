@@ -1,82 +1,60 @@
 ---
 description: >-
-  You can use several filters on the left of the main screen. Applied filters
-  are reminded on the top of the results' column. You can also 'contextualize'
-  and reset the filters.
+  Filters are on the left of the search bar. You can contextualize, exclude and
+  reset them. Active filters are displayed in the search breadcrumb.
 ---
 
 # Filter documents
 
-## Apply filters
+## Filters
 
-On the left column, you can apply **filters** by ticking them, like 'Portable Document Format (PDF)' in File Types and 'English' in Languages in the example below:
+Open '**Filters**' on the left of the search bar:
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 11.29.18.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 15.15.42.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Filters&#x27; button at the left of the search bar highlighted"><figcaption></figcaption></figure>
 
-A reminder of the currently applied filters, as well as your queried terms, are displayed at the top of the results' column. You can easily unselect these filters from there by clicking them or clear all of them:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 15.16.45.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Filters&#x27; panel open and highlighted on the left of the page and on the right of the menud"><figcaption></figcaption></figure>
 
-&#x20;
+**'Indexing dates'** arethe dates when the documents were added to Datashare.
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 11.29.18 copy.png>)
+**'Extraction levels'** regard embedded documents:
 
-The currently available filters are:
+* The 'file on disk' is level zero
+* If a document is attached to (or contained in) a file on disk, its extraction level is '1st'
+* If a document is attached to (or contained in) a document itself contained in a file on disk, its extraction level is '2nd'
+* And so on
 
-* **Projects:** if you have more than one project, you can select several of them and run searches in multiple projects at once.
-* **Starred**: If you have starred documents, you can easily find them again.
-* **Tags**: If you wrote some tags, you will be able to select and search for them.
-* **Recommended by:** available only on server (collaborative) mode, this functionality helps you find the document recommended by you and/or others.
-* **File type**: This is the 'Content type' of the file (Word, PDF, JEPG image, etc.) as you can read it in a document's 'Tags & Details'.
-* **Creation dates:** the calendar allows you to select a single creation date or a date range. This is when the document was created as it is noticed in their properties. You can find this in a document's 'Tags & Details'.
-* **Languages**: Datashare detects the main language of each document.
-* **People / Organizations / Locations**: you can selected these named entities and search them.
-* **Path**: This is the location of your documents as it is indicated in your original files (ex: desktop/importantdocuments/mypictures). You can find this in a document's 'Tags & Details'.
-* **Indexing date**: This date corresponds to when you indexed the documents in Datashare.
-* **Extraction level**: This regards embedded documents. The file on disk is level zero. If a document (pictures, etc) is attached or contained in a file on disk, extraction level is “1st”. If a document is attached or contained in a document itself contained in a file on disk, extraction level is “2nd”, etc.
+## Filter by entities
 
+If you asked Datashare to '**Find entities**' and the task was complete, you will see names of people, organizations, locations and e-mail adresses in the filters. These are the entities **automatically detected by Datashare:**
 
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 15.39.17.png" alt="Screenshot of the Filters&#x27; entities" width="335"><figcaption></figcaption></figure>
 
-Filters can be **combined together and combined with searches** in order to refine results.
+## Exclude filters
 
-## Filter by named entities
+Tick the '**Exclude**' checkbox to select all items except those selected.
 
-If you have asked Datashare to '**Find people, organizations and locations'**, you can see names of individuals, organizations and locations in the filters. These are the named entities **automatically detected by Datashare.**
+In the search breadcrumb, you see that the excluded filters are **strikethrough**:
 
-Search for named entities in the filter's search bar:
-
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 11.41.40.png>)
-
-Select all of them, one or several of them to filter the documents that mention them:
-
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 11.42.17.png>)
-
-## Use the 'Exclude' button
-
-If you want to select all items except one or several of them, you can use the '**Exclude button'**.
-
-It allows you to search for all documents which do not correspond to the filter(s) you selected, that is to say to the currently strikethrough filters.
-
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 11.45.21.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 15.42.43.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;People&#x27; filter open with 2 names ticked and the Exclude button ticked and highlighted as well as the two names in the search breadcrumb that are also strikethrough"><figcaption></figcaption></figure>
 
 ## Contextualize filters
 
-In several filters, you can tick '**Contextualize'** : this will **update the number of documents indicated in the filters in order to reflect the results**. The filter will only count what you selected.
+In most filters, tick '**Contextualize'** to **update the number of documents indicated in the filters so they reflect the results**.&#x20;
 
-In the example below, the 'Contextualize' checkboxes are not ticked:
+The filter will only count what you selected, it will reflect the results of your current selection:
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 12.32.04.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 18.32.09.png" alt="Screenshot of Datashare&#x27;s page to search documents with a filter open and the Contextualize button at the bottom of this filter highlighted"><figcaption></figcaption></figure>
 
-After the Contextualize button in Tags filter is ticked:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 18.32.29.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Language&#x27; filter open, the &#x27;Contextualize&#x27; checkbox ticked and the whole filter highlighted"><figcaption></figcaption></figure>
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 12.32.14 (1).png>)
 
-After the Languages button in Tags filter is ticked:
-
-&#x20;
-
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 12.32.22.png>)
 
 ## Clear all filters
 
-To reset all filters at the same time, click 'Clear all':
+To reset all filters at the same time, open the **search breadcrumb**:
 
-![](<../.gitbook/assets/Screenshot 2022-04-21 at 12.36.44.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 18.29.17.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Your search&#x27; button on the left of the search bar highlighted "><figcaption></figcaption></figure>
+
+Click '**Clear filters**':
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 18.29.43.png" alt="Screenshot of Datashare&#x27;s page to search documents with search breadcrumb open and the &#x27;Clear filter&#x27; button highlighted"><figcaption></figcaption></figure>

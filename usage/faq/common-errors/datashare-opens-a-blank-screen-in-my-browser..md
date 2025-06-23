@@ -10,10 +10,10 @@ To uninstall Datashare:
 
 On Mac, go to 'Applications' and drag the Datashare icon to your dock's 'Trash' or right-click on the Datashare icon and click on 'Move to Trash'.
 
-![](../../../.gitbook/assets/group-28192.png)
+<figure><img src="../../../.gitbook/assets/group-28192.png" alt="Screenshot of Mac&#x27;s &#x27;Applications&#x27; window with an arrow pointing at Datashare logo"><figcaption></figcaption></figure>
 
 On Windows, please follow [these steps](https://www.laptopmag.com/articles/uninstall-programs-windows-10).
 
 On Linux, please delete the 3 containers: Datashare, Redis and Elastic Search, and the script.
 
-**To reinstall Datashare**, see 'Install Datashare' for [Mac](../../../mac/install-datashare-on-mac/), [Windows](../../../windows/install-datashare-on-mac/) or [Linux](../../../linux/install-datashare-on-mac/).
+**To reinstall Datashare**, see 'Install Datashare' for [Mac](../../../local-mode/install-datashare-on-mac/install-datashare.md), [Windows](../../../local-mode/install-datashare-on-windows/install-datashare.md) or [Linux](../../../local-mode/install-datashare-on-linux/install-datashare.md).

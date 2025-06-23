@@ -19,4 +19,4 @@ The search query sent to Elasticsearch is processed in your browser by Datashare
 
 Datashare's team attempts to make both results be similar, but slight differences can happen between the two queries.
 
-![](<../../../.gitbook/assets/datashare\_search (1).png>)
+<figure><img src="../../../.gitbook/assets/datashare_search (1).png" alt="A diagram with the title &#x27;Query from navigator&#x27;"><figcaption></figcaption></figure>

@@ -1,7 +1,5 @@
 # What are NLP pipelines?
 
-Pipelines of Natural Language Processing are tools that **automatically identify named entities** in your documents. You can only choose one at a time.
+Pipelines of Natural Language Processing are tools that **automatically identify entities** in your documents. You can only choose one model at a time for one entity detection task.
 
-Select '**CoreNLP'** if you want to use the one with the highest probability of working in most of your documents:
-
-![](../../../.gitbook/assets/2222.png)
+Open the **menu** > '**Tasks**' > '**Entities**' and [follow these instructions](../../../local-mode/find-entities.md). Select '**CoreNLP'** if you want to use the model with the highest probability of working in most of documents.

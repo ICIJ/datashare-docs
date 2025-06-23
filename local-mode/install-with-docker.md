@@ -1,5 +1,5 @@
 ---
-description: This page explain how to start Datashare within a Docker.
+description: This page will help you set up and install Datashare within a Docker.
 ---
 
 # Install with Docker
@@ -8,7 +8,7 @@ description: This page explain how to start Datashare within a Docker.
 
 Datashare platform is designed to function effectively by utilizing a combination of various services. To streamline the development and deployment workflows, Datashare relies on the use of Docker containers. Docker provides a lightweight and efficient way to package and distribute software applications, making it easier to manage dependencies and ensure consistency across different environments.
 
-[**Read more about how to install Docker on your system.**](https://docs.docker.com/engine/install/)
+[**Read more about how to install Docker on your system**](https://docs.docker.com/engine/install/)
 
 ### Starting Datashare with a single container
 
@@ -26,7 +26,7 @@ Within Datashare, Docker Compose can play a significant role in enabling the set
 
 By utilizing Docker Compose, you can define and manage multiple containers as part of a unified service. This allows for seamless orchestration and deployment of interconnected services, each serving a specific purpose within the Datashare ecosystem.
 
-Specifically, Docker Compose allows you to configure and launch separate containers for PostgreSQL, Elasticsearch, and Redis. These containers can be set up in a way that ensures their data is persistently stored, meaning that any information or changes made to the database, search index, or key-value store will be retained even if the containers are restarted or redeployed.
+Specifically, Docker Compose allows you to configure and launch separate containers for PostgreSQL, Elasticsearch, and Redis. These containers can be set up in a way that ensures their data is persistently stored, meaning that any information or changes made to the database, search index, or key-value store, will be retained even if the containers are restarted or redeployed.
 
 This separation of services using Docker Compose provides several advantages. It enhances modularity, scalability, and maintainability within the Datashare platform. It allows for independent management and scaling of each service, facilitating efficient resource utilization and enabling seamless upgrades or replacements of individual components as needed.
 
@@ -109,7 +109,7 @@ docker-compose up -d
 
 _The `-d` flag runs the containers in detached mode, allowing them to run in the background._
 
-Docker Compose will pull the necessary Docker images (if not already present) and start the containers defined in the YAML file. Datashare will take a few seconds to start. You can check the progression of this opperation with:
+Docker Compose will pull the necessary Docker images (if not already present) and start the containers defined in the YAML file. Datashare will take a few seconds to start. You can check the progression of this operation with:
 
 ```
 docker-compose logs -f datashare

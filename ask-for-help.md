@@ -1,11 +1,11 @@
 # Ask for help
 
-To report a bug, please contribute [in our GitHub](https://github.com/ICIJ/datashare/issues) detailing your logs with:
+To report a bug, please post an issue [in our GitHub](https://github.com/ICIJ/datashare/issues) detailing your logs with:
 
-* your Operating System (Mac, Windows or Linux)
-* the version of your Operating System
-* the version of Datashare
-* screenshots of your issue
-* a description of your issue.
+* Your Operating System (Mac, Windows or Linux)
+* The version of your Operating System
+* The version of Datashare
+* Screenshots of your issue
+* A description of your issue
 
-If for confidentiality reasons you don't want to open an issue on Github, please write to [datashare@icij.org](mailto:datashare@icij.org) and our team will do its best to answer you in a timely manner.
+If, for confidentiality reasons, you don't want to open an issue on Github, please write to [datashare@icij.org](mailto:datashare@icij.org).

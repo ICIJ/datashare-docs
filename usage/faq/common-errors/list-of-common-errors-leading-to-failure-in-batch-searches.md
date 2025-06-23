@@ -4,11 +4,11 @@
 
 **One or several of your queries contains syntax errors**.
 
-It means that you wrote one or more of your queries the wrong way with some characters that are reserved as operators: [**read the list of syntax errors by clicking here**](/usage/batch-search-documents#i-get-a-failure-what-does-that-mean).
+It means that you wrote one or more of your queries the wrong way with some characters that are reserved as operators: [**read the list of syntax errors by clicking here**](../../batch-search-documents.md).
 
-**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Click here to learn how to launch a batch search](/usage/batch-search-documents).
+**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Check how to create a batch search](../../batch-search-documents.md).
 
-Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your queries** as some errors can remain after correcting the first one.
+Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your quferies** as some errors can remain after correcting the first one.
 
 Example of a syntax error message:
 
@@ -18,7 +18,7 @@ _SearchException: query='AND ada' message='org.icij.datashare.batch.SearchExcept
 
 If you have a message which contain '_elasticsearch: Name does not resolve_', it means that Datashare can't make Elastic Search, its search engine, work.
 
-In that case, you need to **re-open Datashare**: \*\*\*\*here are the instructions for [Mac](/mac/open-datashare-on-mac), [Windows](/windows/open-datashare-on-windows) or [Linux](/linux/open-datashare-on-linux).
+In that case, you need to **re-start Datashare**: check how for [Mac](../../../local-mode/install-datashare-on-mac/open-datashare-on-mac.md), [Windows](../../../local-mode/install-datashare-on-windows/open-datashare-on-windows.md) or [Linux](../../../local-mode/install-datashare-on-linux/open-datashare-on-linux.md).
 
 Example of a message regarding a problem with ElasticSearch:
 

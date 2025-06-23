@@ -1,109 +1,123 @@
 ---
-description: It allows to get the results of each query of a list, but all at once.
+description: >-
+  Batch searches allow to get the results of each query of a list all at once:
+  instead of searching each query one by one, upload a list, set options/filters
+  and see the matching documents.
 ---
 
-# Search documents in batch
+# Batch search documents
 
-If you want to search a list of queries in Datashare, instead of doing each of them one by one, you can upload the list directly in Datashare.\
-To do so, you will:
+{% stepper %}
+{% step %}
+## Prepare a CSV list
 
-* Create a list of terms that you want to search in the first column of a spreadsheet
-* Export the spreadsheet as a CSV (a special format available in any spreadsheet software)
-* Upload this CSV in the "new Batch Search" form in Datashare
-* Get the results for each query in Datashare - or in a CSV.
+Open a **spreadsheet** (LibreOffice, Framacalc, Excel, Google Sheets, Numbers, ...)
 
-## Prepare your batch search
+**Write your queries** in the first column of the spreadsheet, typing **one query per line**:
 
-### **Write your queries in a spreadsheet**
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 05.33.37.png" alt="Screenshot of a spreadsheet with the first column filled with one name and surname of a female personality per cell" width="362"><figcaption><p>One query per line in a spreadsheet</p></figcaption></figure>
 
-* **Write your queries**, one per line and per cell, in the first column of a spreadsheet (Excel, Google Sheets, Numbers, Framacalc, etc.). In the example below, there are 4 queries:
 
-![](../.gitbook/assets/screenshot-2019-09-25-at-16.06.40.png)
 
 * **Do not put line break(s)** in any of your cells.
 
-![This will lead to a "failure".](../.gitbook/assets/screenshot-2020-02-03-at-12.18.04.png)
+<figure><img src="../.gitbook/assets/screenshot-2020-02-03-at-12.18.04.png" alt="Screenshot of a spreadsheet cell filled with a text containing a line break and a red cross indicates it is wrong" width="375"><figcaption><p>This will lead to a "failure"</p></figcaption></figure>
 
-![This will lead to a "success".](../.gitbook/assets/screenshot-2020-02-03-at-12.18.09.png)
+<figure><img src="../.gitbook/assets/screenshot-2020-02-03-at-12.18.09.png" alt="Screenshot of a spreadsheet cell filled with a text not containing a line break and a green check indicates it is right" width="375"><figcaption><p>This will lead to a "success"</p></figcaption></figure>
 
-To delete line break(s) in your spreadsheet, you can use the "**Find and replace all**" functionality. Find all **"\n"** and replace them all by **nothing or a space**.
+To delete all line breaks in your spreadsheet, use '**Find and replace all**': find all '**\n'** and replace them by **nothing or a space**.
 
-![Use this functionality to delete all line break(s)](../.gitbook/assets/screenshot-2020-02-03-at-11.51.34.png)
+<figure><img src="../.gitbook/assets/screenshot-2020-02-03-at-11.51.34.png" alt="Screenshot of a spreadsheet software&#x27;s &#x27;Find and replace&#x27; window with the &#x27;Replace all&#x27; button highlighted" width="375"><figcaption><p>Use this functionality to delete all line break(s)</p></figcaption></figure>
 
-* Write **2 characters minimum in the cells**. If one cell contains one character but at least one other cell contains more than one, the cell containing one character will be ignored. If all cells contain only one character, the batch search will lead to 'failure'.
+
+
+* Write **2 characters minimum in each query**. If one cell contains one character but at least one other cell contains more than one, the cell containing one character will be ignored. If all cells contain only one character, the batch search will lead to a 'failure'.
+
+
+
 * If you have **blank cells in your spreadsheet...**
 
-![](../.gitbook/assets/screenshot-2019-11-04-at-16.12.23.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 05.51.52.png" alt="Screenshot of a spreadsheet with the first column filled with one name and surname of a female personality per cell and other columns from B to H empty and highlighted " width="563"><figcaption><p>Blank columns in a spreadsheet</p></figcaption></figure>
 
-...the CSV (which stand for 'Comma-separated values') will keep these blank cells. It will separate them with semicolons (the 'commas'). You will thus have semicolons in your batch search results _(see screenshot below)_. To avoid that, **you need to remove blank cells in your spreadsheet before exporting it as a CSV**.
+...the CSV, which stand for 'Comma-separated values', will translate these blank cells into semicolons (the 'commas'). You will thus see semicolons in your batch search results:
 
-![Remove blank cells in your spreadsheet in order to avoid this.](../.gitbook/assets/screenshot-2019-09-27-at-10.51.29.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 05.50.49.png" alt="Screenshot of Datashare&#x27;s batch search page where each query with the female personality&#x27;s surname is followed by several semicolons which are highlighted"><figcaption><p>Remove blank cells in your spreadsheet in order to avoid this.</p></figcaption></figure>
 
-* **If there is a comma in one of your cells** (like in "1,8 million" in our example above), the CSV will formally put the content of the cell in double quotes in your results and search for the exact phrase in double quotes.
+To avoid that, **remove blank cells in your spreadsheet before exporting it as a CSV.**
 
-![](../.gitbook/assets/screenshot-2019-11-04-at-16.20.29.png)
 
-### Want to search only on some documents?
 
-In the [new Batch Search's form > Advanced Filters](batch-search-documents/#launch-your-batch-search), you will be able to select some file types and some paths if you want to search only in some documents.
+* **If there is a comma in one of your cells** (like in 'Jane, Austen' below), the CSV will put the content of the cell in double quotes so it will search for the exact phrase in the documents:
 
-But you can also use [fields directly in your queries in the CSV](search-with-operators/#advanced-searches-using-metadata-fields).
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 05.54.10.png" alt="Screenshot of a spreadsheet with the first column filled with one name and surname of a female personality per cell and the second cell contains &#x27;Jane, Austen&#x27; and is highlighted" width="176"><figcaption></figcaption></figure>
 
-For instance, if you want to search only in some documents with certain tag(s), you can write your queries like this: "Paris AND (tags:London OR tags:Madrid NOT tags:Cotonou)".
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 05.56.55.png" alt="Screenshot of Datashare&#x27;s batch search page where two queries are highlighted: one is &#x27;Jane, Austen&#x27; and has 0 documents as results and the second one is &#x27;Jane Austen&#x27; and has 2 documents as results is &#x27;Jane Austen&#x27;"><figcaption></figcaption></figure>
 
-### Use operators in your CSV
+**Remove all commas in your spreadsheet** if you want to avoid exact phrase search.
 
-[The operators](search-with-operators/) AND NOT \* ? ! + - do work in batch searches (as they do in the regular search bar) **but only if "Do phrase match" in Advanced filters is turned off.**
 
-Reserved characters, when misused, can lead to [**failures**](batch-search-documents/#i-get-a-failure-what-does-that-mean) **because of syntax errors.**
 
-Please also note that searches are **not case sensitive**: if you search 'HeLlo', it will look for all occurrences of 'Hello', 'hello', 'hEllo', 'heLLo', etc. in the documents.
+*   **Want to search only in some documents?** Use the 'Filters' step in the batch search's form (see below). Or **describe fields directly in your queries in the CSV**. For instance, if you want to search only in some documents **with certain tags**, write your queries like this:&#x20;
 
-### Export your CSV encoded in UTF-8
+    <kbd>Paris AND (tags:London OR tags:Madrid NOT tags:Cotonou)</kbd>
 
-Export your spreadsheet in a CSV format like this:
 
-![](../.gitbook/assets/screenshot-2019-09-25-at-16.10.06.png)
 
-**Important: Use the** [**UTF-8 encoding**](https://en.wikipedia.org/wiki/UTF-8)**.**
+*   **Use operators in your CSV**: AND NOT \* ? ! + - and other operators do work in batch searches as they do in the regular search bar **but only if "Do phrase match" at step 3 is turned off.** You can thus turn it off and write your queries like this for instance:
+
+    <kbd>Paris NOT Barcelona AND Taipei</kbd> &#x20;
+
+
+
+* Reserved characters (^ " ? ( \[ \*), when misused, can lead to **failures** **because of syntax errors.**
+
+
+
+* Searches are **not case sensitive**: if you search 'HeLlo', it will look for all occurrences of 'Hello', 'hello', 'hEllo', 'heLLo', etc. in the documents.
+
+
+{% endstep %}
+
+{% step %}
+## Export the list as a CSV
+
+Export your spreadsheet of queries in a CSV format:
+
+<figure><img src="../.gitbook/assets/screenshot-2019-09-25-at-16.10.06.png" alt="Screenshot of a window of &#x27;Numbers&#x27; software where the menu&#x27;s path File > Export to > CSV is selected"><figcaption></figcaption></figure>
+
+**Important: Use the** [**UTF-8 encoding**](https://en.wikipedia.org/wiki/UTF-8) **in your spreadsheet software's settings.**
+
+
 
 * **LibreOffice Calc**: it uses UTF-8 by default. If not, go to LibreOffice menu > Preferences > Load/Save > HTML Compatibility and make sur the character set is 'Unicode (UTF-8)':
 
-![](../.gitbook/assets/screenshot-2020-02-04-at-22.00.07.png)
+<figure><img src="../.gitbook/assets/screenshot-2020-02-04-at-22.00.07.png" alt="Screenshot of a window of LibreOffice software where the Export options with &#x27;Character set: Unicode (UTF-8)&#x27; is highlighted"><figcaption></figcaption></figure>
 
-* **Microsoft Excel**: if it is not set by default, select "CSV UTF-8" as one of the formats, [as explained here](https://answers.microsoft.com/en-us/msoffice/forum/msoffice\_excel-mso\_win10-mso\_365hp/save-as-csv-with-utf-8-encoding/ff94943c-db5b-42c3-8905-f86d3d8d52c2).
+* **Microsoft Excel**: if it is not set by default, select "CSV UTF-8" as one of the formats, [as explained here](https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-mso_win10-mso_365hp/save-as-csv-with-utf-8-encoding/ff94943c-db5b-42c3-8905-f86d3d8d52c2).
 * **Google Sheets**: it uses UTF-8 by default. Just click "Export to" and "CSV".
-* **Other spreadsheet softwares:** please refer to each software's user guide.
 
-## Launch your batch search
 
-* Open Datashare, click '**Batch searches**' in the left menu and click '**New batch search**' on the top right:
+{% endstep %}
 
-![](<../.gitbook/assets/screenshot-2020-08-21-at-15.45.32 (1).png>)
+{% step %}
+## Create the batch search
 
-* Type a **name** for your batch search:
+Open the menu, go to '**Tasks**', open '**Batch searches**' and click the **'Plus' button** at the top right:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.47.29.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.09.32.png" alt="Screenshot of Datashare&#x27;s batch searches page where the &#x27;Plus&#x27; button on the top right is highlighted"><figcaption></figcaption></figure>
 
-* Upload your **CSV**:
+Alternatively, in the menu next to 'Batch searches', click the **'Plus' button** :
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.49.51.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.10.43.png" alt="Screenshot of Datashare&#x27;s batch searches page where the &#x27;Plus&#x27; button in the menu next to the entry &#x27;Tasks > Batch searches&#x27; is highlighted"><figcaption></figcaption></figure>
 
-* Add a **description** (optional):
+The form to create a batch search opens:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.50.59.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.12.09.png" alt="Screenshot of Datashare&#x27;s page with a form to create a new batch search"><figcaption></figcaption></figure>
 
-* Set the **advanced filters** ('Do phrase matches', 'Fuzziness' or 'Proximity searches', 'File types' and 'Path') according to your preferences:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.51.57.png)
 
-### What is 'Do phrase matches'?
-
-'Do phrase matches' is the equivalent of double quotes: it looks for documents containing an **exact sentence or phrase**. If you turn it on, all queries will be search for their exact mention in documents as if Datashare added double quotes around each query.
-
-### What is fuzziness?
-
-When you run a [batch search](batch-search-documents/), you can set the fuzziness to 0, 1 or 2. It will apply to each term in a query. It corresponds to **the maximum number of operations (insertions, deletions, substitutions and transpositions)** on _**characters**_ needed to make one _**term**_ match the other.
+* **Do phrase matches**' is the equivalent of double quotes: it looks for documents containing an **exact sentence or phrase**. If you turn it on, all queries will be search for their exact mention in documents as if Datashare added double quotes around each query. In that case, it won't apply any operators (AND OR, etc) that would be in the queries. If 'Do phrase match' is off, queries are searched without double quotes and with potential operators.
+* What is **fuzziness**? When you run a [batch search](batch-search-documents.md), you can set the fuzziness to 0, 1 or 2. It will apply to each term in a query. It corresponds to **the maximum number of operations (insertions, deletions, substitutions and transpositions)** on _**characters**_ needed to make one _**term**_ match the other.
 
 > kitten -> sitten (1 substitution (k turned into s) = fuzziness is 1)
 
@@ -111,17 +125,15 @@ When you run a [batch search](batch-search-documents/), you can set the fuzzines
 
 If you search for similar terms (**to catch typos for example**), use fuzziness.
 
-"_The default edit distance is 2, but an edit distance of 1 should be sufficient to catch 80% of all human misspellings. It can be specified as: quikc\~1_" (source: [Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/7.0/query-dsl-query-string-query.html#\_fuzziness)).
+"_The default edit distance is 2, but an edit distance of 1 should be sufficient to catch 80% of all human misspellings. It can be specified as: quikc\~1_" (source: [Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/7.0/query-dsl-query-string-query.html#_fuzziness)).
 
 > Example: quikc\~ brwn\~ foks\~ (as the default edit distance is 2, this query will catch all quick, quack, quock, uqikc, etc. as well as brown, folks, etc.)
 >
 > Example: Datashare\~1 (this query will catch Datasahre, Dqtashare, etc.)
 
-####
 
-### What are proximity searches?
 
-When you turn on 'Do phrase matches', you can set, in 'Proximity searches', the **maximum number of operations (insertions, deletions, substitutions and transpositions)** on _**terms**_ needed to make one _**phrase**_ match the other.
+* What are **proximity searches**? When you turn on 'Do phrase matches', you can set, in 'Proximity searches', the **maximum number of operations (insertions, deletions, substitutions and transpositions)** on _**terms**_ needed to make one _**phrase**_ match the other.
 
 > “the cat is blue” -> “the small cat is blue” (1 insertion = fuzziness is 1)
 
@@ -129,96 +141,93 @@ When you turn on 'Do phrase matches', you can set, in 'Proximity searches', the 
 
 > Example: "fox quick"\~5 (this query will catch "quick brown fox", "quick brown car thin fox" or even "quick brown car thin blue tree fox"
 
-* Click '**Add**'. Your batch search will appear in the table of batch searches.
+Once you filled all steps, click '**Create**' and wait for the batch search to complete.
+{% endstep %}
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.52.58.png)
+{% step %}
+## Explore your results
 
-## Get your results
+In the menu, click '**Batch searches**' and click the **name of the batch search** to open it:
 
-* Open your batch search by clicking its name:
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.28.44.png" alt="Screenshot of Datashare&#x27;s batch searches page where the first batch search&#x27;s name is highlighted"><figcaption></figcaption></figure>
 
-![](<../.gitbook/assets/screenshot-2020-08-21-at-15.55.14 (1).png>)
+See the **number of matching documents per query**:
 
-* You see your results and you can **sort them** by clicking the column's name. 'Rank' means the order by which each queries would be sorted out if run in Datashare's main search bar. They are thus sorted by **relevance score by default**.
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.24.16.png" alt="Screenshot of Datashare&#x27;s page for one batch search where the list of queries and their matching documents are highlighted"><figcaption></figcaption></figure>
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.56.25.png)
+Sort the queries by **number of matching documents** or by **query position** using the page settings (icon at the top right of the screen). The query position will put the query in their original order as you put them in the CSV.
 
-* You can **click on a document's name** and it will open it in a new tab:
+To explore a query's matching documents, click its name and see the **list of matching documents**:
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-16.03.13.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.26.40.png" alt="Screenshot of Datashare&#x27;s page for one batch search&#x27;s matching documents "><figcaption></figcaption></figure>
 
-* You can **filter your results by query** and read how many documents there are for each query:
+Click a document's name to open it. Use the page settings or the column's names to sort documents.
+{% endstep %}
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-15.54.33.png)
+{% step %}
+## Relaunch a batch search (optional)
 
-You can **search for specific queries**:
+If you've added new files in Datashare after you launched a batch search, you might want to relaunch the batch search to search in the new documents too.&#x20;
 
-![](../.gitbook/assets/screenshot-2020-08-21-at-16.05.57.png)
+The relaunched batch search will apply to newly indexed documents _and_ previously indexed documents (not only the newly indexed ones).
 
-* You can also **download your results** in a CSV format:
+In 'Batch searches', go at the end of the table and click the '**Relaunch**' icon:
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.17.38.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.32.07.png" alt="Screenshot of Datashare&#x27;s batch searches page where the last button with the &#x27;Relaunch&#x27; icon is highlighted"><figcaption></figcaption></figure>
 
-## Relaunch your batch search
+Or click '**Relaunch**' in the batch search page below its name on the right panel:
 
-If you add more and more files in Datashare, you might want to relaunch existing batch search on your new documents too.
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.33.18.png" alt="Screenshot of Datashare&#x27;s page for one batch search where the &#x27;Relaunch&#x27; button in the right panel describing the batch search is highlighted"><figcaption></figcaption></figure>
 
-Notes:
+Change its name, description and decide to delete current batch search after relaunch or not:
 
-* In the server collaborative mode, you can only relaunch your own batch searches, not others'.
-* The relaunched batch search will apply to your whole corpus, newly indexed documents _and_ previously indexed documents (not only the newly indexed ones).
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.34.24.png" alt="Screenshot of Datashare&#x27;s page for one batch search where the &#x27;Relaunch batch search&#x27; pop-in window is open"><figcaption></figcaption></figure>
 
-1. To do so, open the batch search that you'd like to relaunch and click 'Relaunch':
+See your relaunched batch search in the list of batch searches:
 
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.05.22.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-08 at 06.36.36.png" alt="Screenshot of Datashare&#x27;s batch searches page where the two first batch searches (one normal, one relaunched) are highlighted"><figcaption></figcaption></figure>
+{% endstep %}
 
-1. Edit the name and the description of your batch search if needed:
-
-![](<../.gitbook/assets/screenshot-2021-02-09-at-15.05.46 (1).png>)
-
-1. You can choose to delete the current batch search after relaunching it:
-
-Note: if you're worried about losing your previous results because of an error, we recommend to keep your current batch search (turn off this toggle button) and delete it only after the relaunch is a success.
-
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.06.07.png)
-
-1. Click 'Submit':
-
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.06.23.png)
-
-You can see your relaunched batch search running in the batch search's list:
-
-![](../.gitbook/assets/screenshot-2021-02-09-at-15.07.07.png)
-
-## I get a "failure". What does that mean?
+{% step %}
+### Failures
 
 Failures in batch searches can be due to several causes.
 
-Click the **'See error' button** to open the error window:
-
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.28.52.png)
-
+{% hint style="info" %}
 The **first query containing an error makes the batch search fail and stop.**
+{% endhint %}
 
-Check this first failure-generating query in the error window:
+Go to '**Tasks**' > '**Batch searches**' > open the **batch search with a failure status** and click the **'Red cross icon' button** on the right panel:
 
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.30.14.png)
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 07.55.05.png" alt="Screenshot of Datashare&#x27;s batch search page where the &#x27;Failure&#x27; button in the right panel describing the batch search is highlighted"><figcaption></figcaption></figure>
 
-In the case above, the slash (/) used between 'Heroin' and 'Opiates' is a [reserved character that was not escaped by a backslash](batch-search-documents/#the-query-uses-square-brackets) so Datashare interpreted this query as a syntax error, failed and didn't go further so the batch search stopped.
+Check the **first failure-generating query** in the error window:
 
-We recommend to remove the slash, as well as any reserved characters, and re-run the batch search again.
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 08.00.52.png" alt="Screenshot of Datashare&#x27;s batch search page where a modal window shows &#x27;The error is&#x27; with a description of the error &#x27;Unexpected char 106 at (line no=1, column no=81, offset=80)&#x27;"><figcaption></figcaption></figure>
+
+Here it says:
+
+```
+Unexpected char 106 at (line no=1, column no=81, offset=80)
+```
+
+The first line contained a **comma** while it shouldn't. Datashare interpreted this query as a **syntax error**, it thus failed so the batch search stopped.&#x20;
+
+Check [**the most common syntax errors**](faq/common-errors/your-search-query-is-wrong.md)**.**
+
+We recommend to remove the commas, as well as any reserved characters, in your CSV using 'Find and replace all' features in your spreadsheet software and re-create the batch search.
 
 ### 'elasticsearch: Name does not resolve'
 
 If you have a message which contain '_elasticsearch: Name does not resolve_', it means that Datashare can't make Elastic Search, its search engine, work.
 
-In that case, you need to **re-open Datashare**: \*\*\*\*here are the instructions for [Mac](../mac/open-datashare-on-mac/), [Windows](../windows/open-datashare-on-windows/) or [Linux](../linux/open-datashare-on-linux/).
+In that case, you need to **re-open Datashare**: check how for [Mac](../local-mode/install-datashare-on-mac/open-datashare-on-mac.md), [Windows](../local-mode/install-datashare-on-windows/open-datashare-on-windows.md) or [Linux](../local-mode/install-datashare-on-linux/open-datashare-on-linux.md).
 
 Example of a message regarding a problem with ElasticSearch:
 
-_SearchException: query='lovelace' message='org.icij.datashare.batch.SearchException: java.io.IOException: elasticsearch: Name does not resolve'_
+<kbd>`SearchException: query='lovelace' message='org.icij.datashare.batch.SearchException: java.io.IOException: elasticsearch: Name does not resolve'`</kbd>
 
-\_\_
+
 
 ### 'Data too large'
 
@@ -227,91 +236,10 @@ One of your queries can lead to a 'Data too large' error.
 It means that this query had too many results or in their results, some documents that were too big to process for Datashare. This makes the search engine fail.
 
 We recommend to **remove the query responsible for the error and re-start your batch search without the query which led to the 'Data too large' error.**
+{% endstep %}
+{% endstepper %}
 
-\*\*\*\*
 
-### 'SearchException: query='AND ada' '
 
-**One or several of your queries contains syntax errors**.
 
-It means that you wrote one or more of your queries the wrong way with some characters that are reserved as operators (see below).
 
-**You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Click here to learn how to launch a batch search](batch-search-documents/).
-
-Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your queries** as some errors can remain after correcting the first one.
-
-They are more likely to happen **when 'do phrase matches' toggle button is turned off:**
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.21.30.png)
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.20.07.png)
-
-When 'Do phrase matches' is on, syntax error can still happen though:
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.47.55.png)
-
-Here are **the most common errors:**
-
-### **- A query starts with AND** (all uppercase)
-
-You cannot start a query with AND all uppercase, neither in Datashare's main search bar nor in your CSV. [AND is reserved as a search operator](search-with-operators/#and).
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-14.53.32.png)
-
-### **- A query starts with OR** (all uppercase)
-
-You cannot start a query with OR all uppercase, neither in Datashare's main search bar nor in your CSV. [OR is reserved as a search operator](search-with-operators/#or-or-space).
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-14.58.08.png)
-
-### **- A query contains only one double quote or a double quote in a word**
-
-You cannot type a query with only one double quote, neither in Datashare's main search bar nor in your CSV. [Double quotes are reserved as a search operator](search-with-operators/#exact-phrase).
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.41.png)
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.51.png)
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.23.01.png)
-
-### **- A query starts with or contains tilde** (\~) inside a term
-
-You cannot start a query with tilde (\~) or make one contain a tilde, neither in Datashare's main search bar nor in your CSV. Tilde is reserved as a search operator for [fuzziness](../faq-definitions/what-is-fuzziness/) or [proximity searches](../faq-definitions/what-are-proximity-searches/).
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.03.59.png)
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-14.59.36.png)
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.02.40.png)
-
-### **- A query starts with or contains a caret** (^)
-
-You cannot start a query with caret (^) or make it contain a caret, neither in Datashare's main search bar nor in your CSV. [Caret is reserved as a boosting operator](search-with-operators/#boosting-operators).
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.05.05.png)
-
-![](../.gitbook/assets/screenshot-2019-10-31-at-15.06.28.png)
-
-### - A query contains one slash (/) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
-
-You cannot start a query with slash (/) or make it contain a slash, neither in Datashare's main search bar nor in your CSV. [Slash is a reserved character to open Regex ('regular expressions')](search-with-operators/#regular-expressions-regex). Note that you can use Regex in batch searches.
-
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.54.23.png)
-
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.55.02.png)
-
-![](../.gitbook/assets/screenshot-2020-12-09-at-17.54.51.png)
-
-### - A query uses square brackets (\[ ]) <a href="#the-query-uses-square-brackets" id="the-query-uses-square-brackets"></a>
-
-You cannot use square brackets [except for searching for ranges](search-with-operators/#advanced-searches-using-metadata-fields).![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LWCyd3pDXO\_H4jk9DgG%2F-LvAEiaXbwQuvR2FuRkC%2F-LvAHL6A3cm6S0jBS0Ef%2FScreenshot%202019-12-03%20at%2010.31.31.png?alt=media\&token=dcf90492-48ee-4b50-9464-e729a41b56dc)
-
-## Delete your batch search
-
-Open your batch search and click the **trash icon**:
-
-![](../.gitbook/assets/screenshot-2020-08-31-at-17.27.40.png)
-
-Then click **'Yes'**:
-
-![](../.gitbook/assets/screenshot-2020-08-31-at-17.29.03.png)

@@ -2,11 +2,11 @@
 description: OAuth2 authentication with a third-party id service
 ---
 
-# OAuth2CookieFilter
+# OAuth2
 
-This is the default authentication mode: if not provided in CLI it will be selected. With OAuth2 you will need a third-party authorization service. The diagram below describes the workflow:
+This is the default authentication mode: if not provided in CLI, it will be selected. With OAuth2 you will need a third-party authorization service. The diagram below describes the workflow:
 
-![oauth](https://i.imgur.com/uHVXObS.png)
+<figure><img src="https://i.imgur.com/uHVXObS.png" alt="A diagram of a workflow"><figcaption><p>oauth</p></figcaption></figure>
 
 ## Example
 
