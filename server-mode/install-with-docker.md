@@ -20,7 +20,7 @@ Specifically, Docker Compose allows you to configure and launch separate contain
 
 This separation of services using Docker Compose provides several advantages. It enhances modularity, scalability, and maintainability within the Datashare platform. It allows for independent management and scaling of each service, facilitating efficient resource utilization and enabling seamless upgrades or replacements of individual components as needed.
 
-To start Datashare in server mode with [Docker Compose](https://docs.docker.com/compose/), you can use the following **docker-compose.yml** file:
+To start Datashare in server mode with [Docker Compose](https://docs.docker.com/compose/), you can use the following **docker-compose.yml** file for version 20.1.4 (check latest version on [https://datashare.icij.org/](https://datashare.icij.org/)):
 
 {% code fullWidth="true" %}
 ```yaml
