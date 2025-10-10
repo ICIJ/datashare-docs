@@ -8,7 +8,7 @@
 * [About ICIJ](https://www.icij.org/about/)
 * [Github](https://github.com/ICIJ/datashare)
 
-## 💻 On your computer <a href="#local-mode" id="local-mode"></a>
+## On your computer <a href="#local-mode" id="local-mode"></a>
 
 * [About the local mode](local-mode/about-the-local-mode.md)
 * [Install on Mac](local-mode/install-datashare-on-mac/README.md)
@@ -31,7 +31,7 @@
   * [Install Neo4j plugin](local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
   * [Create and update Neo4j graph](local-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
 
-## 🌐 On your server <a href="#server-mode" id="server-mode"></a>
+## On your server <a href="#server-mode" id="server-mode"></a>
 
 * [About the server mode](server-mode/about-the-server-mode.md)
 * [Install with Docker](server-mode/install-with-docker.md)
@@ -47,7 +47,7 @@
   * [Create and update Neo4j graph](server-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
 * [Performance considerations](server-mode/performance-considerations.md)
 
-## ⚡ Usage
+## Usage
 
 * [Search projects](usage/search-projects.md)
 * [Explore a project](usage/explore-a-project.md)
@@ -88,7 +88,7 @@
     * [I see entities in the filters but not in the documents](usage/faq/common-errors/i-see-people-organizations-and-locations-in-the-filters-but-not-in-the-documents.md)
     * [Datashare doesn't open. What should I do?](usage/faq/common-errors/datashare-doesnt-open.-what-should-i-do.md)
 
-## 🤓 Developers
+## Developers
 
 * [How to contribute](developers/how-to-contribute.md)
 * [Backend](developers/backend/README.md)

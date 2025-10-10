@@ -12,6 +12,12 @@ The installer will set up:
 
 **Note:** Previous versions of this document referred to a "Docker Installer". We do not provide this installer anymore but Datashare is still [published on the Docker Hub](https://hub.docker.com/r/icij/datashare) and supported with Docker.
 
+**Installation fails:** &#x20;
+
+* Fail to install MacPorts: you can manually install [Homebrew](https://brew.sh/) first and then restart the installer.&#x20;
+* "System Software from application was blocked from loading" : Check in your Mac's "System Settings" > "privacy & security" if you have a section with this mention "System software from application 'Datashare' was blocked from loading" or something similar related to Datashare. If you have this section you'll have to click "Allow" to be able to install datashare.
+* For any other issue check our [Github issues](https://github.com/ICIJ/datashare/issues) or [create a new one](https://github.com/ICIJ/datashare/issues/new?template=bug_report.md) with your setup (macOs version) and installer logs (Command+L when the installer is launched and failed).
+
 {% stepper %}
 {% step %}
 ### **Download Datashare**
