@@ -27,78 +27,29 @@ To start Datashare in server mode with [Docker Compose](https://docs.docker.com/
 version: "3.7"
 services:
 
-  # This is the main Datashare service that serves the web interface. 
-  # Here it is configured with a "dummy" authentication backend which 
-  # creates epehemeral user sessions.
-  datashare_web:
-    image: icij/datashare:18.1.3
+  datashare:
+    image: icij/datashare:20.1.4
     hostname: datashare
     ports:
       - 8080:8080
     environment:
-      - DS_DOCKER_MOUNTED_DATA_DIR=${HOME}/Datashare
+      - DS_DOCKER_MOUNTED_DATA_DIR=/home/datashare/data
     volumes:
       - type: bind
         source: ${HOME}/Datashare
-        target: /home/datashare/Datashare
-    depends_on:
-      postgresql:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-      elasticsearch:
-        condition: service_healthy
+        target: /home/datashare/data
+      - type: volume
+        source: datashare-models
+        target: /home/datashare/dist
     command: >-
-      --mode SERVER
-      --dataDir /home/datashare/Datashare
-      --pluginsDir /home/datashare/plugins
-      --extensionsDir /home/datashare/extensions
-      --authFilter org.icij.datashare.session.YesCookieAuthFilter
-      --busType REDIS
-      --batchQueueType REDIS
       --dataSourceUrl jdbc:postgresql://postgresql/datashare?user=datashare\&password=password 
-      --defaultProject secret-project
-      --elasticsearchAddress http://elasticsearch:9200      
-      --messageBusAddress redis://redis:6379
-      --queueType REDIS
-      --redisAddress redis://redis:6379  
-      --rootHost http://localhost:8080
-      --sessionStoreType REDIS
-      --sessionTtlSeconds 43200
+      --mode LOCAL
       --tcpListenPort 8080
-
-  # We use a service to create the "secret-project". In theory you only need 
-  # to run it the first time you start Datashare. 
-  datashare_create_project:
-    image: icij/datashare:18.1.3
-    restart: no
     depends_on:
-      elasticsearch:
-        condition: service_healthy
-    command: >-
-      --defaultProject secret-project 
-      --mode CLI 
-      --stage INDEX 
-      --elasticsearchAddress http://elasticsearch:9200
+      - postgresql
+      - redis
+      - elasticsearch
 
-  # This service starts a deamon that wait for background tasks
-  # so it can run them (and save them in the database).
-  datashare_task:
-    image: icij/datashare:18.1.3
-    depends_on:
-      - datashare_web
-    command: >-
-      --mode TASK_RUNNER
-      --batchQueueType REDIS
-      --batchThrottleMilliseconds 500
-      --busType REDIS
-      --dataSourceUrl jdbc:postgresql://postgresql/datashare?user=datashare\&password=password
-      --defaultProject secret-project 
-      --elasticsearchAddress http://elasticsearch:9200  
-      --queueType REDIS
-      --redisAddress redis://redis:6379
-      --scrollSize 100  
-      
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
     restart: on-failure
@@ -117,8 +68,10 @@ services:
       - "http.cors.enabled=true"
       - "http.cors.allow-origin=*"
       - "http.cors.allow-methods=OPTIONS, HEAD, GET, POST, PUT, DELETE"
-    healthcheck:
-      test: ["CMD-SHELL", "curl --silent --fail elasticsearch:9200/_cluster/health || exit 1"]
+
+  redis:
+    image: redis:4.0.1-alpine
+    restart: on-failure
 
   postgresql:
     image: postgres:12-alpine
@@ -126,31 +79,15 @@ services:
       - POSTGRES_USER=datashare
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=datashare
-      # This is needed by the heathcheck command
-      # @see https://stackoverflow.com/a/60194261
-      - PGUSER=datashare
     volumes:
       - type: volume
         source: postgresql-data
         target: /var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready", "-U", "datashare", "-d", "datashare"]
-  
-  redis:
-    image: redis:4.0.1-alpine
-    restart: on-failure
-    volumes:
-      - type: volume
-        source: redis-data
-        target: /data
-    healthcheck:
-      test: ["CMD-SHELL", "redis-cli", "--raw", "incr", "ping"]
 
 volumes:
-  datashare-batchdownload-dir:
+  datashare-models:
   elasticsearch-data:
   postgresql-data:
-  redis-data:
 ```
 {% endcode %}
 
