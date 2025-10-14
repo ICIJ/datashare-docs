@@ -8,11 +8,13 @@ description: >-
 
 ## Run the Neo4j extension CLI
 
-The Neo4j related features are added to the DatashareCLI through the extension mechanism. In order to run the extended CLI, the Java `CLASSPATH` must be extended with the path of the `datashare-extension-neo4j` jar. By default, this jar is located in `/home/datashare/extensions`, so the CLI will be run as following:
+The Neo4j related features are added to the DatashareCLI through the extension mechanism. In order to run the extended CLI, the Java `CLASSPATH` must be extended with the path of the `datashare-extension-neo4j` jar. By default, this jar is located in `/home/.local/share/datashare/extensions`, so the CLI will be run as following:
 
 ```bash
 docker compose exec \
-  -e CLASSPATH=/home/datashare/extensions/* \
+  # if you are not using the default extensions directory  
+  # you have to specify it extending the CLASSPATH variable ex:
+  # -e CLASSPATH=/home/datashare/extensions/* \ 
   datashare_web /entrypoint.sh \
   --mode CLI \
   --ext neo4j \
@@ -25,7 +27,6 @@ In order to create the graph, run the `--fullImport` command for your project:
 
 ```bash
 docker compose exec \
-  -e CLASSPATH=/home/datashare/extensions/* \
   datashare_web /entrypoint.sh \
   --mode CLI \
   --ext neo4j \
@@ -43,7 +44,6 @@ To update the graph, you can just re-run the full export:
 
 ```bash
 docker compose exec \
-  -e CLASSPATH=/home/datashare/extensions/datashare-extension-*.jar \
   datashare_web /entrypoint.sh \
   --mode CLI \
   --ext neo4j \
