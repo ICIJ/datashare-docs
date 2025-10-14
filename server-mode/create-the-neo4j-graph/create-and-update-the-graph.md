@@ -8,7 +8,7 @@ description: >-
 
 ## Run the Neo4j extension CLI
 
-The Neo4j related features are added to the DatashareCLI through the extension mechanism. In order to run the extended CLI, the Java `CLASSPATH` must be extended with the path of the `datashare-extension-neo4j` jar. By default, this jar is located in `/home/.local/share/datashare/extensions`, so the CLI will be run as following:
+The Neo4j related features are added to the DatashareCLI through the extension mechanism. In order to run the extended CLI, the Java `CLASSPATH` must be extended with the path of the `datashare-extension-neo4j` jar. By default, this jar is located in `/home/.local/share/datashare/extensions/*`, so the CLI will be run as following:
 
 ```bash
 docker compose exec \
