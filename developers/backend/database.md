@@ -220,6 +220,7 @@ Column | Type | Nullable | Default
 `path` | `character varying(4096)` |  | 
 `note` | `text` |  | 
 `variant` | `character varying(16)` |  | 
+`blur_sensitive_media` | `boolean` | `not null` | `false`
 
 ### Constraints and indexes
 
