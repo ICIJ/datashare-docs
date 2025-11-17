@@ -101,6 +101,18 @@ volumes:
 ```
 {% endcode %}
 
+{% hint style="info" %}
+**Apple Silicon (M1/M2/M3) users:**
+
+If you encounter the error `Error response from daemon: no matching manifest for linux/arm64/v8 in the manifest list entries`
+when pulling the `redis` Docker image, add the following line to the `redis` service in your `docker-compose.yml`:
+
+```yaml
+platform: linux/x86_64
+```
+This forces Docker to use the x86_64 image, which is necessary because some Redis images do not provide ARM64 builds.
+{% endhint %}
+
 Open a terminal or command prompt and navigate to the directory where you saved the `docker-compose.yml` file. Then run the following command to start the Datashare service:
 
 ```
