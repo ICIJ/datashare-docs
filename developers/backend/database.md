@@ -342,3 +342,19 @@ Column | Type | Nullable | Default
 
 *****
 
+## `user_policy`
+
+Column | Type | Nullable | Default
+--- | --- | --- | ---
+`user_id` | `character varying(96)` | `not null` | 
+`prj_id` | `character varying(96)` | `not null` | 
+`read` | `boolean` | `not null` | 
+`write` | `boolean` | `not null` | 
+`admin` | `boolean` | `not null` | 
+
+### Constraints and indexes
+
+* `idx_user_policy_unique UNIQUE, btree (user_id, prj_id)`
+
+*****
+
