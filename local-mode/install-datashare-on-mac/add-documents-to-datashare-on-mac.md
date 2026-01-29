@@ -8,43 +8,41 @@ description: >-
 
 {% stepper %}
 {% step %}
-### Find your Datashare folder on your Mac
+#### Find your Datashare folder on your Mac
 
 Open your Mac's '**Finder**' by clicking on the blue smiling icon in your Mac's '**Dock**':
 
-<figure><img src="../../.gitbook/assets/screen-shot-2019-01-14-at-10.09.55-pm.png" alt="Screenshot of Mac&#x27;s dock where the Finder is active in first position"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2019-01-14 at 10.09.55 PM (1).png" alt="Screenshot of Mac&#x27;s dock where the Finder is active in first position"><figcaption></figcaption></figure>
 
 On the menu bar at the top of your computer, click '**Go**' and '**Home**' (the house icon):
 
-<figure><img src="../../.gitbook/assets/add-doc-mac2.png" alt="Screenshot of Mac&#x27;s Finder window with a dropdown menu below the &#x27;Go&#x27; entry with the &#x27;Home&#x27; entry highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Add doc Mac2 (1).png" alt="Screenshot of Mac&#x27;s Finder window with a dropdown menu below the &#x27;Go&#x27; entry with the &#x27;Home&#x27; entry highlighted"><figcaption></figcaption></figure>
 
 You will see a folder called '**Datashare**':
 
-<figure><img src="../../.gitbook/assets/add-doc-mac.png" alt="Screenshot of Mac&#x27;s Home window with an arrow pointing at the &#x27;Datashare&#x27; folder in the list"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Add doc Mac (1).png" alt="Screenshot of Mac&#x27;s Home window with an arrow pointing at the &#x27;Datashare&#x27; folder in the list"><figcaption></figcaption></figure>
 
 If you want to quickly access it in the future, **you can drag and drop it in 'Favorites**' on the left of this window:
 
-<figure><img src="../../.gitbook/assets/screen-shot-2019-05-21-at-11.40.22-am.png" alt="Screenshot of Mac&#x27;s Home window highligting &#x27;Datashare&#x27; entry located in the &#x27;Favorites&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2019-05-21 at 11.40.22 AM (1).png" alt="Screenshot of Mac&#x27;s Home window highligting &#x27;Datashare&#x27; entry located in the &#x27;Favorites&#x27;"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-### Add documents to your Datashare folder on your Mac
+#### Add documents to your Datashare folder on your Mac
 
 Copy or drop the documents that you want to add to Datashare in this Datashare folder.
 {% endstep %}
 
 {% step %}
-### Launch Datashare
+#### Launch Datashare
 
 Open your **Applications**. You should see Datashare. Double-click on it:
 
-
-
-<figure><img src="../../.gitbook/assets/group-28 (1).png" alt="Screenshot of Mac&#x27;s Applications window with an arrow pointing Datashare&#x27;s logo"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Group 28 (1).png" alt="Screenshot of Mac&#x27;s Applications window with an arrow pointing Datashare&#x27;s logo"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-### In the menu, in 'Tasks', open 'Documents'
+#### In the menu, in 'Tasks', open 'Documents'
 
 Expand the **menu** on the left:
 
@@ -60,7 +58,7 @@ On the top right, click the **'Plus'** button:
 {% endstep %}
 
 {% step %}
-### Choose your options
+#### Choose your options
 
 * Select the **project** in Datashare where you want to add your documents. The Default project, which is automatically created, is selected by default.
 * Select the **folder or sub-folder** on your computer in your 'Datashare' directory containing the documents you want to add. The entire 'Datashare' directory will be added by default.
@@ -74,9 +72,9 @@ On the top right, click the **'Plus'** button:
 {% endstep %}
 
 {% step %}
-### Watch the progress of your document addition&#x20;
+#### Watch the progress of your document addition
 
-Two extraction tasks are now running:&#x20;
+Two extraction tasks are now running:
 
 * The first is the **scanning** of your Datashare folder - it sees if there are documents to analyze. It is called 'Scan folders'.
 * The second is the **indexing** of these files. It is called 'Index documents'.

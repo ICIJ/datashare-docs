@@ -100,19 +100,19 @@ The default boost value is 1, but can be any positive floating point number. Boo
 
 ‌"A regular expression (shortened as regex or regexp) is a sequence of characters that define a search pattern." ([Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)).
 
-1\. You can use Regex in Datashare. Regular expressions (Regex) in Datashare need to be **written between 2 slashes.**
+1\. You can use Regex in Datashare. Regular expressions (Regex) in Datashare need to be **written between 2 slashes** and **starting with the field (content, name, author, recipients, etc):**
 
-> /.\*..\*@.\*..\*/
+> content: /.\*..\*@.\*..\*/
 
-The example above will search for any expression which is **structured like an email address** with a dot between two expressions before the @ and a dot between two expressions after the @ like in 'first.lastname@email.com' for instance.
+The example above will search in the **content** of the document for any expression which is **structured like an email address** with a dot between two expressions before the @ and a dot between two expressions after the @ like in 'first.lastname@email.com' for instance.
 
 2\. Regex can be combined with standard queries in Datashare :
 
-> ("Ada Lovelace" OR "Ado Lavelace") AND paris AND /.\*..\*@.\*..\*/
+> ("Ada Lovelace" OR "Ado Lavelace") AND paris AND content:/.\*..\*@.\*..\*/
 
 3\. **You need to escape the following characters by typing a backslash just before them (without space):‌ # @ & < > \~**
 
-> /.\*..\*@.\*..\*/ (the @ was escaped by a backslash \ just before it)
+> /.\*..\*\\@.\*..\*/ (the @ was escaped by a backslash \ just before it)
 
 4\. Important: **Datashare relies on Elastic's Regex syntax** as explained[ here](https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html). Datashare uses [the Standard tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html). A consequence of this is that **spaces cannot be searched as such in Regex**.
 
@@ -179,4 +179,3 @@ For other searches:
 **Ranges**: You can also search for numbers in a range. Ranges can be specified for **date**, **numeric** or **string fields** among the ones you can find by clicking the magnifying glass when you hover the fields in a document's tab 'Metadata'. Inclusive ranges are specified with square brackets \[min TO max] and exclusive ranges with curly brackets {min TO max}. For more details, please refer to [Elastic's page on ranges](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges).
 {% endstep %}
 {% endstepper %}
-

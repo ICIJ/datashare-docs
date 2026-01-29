@@ -12,7 +12,7 @@ The installer will set up:
 
 **Note:** Previous versions of this document referred to a "Docker Installer". We do not provide this installer anymore but Datashare is still [published on the Docker Hub](https://hub.docker.com/r/icij/datashare) and supported with Docker.
 
-**Installation fails:** &#x20;
+**Installation fails:**
 
 * Error while installing Homebrew or MacPorts: you can manually install [Homebrew](https://brew.sh/) first and then restart the installer.
 * "System Software from application was blocked from loading" : Check in your Mac's "System Settings" > "privacy & security" if you have a section with this mention "System software from application 'Datashare' was blocked from loading" or something similar related to Datashare. If you have this section you'll have to click "Allow" to be able to install datashare.
@@ -20,7 +20,7 @@ The installer will set up:
 
 {% stepper %}
 {% step %}
-### **Download Datashare**
+#### **Download Datashare**
 
 Go to [datashare.icij.org](https://datashare.icij.org) and click '**Download for Mac'**.
 
@@ -28,7 +28,7 @@ Go to [datashare.icij.org](https://datashare.icij.org) and click '**Download for
 {% endstep %}
 
 {% step %}
-### Start the installer
+#### Start the installer
 
 In Finder, go to your '**Downloads'** directory and double-click '**datashare-X.Y.Z.pkg'**:
 
@@ -36,7 +36,7 @@ In Finder, go to your '**Downloads'** directory and double-click '**datashare-X.
 {% endstep %}
 
 {% step %}
-### **Go through the Datashare Installer**
+#### **Go through the Datashare Installer**
 
 Click '**Continue**', '**Install**', enter your password and '**Install Software**':
 
@@ -44,7 +44,7 @@ Click '**Continue**', '**Install**', enter your password and '**Install Software
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-01-13 at 02.46.21.png" alt="Screenshot of the Mac installer&#x27;s third step to install Datashare: &#x27;Installation Type&#x27;&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-01-13 at 02.47.01.png" alt="Screenshot of the Mac installer&#x27;s step to install Datashare when username and password are asked "><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-01-13 at 02.47.01.png" alt="Screenshot of the Mac installer&#x27;s step to install Datashare when username and password are asked"><figcaption></figcaption></figure>
 
 The installation begins. You see a progress bar. It stays a long time on "Running package scripts" because it is installing XCode Command Line Tools, MacPort, Tesseract OCR, Java Runtime Environment and finally Datashare.
 

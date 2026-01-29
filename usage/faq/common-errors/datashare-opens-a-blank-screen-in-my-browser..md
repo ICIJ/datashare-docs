@@ -10,7 +10,7 @@ To uninstall Datashare:
 
 On Mac, go to 'Applications' and drag the Datashare icon to your dock's 'Trash' or right-click on the Datashare icon and click on 'Move to Trash'.
 
-<figure><img src="../../../.gitbook/assets/group-28192.png" alt="Screenshot of Mac&#x27;s &#x27;Applications&#x27; window with an arrow pointing at Datashare logo"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Group 28 (1).png" alt="Screenshot of Mac&#x27;s &#x27;Applications&#x27; window with an arrow pointing at Datashare logo"><figcaption></figcaption></figure>
 
 On Windows, please follow [these steps](https://www.laptopmag.com/articles/uninstall-programs-windows-10).
 

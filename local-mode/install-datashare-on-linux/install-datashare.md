@@ -8,7 +8,7 @@ And adapt the following launch script to your environment: [https://github.com/I
 
 {% stepper %}
 {% step %}
-### Download Datashare
+#### Download Datashare
 
 Go to [datashare.icij.org](https://datashare.icij.org) and click '**Download for Linux**':
 
@@ -20,7 +20,7 @@ Save the **Debian package** as a file:
 {% endstep %}
 
 {% step %}
-### Install the package
+#### Install the package
 
 ```
 $ sudo apt install /dir/to/debian/package/datashare-dist_7.2.0_all.deb
@@ -28,7 +28,7 @@ $ sudo apt install /dir/to/debian/package/datashare-dist_7.2.0_all.deb
 {% endstep %}
 
 {% step %}
-### Run Datashare
+#### Run Datashare
 
 ```
 $ datashare
