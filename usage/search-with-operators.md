@@ -110,7 +110,7 @@ The example above will search in the **content** of the document for any express
 
 > ("Ada Lovelace" OR "Ado Lavelace") AND paris AND content:/.\*..\*@.\*..\*/
 
-3\. **You need to escape the following characters by typing a backslash just before them (without space):‌ # @ & < > \~**
+3\. **You need to escape the following characters by typing a backslash just before them (without space):‌ . ? + \* | { } \[ ] ( ) " \ # @ & < > \~**
 
 > /.\*..\*\\@.\*..\*/ (the @ was escaped by a backslash \ just before it)
 
