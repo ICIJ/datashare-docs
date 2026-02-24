@@ -36,7 +36,7 @@ The running modes offer advantages and limitations. This matrix summarizes the d
 | Single JVM      | ✅       | ❌        |
 | Tasks execution | ✅       | ❌        |
 
-_When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "embedded mode" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default._
+_When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "[embedded mode](../local-mode/embedded-mode.md)" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default._
 
 ## CLI mode
 

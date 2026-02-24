@@ -6,7 +6,7 @@ description: >-
 
 # CLI stages
 
-The CLI stages are primarily intented to be run for an instance of Datashare that uses non-embedded resources (ElasticSearch, database, key/value memory store). This allows you to distribute heavy tasks between servers.
+The CLI stages are primarily intented to be run for an instance of Datashare that uses non-embedded resources (ElasticSearch, database, key/value memory store). See [Embedded mode](../local-mode/embedded-mode.md) to learn more about the default configuration. This allows you to distribute heavy tasks between servers.
 
 ## 1. SCAN
 
