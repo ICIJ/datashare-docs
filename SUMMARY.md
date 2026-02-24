@@ -11,6 +11,7 @@
 ## On your computer <a href="#local-mode" id="local-mode"></a>
 
 * [About the local mode](local-mode/about-the-local-mode.md)
+  * [Embedded mode](local-mode/embedded-mode.md)
 * [Install on Mac](local-mode/install-datashare-on-mac/README.md)
   * [Install Datashare](local-mode/install-datashare-on-mac/install-datashare.md)
   * [Start Datashare](local-mode/install-datashare-on-mac/open-datashare-on-mac.md)
