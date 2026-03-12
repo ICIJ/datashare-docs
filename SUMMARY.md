@@ -35,6 +35,7 @@
 ## On your server <a href="#server-mode" id="server-mode"></a>
 
 * [About the server mode](server-mode/about-the-server-mode.md)
+* [Permission model](server-mode/permission-model.md)
 * [Install with Docker](server-mode/install-with-docker.md)
 * [Add documents from the CLI](server-mode/add-documents-from-the-cli.md)
 * [Add entities from the CLI](server-mode/add-entities-from-the-cli.md)
