@@ -43,7 +43,7 @@ services:
         target: /home/datashare/dist
     command: >-
       --dataSourceUrl jdbc:postgresql://postgresql/datashare?user=datashare\&password=password 
-      --mode LOCAL
+      --mode SERVER
       --tcpListenPort 8080
     depends_on:
       - postgresql
