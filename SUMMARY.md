@@ -5,6 +5,7 @@
 * [Concepts](concepts/README.md)
   * [Running modes](concepts/running-modes.md)
   * [CLI stages](concepts/cli-stages.md)
+  * [CLI reference](concepts/cli-reference.md)
 * [About ICIJ](https://www.icij.org/about/)
 * [Github](https://github.com/ICIJ/datashare)
 

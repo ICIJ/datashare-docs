@@ -9,8 +9,8 @@ Execute the SCAN and INDEX stages independently to optimize resource allocation 
 _Examples:_
 
 ```bash
-datashare --mode CLI --stage SCAN --redisAddress redis://redis:6379 --busType REDIS
-datashare --mode CLI --stage INDEX --redisAddress redis://redis:6379 --busType REDIS
+datashare stage run --stages SCAN --redisAddress redis://redis:6379 --busType REDIS
+datashare stage run --stages INDEX --redisAddress redis://redis:6379 --busType REDIS
 ```
 
 ### **Distribute the INDEX Stage**
@@ -28,8 +28,8 @@ Datashare offers `--parallelism` and `--parserParallelism` options to enhance pr
 _Example (for `g4dn.8xlarge` with 32 CPUs):_
 
 ```bash
-datashare --mode CLI --stage INDEX --parallelism 14 --parserParallelism 14
-datashare --mode CLI --stage NLP --parallelism 14 --nlpParallelism 14
+datashare stage run --stages INDEX --parallelism 14 --parserParallelism 14
+datashare stage run --stages NLP --parallelism 14 --nlpParallelism 14
 ```
 
 ### **Optimize ElasticSearch**
@@ -50,7 +50,7 @@ Among various options, these variables let you control memory allocation through
 
 As a starting point, we suggest allocating roughly **2/3 of your available memory to Elasticsearch** and **1/3 to Datashare**. For example, on a machine with 12 GB of RAM:
 
-<pre class="language-shell"><code class="lang-shell"><strong>DS_JAVA_OPTS="-Xms2g -Xmx4g" <a data-footnote-ref href="#user-content-fn-1">E</a>S_JAVA_OPTS="-Xms4g -Xmx8g" datashare --mode CLI --stage INDEX
+<pre class="language-shell"><code class="lang-shell"><strong>DS_JAVA_OPTS="-Xms2g -Xmx4g" <a data-footnote-ref href="#user-content-fn-1">E</a>S_JAVA_OPTS="-Xms4g -Xmx8g" datashare stage run --stages INDEX
 </strong></code></pre>
 
 These are only guidelines, the right balance depends on your documents, your workload, and what you observe in practice. If Elasticsearch becomes a bottleneck, increase its share; if Datashare itself is slow, adjust accordingly.
@@ -65,9 +65,9 @@ If the document language is known, explicitly setting it can save processing tim
 _Example:_
 
 ```bash
-datashare --mode CLI --stage INDEX --language FRENCH --ocrLanguage fra
-datashare --mode CLI --stage INDEX --language CHINESE --ocrLanguage chi_sim
-datashare --mode CLI --stage INDEX --language GREEK --ocrLanguage ell
+datashare stage run --stages INDEX --language FRENCH --ocrLanguage fra
+datashare stage run --stages INDEX --language CHINESE --ocrLanguage chi_sim
+datashare stage run --stages INDEX --language GREEK --ocrLanguage ell
 ```
 
 ### **Manage OCR Tasks Wisely**
@@ -77,7 +77,7 @@ OCR tasks are resource-intensive. If not needed, disabling OCR can significantly
 _Example:_
 
 ```bash
-datashare --mode CLI --stage INDEX --ocr false
+datashare stage run --stages INDEX --ocr false
 ```
 
 ### **Efficient Handling of Large Files**
