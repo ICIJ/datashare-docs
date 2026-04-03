@@ -18,7 +18,7 @@ We recommend using a **recent release** of Datashare (`>= 14.0.0`) to use this f
 
 If it's not done yet add entities to your project [using the Datashare CLI](../add-entities-from-the-cli.md).
 
-**If your project contains email documents, make sure to run the `EMAIL` pipeline** together with regular NLP pipeline. To do so add set the follow `nlpp` flag to `--nlpp CORENLP,EMAIL`.
+**If your project contains email documents, make sure to run the `EMAIL` pipeline** together with regular NLP pipeline. To do so set the `--nlpPipeline` flag to `--nlpPipeline CORENLP,EMAIL`.
 
 ## Next step
 

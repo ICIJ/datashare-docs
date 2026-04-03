@@ -16,7 +16,6 @@ docker compose exec \
   # you have to specify it extending the CLASSPATH variable ex:
   # -e CLASSPATH=/home/datashare/extensions/* \ 
   datashare_web /entrypoint.sh \
-  --mode CLI \
   --ext neo4j \
   ... 
 ```
@@ -28,7 +27,6 @@ In order to create the graph, run the `--fullImport` command for your project:
 ```bash
 docker compose exec \
   datashare_web /entrypoint.sh \
-  --mode CLI \
   --ext neo4j \
   --full-import \
   --project secret-project
@@ -45,7 +43,6 @@ To update the graph, you can just re-run the full export:
 ```bash
 docker compose exec \
   datashare_web /entrypoint.sh \
-  --mode CLI \
   --ext neo4j \
   --full-import \
   --project secret-project

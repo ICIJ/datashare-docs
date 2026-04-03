@@ -10,8 +10,8 @@ Here is a simple command to scan a directory and index its files:
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCAN,INDEX \
+  stage run \
+  --stages SCAN,INDEX \
   --defaultProject secret-project \
   --elasticsearchAddress http://elasticsearch:9200 \
   --dataDir /home/datashare/Datashare/
@@ -19,7 +19,7 @@ docker compose exec datashare_web /entrypoint.sh \
 
 What's happening here:
 
-* Datashare starts in "CLI" [mode](../concepts/running-modes.md)
+* Datashare runs the pipeline [stages](../concepts/cli-stages.md)
 * We ask to process both SCAN and INDEX [stages](../concepts/cli-stages.md) at the same time
 * The SCAN stage feeds a queue in memory with file to add
 * The INDEX stage pulls files from the queue to add them to ElasticSearch
@@ -30,8 +30,8 @@ Alternatively, you can do this in two separated phases, as long as you tell Data
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCAN \
+  stage run \
+  --stages SCAN \
   --queueType REDIS \
   --queueName "datashare:queue" \
   --redisAddress redis://redis:6379 \
@@ -50,8 +50,8 @@ The INDEX [stage](../concepts/cli-stages.md) can now be executed in the same con
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage INDEX \
+  stage run \
+  --stages INDEX \
   --queueType REDIS \
   --queueName "datashare:queue" \
   --redisAddress redis://redis:6379 \
@@ -69,8 +69,8 @@ Sometimes you will face the case where you have an existing index, and you want 
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCANIDX \
+  stage run \
+  --stages SCANIDX \
   --queueType REDIS \
   --reportName "report:queue" \
   --redisAddress redis://redis:6379 \
@@ -81,8 +81,8 @@ docker compose exec datashare_web /entrypoint.sh \
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCAN,INDEX \
+  stage run \
+  --stages SCAN,INDEX \
   --ocr true \
   --queueType REDIS \
   --queueName "datashare:queue" \

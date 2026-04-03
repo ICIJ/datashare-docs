@@ -25,8 +25,7 @@ datashare --pluginsDir=~/Datashare\ Plugins
 You can list official Datashare plugins like this :
 
 ```bash
-$ datashare -m CLI --pluginList ".*"
-2020-07-24 10:04:59,767 [main] INFO  Main - Running datashare 
+$ datashare plugin list
 plugin datashare-plugin-site-alert
         Site Alert
         v1.2.0
@@ -35,29 +34,30 @@ plugin datashare-plugin-site-alert
 ...
 ```
 
-The string given to `--pluginList` is a [regular expression](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html). You can filter the plugin list if you know what you are looking for.
+You can filter by name: `datashare plugin list ocr`
 
 #### Installing
 
 You can install a plugin with its id and providing where the Datashare plugins are stored:
 
+```bash
+$ datashare plugin install datashare-plugin-site-alert
 ```
-$ datashare -m CLI --pluginInstall datashare-plugin-site-alert --pluginsDir "~/Datashare Plugins"
-2020-07-24 10:15:46,732 [main] INFO  Main - Running datashare 
-2020-07-24 10:15:50,202 [main] INFO  PluginService - downloading from url https://github.com/ICIJ/datashare-plugin-site-alert/archive/v1.2.0.tar.gz
-2020-07-24 10:15:50,503 [main] INFO  PluginService - installing plugin from file /tmp/tmp7747128158158548092.gz into /home/dev/Datashare Plugins
+
+Note: if a custom `--pluginsDir` is needed, it goes before the subcommand as a global flag:
+
+```bash
+$ datashare --pluginsDir "~/Datashare Plugins" plugin install datashare-plugin-site-alert
 ```
 
 Then if you launch Datashare with the same plugin location, the plugin will be loaded.
 
 #### Removing
 
-When you want to stop using a plugin, you can either remove by hand the directory inside the plugins folder or remove it with `datashare --pluginDelete` :
+When you want to stop using a plugin, you can either remove by hand the directory inside the plugins folder or remove it with `datashare plugin delete` :
 
-```
-$ datashare -m CLI --pluginDelete datashare-plugin-site-alert --pluginsDir "~/Datashare Plugins"
-2020-07-24 10:20:43,431 [main] INFO  Main - Running datashare 
-2020-07-24 10:20:43,640 [main] INFO  PluginService - removing plugin base directory /home/dev/Datashare Plugins/datashare-plugin-site-alert-1.2.0
+```bash
+$ datashare plugin delete datashare-plugin-site-alert
 ```
 
 ### Create your first plugin
@@ -97,18 +97,14 @@ drwxr-xr-x dev/dev           0 2020-07-22 11:51 my-plugin/
 
 Then you can install it with:
 
-```
-$ datashare -m CLI --pluginInstall ~/src/my-plugin/dist/my-plugin.tgz --pluginsDir "~/Datashare Plugins"
-2020-07-27 10:02:32,381 [main] INFO  Main - Running datashare 
-2020-07-27 10:02:32,596 [main] INFO  PluginService - installing plugin from file ~/src/my-plugin/dist/my-plugin.tgz into ~/Datashare Plugins
+```bash
+$ datashare plugin install ~/src/my-plugin/dist/my-plugin.tgz
 ```
 
 And remove it:
 
-```
-$ datashare -m CLI --pluginDelete my-plugin --pluginsDir "~/Datashare Plugins"
-2020-07-27 10:02:32,381 [main] INFO  Main - Running datashare 
-2020-07-27 10:02:32,596 [main] INFO  PluginService - installing plugin from file ~/src/my-plugin/dist/my-plugin.tgz into ~/Datashare Plugins
+```bash
+$ datashare plugin delete my-plugin
 ```
 
 In that case `my-plugin` is the base directory of the plugin (the one that is in the tarball).

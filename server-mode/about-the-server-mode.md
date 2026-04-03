@@ -6,7 +6,7 @@ This mode offers the advantage of easy accessibility from anywhere with an inter
 
 ## Launch configuration
 
-Datashare is launched with `--mode SERVER` and you have to provide:
+Datashare is launched with `app start --mode SERVER` and you have to provide:
 
 * The external elasticsearch index address `elasticsearchAddress`
 * A Redis store address `redisAddress`
@@ -18,7 +18,7 @@ Datashare is launched with `--mode SERVER` and you have to provide:
 Example:
 
 ```
-docker run -ti ICIJ/datashare:version --mode SERVER \
+docker run -ti ICIJ/datashare:version app start --mode SERVER \
     --redisAddress redis://my.redis-server.org:6379 \
     --elasticsearchAddress https://my.elastic-server.org:9200 \
     --messageBusAddress my.redis-server.org \
