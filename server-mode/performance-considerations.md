@@ -9,8 +9,8 @@ Execute the SCAN and INDEX stages independently to optimize resource allocation 
 _Examples:_
 
 ```bash
-datashare --mode CLI --stage SCAN --redisAddress redis://redis:6379 --busType REDIS
-datashare --mode CLI --stage INDEX --redisAddress redis://redis:6379 --busType REDIS
+datashare stage run --stages SCAN --redisAddress redis://redis:6379 --busType REDIS
+datashare stage run --stages INDEX --redisAddress redis://redis:6379 --busType REDIS
 ```
 
 ### **Distribute the INDEX Stage**
@@ -29,8 +29,8 @@ Datashare offers `--parallelism` and `--parserParallelism` options to enhance pr
 _Example (for `g4dn.8xlarge` with 32 CPUs):_
 
 ```bash
-datashare --mode CLI --stage INDEX --parallelism 14 --parserParallelism 14
-datashare --mode CLI --stage NLP --parallelism 14 --nlpParallelism 14
+datashare stage run --stages INDEX --parallelism 14 --parserParallelism 14
+datashare stage run --stages NLP --parallelism 14 --nlpParallelism 14
 ```
 
 ### **Optimize ElasticSearch**
@@ -44,7 +44,7 @@ You can fine-tune the `JAVA_OPTS` environment variable based on your system's co
 &#xNAN;_&#x45;xample (for `g4dn.8xlarge8`with 120 GB Memory):_
 
 ```shell
-JAVA_OPTS="-Xms10g -Xmx50g" datashare --mode CLI --stage INDEX
+JAVA_OPTS="-Xms10g -Xmx50g" datashare stage run --stages INDEX
 ```
 
 ### **Specify Document Language**
@@ -57,9 +57,9 @@ If the document language is known, explicitly setting it can save processing tim
 _Example:_
 
 ```bash
-datashare --mode CLI --stage INDEX --language FRENCH --ocrLanguage fra
-datashare --mode CLI --stage INDEX --language CHINESE --ocrLanguage chi_sim
-datashare --mode CLI --stage INDEX --language GREEK --ocrLanguage ell
+datashare stage run --stages INDEX --language FRENCH --ocrLanguage fra
+datashare stage run --stages INDEX --language CHINESE --ocrLanguage chi_sim
+datashare stage run --stages INDEX --language GREEK --ocrLanguage ell
 ```
 
 ### **Manage OCR Tasks Wisely**
@@ -69,7 +69,7 @@ OCR tasks are resource-intensive. If not needed, disabling OCR can significantly
 _Example:_
 
 ```bash
-datashare --mode CLI --stage INDEX --ocr false
+datashare stage run --stages INDEX --ocr false
 ```
 
 ### **Efficient Handling of Large Files**

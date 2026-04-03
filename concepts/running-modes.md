@@ -4,12 +4,12 @@ description: Datashare runs using different modes with their own features.
 
 # Running modes
 
-| Mode          | Category | Description                                                                                                                      |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `LOCAL`       | Web      | To run Datashare on a single computer for a single user.                                                                         |
-| `SERVER`      | Web      | To run Datashare on a server for multiple users.                                                                                 |
-| `CLI`         | CLI      | To index documents and analyze them directly [in the command-line](../server-mode/add-documents-from-the-cli.md).                |
-| `TASK_RUNNER` | Daemon   | To execute async tasks ([batch searches](../usage/batch-search-documents.md), batch downloads, scan, index, NER extraction, ...) |
+| Mode     | Category | Description                                              |
+| -------- | -------- | -------------------------------------------------------- |
+| `LOCAL`  | Web      | To run Datashare on a single computer for a single user. |
+| `SERVER` | Web      | To run Datashare on a server for multiple users.         |
+
+> **Note:** Document processing pipeline stages are run with `datashare stage run` (see [CLI stages](cli-stages.md)). The async task worker daemon is started with `datashare worker run`.
 
 ## Web modes
 
@@ -38,15 +38,15 @@ The running modes offer advantages and limitations. This matrix summarizes the d
 
 _When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "[embedded mode](../local-mode/embedded-mode.md)" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default._
 
-## CLI mode
+## Pipeline stages
 
-In **cli mode**, Datashare starts without a web server and allows user to perform tasks over their documents. This mode can be used in conjunction with both local and server modes, while allowing users to distribute heavy tasks between several servers.
+Pipeline stages allow Datashare to process documents without a web server. Stages can be used in conjunction with both local and server modes, and allow users to distribute heavy tasks between several servers. They are now run with `datashare stage run --stages SCAN,INDEX,NLP`.
 
-If you want to learn more about which tasks you can execute in this mode, checkout the [stages documentation](cli-stages.md).
+If you want to learn more about which stages you can execute, checkout the [stages documentation](cli-stages.md).
 
 ## Daemon modes
 
-Those modes are intended to be used for action that requires to "wait" for pendings tasks.
+Those modes are intended to be used for actions that require "waiting" for pending tasks. The task worker daemon is started with `datashare worker run`.
 
 In **batch download mode**, the daemon waits for a user to request a batch download of documents. When a request is received, the daemon starts a task to download the document matching the user search, and bundle them into a zip file.
 
@@ -54,12 +54,10 @@ In **batch search mode**, the daemon waits for a user to request a batch search 
 
 ## How to change modes
 
-Datashare is shipped as a single executable, with all modes available. As previously mentioned, the default mode is the embedded mode. Yet when starting Datashare in command line, you can explicitly specify the running mode. For instance on Ubuntu/Debian:
+Datashare is shipped as a single executable, with all modes available. As previously mentioned, the default mode is the embedded mode. You can use `app start` to launch the web server, optionally specifying a mode. For instance on Ubuntu/Debian:
 
 ```sh
-datashare \
-  # Switch to SERVER mode
-  --mode SERVER \
+datashare app start --mode SERVER \
   # Dummy session filter to creates ephemeral users
   --authFilter org.icij.datashare.session.YesCookieAuthFilter \
   # Name of the default project for every user

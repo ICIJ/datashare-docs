@@ -13,14 +13,14 @@ The CLI stages are primarily intented to be run for an instance of Datashare tha
 This is the first step to add documents to Datashare from the command-line. The SCAN stage allows you to queue all the files that need to be indexed (next step). Once this task is done, you can move to the next step. This stage cannot be distributed.
 
 ```bash
-datashare --mode CLI \  
+datashare stage run \
   # Select the SCAN stage
-  --stage SCAN \
+  --stages SCAN \
   # Where the document are located
   --dataDir /path/to/documents \
   # Store the queued files in Redis
-  --dataBusType REDIS \
-  # URI of Redis 
+  --busType REDIS \
+  # URI of Redis
   --redisAddress redis://redis:6379
 ```
 
@@ -29,13 +29,13 @@ datashare --mode CLI \
 The INDEX stage is probably the most important (and heavy!) one. It pulls documents to index from the queue created in the previous step, then use a combination of [Apache Tika](https://tika.apache.org) and [Tesseract](https://tesseract-ocr.github.io/) to extract text, metadata and OCR images. The result documents are stored in ElasticSearch. The queue used to store documents to index is a "blocking list", meaning that only one client can pull a concurrent value at the time. This allows users to distribute this command on several servers.
 
 ```bash
-datashare --mode CLI \
+datashare stage run \
   # Select the INDEX stage
-  --stage INDEX \
+  --stages INDEX \
   # Where the document are located
   --dataDir /path/to/documents \
   # Store the queued files in Redis
-  --dataBusType REDIS \
+  --busType REDIS \
   # URI of Elasticsearch
   --elasticsearchAddress http://elasticsearch:9200 \
   # Enable OCR \
@@ -49,11 +49,11 @@ datashare --mode CLI \
 Once a document is available for search (stored in ElasticSearch), you can use the NLP stage to extract named entities from the text. This process will not only create named entity mentions in ElasticSearch, it will also mark every analyzed document with the corresponding NLP pipeline (CORENLP by default). In other words, the process is idempotent and can be parallelized as well on several servers.
 
 ```bash
-datashare --mode CLI \
+datashare stage run \
   # Select the NLP stage
-  --stage NLP \
+  --stages NLP \
   # Use CORENLP to detect named entities
-  --nlpp CORENLP \
+  --nlpPipeline CORENLP \
   # URI of Elasticsearch
   --elasticsearchAddress http://elasticsearch:9200 
 ```
