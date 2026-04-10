@@ -25,8 +25,7 @@ datashare --extensionsDir=/home/user/extensions
 You can list official Datashare extensions like this :
 
 ```bash
-$ datashare -m CLI --extensionList
-2020-08-29 09:27:51,219 [main] INFO  Main - Running datashare 
+$ datashare extension list
 extension datashare-extension-nlp-opennlp
         OPENNLP Pipeline
         7.0.0
@@ -36,29 +35,30 @@ extension datashare-extension-nlp-opennlp
 ...
 ```
 
-You can add a [regular expression](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) to `--extensionList`. You can filter the extension list if you know what you are looking for.
+You can filter by name: `datashare extension list nlp`
 
 #### Installing
 
 You can install an extension with its id and providing where the Datashare extensions are stored:
 
+```bash
+$ datashare extension install datashare-extension-nlp-mitie
 ```
-$ datashare -m CLI --extensionInstall datashare-extension-nlp-mitie --extensionsDir "/home/user/extensions"
-2020-08-29 09:34:30,927 [main] INFO  Main - Running datashare 
-2020-08-29 09:34:32,632 [main] INFO  Extension - downloading from url https://github.com/ICIJ/datashare-extension-nlp-mitie/releases/download/7.0.0/datashare-nlp-mitie-7.0.0-jar-with-dependencies.jar
-2020-08-29 09:34:36,324 [main] INFO  Extension - installing extension from file /tmp/tmp218535941624710718.jar into /home/user/extensions
+
+Note: if a custom `--extensionsDir` is needed, it goes before the subcommand:
+
+```bash
+$ datashare --extensionsDir /home/user/extensions extension install datashare-extension-nlp-mitie
 ```
 
 Then if you launch Datashare with the same extension location, the extension will be loaded.
 
 #### Removing
 
-When you want to stop using an extension, you can either remove by hand the jar inside the extensions folder or remove it with `datashare --extensionDelete` :
+When you want to stop using an extension, you can either remove by hand the jar inside the extensions folder or remove it with `datashare extension delete` :
 
 ```bash
-$ datashare -m CLI --extensionDelete datashare-extension-nlp-mitie --extensionsDir "/home/user/extensions/"
-2020-08-29 09:40:11,033 [main] INFO  Main - Running datashare 
-2020-08-29 09:40:11,249 [main] INFO  Extension - removing extension datashare-extension-nlp-mitie jar /home/user/extensions/datashare-nlp-mitie-7.0.0-jar-with-dependencies.jar
+$ datashare extension delete datashare-extension-nlp-mitie
 ```
 
 ### Create your first extension
@@ -123,15 +123,11 @@ You can also install and remove extensions with the Datashare CLI.
 Then you can install it with:
 
 ```bash
-$ datashare -m CLI --extensionInstall /home/user/src/my-extension/dist/my-extension.jar --extensionsDir "/home/user/extensions"
-2020-07-27 10:02:32,381 [main] INFO  Main - Running datashare 
-2020-07-27 10:02:32,596 [main] INFO  ExtensionService - installing extension from file /home/user/src/my-extension/dist/my-extension.jar into /home/user/extensions
+$ datashare extension install /home/user/src/my-extension/dist/my-extension.jar
 ```
 
 And remove it:
 
 ```bash
-$ datashare -m CLI --extensionDelete my-extension.jar --extensionsDir "/home/user/extensions"
-2020-08-29 10:45:37,363 [main] INFO  Main - Running datashare 
-2020-08-29 10:45:37,579 [main] INFO  Extension - removing extension my-extension jar /home/user/extensions/my-extension.jar
+$ datashare extension delete my-extension.jar
 ```

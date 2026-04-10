@@ -10,17 +10,16 @@ Datashare has the ability to detect email addresses, name of people, organizatio
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage NLP \
+  stage run \
+  --stages NLP \
   --defaultProject secret-project \
   --elasticsearchAddress http://elasticsearch:9200 \
   --nlpParallelism 2 \
-  --nlpp CORENLP
+  --nlpPipeline CORENLP
 ```
 
 What's happening here:
 
-* Datashare starts in "CLI" [mode](../concepts/running-modes.md)
 * We ask to process the NLP [stage](../concepts/cli-stages.md)
 * We tell Datashare to use the `elasticsearch` service
 * Datashare will pull documents from ElasticSearch directly
@@ -35,12 +34,12 @@ You can also use chain the 3 stages altogether:
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage SCAN,INDEX,NLP \
+  stage run \
+  --stages SCAN,INDEX,NLP \
   --defaultProject secret-project \
   --elasticsearchAddress http://elasticsearch:9200 \
   --nlpParallelism 2 \
-  --nlpp CORENLP \
+  --nlpPipeline CORENLP \
   --dataDir /home/datashare/Datashare/
 ```
 
@@ -48,12 +47,12 @@ As for the previous [stages](../concepts/cli-stages.md) you may want to restore 
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --stage ENQUEUEIDX,NLP \
+  stage run \
+  --stages ENQUEUEIDX,NLP \
   --defaultProject secret-project \
   --elasticsearchAddress http://elasticsearch:9200 \
   --nlpParallelism 2 \
-  --nlpp CORENLP
+  --nlpPipeline CORENLP
 ```
 
 The added `ENQUEUEIDX` stage will read Elasticsearch index, find all documents that have not already been analyzed by the CORENLP NER pipeline, and put the IDs of those documents into the `extract:queue:nlp` queue.

@@ -88,7 +88,7 @@ To ensures a smooth and incremental enrollment with the new system, each auth fi
 `GrantAdminPolicyTask` is a CLI task that allows creation of **one** `INSTANCE_USER` . The example below will grand `INSTANCE_ADMIN` role to the user `foo`  existing in the REDIS database.&#x20;
 
 ```
-datashare --mode CLI \
+datashare \
 --grantAdmin foo \
 --defaultProject local-datashare \
 --redisAddress redis://redis:6379 \

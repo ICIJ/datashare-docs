@@ -6,8 +6,7 @@ Install the Neo4j plugin using the Datashare CLI so that users can access it fro
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
-  --mode CLI \
-  --pluginInstall datashare-plugin-neo4j-graph-widget 
+  plugin install datashare-plugin-neo4j-graph-widget
 ```
 
 Installing the plugin installs the `datashare-plugin-neo4j-graph-widget` plugin inside `/home/datashare/plugings` and will also install the `datashare-extension-neo4j` backend extension inside `/home/datashare/extensions`. These locations can be changed by updating the `docker-compose.yml`.
