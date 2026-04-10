@@ -54,7 +54,7 @@ In **batch search mode**, the daemon waits for a user to request a batch search 
 
 ## How to change modes
 
-Datashare is shipped as a single executable, with all modes available. As previously mentioned, the default mode is the embedded mode. You can use `app start` to launch the web server, optionally specifying a mode. For instance on Ubuntu/Debian:
+Datashare is shipped as a single executable, with all modes available. As previously mentioned, the default mode is the embedded mode. Running `datashare` with no arguments is equivalent to `datashare app start` — it starts the web application in the default mode. You can optionally specify a different mode. For instance on Ubuntu/Debian:
 
 ```sh
 datashare app start --mode SERVER \

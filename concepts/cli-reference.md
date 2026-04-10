@@ -6,6 +6,8 @@ description: Complete reference of Datashare's command-line interface subcommand
 
 Datashare's command-line interface is organized as subcommands. Run `datashare --help` for an overview, or `datashare COMMAND --help` for help on a specific subcommand.
 
+Running `datashare` with no arguments is equivalent to `datashare app start` — it starts the web application in the default mode.
+
 ## Subcommands
 
 | Subcommand | Description |
@@ -25,7 +27,7 @@ Datashare's command-line interface is organized as subcommands. Run `datashare -
 
 ## `app start`
 
-Start the Datashare web application. The default mode is `LOCAL` (single-user, embedded services).
+Start the Datashare web application. The default mode is `LOCAL` (single-user, embedded services). Running `datashare` with no arguments is a shorthand for `datashare app start`.
 
 ```bash
 # Local mode (default)
