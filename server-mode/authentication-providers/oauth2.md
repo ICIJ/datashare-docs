@@ -17,7 +17,8 @@ docker run -ti ICIJ/datashare:version --mode SERVER \
     --oauthAuthorizeUrl https://my.oauth-server.org/oauth/authorize \
     --oauthTokenUrl https://my.oauth-server.org/oauth/token \
     --oauthApiUrl https://my.oauth-server.org/api/v1/me.json \
-    --oauthCallbackPath /auth/callback
+    --oauthCallbackPath /auth/callback \
+    --oauthScope=openid
 ```
 
 ## Integration with KeyCloak
