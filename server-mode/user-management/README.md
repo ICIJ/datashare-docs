@@ -15,7 +15,7 @@ Choosing how users sign in is the most important decision when deploying Datasha
 If you're starting from scratch and you don't have an identity provider, use the [HTML form](form-auth.md) filter. If you already run an IdP, use [OAuth2](oauth2.md).
 
 {% hint style="warning" %}
-All providers except OAuth2 send credentials to Datashare directly. **Always put Datashare behind TLS** (a reverse proxy terminating HTTPS, for example) so credentials and session cookies aren't exposed on the network.
+All providers except OAuth2 send credentials to Datashare directly. **Always run Datashare behind TLS** (a reverse proxy terminating HTTPS, for example) so credentials and session cookies aren't exposed on the network.
 {% endhint %}
 
 ## How it's configured
