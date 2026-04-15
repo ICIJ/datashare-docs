@@ -36,7 +36,7 @@ Credentials are sent in plain text inside the request body. Always run Datashare
 * `org.icij.datashare.session.UsersInDb`: credentials stored in the Datashare database (PostgreSQL recommended).
 * `org.icij.datashare.session.UsersInRedis`: credentials stored in Redis.
 
-The user record format is the same in both cases. See [Provisioning users](README.md#provisioning-users) for how to hash passwords and structure records, then use the storage command from [Basic with a database](basic-with-a-database.md#provision-users-in-postgresql) or [Basic with Redis](basic-with-redis.md#provision-users-in-redis).
+The user record format is the same in both cases. See [Provisioning users](README.md#provisioning-users) for how to hash passwords, structure records, and store them in PostgreSQL or Redis.
 
 ## Migrating from basic auth
 

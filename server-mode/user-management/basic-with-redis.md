@@ -16,21 +16,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 It is only secure when the connection is encrypted, so always run Datashare behind TLS when using this filter.
 
-## Provision users in Redis
-
-Hash the password and build the user record as described in [Provisioning users](README.md#provisioning-users), then store the record under the user id:
-
-```
-$ redis-cli -h my.redis-server.org
-redis-server.org:6379> set foo '{"uid":"foo", "password":"fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9", "groups_by_applications":{"datashare":["local-datashare"]}}'
-```
-
-To grant access to additional indices, add them to `groups_by_applications.datashare` (keep `local-datashare` in the list). For example with `myindex`:
-
-```
-$ redis-cli -h my.redis-server.org
-redis-server.org:6379> set foo '{"uid":"foo", "password":"fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9", "groups_by_applications":{"datashare":["myindex","local-datashare"]}}'
-```
+See [Provisioning users](README.md#provisioning-users) for how to hash passwords, structure user records, and store them in Redis.
 
 ## Login experience
 

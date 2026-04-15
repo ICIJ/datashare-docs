@@ -1,6 +1,6 @@
-# Authentication providers
+# User management
 
-Authentication is the most important decision when deploying Datashare in **server mode**. It controls who can reach your documents, and changing it later usually means re-provisioning users.
+Choosing how users sign in is the most important decision when deploying Datashare in **server mode**. It controls who can reach your documents, and changing it later usually means re-provisioning users.
 
 ## Choosing a provider
 
@@ -61,7 +61,24 @@ Each user is a JSON object with at least:
   }
   ```
 
-See the provider-specific pages for the storage command:
+### Store the user
 
-* [Basic with a database / HTML form backed by PostgreSQL](basic-with-a-database.md#provision-users-in-postgresql)
-* [Basic with Redis / HTML form backed by Redis](basic-with-redis.md#provision-users-in-redis)
+#### In PostgreSQL
+
+Insert the user into the `user_inventory` table:
+
+```
+$ psql datashare
+datashare=> insert into user_inventory (id, email, name, provider, details) values ('fbar', 'foo@bar.com', 'Foo Bar', 'my_company', '{"password": "fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9", "groups_by_applications":{"datashare":["local-datashare"]}}');
+```
+
+To create many users at once, use PostgreSQL's [`COPY` statement to import a CSV](https://stackoverflow.com/questions/2987433/how-to-import-csv-file-data-into-a-postgresql-table).
+
+#### In Redis
+
+Store the user JSON under the login as key:
+
+```
+$ redis-cli -h my.redis-server.org
+redis-server.org:6379> set foo '{"uid":"foo", "password":"fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9", "groups_by_applications":{"datashare":["local-datashare"]}}'
+```
