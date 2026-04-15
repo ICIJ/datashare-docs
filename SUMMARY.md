@@ -41,6 +41,7 @@
 * [Add entities from the CLI](server-mode/add-entities-from-the-cli.md)
 * [Authentication providers](server-mode/authentication-providers/README.md)
   * [OAuth2](server-mode/authentication-providers/oauth2.md)
+  * [HTML form](server-mode/authentication-providers/form-auth.md)
   * [Basic with a database](server-mode/authentication-providers/basic-with-a-database.md)
   * [Basic with Redis](server-mode/authentication-providers/basic-with-redis.md)
   * [Dummy](server-mode/authentication-providers/dummy.md)
