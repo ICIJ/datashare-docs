@@ -14,7 +14,9 @@ Basic authentication is a simple protocol that uses HTTP headers and the browser
 Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 
-It is only secure when the connection is encrypted, so always run Datashare behind TLS when using this filter.
+{% hint style="warning" %}
+Credentials are sent in plain text (base64 is not encryption). Always run Datashare behind TLS when using this filter.
+{% endhint %}
 
 ## Database setup
 
