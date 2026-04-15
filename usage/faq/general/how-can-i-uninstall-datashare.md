@@ -4,11 +4,11 @@
 
 1\. Go to Applications
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2021-10-26 at 09.16.08 (1).png" alt="Screenshot of a Mac&#x27;s &#x27;Applications&#x27; window with the Datashare&#x27;s logo highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage/faq/general/how-can-i-uninstall-datashare/01-mac-s-applications-window-datashare-s.png" alt="Screenshot of a Mac&#x27;s &#x27;Applications&#x27; window with the Datashare&#x27;s logo highlighted"><figcaption></figcaption></figure>
 
 2\. Click right on 'Datashare' and click 'Move to Bin'
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2021-10-26 at 09.17.06.png" alt="Screenshot of a Mac&#x27;s Applications window with the Datashare&#x27;s logo selected and a dropdown menu with the entry &#x27;Move to Bin&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage/faq/general/how-can-i-uninstall-datashare/02-mac-s-applications-window-datashare-s.png" alt="Screenshot of a Mac&#x27;s Applications window with the Datashare&#x27;s logo selected and a dropdown menu with the entry &#x27;Move to Bin&#x27; highlighted"><figcaption></figcaption></figure>
 
 ### Windows
 

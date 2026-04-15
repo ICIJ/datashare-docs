@@ -23,7 +23,7 @@ Inside Datashare, **Neo4j lets you connect entities between them through documen
 
 After creating a graph from your Datashare project, you will be able to explore this graph and visualize these kinds of relationships between you project entities:
 
-<figure><img src="../.gitbook/assets/neo4j/graph.png" alt="Screenshot of a graph showing circles in different colors with arrows between them"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/01-graph.png" alt="Screenshot of a graph showing circles in different colors with arrows between them"><figcaption></figcaption></figure>
 
 In the above graph, we can see 3 e-mail document nodes in orange, 3 e-mail address nodes in red, 1 person node in green and 1 location node in yellow. Reading the relationship types on the arrows, we can deduce the following information from the graph:
 
@@ -56,7 +56,7 @@ After the graph is created, open the menu, go to the '**Projects**' page, select
 
 You should be able to visualize a new Neo4j widget displaying the number of documents and entities found inside the graph:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.02.56.png" alt="Screenshot of Datashare&#x27;s project page on the &#x27;Graph&#x27; tab with the &#x27;Graph statistics&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/02-project-page-graph-tab-graph-statistics.png" alt="Screenshot of Datashare&#x27;s project page on the &#x27;Graph&#x27; tab with the &#x27;Graph statistics&#x27; highlighted"><figcaption></figcaption></figure>
 
 ## Access your project's graph
 
@@ -82,7 +82,7 @@ In case you don't have access to the DB and can't be provided with a dump, you c
 
 To export the graph, open the menu, click '**Projects**' > '**All projects**' > select your project > open the **Graph** tab. At step 2 called 'Format', select the '**Cypher shell**' export format and at the end of the form, click the '**Export**' button:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.06.47.png" alt="Screenshot of Datashare&#x27;s project page on the &#x27;Graph&#x27; tab with the form to export a graph open and its second step called &#x27;Format&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/03-project-page-graph-tab-form-export.png" alt="Screenshot of Datashare&#x27;s project page on the &#x27;Graph&#x27; tab with the form to export a graph open and its second step called &#x27;Format&#x27; highlighted"><figcaption></figcaption></figure>
 
 In case you want to restrict the size of the exported graph, you can restrict the export to a subset of documents and their entities using, at step 3, the '**Filters**' '**Paths**' and '**File types'**.
 
@@ -115,7 +115,7 @@ Depending on [how you run Neo4j on your laptop](faq/general/how-to-run-neo4j.md)
 
 * Open '**Cypher shell'**:
 
-<figure><img src="../.gitbook/assets/neo4j/desktop-shell.png" alt="Screenshot of a window with the title &#x27;Graph DBMS&#x27; with the three dot dropdown open and the entry &#x27;Terminal&#x27; highlighted"><figcaption><p>desktop-shell</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/04-desktop-shell.png" alt="Screenshot of a window with the title &#x27;Graph DBMS&#x27; with the three dot dropdown open and the entry &#x27;Terminal&#x27; highlighted"><figcaption><p>desktop-shell</p></figcaption></figure>
 
 *   Copy your the graph dump inside your neo4j instance import directory:
 
@@ -142,7 +142,7 @@ Once you [access your Neo4j database](explore-the-neo4j-graph.md#access-your-pro
 
 [Neo4j Bloom](https://neo4j.com/product/bloom/) is a simple and powerful tool developed by Neo4j to quickly visualize and query graphs, **if you run Neo4j Enterprise Edition**. Bloom lets you navigate and explore the graph through a user interface similar to the one below:
 
-<figure><img src="../.gitbook/assets/neo4j/bloom-viz.png" alt="Screenshot of a window showing a graph with many points grouped in 1 big and 1 small circles"><figcaption><p>bloom-viz</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/05-bloom-viz.png" alt="Screenshot of a window showing a graph with many points grouped in 1 big and 1 small circles"><figcaption><p>bloom-viz</p></figcaption></figure>
 
 Neo4j Bloom is accessible from inside Neo4j Desktop app.
 
@@ -156,7 +156,7 @@ Find out more information about how to use Neo4j Bloom to explore your graph wit
 
 The [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) lets you run [Cypher](https://neo4j.com/developer/cypher/) queries on your graph to explore it and retrieve information from it. Cypher is like SQL for graphs, running Cypher queries inside the Neo4j browser lets you explore the results as shown below:
 
-<figure><img src="../.gitbook/assets/neo4j/neo4j-browser.png" alt="Screeenshot of a Neo4j Browser with blue and orange circle with arrows between some of them"><figcaption><p>browser-viz</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/06-neo4j-browser.png" alt="Screeenshot of a Neo4j Browser with blue and orange circle with arrows between some of them"><figcaption><p>browser-viz</p></figcaption></figure>
 
 The Neo4j Browser is available for both Enterprise and Community distributions. You can access it:
 
@@ -187,7 +187,7 @@ Find out more information about:
 
 To export the graph in the [GraphML file format](http://graphml.graphdrawing.org/), open the menu, click '**Projects**' > '**All projects**' > select your project > open the **Graph** tab. At step 2 called 'Format', select the '**Graph ML**' export format and at the end of the form, click the '**Export**' button:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-07 at 07.13.16.png" alt="Screenshot of Datashare&#x27;s project page on the &#x27;Graph&#x27; tab with the form to export a graph open at its second step called &#x27;Format&#x27; and the &#x27;GraphML&#x27; radiobutton selected and highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-the-neo4j-graph/07-project-page-graph-tab-form-export.png" alt="Screenshot of Datashare&#x27;s project page on the &#x27;Graph&#x27; tab with the form to export a graph open at its second step called &#x27;Format&#x27; and the &#x27;GraphML&#x27; radiobutton selected and highlighted"><figcaption></figcaption></figure>
 
 In case you want to restrict the size of the exported graph, you can restrict the export to a subset of documents and their entities using, at step 3, the '**Filters**' '**Paths**' and '**File types'**.
 
