@@ -14,6 +14,6 @@ datashare
 
 Datashare **must be accessed from your internet browser** (Firefox, Chome, etc), even though it works offline without Internet connection (see: [Can I use Datashare with no internet connection?](../../usage/faq/general/can-i-use-datashare-with-no-internet-connection.md)).
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-05 at 08.49.50.png" alt="Screenshot of the homepage of Datashare, the projects&#x27; page with one project called &#x27;Default&#x27;"><figcaption><p>Datashare's homepage</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/09-homepage-datashare-projects-page-one.png" alt="Screenshot of the homepage of Datashare, the projects&#x27; page with one project called &#x27;Default&#x27;"><figcaption><p>Datashare's homepage</p></figcaption></figure>
 
 It's now time to [add documents to Datashare](add-documents-to-datashare-on-linux.md).

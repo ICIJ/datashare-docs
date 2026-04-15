@@ -16,7 +16,7 @@ Before we start, please **uninstall any prior standard version of Datashare** if
 
 Go to [datashare.icij.org](https://datashare.icij.org) and click '**Download for Windows**':
 
-<figure><img src="../../.gitbook/assets/InstallWindows.png" alt="Screenshot of the homepage of datashare.icij.org highlighting the &#x27;Download for Windows&#x27; button"><figcaption><p><a href="https://datashare.icij.org">datashare.icij.org</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/01-installwindows.png" alt="Screenshot of the homepage of datashare.icij.org highlighting the &#x27;Download for Windows&#x27; button"><figcaption><p><a href="https://datashare.icij.org">datashare.icij.org</a></p></figcaption></figure>
 
 The file '**datashare-X.Y.Z.exe**' is now downloaded. You can find it in your **Downloads**.
 
@@ -28,15 +28,15 @@ The file '**datashare-X.Y.Z.exe**' is now downloaded. You can find it in your **
 
 As Datashare is not signed, this popup asks for your permission. Don't click 'Don't run' but **click** '**More info'**:
 
-<figure><img src="../../.gitbook/assets/virtualbox_windev1808eval_1_19_03_2020_15_45_55.png" alt="Screenshot of Windows&#x27; window saying &#x27;Windows protected your PC&#x27; with the text &#x22;Windows Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk. More info (which is a link)&#x22; and a button &#x27;Don&#x27;t run&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/02-windows-window-saying-windows-protected.png" alt="Screenshot of Windows&#x27; window saying &#x27;Windows protected your PC&#x27; with the text &#x22;Windows Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk. More info (which is a link)&#x22; and a button &#x27;Don&#x27;t run&#x27;"><figcaption></figcaption></figure>
 
 Click '**Run anyway**':
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_46_41 (2).png" alt="Screenshot of Windows&#x27; window saying &#x27;Windows protected your PC&#x27; with 2 buttons: &#x27;Run anyway&#x27; and &#x27;Don&#x27;t run&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/03-windows-window-saying-windows-protected.png" alt="Screenshot of Windows&#x27; window saying &#x27;Windows protected your PC&#x27; with 2 buttons: &#x27;Run anyway&#x27; and &#x27;Don&#x27;t run&#x27;"><figcaption></figcaption></figure>
 
 It asks if you want to allow the app to make changes to your device. Click '**Yes**':
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_48_53 (1).png" alt="Screenshot of Windows&#x27; window with the question &#x27;Do you want to allow this app from an unknown producer to make changes to your device?&#x27; with 2 buttons: &#x27;Yes&#x27; (which is highlighted) and &#x27;No&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/04-windows-window-question-do-you-want.png" alt="Screenshot of Windows&#x27; window with the question &#x27;Do you want to allow this app from an unknown producer to make changes to your device?&#x27; with 2 buttons: &#x27;Yes&#x27; (which is highlighted) and &#x27;No&#x27;"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -44,19 +44,19 @@ It asks if you want to allow the app to make changes to your device. Click '**Ye
 
 On the Installer Wizard, as you need to download and install OpenJDK11 if it is not installed on your device, click '**Install**':
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_49_28 (1).png" alt="Screenshot of Windows&#x27; window with the title &#x27;Welcome to the ICIJ Setup Wizard&#x27; with 2 buttons: &#x27;Install&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/05-windows-window-title-welcome-icij-setup.png" alt="Screenshot of Windows&#x27; window with the title &#x27;Welcome to the ICIJ Setup Wizard&#x27; with 2 buttons: &#x27;Install&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
 The following windows with progress bars will be displayed:
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_49_41 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Datashare is being installed&#x27; with a progress bar and a &#x27;Cancel&#x27; button"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/06-windows-window-saying-please-wait.png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Datashare is being installed&#x27; with a progress bar and a &#x27;Cancel&#x27; button"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_50_01 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Tesseract is being installed&#x27; with a progress bar and a &#x27;Cancel&#x27; button"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/07-windows-window-saying-please-wait.png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Tesseract is being installed&#x27; with a progress bar and a &#x27;Cancel&#x27; button"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_50_21 (2).png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Datashare is being installed&#x27; and &#x27;Please wait while Setup is loading&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/08-windows-window-saying-please-wait.png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Datashare is being installed&#x27; and &#x27;Please wait while Setup is loading&#x27;"><figcaption></figcaption></figure>
 
 Choose a language and click '**OK**':
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_50_35 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Datashare is being installed&#x27; containing another window which says &#x27;Please select a language&#x27; with a dropdown with &#x27;English&#x27; selected&#x27; with 2 buttons: &#x27;Ok&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/09-windows-window-saying-please-wait.png" alt="Screenshot of Windows&#x27; window saying &#x27;Please wait (...) Datashare is being installed&#x27; containing another window which says &#x27;Please select a language&#x27; with a dropdown with &#x27;English&#x27; selected&#x27; with 2 buttons: &#x27;Ok&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -64,23 +64,23 @@ Choose a language and click '**OK**':
 
 To install **Tesseract OCR**, click the following buttons on the Installer Wizard's windows:
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_50_45 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Welcome to the Tessearct-OCR Setup Wizard&#x27; with 2 buttons: &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/10-windows-window-saying-welcome-tessearct.png" alt="Screenshot of Windows&#x27; window saying &#x27;Welcome to the Tessearct-OCR Setup Wizard&#x27; with 2 buttons: &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_50_58 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Licence agreement&#x27; with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/11-windows-window-saying-licence-agreement.png" alt="Screenshot of Windows&#x27; window saying &#x27;Licence agreement&#x27; with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_51_08 (1).png" alt="Screenshot of Windows&#x27; window showing 2 radiobuttons: &#x27;Install for anyone using this computer&#x27; (which is selected) and &#x27;Install just for me&#x27; and with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/12-windows-window-showing-2-radiobuttons.png" alt="Screenshot of Windows&#x27; window showing 2 radiobuttons: &#x27;Install for anyone using this computer&#x27; (which is selected) and &#x27;Install just for me&#x27; and with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_51_19 (1).png" alt="Screenshot of Windows&#x27; window showing some pre-ticked options with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/13-windows-window-showing-some-pre-ticked.png" alt="Screenshot of Windows&#x27; window showing some pre-ticked options with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_51_34 (1).png" alt="Screenshot of Windows&#x27; window showing a pre-ticked &#x27;Destination Folder&#x27; (C:\Program Files (x86)\Tesseract-OCR) with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/14-windows-window-showing-pre-ticked.png" alt="Screenshot of Windows&#x27; window showing a pre-ticked &#x27;Destination Folder&#x27; (C:\Program Files (x86)\Tesseract-OCR) with 3 buttons: &#x27;Previous&#x27;, &#x27;Next (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_51_47 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Choose Start Menu Folder&#x27; with 3 buttons: &#x27;Back&#x27;, &#x27;Install&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/15-windows-window-saying-choose-start-menu.png" alt="Screenshot of Windows&#x27; window saying &#x27;Choose Start Menu Folder&#x27; with 3 buttons: &#x27;Back&#x27;, &#x27;Install&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_51_59 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Installation Complete&#x27; with 3 buttons: &#x27;Back&#x27;, &#x27;Install&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/16-windows-window-saying-installation.png" alt="Screenshot of Windows&#x27; window saying &#x27;Installation Complete&#x27; with 3 buttons: &#x27;Back&#x27;, &#x27;Install&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
 Untick '**Show README**' and click '**Finish**':
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_52_14 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;Completing the Tesseract-OCR Setup Wizard&#x27; with 3 buttons: &#x27;Back&#x27;, &#x27;Finish&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/17-windows-window-saying-completing.png" alt="Screenshot of Windows&#x27; window saying &#x27;Completing the Tesseract-OCR Setup Wizard&#x27; with 3 buttons: &#x27;Back&#x27;, &#x27;Finish&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 
 Finally, click '**Close**' to close the installer of TesseractOCR.
 {% endstep %}
@@ -90,11 +90,11 @@ Finally, click '**Close**' to close the installer of TesseractOCR.
 
 It is now downloading the back-end and the front-end, Datashare.jar:
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_52_27 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;ICIJ Datashare Setup&#x27; with a progress bar and a &#x27;Cancel&#x27; button"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/18-windows-window-saying-icij-datashare.png" alt="Screenshot of Windows&#x27; window saying &#x27;ICIJ Datashare Setup&#x27; with a progress bar and a &#x27;Cancel&#x27; button"><figcaption></figcaption></figure>
 
 When it is finished, click '**Close**':
 
-<figure><img src="../../.gitbook/assets/VirtualBox_WinDev1808Eval_1_19_03_2020_15_55_17 (1).png" alt="Screenshot of Windows&#x27; window saying &#x27;ICIJ Datashare Setup&#x27; with a completed progress bar with 3 buttons: &#x27;Back&#x27;, &#x27;Close&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/install-datashare/19-windows-window-saying-icij-datashare.png" alt="Screenshot of Windows&#x27; window saying &#x27;ICIJ Datashare Setup&#x27; with a completed progress bar with 3 buttons: &#x27;Back&#x27;, &#x27;Close&#x27; (which is highlighted) and &#x27;Cancel&#x27;"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 

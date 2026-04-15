@@ -14,29 +14,29 @@ description: This page explains how to locally add plugins and extensions to Dat
 {% step %}
 At the bottom of the menu, click the '**Settings' icon**:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.49.09.png" alt="Screenshot of a Datashare&#x27;s project page with the Settings icon at the bottom of the left menu highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/01-project-page-settings-icon-at-bottom.png" alt="Screenshot of a Datashare&#x27;s project page with the Settings icon at the bottom of the left menu highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Open the '**Plugins'** tab:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.50.29.png" alt="Screenshot of a Datashare&#x27;s settings page with the Plugins tab highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/02-settings-page-plugins-tab-highlighted.png" alt="Screenshot of a Datashare&#x27;s settings page with the Plugins tab highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Choose the plugin you want to add and click '**Install'**:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.51.20.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with a Plugin&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/03-settings-page-plugins-tab-plugin-s.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with a Plugin&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
 
 If you want to install a plugin from an URL, click '**Install from a URL**':
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.51.59.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/04-settings-page-plugins-tab-field-install.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Your plugin is now installed:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.53.01.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the installed plugin highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/05-settings-page-plugins-tab-installed.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the installed plugin highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -52,29 +52,29 @@ Your plugin is now installed:
 {% step %}
 At the bottom of the menu, click the '**Settings' icon**:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.49.09.png" alt="Screenshot of a Datashare&#x27;s project page with the Settings icon at the bottom of the left menu highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/01-project-page-settings-icon-at-bottom.png" alt="Screenshot of a Datashare&#x27;s project page with the Settings icon at the bottom of the left menu highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Open the '**Extensions'** tab:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.55.51.png" alt="Screenshot of a Datashare&#x27;s settings page with the Extensions tab highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/06-settings-page-extensions-tab-highlighted.png" alt="Screenshot of a Datashare&#x27;s settings page with the Extensions tab highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Choose the extension you want to add and click '**Install'**:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.56.36.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with a Extension&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/07-settings-page-extensions-tab-extension.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with a Extension&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
 
 If you want to install an extension from an URL, click '**Install from a URL**':
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.57.06.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/08-settings-page-extensions-tab-field.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Your extension is now installed:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 17.58.11.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the installed extension highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/plugins-and-extensions/09-settings-page-extensions-tab-installed.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the installed extension highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
