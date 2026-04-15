@@ -8,7 +8,7 @@ The form authentication filter (`FormAuthFilter`) displays a login page served b
 
 This filter is the **recommended** authentication provider for self-managed deployments, and the replacement for `BasicAuthAdaptorFilter` and `YesBasicAuthFilter`.
 
-<figure><img src="../../.gitbook/assets/datashare-login-form.png" alt="Screenshot of Datashare's HTML login form with username and password fields and a sign-in button"><figcaption><p>Datashare login form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/server-mode/user-management/form-auth/01-datashare-login-form.png" alt="Screenshot of Datashare's HTML login form with username and password fields and a sign-in button"><figcaption><p>Datashare login form</p></figcaption></figure>
 
 ## How it works
 

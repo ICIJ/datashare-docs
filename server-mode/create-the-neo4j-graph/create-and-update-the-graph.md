@@ -55,15 +55,15 @@ The update will **always add missing nodes and relationships, update existing on
 
 To detect whether a graph update is needed, go to the '**Projects'** page and open your project:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-06 at 11.07.30.png" alt="Screenshot of Datashare&#x27;s All projects page with the name of one project highlighted"><figcaption><p>Open your project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/01-all-projects-page-name-one-project.png" alt="Screenshot of Datashare&#x27;s All projects page with the name of one project highlighted"><figcaption><p>Open your project</p></figcaption></figure>
 
 Compare the number of documents and entities found in Datashare in '**Projects**' > '**Your project**' > '**Insights**'...
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-06 at 11.08.53.png" alt="Screenshot of Datashare&#x27;s project page on the Insights tab with statistics highlighted"><figcaption><p>Statistics of one project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/02-project-page-insights-tab-statistics.png" alt="Screenshot of Datashare&#x27;s project page on the Insights tab with statistics highlighted"><figcaption><p>Statistics of one project</p></figcaption></figure>
 
 ...with the numbers found in your project in the '**Graph' tab**. Run an update in case of mismatch:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-06 at 11.10.57.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with statistics highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/03-project-page-graph-tab-statistics.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with statistics highlighted"><figcaption></figcaption></figure>
 
 The update will **always add missing nodes and relationships, update existing ones if they were modified, but will never delete graph nodes or relationships**.
 
