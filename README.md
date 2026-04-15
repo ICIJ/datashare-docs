@@ -7,7 +7,7 @@ description: >-
 
 # About Datashare
 
-<figure><img src=".gitbook/assets/Gitbook banner (4).png" alt="Image showing Datashare logo, the tagline &#x27;Find stories in any files&#x27; and a screenshot of a page of the software"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/home/01-datashare-logo-tagline-find-stories-any.png" alt="Image showing Datashare logo, the tagline &#x27;Find stories in any files&#x27; and a screenshot of a page of the software"><figcaption></figcaption></figure>
 
 ### What is Datashare?
 
@@ -33,7 +33,7 @@ Curious to know more about how we use Datashare?
 
 We setup a [demo instance of Datashare](https://datashare-demo.icij.org) with a small set of documents from the [LuxLeaks](https://www.icij.org/investigations/luxembourg-leaks/) investigation (2014). When using this instance, you will be assigned a temporary user which can star, tag, recommend and explore documents.
 
-<figure><img src=".gitbook/assets/Demo.png" alt="Image of a screenshot of the batch search page of Datashare"><figcaption><p>Launch your own batch search on Datashare's <a href="https://datashare-demo.icij.org/#/">demo</a></p></figcaption></figure>
+<figure><img src=".gitbook/assets/home/02-demo.png" alt="Image of a screenshot of the batch search page of Datashare"><figcaption><p>Launch your own batch search on Datashare's <a href="https://datashare-demo.icij.org/#/">demo</a></p></figcaption></figure>
 
 ### Can I run Datashare on my server?
 
