@@ -10,17 +10,17 @@ description: >-
 
 1. Go to '**All projects'** and click on your **project's name**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-11 at 11.14.33.png" alt="Screenshot of Datashare&#x27;s &#x27;All projects&#x27; page with the name of one project highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/create-the-neo4j-graph/create-and-update-the-graph/01-all-projects-page-name-one-project.png" alt="Screenshot of Datashare&#x27;s &#x27;All projects&#x27; page with the name of one project highlighted"><figcaption></figcaption></figure>
 
 2. Go to the **Graph tab** and in the first step '**Import**', click on the '**Import'** button:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-11 at 11.17.45.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with the &#x27;Import&#x27; button highlighted on the first step of the form"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/create-the-neo4j-graph/create-and-update-the-graph/02-project-page-graph-tab-import-button.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with the &#x27;Import&#x27; button highlighted on the first step of the form"><figcaption></figcaption></figure>
 
 You will then see a **new import task running**.
 
 When the graph creation is complete, '**Graph statistics'** will reflect the number of documents and entities nodes found in the graph:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-11 at 11.19.20.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with the Graph statistics highligted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/create-the-neo4j-graph/create-and-update-the-graph/03-project-page-graph-tab-graph-statistics.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with the Graph statistics highligted"><figcaption></figcaption></figure>
 
 ## Update the graph
 
@@ -28,19 +28,19 @@ If new documents or entities are added or modified in Datashare, you will need t
 
 Go to '**All projects**' > one **project's page** > the '**Graph**' tab. In the first step, click on the '**Update graph'** button:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-11 at 11.21.22.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with &#x27;Update&#x27; button on the first step of the form highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/create-the-neo4j-graph/create-and-update-the-graph/04-project-page-graph-tab-update-button.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with &#x27;Update&#x27; button on the first step of the form highlighted"><figcaption></figcaption></figure>
 
 To detect whether a graph update is needed, go to the '**Projects'** page and open your project:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-06 at 11.07.30.png" alt="Screenshot of Datashare&#x27;s All projects page with the name of one project highlighted"><figcaption><p>Open your project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/01-all-projects-page-name-one-project.png" alt="Screenshot of Datashare&#x27;s All projects page with the name of one project highlighted"><figcaption><p>Open your project</p></figcaption></figure>
 
 Compare the number of documents and entities found in Datashare in '**Projects**' > '**Your project**' > '**Insights**'...
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-06 at 11.08.53.png" alt="Screenshot of Datashare&#x27;s project page on the Insights tab with statistics highlighted"><figcaption><p>Statistics of one project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/02-project-page-insights-tab-statistics.png" alt="Screenshot of Datashare&#x27;s project page on the Insights tab with statistics highlighted"><figcaption><p>Statistics of one project</p></figcaption></figure>
 
 ...with the numbers found in your project in the '**Graph' tab**. Run an update in case of mismatch:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-06 at 11.10.57.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with statistics highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/03-project-page-graph-tab-statistics.png" alt="Screenshot of Datashare&#x27;s project page on the Graph tab with statistics highlighted"><figcaption></figcaption></figure>
 
 The update will **always add missing nodes and relationships, update existing ones if they were modified, but will never delete graph nodes or relationships**.
 

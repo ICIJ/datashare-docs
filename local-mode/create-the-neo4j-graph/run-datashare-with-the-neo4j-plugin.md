@@ -8,7 +8,7 @@ Install the Neo4j plugin following [these instructions](../plugins-and-extension
 
 1\. At the bottom of the menu, click on the '**Settings**' icon:&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-11 at 11.05.58.png" alt="Screenshot of Datashare&#x27;s homepage with the Settings icon at the bottom of the menu highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin/01-homepage-settings-icon-at-bottom-menu.png" alt="Screenshot of Datashare&#x27;s homepage with the Settings icon at the bottom of the menu highlighted"><figcaption></figcaption></figure>
 
 2\. Make sure the following settings are properly set:
 
@@ -23,6 +23,6 @@ Install the Neo4j plugin following [these instructions](../plugins-and-extension
 
 5\. Go to '**Projects**' > **your project's page** > the **Graph** tab. You should see the Neo4j widget. After a little while, its status should be `RUNNING`:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-11 at 11.10.00.png" alt="Screenshot of a Project&#x27;s page on the Graph tab with the Running status highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin/02-project-s-page-graph-tab-running-status.png" alt="Screenshot of a Project&#x27;s page on the Graph tab with the Running status highlighted"><figcaption></figcaption></figure>
 
 You can now [create the graph](create-and-update-the-graph.md).

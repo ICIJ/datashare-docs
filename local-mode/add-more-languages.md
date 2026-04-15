@@ -35,7 +35,7 @@ port version
 
 You should see an output similar to this:
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-01-13 at 04.53.02.png" alt="Screenshot of a terminal window with the text: username % port version / version 2.8.0 / username %"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/add-more-languages/01-terminal-window-text-username-port.png" alt="Screenshot of a terminal window with the text: username % port version / version 2.8.0 / username %"><figcaption></figcaption></figure>
 
 If you get a `command not found: port`, this either means you are using Homebrew (see next section) or you did not [run the Datashare installer for Mac](install-datashare-on-mac/) yet.
 
@@ -61,7 +61,7 @@ brew -v
 
 You should see an output similar to this:
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-01-13 at 04.43.22 (1).png" alt="Screenshot of a terminal window with a text mentioning homebrew"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/add-more-languages/02-terminal-window-text-mentioning-homebrew.png" alt="Screenshot of a terminal window with a text mentioning homebrew"><figcaption></figcaption></figure>
 
 If you get a `command not found: brew` error, this mean Homebrew is not installed on your system. You might either use MacPorts (see previous section) or [run the Datashare installer for Mac](install-datashare-on-mac/) on your computer.
 
@@ -71,10 +71,10 @@ Languages packages are available on Tesseract [Github repository](https://github
 
 \*Additional languages can be also added during Tesseract's installation.
 
-<figure><img src="../.gitbook/assets/Win6.png" alt="Screenshot of the Tessdata folder showing languages files"><figcaption><p>Download and add French into tessdata</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/add-more-languages/03-win6.png" alt="Screenshot of the Tessdata folder showing languages files"><figcaption><p>Download and add French into tessdata</p></figcaption></figure>
 
 The list of installed languages can be checked with Windows command prompt or Powershell with the command `tesseract --list-langs.`
 
-<div align="center"><figure><img src="../.gitbook/assets/Win5.png" alt="Screenshot of the command tesseract --list-langs. with the result: &#x27;List of available languages (3): eng fra osd&#x27;"><figcaption><p>French is listed in installed languages</p></figcaption></figure></div>
+<div align="center"><figure><img src="../.gitbook/assets/local-mode/add-more-languages/04-win5.png" alt="Screenshot of the command tesseract --list-langs. with the result: &#x27;List of available languages (3): eng fra osd&#x27;"><figcaption><p>French is listed in installed languages</p></figcaption></figure></div>
 
 Datashare has to be restarted after the language installation. Check how for [Mac](install-datashare-on-mac/open-datashare-on-mac.md), [Windows](install-datashare-on-windows/open-datashare-on-windows.md) and [Linux](install-datashare-on-linux/open-datashare-on-linux.md).

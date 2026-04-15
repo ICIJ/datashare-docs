@@ -14,7 +14,7 @@ When you open your desktop in Windows on your computer, you will see a **folder 
 
 Move or copy and paste the documents you want to add to Datashare to this folder:
 
-<figure><img src="../../.gitbook/assets/capture-de-cran-42.png" alt="Screenshot of Windows&#x27; homepage with the Datashare folder icon highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-windows/add-documents-to-datashare-on-windows/01-windows-homepage-datashare-folder-icon.png" alt="Screenshot of Windows&#x27; homepage with the Datashare folder icon highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -22,7 +22,7 @@ Move or copy and paste the documents you want to add to Datashare to this folder
 
 You will find it in your main menu:
 
-<figure><img src="../../.gitbook/assets/capture-de-cran-33.png" alt="Screenshot of Windows&#x27; homepage with the menu open with the entry &#x27;ICIJ&#x27; > &#x27;Datashare 1.3&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/11-windows-homepage-menu-open-entry-icij.png" alt="Screenshot of Windows&#x27; homepage with the menu open with the entry &#x27;ICIJ&#x27; > &#x27;Datashare 1.3&#x27; highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -30,15 +30,15 @@ You will find it in your main menu:
 
 Expand the **menu** on the left:
 
-<figure><img src="../../.gitbook/assets/Expand Menu.png" alt="Screenshot of Datashare&#x27;s homepage highlighting the top icon in the left menu top to expand it"><figcaption><p>Expand the menu</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/04-expand-menu.png" alt="Screenshot of Datashare&#x27;s homepage highlighting the top icon in the left menu top to expand it"><figcaption><p>Expand the menu</p></figcaption></figure>
 
 In '**Tasks**', open '**Documents**':
 
-<figure><img src="../../.gitbook/assets/Open Documents.png" alt="Screenshot of Datashare&#x27;s homepage with the left menu open highlighting the &#x27;Documents&#x27; entry in the &#x27;Tasks&#x27; category"><figcaption><p>Open the "Documents" page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/05-open-documents.png" alt="Screenshot of Datashare&#x27;s homepage with the left menu open highlighting the &#x27;Documents&#x27; entry in the &#x27;Tasks&#x27; category"><figcaption><p>Open the "Documents" page</p></figcaption></figure>
 
 On the top right, click the **"Plus"** button:
 
-<figure><img src="../../.gitbook/assets/Add documents.png" alt="Screenshot of Datashare&#x27;s Documents page highlighting the &#x27;Plus&#x27; button at the top right corner"><figcaption><p>Click the "Plus" button</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/06-add-documents.png" alt="Screenshot of Datashare&#x27;s Documents page highlighting the &#x27;Plus&#x27; button at the top right corner"><figcaption><p>Click the "Plus" button</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -52,7 +52,7 @@ On the top right, click the **"Plus"** button:
 * Skip **already indexed** documents if you'd like.
 * Click '**Add**'
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-05 at 09.20.36.png" alt="Screenshot of Datashare&#x27;s &#x27;Add Documents&#x27; page with the form showing 5 options, a &#x27;Reset&#x27; and an &#x27;Add&#x27; buttons"><figcaption><p>Form for adding documents</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/07-add-documents-page-form-showing-5.png" alt="Screenshot of Datashare&#x27;s &#x27;Add Documents&#x27; page with the form showing 5 options, a &#x27;Reset&#x27; and an &#x27;Add&#x27; buttons"><figcaption><p>Form for adding documents</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -63,7 +63,7 @@ Two extraction tasks are now running:
 * The first is the **scanning** of your Datashare folder - it sees if there are documents to analyze. It is called 'ScanTask'.
 * The second is the **indexing** of these files. It is called 'IndexTask'.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-06-10 at 17.26.33 (1).png" alt="Screenshot of Datashare&#x27;s Documents page highlighting two lines in a table, one for &#x27;Scan folders&#x27; and another one for &#x27;Index documents&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/08-documents-page-highlighting-two-lines.png" alt="Screenshot of Datashare&#x27;s Documents page highlighting two lines in a table, one for &#x27;Scan folders&#x27; and another one for &#x27;Index documents&#x27;"><figcaption></figcaption></figure>
 
 Note: It is not possible to '[Find entities](../find-entities.md)' while these two tasks are still running. You won't have the entities (names of people, organizations, locations and e-mail addresses) yet. To get these, once your document addition is finished, please follow the steps to '[Find entities'](../find-entities.md).
 
