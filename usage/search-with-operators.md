@@ -142,19 +142,19 @@ You can find many other examples [on this site](https://ihateregex.io/). More ge
 {% step %}
 In '**Search**' > '**Documents**', open a **document** and go to the '**Metadata**' tab:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 07.44.14.png" alt="Screenshot of Datashare&#x27;s document page with the &#x27;Metadata&#x27; tab highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/search-with-operators/01-document-page-metadata-tab-highlighted.png" alt="Screenshot of Datashare&#x27;s document page with the &#x27;Metadata&#x27; tab highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Click a metadata's **search** **icon** to search documents with same properties:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 07.46.24.png" alt="Screenshot of Datashare&#x27;s document page in the &#x27;Metadata&#x27; tab at scroll level of &#x27;Content text length&#x27; with the magnifying glass icon hovered with the tooltip &#x27;Search this metadata value&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/search-with-operators/02-document-page-metadata-tab-at-scroll.png" alt="Screenshot of Datashare&#x27;s document page in the &#x27;Metadata&#x27; tab at scroll level of &#x27;Content text length&#x27; with the magnifying glass icon hovered with the tooltip &#x27;Search this metadata value&#x27; highlighted"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 See the **query** in the main search bar. It contains the field name, two dots and the searched value:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 07.49.52.png" alt="Screenshot of Datashare&#x27;s document search page with the search bar displaying &#x27;contentTextLength:&#x22;26952&#x22;&#x27; highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/search-with-operators/03-document-search-page-search-bar.png" alt="Screenshot of Datashare&#x27;s document search page with the search bar displaying &#x27;contentTextLength:&#x22;26952&#x22;&#x27; highlighted"><figcaption></figcaption></figure>
 
 So for example, if you are looking for documents that:
 
