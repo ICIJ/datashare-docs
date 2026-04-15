@@ -12,7 +12,7 @@ The permission model is only available in **Server Mode.**
 
 Authentication answers “who are you?”. Authorization answers “what can you do?”.
 
-See [Authentication providers](authentication-providers/) for login options.
+See [User management](user-management/) for login options.
 
 ### Model overview
 
