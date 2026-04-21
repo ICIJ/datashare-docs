@@ -8,41 +8,41 @@ description: >-
 
 {% stepper %}
 {% step %}
-#### Find your Datashare folder on your Mac
+**Find your Datashare folder on your Mac**
 
 Open your Mac's '**Finder**' by clicking on the blue smiling icon in your Mac's '**Dock**':
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/01-mac-s-dock-where-finder-active-first.png" alt="Screenshot of Mac&#x27;s dock where the Finder is active in first position"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/01-mac-s-dock-where-finder-active-first (1).png" alt="Screenshot of Mac&#x27;s dock where the Finder is active in first position"><figcaption></figcaption></figure>
 
 On the menu bar at the top of your computer, click '**Go**' and '**Home**' (the house icon):
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/02-add-doc-mac2-1.png" alt="Screenshot of Mac&#x27;s Finder window with a dropdown menu below the &#x27;Go&#x27; entry with the &#x27;Home&#x27; entry highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/02-add-doc-mac2-1 (1).png" alt="Screenshot of Mac&#x27;s Finder window with a dropdown menu below the &#x27;Go&#x27; entry with the &#x27;Home&#x27; entry highlighted"><figcaption></figcaption></figure>
 
 You will see a folder called '**Datashare**':
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/03-add-doc-mac-1.png" alt="Screenshot of Mac&#x27;s Home window with an arrow pointing at the &#x27;Datashare&#x27; folder in the list"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/03-add-doc-mac-1 (1).png" alt="Screenshot of Mac&#x27;s Home window with an arrow pointing at the &#x27;Datashare&#x27; folder in the list"><figcaption></figcaption></figure>
 
 If you want to quickly access it in the future, **you can drag and drop it in 'Favorites**' on the left of this window:
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/04-mac-s-home-window-highligting-datashare.png" alt="Screenshot of Mac&#x27;s Home window highligting &#x27;Datashare&#x27; entry located in the &#x27;Favorites&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/04-mac-s-home-window-highligting-datashare (1).png" alt="Screenshot of Mac&#x27;s Home window highligting &#x27;Datashare&#x27; entry located in the &#x27;Favorites&#x27;"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Add documents to your Datashare folder on your Mac
+**Add documents to your Datashare folder on your Mac**
 
 Copy or drop the documents that you want to add to Datashare in this Datashare folder.
 {% endstep %}
 
 {% step %}
-#### Launch Datashare
+**Launch Datashare**
 
 Open your **Applications**. You should see Datashare. Double-click on it:
 
-<figure><img src="../../.gitbook/assets/shared/10-mac-s-applications-window-arrow.png" alt="Screenshot of Mac&#x27;s Applications window with an arrow pointing Datashare&#x27;s logo"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/10-mac-s-applications-window-arrow (1).png" alt="Screenshot of Mac&#x27;s Applications window with an arrow pointing Datashare&#x27;s logo"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### In the menu, in 'Tasks', open 'Documents'
+**In the menu, in 'Tasks', open 'Documents'**
 
 Expand the **menu** on the left:
 
@@ -58,7 +58,7 @@ On the top right, click the **'Plus'** button:
 {% endstep %}
 
 {% step %}
-#### Choose your options
+**Choose your options**
 
 * Select the **project** in Datashare where you want to add your documents. The Default project, which is automatically created, is selected by default.
 * Select the **folder or sub-folder** on your computer in your 'Datashare' directory containing the documents you want to add. The entire 'Datashare' directory will be added by default.
@@ -72,14 +72,14 @@ On the top right, click the **'Plus'** button:
 {% endstep %}
 
 {% step %}
-#### Watch the progress of your document addition
+**Watch the progress of your document addition**
 
 Two extraction tasks are now running:
 
 * The first is the **scanning** of your Datashare folder - it sees if there are documents to analyze. It is called 'Scan folders'.
 * The second is the **indexing** of these files. It is called 'Index documents'.
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/add-documents-to-datashare-on-mac/05-documents-page-highlighting-two-lines.png" alt="Screenshot of Datashare&#x27;s Documents page highlighting two lines in a table, one for &#x27;Scan folders&#x27; and another one for &#x27;Index documents&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/08-documents-page-highlighting-two-lines (1).png" alt="Screenshot of Datashare&#x27;s Documents page highlighting two lines in a table, one for &#x27;Scan folders&#x27; and another one for &#x27;Index documents&#x27;"><figcaption></figcaption></figure>
 
 Note: It is not possible to '[Find entities](../find-entities.md)' while these two tasks are still running. You won't have the entities (names of people, organizations, locations and e-mail addresses) yet. To get these, once your document addition is finished, please follow the steps to '[Find entities'](../find-entities.md).
 

@@ -48,9 +48,9 @@ You cannot start a query with OR all uppercase. [OR is reserved as a search oper
 
 ‌You cannot start a query with tilde (\~) or write one which contains tilde. Tilde is reserved as a search operator for [fuzziness](../../search-with-operators.md#fuzziness) or [proximity searches](../../search-with-operators.md#proximity-searches).
 
-<figure><img src="../../../.gitbook/assets/usage/faq/common-errors/your-search-query-is-wrong/10-search-page-ikea-search-bar-message.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;~ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage/faq/common-errors/your-search-query-is-wrong/10-search-page-ikea-search-bar-message (1).png" alt="Screenshot of Datashare&#x27;s search page with &#x27;~ikea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/usage/faq/common-errors/your-search-query-is-wrong/11-search-page-ik-ea-search-bar.png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ik~ea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage/faq/common-errors/your-search-query-is-wrong/11-search-page-ik-ea-search-bar (1).png" alt="Screenshot of Datashare&#x27;s search page with &#x27;ik~ea&#x27; in the search bar and the message &#x27;We were unable to perform your search. This might be due to a server error or a syntax error in your query&#x27;"><figcaption></figcaption></figure>
 
 ### **The query ends with question mark: !** <a href="#querie-s-start-s-with-or-contain-circumflex" id="querie-s-start-s-with-or-contain-circumflex"></a>
 

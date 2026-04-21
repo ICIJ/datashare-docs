@@ -1,6 +1,6 @@
 # Can I download a document from Datashare?
 
-Yes, you can download a document from Datashare.&#x20;
+Yes, you can download a document from Datashare.
 
 ## Download a document
 
@@ -18,7 +18,7 @@ You can also **batch download** all the documents that match a search. It is lim
 
 Open the **menu** > '**Search**' > '**Documents**', make queries and apply filter. Once all the results of a specific search are relevant to you, click on the **download icon** on the right of results:
 
-<figure><img src="../../../.gitbook/assets/usage/faq/general/can-i-download-a-document/03-search-page-list-view-download-icon.png" alt="Screenshot of Datashare&#x27;s search page in List view with the download icon on the top right of the result column highlighted"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage/faq/general/can-i-download-a-document/03-search-page-list-view-download-icon (1).png" alt="Screenshot of Datashare&#x27;s search page in List view with the download icon on the top right of the result column highlighted"><figcaption></figcaption></figure>
 
 Find your batch downloads as zip files in the **menu** > '**Tasks**' > '**Batch downloads**':
 
@@ -34,4 +34,3 @@ If you **can't download** a document, it means that:
 
 * either Datashare has been badly initialized. Please **restart Datashare**. If you're an advanced user, you can capture the logs and create an issue on [Datashare's Github](https://github.com/ICIJ/datashare/issues).
 * or you are using the server collaborative mode and the admins prevented users from downloading documents
-

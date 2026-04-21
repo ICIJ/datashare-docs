@@ -8,7 +8,7 @@ description: >-
 
 Expand the menu to go to '**Projects**' > '**All projects**':
 
-<figure><img src="../.gitbook/assets/usage/search-projects/01-homepage-menu-all-projects-entry.png" alt="Screenshot of Datashare&#x27;s homepage with the menu &#x27;All projects&#x27; entry highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/search-projects/01-homepage-menu-all-projects-entry (1).png" alt="Screenshot of Datashare&#x27;s homepage with the menu &#x27;All projects&#x27; entry highlighted"><figcaption></figcaption></figure>
 
 Search in projects' names using the **search bar** on the right:
 

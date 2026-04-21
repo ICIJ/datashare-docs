@@ -17,8 +17,7 @@ datashare --mode CLI --stage INDEX --redisAddress redis://redis:6379 --busType R
 
 Distribute the INDEX stage across multiple servers to handle the workload efficiently. We often use multiple[`g4dn.8xlarge`](https://instances.vantage.sh/aws/ec2/g4dn.8xlarge) instances (32 CPUs, 128 GB of memory) with a remote Redis and a remote ElasticSearch instance to alleviate processing load.
 
-For projects like the [Pandora Papers](https://www.icij.org/investigations/pandora-papers/) (2.94 TB), we ran the INDEX stage to up to 10 servers at the same time which cost ICIJ several thousand of dollars.\
-
+For projects like the [Pandora Papers](https://www.icij.org/investigations/pandora-papers/) (2.94 TB), we ran the INDEX stage to up to 10 servers at the same time which cost ICIJ several thousand of dollars.\\
 
 <figure><img src="../.gitbook/assets/server-mode/performance-considerations/01-how-big-is-the-pandora-papers-leak.jpg" alt="Screenshot of a bar chart showing the size in terabytes of the Panama Papers (2016) (2.6TB), the Paradise Papers (2017) (1.4TB) and the Pandora Papers (2021) (2.94TB)"><figcaption></figcaption></figure>
 
@@ -37,15 +36,24 @@ datashare --mode CLI --stage NLP --parallelism 14 --nlpParallelism 14
 
 ElasticSearch can significantly consume CPU and memory, potentially becoming a bottleneck. For production instance of Datashare, we recommend deploying ElasticSearch on a remote server to improve performances.
 
-### **Adjust JAVA\_OPTS**
+### Adjust memory allocation
 
-You can fine-tune the `JAVA_OPTS` environment variable based on your system's configuration to optimize Java Virtual Machine memory usage.\
-\
-&#xNAN;_&#x45;xample (for `g4dn.8xlarge8`with 120 GB Memory):_
+When Datashare starts, it also launches Elasticsearch automatically. You can modify how Datashare and Elasticsearch use the Java Virtual Machine via two environment variables:
 
-```shell
-JAVA_OPTS="-Xms10g -Xmx50g" datashare --mode CLI --stage INDEX
-```
+* **`DS_JAVA_OPTS`** — JVM options dedicated to Datashare
+* **`ES_JAVA_OPTS`** — JVM options dedicated to Elasticsearch
+
+Among various options, these variables let you control memory allocation through these flags:
+
+* **`-Xmx`** — the maximum amount of memory the process is allowed to use
+* **`-Xms`** — the initial amount of memory allocated at startup&#x20;
+
+As a starting point, we suggest allocating roughly **2/3 of your available memory to Elasticsearch** and **1/3 to Datashare**. For example, on a machine with 12 GB of RAM:
+
+<pre class="language-shell"><code class="lang-shell"><strong>DS_JAVA_OPTS="-Xms2g -Xmx4g" <a data-footnote-ref href="#user-content-fn-1">E</a>S_JAVA_OPTS="-Xms4g -Xmx8g" datashare --mode CLI --stage INDEX
+</strong></code></pre>
+
+These are only guidelines, the right balance depends on your documents, your workload, and what you observe in practice. If Elasticsearch becomes a bottleneck, increase its share; if Datashare itself is slow, adjust accordingly.
 
 ### **Specify Document Language**
 
@@ -81,3 +89,5 @@ _Example of splitting Outlook PST files in multiple `.eml` files with_ [_readpst
 ```shell
 readpst -reD <Filename>.pst
 ```
+
+[^1]: 

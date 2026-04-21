@@ -19,4 +19,4 @@ The search query sent to Elasticsearch is processed in your browser by Datashare
 
 Datashare's team attempts to make both results be similar, but slight differences can happen between the two queries.
 
-<figure><img src="../../../.gitbook/assets/usage/faq/general/why-results-from-a-simple-search-and-a-batch-search-can-be-sligthly-different/01-datashare-search-1.png" alt="A diagram with the title &#x27;Query from navigator&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage/faq/general/why-results-from-a-simple-search-and-a-batch-search-can-be-sligthly-different/01-datashare-search-1 (1).png" alt="A diagram with the title &#x27;Query from navigator&#x27;"><figcaption></figcaption></figure>

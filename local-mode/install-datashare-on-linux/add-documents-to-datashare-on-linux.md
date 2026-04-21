@@ -8,7 +8,7 @@ description: >-
 
 {% stepper %}
 {% step %}
-#### Add documents to your 'Datashare' folder
+**Add documents to your 'Datashare' folder**
 
 You can find a folder called '**Datashare'** in your **home directory**.
 
@@ -16,13 +16,13 @@ Move the documents you want to add to Datashare into this folder.
 {% endstep %}
 
 {% step %}
-#### Launch Datashare
+**Launch Datashare**
 
 Launch Datashare and see the interface opening in your default browser.
 {% endstep %}
 
 {% step %}
-#### In the menu, in 'Tasks', open 'Documents'
+**In the menu, in 'Tasks', open 'Documents'**
 
 Expand the **menu** on the left:
 
@@ -38,7 +38,7 @@ On the top right, click the '**Plus'** button:
 {% endstep %}
 
 {% step %}
-#### Choose your options
+**Choose your options**
 
 * Select the **project** in Datashare where you want to add your documents. The Default project, which is automatically created, is selected by default.
 * Select the **folder or sub-folder** on your computer in your 'Datashare' directory containing the documents you want to add. The entire 'Datashare' directory will be added by default.
@@ -52,14 +52,14 @@ On the top right, click the '**Plus'** button:
 {% endstep %}
 
 {% step %}
-#### Watch the progress of your document addition
+**Watch the progress of your document addition**
 
 Two extraction tasks are now running:
 
 * The first is the **scanning** of your Datashare folder - it sees if there are documents to analyze. It is called 'ScanTask'.
 * The second is the **indexing** of these files. It is called 'IndexTask'.
 
-<figure><img src="../../.gitbook/assets/shared/08-documents-page-highlighting-two-lines.png" alt="Screenshot of Datashare&#x27;s Documents page highlighting two lines in a table, one for &#x27;Scan folders&#x27; and another one for &#x27;Index documents&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared/08-documents-page-highlighting-two-lines (1).png" alt="Screenshot of Datashare&#x27;s Documents page highlighting two lines in a table, one for &#x27;Scan folders&#x27; and another one for &#x27;Index documents&#x27;"><figcaption></figcaption></figure>
 
 Note: It is not possible to '[Find entities](../find-entities.md)' while these two tasks are still running. You won't have the entities (names of people, organizations, locations and e-mail addresses) yet. To get these, once your document addition is finished, please follow the steps to '[Find entities'](../find-entities.md).
 

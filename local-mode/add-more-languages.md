@@ -16,9 +16,9 @@ To add OCR languages on Linux, simply use the following command:
 sudo apt install tesseract-ocr-[lang]
 ```
 
-Where \`\[lang]\` is can be : &#x20;
+Where \`\[lang]\` is can be :
 
-* `all`  if you want to install all languages
+* `all` if you want to install all languages
 * a language code (ex: `fra`, for French), the list of languages is available [here](https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html)
 
 ### Install packages on Mac
@@ -61,7 +61,7 @@ brew -v
 
 You should see an output similar to this:
 
-<figure><img src="../.gitbook/assets/local-mode/add-more-languages/02-terminal-window-text-mentioning-homebrew.png" alt="Screenshot of a terminal window with a text mentioning homebrew"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/local-mode/add-more-languages/02-terminal-window-text-mentioning-homebrew (1).png" alt="Screenshot of a terminal window with a text mentioning homebrew"><figcaption></figcaption></figure>
 
 If you get a `command not found: brew` error, this mean Homebrew is not installed on your system. You might either use MacPorts (see previous section) or [run the Datashare installer for Mac](install-datashare-on-mac/) on your computer.
 

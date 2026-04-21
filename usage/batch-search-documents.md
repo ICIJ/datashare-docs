@@ -9,7 +9,7 @@ description: >-
 
 {% stepper %}
 {% step %}
-### Prepare a CSV list
+#### Prepare a CSV list
 
 Open a **spreadsheet** (LibreOffice, Framacalc, Excel, Google Sheets, Numbers, ...)
 
@@ -19,13 +19,13 @@ Open a **spreadsheet** (LibreOffice, Framacalc, Excel, Google Sheets, Numbers, .
 
 * **Do not put line break(s)** in any of your cells.
 
-<figure><img src="../.gitbook/assets/usage/batch-search-documents/02-spreadsheet-cell-filled-text-containing.png" alt="Screenshot of a spreadsheet cell filled with a text containing a line break and a red cross indicates it is wrong" width="375"><figcaption><p>This will lead to a "failure"</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/batch-search-documents/02-spreadsheet-cell-filled-text-containing (1).png" alt="Screenshot of a spreadsheet cell filled with a text containing a line break and a red cross indicates it is wrong" width="375"><figcaption><p>This will lead to a "failure"</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/usage/batch-search-documents/03-spreadsheet-cell-filled-text-not.png" alt="Screenshot of a spreadsheet cell filled with a text not containing a line break and a green check indicates it is right" width="375"><figcaption><p>This will lead to a "success"</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/batch-search-documents/03-spreadsheet-cell-filled-text-not (1).png" alt="Screenshot of a spreadsheet cell filled with a text not containing a line break and a green check indicates it is right" width="375"><figcaption><p>This will lead to a "success"</p></figcaption></figure>
 
 To delete all line breaks in your spreadsheet, use '**Find and replace all**': find all '**\n'** and replace them by **nothing or a space**.
 
-<figure><img src="../.gitbook/assets/usage/batch-search-documents/04-spreadsheet-software-s-find-replace.png" alt="Screenshot of a spreadsheet software&#x27;s &#x27;Find and replace&#x27; window with the &#x27;Replace all&#x27; button highlighted" width="375"><figcaption><p>Use this functionality to delete all line break(s)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/batch-search-documents/04-spreadsheet-software-s-find-replace (1).png" alt="Screenshot of a spreadsheet software&#x27;s &#x27;Find and replace&#x27; window with the &#x27;Replace all&#x27; button highlighted" width="375"><figcaption><p>Use this functionality to delete all line break(s)</p></figcaption></figure>
 
 * Write **2 characters minimum in each query**. If one cell contains one character but at least one other cell contains more than one, the cell containing one character will be ignored. If all cells contain only one character, the batch search will lead to a 'failure'.
 * If you have **blank cells in your spreadsheet...**
@@ -57,24 +57,24 @@ To avoid that, **remove blank cells in your spreadsheet before exporting it as a
 {% endstep %}
 
 {% step %}
-### Export the list as a CSV
+#### Export the list as a CSV
 
 Export your spreadsheet of queries in a CSV format:
 
-<figure><img src="../.gitbook/assets/usage/batch-search-documents/09-window-numbers-software-where-menu-s.png" alt="Screenshot of a window of &#x27;Numbers&#x27; software where the menu&#x27;s path File > Export to > CSV is selected"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/batch-search-documents/09-window-numbers-software-where-menu-s (1).png" alt="Screenshot of a window of &#x27;Numbers&#x27; software where the menu&#x27;s path File > Export to > CSV is selected"><figcaption></figcaption></figure>
 
 **Important: Use the** [**UTF-8 encoding**](https://en.wikipedia.org/wiki/UTF-8) **in your spreadsheet software's settings.**
 
 * **LibreOffice Calc**: it uses UTF-8 by default. If not, go to LibreOffice menu > Preferences > Load/Save > HTML Compatibility and make sur the character set is 'Unicode (UTF-8)':
 
-<figure><img src="../.gitbook/assets/usage/batch-search-documents/10-window-libreoffice-software-where.png" alt="Screenshot of a window of LibreOffice software where the Export options with &#x27;Character set: Unicode (UTF-8)&#x27; is highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/batch-search-documents/10-window-libreoffice-software-where (1).png" alt="Screenshot of a window of LibreOffice software where the Export options with &#x27;Character set: Unicode (UTF-8)&#x27; is highlighted"><figcaption></figcaption></figure>
 
 * **Microsoft Excel**: if it is not set by default, select "CSV UTF-8" as one of the formats, [as explained here](https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-mso_win10-mso_365hp/save-as-csv-with-utf-8-encoding/ff94943c-db5b-42c3-8905-f86d3d8d52c2).
 * **Google Sheets**: it uses UTF-8 by default. Just click "Export to" and "CSV".
 {% endstep %}
 
 {% step %}
-### Create the batch search
+#### Create the batch search
 
 Open the menu, go to '**Tasks**', open '**Batch searches**' and click the **'Plus' button** at the top right:
 
@@ -115,7 +115,7 @@ Once you filled all steps, click '**Create**' and wait for the batch search to c
 {% endstep %}
 
 {% step %}
-### Explore your results
+#### Explore your results
 
 In the menu, click '**Batch searches**' and click the **name of the batch search** to open it:
 
@@ -135,7 +135,7 @@ Click a document's name to open it. Use the page settings or the column's names 
 {% endstep %}
 
 {% step %}
-### Relaunch a batch search (optional)
+#### Relaunch a batch search (optional)
 
 If you've added new files in Datashare after you launched a batch search, you might want to relaunch the batch search to search in the new documents too.
 
@@ -159,7 +159,7 @@ See your relaunched batch search in the list of batch searches:
 {% endstep %}
 
 {% step %}
-#### Failures
+**Failures**
 
 Failures in batch searches can be due to several causes.
 
@@ -187,7 +187,7 @@ Check [**the most common syntax errors**](faq/common-errors/your-search-query-is
 
 We recommend to remove the commas, as well as any reserved characters, in your CSV using 'Find and replace all' features in your spreadsheet software and re-create the batch search.
 
-#### 'elasticsearch: Name does not resolve'
+**'elasticsearch: Name does not resolve'**
 
 If you have a message which contain '_elasticsearch: Name does not resolve_', it means that Datashare can't make Elastic Search, its search engine, work.
 
@@ -197,7 +197,7 @@ Example of a message regarding a problem with ElasticSearch:
 
 <kbd>`SearchException: query='lovelace' message='org.icij.datashare.batch.SearchException: java.io.IOException: elasticsearch: Name does not resolve'`</kbd>
 
-#### 'Data too large'
+**'Data too large'**
 
 One of your queries can lead to a 'Data too large' error.
 

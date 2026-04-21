@@ -15,10 +15,16 @@ A window called 'Terminal' will have opened, showing the progress of opening Dat
 **Keep this Terminal window open as long as you use Datashare.**
 
 **Datashare should now automatically open in your default internet browser.**\
-If it doesn’t, type '[localhost:8080](http://localhost:8080)' in your browser.&#x20;
+If it doesn’t, type '[localhost:8080](http://localhost:8080)' in your browser.
 
 Datashare **must be accessed from your internet browser** (Firefox, Chome, etc), even though it works offline without Internet connection (see FAQ: [Can I use Datashare with no internet connection?](../../usage/faq/general/can-i-use-datashare-with-no-internet-connection.md)).
 
 <figure><img src="../../.gitbook/assets/shared/09-homepage-datashare-projects-page-one.png" alt="Screenshot of Datashare&#x27;s homepage, the projects&#x27; page with one project called &#x27;Default&#x27;"><figcaption><p>Datashare's homepage</p></figcaption></figure>
+
+{% hint style="info" %}
+**Advanced: adjusting memory settings**
+
+If Datashare crashes on startup or during use, it may be due to insufficient memory allocated to Datashare or Elasticsearch. You can edit the `datashare.bat` script in the installation folder and set the `DS_JAVA_OPTS` and `ES_JAVA_OPTS` variables directly in it. See [Performance considerations](../../server-mode/performance-considerations.md) for recommendations.
+{% endhint %}
 
 You can now [add documents to Datashare](add-documents-to-datashare-on-windows.md).

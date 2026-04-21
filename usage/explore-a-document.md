@@ -31,7 +31,7 @@ To see all the keyboard shortcuts in Datashare, please read '[Use keyboard short
 
 ## See original document
 
-Go to the '**View**' tab to see the original document.&#x20;
+Go to the '**View**' tab to see the original document.
 
 Note: this visualization of the document is **available only for some file types**: **images, PDF, CSV, xlsx and tiff** but not other file types like Word documents or e-mails for instance.
 
@@ -73,15 +73,12 @@ You can also copy or pin a metadata.
 
 In the '**Entities**' tab, only if you previously run tasks to [Find entities](../local-mode/find-entities.md) in Datashare, you read the name of people, organizations, locations and e-mail adresses, along with the number of their occurrences in the document:
 
-<figure><img src="../.gitbook/assets/usage/explore-a-document/09-full-screen-document-view-entities-tab.png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-a-document/09-full-screen-document-view-entities-tab (1).png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab"><figcaption></figcaption></figure>
 
 **Hover one entity** to see a popover with all their mentions in context in the document by clicking on the **arrows**:
 
-<figure><img src="../.gitbook/assets/usage/explore-a-document/10-full-screen-document-view-entities-tab.png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab with one entity and its popover on the &#x27;Mentions&#x27; tab highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/explore-a-document/10-full-screen-document-view-entities-tab (1).png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab with one entity and its popover on the &#x27;Mentions&#x27; tab highlighted"><figcaption></figcaption></figure>
 
 Go to the '**Info**' tab to check how the entity was extracted:
 
-<figure><img src="../.gitbook/assets/usage/explore-a-document/11-full-screen-document-view-entities-tab.png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab with one entity and its popover on the &#x27;Info&#x27; tab highlighted"><figcaption></figcaption></figure>
-
-
-
+<figure><img src="../.gitbook/assets/usage/explore-a-document/11-full-screen-document-view-entities-tab (1).png" alt="Screenshot of Datashare&#x27;s full-screen document view on the &#x27;Entities&#x27; tab with one entity and its popover on the &#x27;Info&#x27; tab highlighted"><figcaption></figcaption></figure>
