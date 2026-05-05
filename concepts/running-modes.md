@@ -4,10 +4,12 @@ description: Datashare runs using different modes with their own features.
 
 # Running modes
 
-| Mode     | Category | Description                                              |
-| -------- | -------- | -------------------------------------------------------- |
-| `LOCAL`  | Web      | To run Datashare on a single computer for a single user. |
-| `SERVER` | Web      | To run Datashare on a server for multiple users.         |
+
+
+| Mode                | Category | Description                                              |
+| ------------------- | -------- | -------------------------------------------------------- |
+| `LOCAL` ,`EMBEDDED` | Web      | To run Datashare on a single computer for a single user. |
+| `SERVER`            | Web      | To run Datashare on a server for multiple users.         |
 
 > **Note:** Document processing pipeline stages are run with `datashare stage run` (see [CLI stages](cli-stages.md)). The async task worker daemon is started with `datashare worker run`.
 
@@ -36,7 +38,7 @@ The running modes offer advantages and limitations. This matrix summarizes the d
 | Single JVM      | ✅       | ❌        |
 | Tasks execution | ✅       | ❌        |
 
-_When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "[embedded mode](../local-mode/embedded-mode.md)" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default._
+_When running Datashare in local mode, users can choose to use embedded services (like ElasticSearch, SQLITE, in-memory key/value store) on the same JVM than Datashare. This variant of the local mode is called "_[_embedded mode_](../local-mode/embedded-mode.md)_" and allows user to run Datashare without having to setup any additional software. The embedded mode is used by default._
 
 ## Pipeline stages
 
