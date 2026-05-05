@@ -6,10 +6,10 @@ description: Datashare runs using different modes with their own features.
 
 
 
-| Mode                | Category | Description                                              |
-| ------------------- | -------- | -------------------------------------------------------- |
-| `LOCAL` ,`EMBEDDED` | Web      | To run Datashare on a single computer for a single user. |
-| `SERVER`            | Web      | To run Datashare on a server for multiple users.         |
+| Mode                | Description                                              |
+| ------------------- | -------------------------------------------------------- |
+| `LOCAL` ,`EMBEDDED` | To run Datashare on a single computer for a single user. |
+| `SERVER`            | To run Datashare on a server for multiple users.         |
 
 > **Note:** Document processing pipeline stages are run with `datashare stage run` (see [CLI stages](cli-stages.md)). The async task worker daemon is started with `datashare worker run`.
 
