@@ -11,17 +11,17 @@ description: >-
 
 ### What is Datashare?
 
-Welcome to [Datashare](https://datashare.icij.org) - a self-hosted documents search software. It is a free and open-source software developed by the [International Consortium of Investigative Journalists](https://www.icij.org) (ICIJ). Initially created to combine multiple [named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition) pipelines, this tool is now a fully-featured search interface to dig into your documents.&#x20;
+Welcome to [Datashare](https://datashare.icij.org) - a self-hosted document search software. It is a free and open-source software developed by the [International Consortium of Investigative Journalists](https://www.icij.org) (ICIJ). Initially created to combine multiple [named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition) pipelines, this tool is now a fully-featured search interface to dig into your documents.
 
 With the help of several open-source tools ([Extract](https://github.com/icij/extract), [Apache Tika](https://tika.apache.org/), [Apache Tesseract](https://github.com/tesseract-ocr/tesseract), [CoreNLP](https://stanfordnlp.github.io/CoreNLP/), [OpenNLP](https://opennlp.apache.org/), [Elasticsearch](https://www.elastic.co/elasticsearch), and more), Datashare can be used on one single personal computer, as well as on 100 interconnected servers.
 
 ### Who uses it?
 
-Datashare is developed by the ICIJ, a collective of investigative journalists. Datashare is built at the top of technologies and methods already tested with investigations like the [Panama Papers](https://www.icij.org/investigations/panama-papers) or the [Luanda Leaks](https://www.icij.org/investigations/luanda-leaks/).&#x20;
+Datashare is developed by the ICIJ, a collective of investigative journalists. Datashare is built at the top of technologies and methods already tested with investigations like the [Panama Papers](https://www.icij.org/investigations/panama-papers) or the [Luanda Leaks](https://www.icij.org/investigations/luanda-leaks/).
 
-Seeing the growing interest for ICIJ's technology, we decided to open source this key component of our investigations so a single journalist as well as big media organizations could use it for their own documents.
+Seeing the growing interest for ICIJ's technology, we decided to open source this key component of our investigations so a single journalist as well as big media organizations can use it for their own documents.
 
-Datashare is free so anyone can use it and find is useful.
+Datashare is free so anyone can use it.
 
 Curious to know more about how we use Datashare?
 
@@ -41,7 +41,7 @@ Datashare was also built to run on a server. This is how we use it for our colla
 
 ### Can I customize Datashare?
 
-When building Datashare, one of our first decisions was to use [Elasticsearch](https://www.elastic.co/elasticsearch) to create an index of documents. It would be fair to describe Datashare as a nice looking web interface for Elasticsearch. We want our search platform to be user-friendly while keeping all the powerful Elasticsearch features available for advanced users. This way we ensure that Datashare is usable by non tech-savvy reporters, but still robust enough to satisfy data analysts and developers who want to query the index directly [with our API](broken-reference).
+When building Datashare, one of our first decisions was to use [Elasticsearch](https://www.elastic.co/elasticsearch) to create an index of documents. It would be fair to describe Datashare as a nice looking web interface for Elasticsearch. We want our search platform to be user-friendly while keeping all the powerful Elasticsearch features available for advanced users. This way we ensure that Datashare is usable by non tech-savvy reporters, but still robust enough to satisfy data analysts and developers who want to query the index directly [with our API](broken-reference/).
 
 We implemented the possibility to create plugins, to make this process more accessible. Instead of modifying Datashare directly, you could isolate your code with a specific set of features and then configure Datashare to use it. Each Datashare user can pick the plugins they need or want, and have a fully customized installation of our search platform. Please have a look at the [documentation](developers/backend/write-extensions.md).
 

@@ -8,7 +8,7 @@ It means that you wrote one or more of your queries the wrong way with some char
 
 **You need to correct the error(s) in your CSV** and re-launch your new batch search with a CSV that does not contain errors. [Check how to create a batch search](../../batch-search-documents.md).
 
-Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your quferies** as some errors can remain after correcting the first one.
+Datashare **stops at the first syntax error**. It reports only the first ​error. You might need to **check all your queries** as some errors can remain after correcting the first one.
 
 Example of a syntax error message:
 

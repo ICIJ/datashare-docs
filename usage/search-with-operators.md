@@ -98,7 +98,7 @@ The default boost value is 1, but can be any positive floating point number. Boo
 
 ### **Regular expressions (Regex)**
 
-‌"A regular expression (shortened as regex or regexp) is a sequence of characters that define a search pattern." ([Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)).
+‌"_A regular expression (shortened as regex or regexp) is a sequence of characters that define a search pattern._" ([Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)).
 
 1\. You can use Regex in Datashare. Regular expressions (Regex) in Datashare need to be **written between 2 slashes** and **starting with the field (content, name, author, recipients, etc):**
 

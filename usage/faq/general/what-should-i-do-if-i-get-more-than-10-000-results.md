@@ -2,7 +2,7 @@
 
 In Datashare, for technical reasons, it is not possible to open the 10,000th document.
 
-_Example:_ you search for "Paris", you get 15,634 results. You'd be able to see the first 9,999th results but no more. This also happens if you didn't run any search.
+_Example:_ you search for "Paris", you get 15,634 results. You are able to see the first 9,999th results but no more. This also happens if you didn't run any search.
 
 As it is not possible to fix this, here are some tips:
 

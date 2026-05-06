@@ -1,15 +1,15 @@
 ---
 description: >-
-  This page explains how to run a neo4j instance inside docker. For any
-  additional information please refer to the [neo4j
-  documentation](https://neo4j.com/docs/getting-started/)
+  This page explains how to run a Neo4j instance inside docker. For any
+  additional information please refer to the Neo4j documentation:
+  https://neo4j.com/docs/getting-started/
 ---
 
 # How to run Neo4j?
 
 ## Run Neo4j inside docker
 
-1\. enrich the `services` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j service:
+1\. Enrich the `services` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following Neo4j service:
 
 {% code fullWidth="true" %}
 ```yaml
@@ -29,9 +29,9 @@ services:
 ```
 {% endcode %}
 
-make sure not to forget the [APOC plugin](https://neo4j.com/developer/neo4j-apoc/) (`NEO4J_PLUGINS: '["apoc"]'`).
+Make sure not to forget the [APOC plugin](https://neo4j.com/developer/neo4j-apoc/) (`NEO4J_PLUGINS: '["apoc"]'`).
 
-2\. enrich the `volumes` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following neo4j volumes:
+2\. Enrich the `volumes` section of the `docker-compose.yml` of the [install with Docker](../../../local-mode/install-with-docker.md) page, with the following Neo4j volumes:
 
 {% code fullWidth="true" %}
 ```yaml
@@ -54,11 +54,11 @@ docker compose up -d neo4j
 
 ## Run Neo4j Desktop
 
-1. install with [Neo4j Desktop](https://neo4j.com/docs/desktop-manual/current/), follow installation instructions found [here](https://neo4j.com/docs/desktop-manual/current/installation/)
-2. [create a new local DBMS](https://neo4j.com/docs/desktop-manual/current/operations/create-dbms/) and save your password for later
-3. if the installer notifies you of any ports modification, check the [DBMS settings](https://neo4j.com/docs/desktop-manual/current/visual-tour/#dbms) and save the `server.bolt.listen_address` for later
-4. make sure to install the [APOC Plugin](https://neo4j.com/docs/desktop-manual/current/operations/install-plugin/)
+1. Install with [Neo4j Desktop](https://neo4j.com/docs/desktop-manual/current/), follow installation instructions found [here](https://neo4j.com/docs/desktop-manual/current/installation/)
+2. [Create a new local DBMS](https://neo4j.com/docs/desktop-manual/current/operations/create-dbms/) and save your password for later
+3. If the installer notifies you of any ports modification, check the [DBMS settings](https://neo4j.com/docs/desktop-manual/current/visual-tour/#dbms) and save the `server.bolt.listen_address` for later
+4. Make sure to install the [APOC Plugin](https://neo4j.com/docs/desktop-manual/current/operations/install-plugin/)
 
 ## Additional options
 
-Additional options to install neo4j are [listed here](https://neo4j.com/docs/operations-manual/current/installation/).
+Additional options to install Neo4j are [listed here](https://neo4j.com/docs/operations-manual/current/installation/).

@@ -1,6 +1,6 @@
 # Datashare doesn't open. What should I do?
 
-It can be due to extensions priorly installed. The tech team is [fixing the issue](https://github.com/ICIJ/datashare/issues/715). In the meantime, you need to remove them. To do so, you can **open your Terminal, copy and paste the text below**:
+It can be due to extensions priorly installed. You need to remove them. To do so, you can **open your Terminal, copy and paste the text below**:
 
 * On Mac
 
@@ -20,4 +20,5 @@ rm -rf ~/.local/share/datashare/plugins ~/.local/share/datashare/extensions
 del /S %APPDATA%\Datashare\Extensions  %APPDATA%\Datashare\Plugins
 ```
 
-**Press Enter. Open Datashare again.**
+Press **Enter.** Open Datashare again.
+

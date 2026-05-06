@@ -16,11 +16,11 @@ Open '**Filters**' on the left of the search bar:
 
 **'Indexing dates'** arethe dates when the documents were added to Datashare.
 
-**'Extraction levels'** regard embedded documents:
+**'Embedment levels'** regard embedded documents:
 
 * The 'file on disk' is level zero
-* If a document is attached to (or contained in) a file on disk, its extraction level is '1st'
-* If a document is attached to (or contained in) a document itself contained in a file on disk, its extraction level is '2nd'
+* If a document is attached to (or contained in) a file on disk, its embedment level is '1st'
+* If a document is attached to (or contained in) a document itself contained in a file on disk, its embedment level is '2nd'
 * And so on
 
 ## Filter by entities
@@ -39,7 +39,7 @@ In the search breadcrumb, you see that the excluded filters are **strikethrough*
 
 ## Contextualize filters
 
-In most filters, tick '**Contextualize'** to **update the number of documents indicated in the filters so they reflect the results**.&#x20;
+In most filters, tick '**Contextualize'** to **update the number of documents indicated in the filters so they reflect the results**.
 
 The filter will only count what you selected, it will reflect the results of your current selection:
 
@@ -47,13 +47,11 @@ The filter will only count what you selected, it will reflect the results of you
 
 <figure><img src="../.gitbook/assets/usage/filter-documents/06-page-search-documents-language-filter.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Language&#x27; filter open, the &#x27;Contextualize&#x27; checkbox ticked and the whole filter highlighted"><figcaption></figcaption></figure>
 
-
-
 ## Clear all filters
 
 To reset all filters at the same time, open the **search breadcrumb**:
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/07-page-search-documents-your-search-button.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Your search&#x27; button on the left of the search bar highlighted "><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/usage/filter-documents/07-page-search-documents-your-search-button.png" alt="Screenshot of Datashare&#x27;s page to search documents with the &#x27;Your search&#x27; button on the left of the search bar highlighted"><figcaption></figcaption></figure>
 
 Click '**Clear filters**':
 

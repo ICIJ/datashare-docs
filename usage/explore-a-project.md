@@ -18,7 +18,7 @@ Your project is now pinned in the menu:
 
 <figure><img src="../.gitbook/assets/usage/explore-a-project/02-all-projects-page-luxleaks-project-s.png" alt="Screenshot of Datashare&#x27;s &#x27;All projects&#x27; page with LuxLeaks&#x27; project&#x27;s name pinned in the left menu and highlighted"><figcaption></figcaption></figure>
 
-In a project page, in the first tab called '**Insights**', you find **statistics** and a bar chart displaying the **number of documents by creation date**.&#x20;
+In a project page, in the first tab called '**Insights**', you find **statistics** and a bar chart displaying the **number of documents by creation date**.
 
 Filter this chart by path by clicking **'Select path'**:
 
@@ -28,7 +28,7 @@ Filter this chart by path by clicking **'Select path'**:
 
 <figure><img src="../.gitbook/assets/usage/explore-a-project/04-project-page-insights-tab-at-level.png" alt="Screenshot of a Datashare&#x27;s project page on the Insights tab at the level of the &#x27;Documents per creation date&#x27; bar chart with one-year bar highlighted"><figcaption></figcaption></figure>
 
-On the **'Languages', 'File Types' and 'Authors' widgets**, you see stats:
+On the **'Languages', 'Document Types' and 'Authors' widgets**, you see stats:
 
 <figure><img src="../.gitbook/assets/usage/explore-a-project/05-project-page-insights-tab-languages-file.png" alt="Screenshot of a Datashare&#x27;s project page on the Insights tab with the Languages, File types and Authors&#x27; widgets highlighted"><figcaption></figcaption></figure>
 
