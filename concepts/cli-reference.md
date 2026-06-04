@@ -24,6 +24,12 @@ Running `datashare` with no arguments is equivalent to `datashare app start` —
 | `api-key get` | Get the current user's API key |
 | `api-key create` | Create an API key |
 | `api-key delete` | Delete an API key |
+| `user create` | Create a Datashare user |
+| `user delete` | Delete a Datashare user and all their owned data |
+| `project create` | Create a Datashare project |
+| `project delete` | Delete a Datashare project (DB, ES index, queues, report map, artifacts) |
+| `project grant` | Grant a role to a user on a project (replaces any existing role) |
+| `project revoke` | Revoke all project roles for a user |
 
 ## `app start`
 
@@ -94,6 +100,41 @@ datashare extension install datashare-extension-nlp-opennlp
 # Remove an extension
 datashare extension delete datashare-extension-nlp-opennlp
 ```
+
+## `user`
+
+Create and delete Datashare users. See [Manage users from the CLI](../server-mode/manage-users-from-the-cli.md) for details.
+
+```bash
+# Create a user
+datashare user create alice --email alice@example.org
+
+# Create a user with a password and project access
+datashare user create alice --email alice@example.org --password $PW --groups p1,p2
+
+# Delete a user and all their owned data
+datashare user delete alice --yes
+```
+
+## `project`
+
+Create and delete projects, and manage project permissions. See [Manage projects from the CLI](../server-mode/manage-projects-from-the-cli.md) for details.
+
+```bash
+# Create a project
+datashare project create my-project --label 'My Project'
+
+# Delete a project (DB, ES index, queues, report map, artifacts)
+datashare project delete my-project --yes
+
+# Grant a role to a user (admin, editor, member or visitor)
+datashare project grant my-project alice admin
+
+# Revoke all project roles for a user
+datashare project revoke my-project alice
+```
+
+All `user` and `project` subcommands accept `--json` (machine-readable output), `--no-input` (disable prompts) and idempotency flags (`--if-not-exists` / `--if-exists`) for scripting.
 
 ## Global flags
 

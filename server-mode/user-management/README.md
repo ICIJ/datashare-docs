@@ -40,7 +40,13 @@ The legacy `--authFilter` flag, which took a fully-qualified filter class name (
 
 ## Provisioning users
 
-Form auth and both basic auth providers share the same user record format. Only the storage location differs (PostgreSQL table vs. Redis key).
+The easiest way to create users is the [`datashare user create` subcommand](../manage-users-from-the-cli.md):
+
+```bash
+datashare user create alice --email alice@example.org --password $PW --groups project1,project2
+```
+
+You can also provision users manually, as described below. Form auth and both basic auth providers share the same user record format. Only the storage location differs (PostgreSQL table vs. Redis key).
 
 ### Hash the password
 

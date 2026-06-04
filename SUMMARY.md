@@ -40,6 +40,8 @@
 * [Permission model](server-mode/permission-model.md)
 * [Add documents from the CLI](server-mode/add-documents-from-the-cli.md)
 * [Add entities from the CLI](server-mode/add-entities-from-the-cli.md)
+* [Manage users from the CLI](server-mode/manage-users-from-the-cli.md)
+* [Manage projects from the CLI](server-mode/manage-projects-from-the-cli.md)
 * [User management](server-mode/user-management/README.md)
   * [OAuth2](server-mode/user-management/oauth2.md)
   * [HTML form](server-mode/user-management/form-auth.md)
