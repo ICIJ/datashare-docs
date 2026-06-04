@@ -41,15 +41,17 @@ enforce("bob", "default", "citrus-confidential" "PROJECT_MEMBER")
 * `PROJECT_ADMIN`
 * `PROJECT_EDITOR`
 * `PROJECT_MEMBER`
+* `PROJECT_VISITOR`
 
 Hierarchy:
 
 ```
-instance_admin > domain_admin > project_admin > project_editor > project_member
+instance_admin > domain_admin > project_admin > project_editor > project_member > project_visitor
 ```
 
 ### Mapping Datashare features to permissions
 
+* `PROJECT_VISITOR`: the most limited project role, below `PROJECT_MEMBER`
 * `PROJECT_MEMBER`: read-only access inside a project
 * `PROJECT_EDITOR`: project\_member + can change user-generated data (tags, recommendations, …)
 * `PROJECT_ADMIN`: project\_editor + can manage the project (membership, settings)
@@ -62,7 +64,9 @@ Where policies live in production ? `CasbinRule` table&#x20;
 
 How policies are updated:
 
-* CLI : only to grant one INSTANCE\_ADMIN with grantAdminTask&#x20;
+* CLI :
+  * project-level roles with `datashare project grant` and `datashare project revoke` (see [Manage projects from the CLI](manage-projects-from-the-cli.md))
+  * one INSTANCE\_ADMIN with grantAdminTask (see below)
 * API endpoints :
   * CRUD on all policies `/api/policies` (see the openapi schema).
   * Current user policies `/api/me/permissions`
@@ -78,6 +82,20 @@ The convention when an endpoint manage multiple tasks, that only `DOMAIN_ADMIN` 
 To secure policies changes we added guards so a user cannot grant or act on higher role than theirs .
 
 ### How to enroll users in the permission model ?
+
+#### Granting project roles from the CLI
+
+The `datashare project grant` and `datashare project revoke` subcommands assign or remove project-level roles:
+
+```bash
+# Grant a role (admin, editor, member or visitor) — replaces any existing role
+datashare project grant my-project alice admin
+
+# Revoke all project roles for a user
+datashare project revoke my-project alice
+```
+
+See [Manage projects from the CLI](manage-projects-from-the-cli.md) for all options.
 
 #### Migration
 
