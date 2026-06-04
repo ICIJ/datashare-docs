@@ -2,9 +2,7 @@
 
 **This document assumes that you have installed Datashare** [**in server mode within Docker**](install-with-docker.md)**.**
 
-In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide an interface to add documents. As there is no build-in roles and permission in Datashare's data model, we have no way to differentiate users to offer admin additional tools.
-
-This is likely to be changed in the near future, but in the meantime, you can still add documents to Datashare using the command-line interface.
+In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide a web interface to add documents. Documents are added using the command-line interface.
 
 Here is a simple command to scan a directory and index its files:
 
