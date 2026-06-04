@@ -2,9 +2,7 @@
 
 **This document assumes that you have installed Datashare** [**in server mode within Docker**](install-with-docker.md) **and already** [**added documents to Datashare**](add-documents-from-the-cli.md)**.**
 
-In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide an interface to add documents. As there is no build-in roles and permission in Datashare's data model, we have no way to differentiate users to offer admin additional tools.
-
-This is likely to be changed in the near future, but in the meantime, you can extract named entities using the command-line interface.
+In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide a web interface to add documents or extract entities. Named entities are extracted using the command-line interface.
 
 Datashare has the ability to detect email addresses, name of people, organizations and locations. This process use a Natural Language Processing (NLP) pipeline called CORENLP. Once your documents have been indexed in Datashare, you can perform the named entities extraction in the same fashion as the previous CLI's [stages](../concepts/cli-stages.md):
 
