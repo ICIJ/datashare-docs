@@ -4,7 +4,7 @@ description: OAuth2 authentication with a third-party identity provider
 
 # OAuth2
 
-OAuth2 is the default authentication mode: if no `--authFilter` is provided in server mode, it is selected. With OAuth2 you delegate authentication to an external identity provider (IdP) such as KeyCloak, Okta, or GitHub. Datashare redirects unauthenticated users to the IdP, receives an authorization code, exchanges it for a token, then fetches the user profile.
+OAuth2 authentication is selected with `--auth oauth`. With OAuth2 you delegate authentication to an external identity provider (IdP) such as KeyCloak, Okta, or GitHub. Datashare redirects unauthenticated users to the IdP, receives an authorization code, exchanges it for a token, then fetches the user profile.
 
 <figure><img src="https://i.imgur.com/uHVXObS.png" alt="A diagram of a workflow"><figcaption><p>oauth</p></figcaption></figure>
 
@@ -31,6 +31,7 @@ OAuth2 is the default authentication mode: if no `--authFilter` is provided in s
 
 ```
 docker run -ti ICIJ/datashare:version --mode SERVER \
+    --auth oauth \
     --oauthClientId 30045255030c6740ce4c95c \
     --oauthClientSecret 10af3d46399a8143179271e6b726aaf63f20604092106 \
     --oauthAuthorizeUrl https://my.oauth-server.org/oauth/authorize \

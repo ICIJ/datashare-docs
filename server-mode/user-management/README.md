@@ -22,15 +22,21 @@ All providers except OAuth2 send credentials to Datashare directly. **Always run
 
 Two CLI flags select the authentication backend:
 
-* `--authFilter`: the filter class that handles incoming requests (decides whether a request is authenticated, returns the challenge, and validates the session cookie).
-* `--authUsersProvider`: the class that looks users up (by login or login+password). Only applies to filters that check credentials against a local store (form auth, basic auth). OAuth2 doesn't use it.
+* `--auth`: the authentication method that handles incoming requests (decides whether a request is authenticated, returns the challenge, and validates the session cookie). Accepted values: `oauth`, `form`, `basic`, `yesCookie`, `yesBasic` (default: `form`).
+* `--authUsersProvider`: where users are looked up (by login or login+password). Accepted values: `database` (default), `redis`, or a fully-qualified class name. Only applies to methods that check credentials against a local store (form auth, basic auth). OAuth2 doesn't use it.
 
-For example, to use the HTML form filter backed by a PostgreSQL user inventory:
+For example, to use the HTML form method backed by a PostgreSQL user inventory:
 
 ```
---authFilter org.icij.datashare.session.FormAuthFilter \
---authUsersProvider org.icij.datashare.session.UsersInDb
+--auth form \
+--authUsersProvider database
 ```
+
+Since these are the default values, an explicit `--auth form --authUsersProvider database` is equivalent to passing nothing at all.
+
+{% hint style="info" %}
+The legacy `--authFilter` flag, which took a fully-qualified filter class name (e.g. `org.icij.datashare.session.FormAuthFilter`), is deprecated. Use `--auth` instead.
+{% endhint %}
 
 ## Provisioning users
 
