@@ -4,9 +4,9 @@ description: HTML form authentication with credentials stored in a database or R
 
 # HTML form
 
-The form authentication filter (`FormAuthFilter`) displays a login page served by Datashare's frontend. Users submit their credentials through an HTML form instead of the browser's native basic-auth popup, which gives a better user experience and lets them sign out.
+The form authentication method (`--auth form`) displays a login page served by Datashare's frontend. Users submit their credentials through an HTML form instead of the browser's native basic-auth popup, which gives a better user experience and lets them sign out.
 
-This filter is the **recommended** authentication provider for self-managed deployments, and the replacement for `BasicAuthAdaptorFilter` and `YesBasicAuthFilter`.
+This method is the **default** (used when no `--auth` flag is provided) and the **recommended** authentication provider for self-managed deployments. It replaces the legacy basic (`--auth basic`) and dummy (`--auth yesBasic`) methods.
 
 <figure><img src="../../.gitbook/assets/server-mode/user-management/form-auth/01-datashare-login-form.png" alt="Screenshot of Datashare's HTML login form with username and password fields and a sign-in button"><figcaption><p>Datashare login form</p></figcaption></figure>
 
@@ -31,19 +31,19 @@ Credentials are sent in plain text inside the request body. Always run Datashare
 
 ## User provider
 
-`FormAuthFilter` must be paired with a user provider that stores credentials:
+Form auth must be paired with a user provider that stores credentials, selected with `--authUsersProvider`:
 
-* `org.icij.datashare.session.UsersInDb`: credentials stored in the Datashare database (PostgreSQL recommended).
-* `org.icij.datashare.session.UsersInRedis`: credentials stored in Redis.
+* `database` (default): credentials stored in the Datashare database (PostgreSQL recommended).
+* `redis`: credentials stored in Redis.
 
 The user record format is the same in both cases. See [Provisioning users](README.md#provisioning-users) for how to hash passwords, structure records, and store them in PostgreSQL or Redis.
 
 ## Migrating from basic auth
 
-If you're already running `BasicAuthAdaptorFilter`, migration is transparent:
+If you're already running basic auth, migration is transparent:
 
-1. Change `--authFilter` from `BasicAuthAdaptorFilter` to `FormAuthFilter`.
-2. Keep the same `--authUsersProvider` (`UsersInDb` or `UsersInRedis`).
+1. Change `--auth basic` to `--auth form` (or simply drop the flag, since `form` is the default).
+2. Keep the same `--authUsersProvider` (`database` or `redis`).
 3. Restart Datashare.
 
 No data migration is needed: the user records are identical.
@@ -57,8 +57,8 @@ docker run -ti ICIJ/datashare --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
-    --authFilter org.icij.datashare.session.FormAuthFilter \
-    --authUsersProvider org.icij.datashare.session.UsersInDb
+    --auth form \
+    --authUsersProvider database
 ```
 
 With credentials stored in Redis:
@@ -68,6 +68,6 @@ docker run -ti ICIJ/datashare --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
-    --authFilter org.icij.datashare.session.FormAuthFilter \
-    --authUsersProvider org.icij.datashare.session.UsersInRedis
+    --auth form \
+    --authUsersProvider redis
 ```

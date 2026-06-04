@@ -60,8 +60,8 @@ Datashare is shipped as a single executable, with all modes available. As previo
 
 ```sh
 datashare app start --mode SERVER \
-  # Dummy session filter to creates ephemeral users
-  --authFilter org.icij.datashare.session.YesCookieAuthFilter \
+  # Dummy session authentication that creates ephemeral users
+  --auth yesCookie \
   # Name of the default project for every user
   --defaultProject local-datashare \
   # URI of Elasticsearch

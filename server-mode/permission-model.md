@@ -92,7 +92,7 @@ datashare \
 --grantAdmin foo \
 --defaultProject local-datashare \
 --redisAddress redis://redis:6379 \
---authUsersProvider org.icij.datashare.session.UsersInRedis \
+--authUsersProvider redis \
 --dataSourceUrl "jdbc:postgresql://postgres/datashare?user=admin&password=admin"
 ```
 

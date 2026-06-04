@@ -37,6 +37,6 @@ docker run -ti ICIJ/datashare --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
-    --authFilter org.icij.datashare.session.BasicAuthAdaptorFilter \
-    --authUsersProvider org.icij.datashare.session.UsersInRedis
+    --auth basic \
+    --authUsersProvider redis
 ```
