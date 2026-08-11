@@ -4,7 +4,7 @@
 
 In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide a web interface to add documents or extract entities. Named entities are extracted using the command-line interface.
 
-Datashare has the ability to detect email addresses, name of people, organizations and locations. This process use a Natural Language Processing (NLP) pipeline called CORENLP. Once your documents have been indexed in Datashare, you can perform the named entities extraction in the same fashion as the previous CLI's [stages](../concepts/cli-stages.md):
+Datashare has the ability to detect email addresses, name of people, organizations and locations. This process use a Natural Language Processing (NLP) pipeline called CORENLP. Once your documents have been indexed in Datashare, you can perform the named entities extraction in the same fashion as the previous CLI's [stages](../concepts/cli-stages/README.md):
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
@@ -18,7 +18,7 @@ docker compose exec datashare_web /entrypoint.sh \
 
 What's happening here:
 
-* We ask to process the NLP [stage](../concepts/cli-stages.md)
+* We ask to process the NLP [stage](../concepts/cli-stages/README.md)
 * We tell Datashare to use the `elasticsearch` service
 * Datashare will pull documents from ElasticSearch directly
 * Up to 2 documents will be analyzed in parallel
@@ -41,7 +41,7 @@ docker compose exec datashare_web /entrypoint.sh \
   --dataDir /home/datashare/Datashare/
 ```
 
-As for the previous [stages](../concepts/cli-stages.md) you may want to restore the output queue from the `INDEX` stage. You can do:
+As for the previous [stages](../concepts/cli-stages/README.md) you may want to restore the output queue from the `INDEX` stage. You can do:
 
 ```bash
 docker compose exec datashare_web /entrypoint.sh \
