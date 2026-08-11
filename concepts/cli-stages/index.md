@@ -60,21 +60,7 @@ datashare stage run \
 | `--createIndex` | none | Creates an index with the given name before running. |
 | `--artifacts` / `--artifactDir` | none | Also write embedded payloads to disk as the parse goes. INDEX only produces the `raw` type. |
 
-Settings-file keys with no flag, useful on hard corpora:
-
-```properties
-embedMemoryBudgetMb=64            # embedded text held in heap per document before spilling to disk
-embedMemoryPressureThreshold=0.7  # spill earlier when the heap gets this full
-maxEmbedSizeBytes=2147483648      # skip embeds larger than this (decompression-bomb guard)
-ocrParallelism=8                  # concurrent OCR of images found inside containers
-ocrFanout=true                    # off: OCR embedded images inline instead
-pstFolderFanout=true              # parse the folders of one mailbox in parallel
-pstParseParallelism=8
-streamingSpew=true                # off: buffer the whole embedded tree before writing (legacy)
-spewQueueCapacity=1000            # parsed-but-unwritten embeds held before the parse blocks
-progressHeartbeatInterval=60s     # log line naming each in-flight document
-queuePoll=0                       # how long to wait on an empty queue poll
-```
+Extract carries further knobs, for the OCR pool, the mailbox fan-out, the embedded-text buffers and the streaming writer. **None of them is exposed as a flag, and a settings file does not reach a stage run**, so their defaults are what you get. They are described as behaviour in [Tuning](../../server-mode/indexing/tuning.md).
 
 ## How one document flows through
 
