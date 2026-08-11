@@ -1,21 +1,24 @@
 ---
 description: >-
   Every option that changes how Datashare indexes: command-line flags,
-  environment variables and settings-file keys, with their real defaults.
+  environment variables and what cannot be configured from the command line.
 ---
 
 # Indexing options
 
 ## Where options come from
 
-Datashare reads its configuration from three places. When the same key is set in more than one, this is who wins:
+**A pipeline stage is configured by command-line flags, and by nothing else.**
 
-1. **Command-line flags** (highest priority).
-2. **`DS_DOCKER_*` environment variables**, converted from `SCREAMING_SNAKE_CASE` to camelCase. `DS_DOCKER_OCR_LANGUAGE=fra` sets `ocrLanguage`.
-3. **The settings file**, a Java properties file passed with `--settings`. On a `.deb` install the launcher points it at `~/.local/share/datashare/dist/datashare.conf`.
+That is worth stating plainly, because Datashare also has a settings file (`--settings`) and reads `DS_DOCKER_*` environment variables, and neither of them changes how a stage runs:
+
+* every option has a built-in default, and the command line passes that default even when you do not type the flag, so it wins over anything the settings file says;
+* a key in the settings file that is not a flag is **silently ignored** by `stage run`. There is no error and no warning.
+
+Those two channels configure the **web application**, not a stage run. Use flags for indexing.
 
 {% hint style="warning" %}
-Any option that has a built-in default is always sent by the command line, even when you do not type it. That means it **overrides the same key in your settings file**. Use the settings file for keys that have no command-line flag (see [advanced keys](#advanced-keys-settings-file-only)), and use flags for everything else.
+Verified on 21.17.0: a settings file containing `includePattern`, `excludePattern` and `maxDepth` changed nothing, all six files in the test directory were queued, and `DS_DOCKER_QUEUE_NAME` was ignored the same way. Behaviour around the settings file has changed between versions, so treat `datashare stage run --help` as the authority for the version you run.
 {% endhint %}
 
 Options are position-independent: `datashare --dataDir /data stage run --stages SCAN` and `datashare stage run --stages SCAN --dataDir /data` are the same command.
@@ -40,7 +43,7 @@ These apply to every subcommand.
 | `--charset` | JVM default | Output encoding for extracted text and metadata. |
 | `--digestAlgorithm` | `SHA384` | Hash used to compute document ids. Changing it changes every id. |
 | `--digestProjectName` | none | Includes the project name in the hash, so the same file in two projects gets two ids. |
-| `-s, --settings` | launcher-dependent | Path to the properties file. |
+| `-s, --settings` | launcher-dependent | Path to the properties file. It configures the web application, not a stage run. |
 | `--logLevel` | `INFO` | `DEBUG`, `INFO`, `WARN` or `ERROR`. |
 
 {% hint style="danger" %}
@@ -146,53 +149,15 @@ services:
       - OMP_THREAD_LIMIT=1
 ```
 
-## Advanced keys (settings file only)
+## What you cannot configure from the CLI
 
-The extraction library has knobs that are not exposed as command-line flags. They are read from the settings file (or from `DS_DOCKER_*` variables) exactly like any other option. These are the ones worth knowing:
+The extraction library carries more knobs than Datashare exposes: the size of the OCR pool, the mailbox folder fan-out, the embedded-text memory budget, glob patterns for the scanner, and a few others. **None of them can be set for a `stage run` invocation.** Only the flags documented above reach a stage.
 
-```properties
-# Which files the scanner picks up. Everything is scanned by default,
-# including hidden files, so exclude what you do not want.
-includePattern=**/*.{pdf,doc,docx,xls,xlsx,eml,msg}
-excludePattern=**/{node_modules,.git,Backups}/**
-maxDepth=10
+Their built-in behaviour still applies, and it is described in [Tuning](tuning.md): the OCR pool and the mailbox fan-out are both sized to the core count, embedded text buffers about 64 MB per document before spilling to disk, and the scanner takes every file it finds.
 
-# Behaviour when an in-memory queue is full: how long the scanner waits for a
-# slot (seconds), and whether it gives up instead of retrying
-queueFullTimeout=60
-queueFullStop=false
+If you need to index only part of a corpus, scope it with `--dataDir` or stage the files you want into their own directory. See [scenario 6](scenarios.md#scenario-6-index-only-part-of-a-corpus).
 
-# Mail archives: parse the folders of one mailbox in parallel instead of one
-# thread per mailbox file. Both are on by default, set them to bound the pools.
-pstFolderFanout=true
-pstParseParallelism=8
-
-# OCR concurrency for images found inside containers, independent of
-# --parallelism. Defaults to the number of cores.
-ocrParallelism=8
-ocrFanout=true
-
-# Guards against decompression bombs, in addition to maxEmbedDepth
-maxEmbedSizeBytes=2147483648
-
-# Memory used to buffer embedded document text before spilling to disk
-embedMemoryBudgetMb=64
-embedMemoryPressureThreshold=0.7
-
-# Progress lines naming each in-flight document, useful on long runs
-progressHeartbeatInterval=60s
-
-# Where Tika spools temporary files. Move it off /tmp for large corpora.
-# Must be outside your --dataDir, otherwise the scanner picks up its own spool.
-```
-
-Use it like any other settings file:
-
-```bash
-datashare --settings /etc/datashare/indexing.conf stage run --stages SCAN,INDEX ...
-```
-
-The temporary directory is a JVM property rather than a Datashare option, so it goes in `DS_JAVA_OPTS`:
+The temporary directory is the exception, because it is a JVM property rather than a Datashare option, so it goes in `DS_JAVA_OPTS`:
 
 ```bash
 DS_JAVA_OPTS="-Djava.io.tmpdir=/data/tmp" datashare stage run --stages SCAN,INDEX ...
