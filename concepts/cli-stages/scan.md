@@ -32,26 +32,17 @@ datashare stage run \
 | `--queueType` | `MEMORY` | `REDIS` to make the queue outlive the process and be readable by other machines. |
 | `--queueCapacity` | `1000000` | Size of an in-memory queue. Ignored with Redis. |
 
-Settings-file keys, which have no command-line flag:
-
-```properties
-includePattern=**/*.{pdf,doc,docx}   # queue only what matches
-excludePattern=**/{.git,node_modules}/**
-maxDepth=10                          # how deep to recurse
-queueFullTimeout=60                  # seconds to wait for a queue slot
-queueFullStop=false                  # true: abort instead of retrying when the queue is full
-```
+That is the whole list. The scanner has no option to filter by name, type or depth: what you point `--dataDir` at is what gets queued.
 
 ## Execution details
 
 * **The walk is single-threaded and I/O bound.** `--parallelism` has no effect on it. On network storage it is usually the slowest non-indexing part of a run, and it is the reason SCAN and INDEX are worth splitting on a large corpus.
 * **It queues paths, not content.** A file that is moved or deleted between the scan and the extraction fails at the INDEX stage, not here.
-* **Everything is scanned by default**, including hidden files and operating-system leftovers such as `.DS_Store` and `Thumbs.db`. Use `excludePattern` to keep them out.
-* **Exclude patterns prune directories, include patterns do not.** A directory matching `excludePattern` is skipped whole, which is cheap. `includePattern` is only tested against files, so the walk still descends into every directory.
-* **Include and exclude apply to the path on disk, not to what is inside an archive.** `includePattern=**/*.pdf` skips a ZIP that contains PDFs, because the ZIP itself does not match.
+* **Everything is scanned**, including hidden files and operating-system leftovers such as `.DS_Store` and `Thumbs.db`. To index a subset, point `--dataDir` at a subdirectory or stage the files you want into their own directory. See [scenario 6](../../server-mode/indexing/scenarios.md#scenario-6-index-only-part-of-a-corpus).
+* **Selecting a directory does not reach inside containers.** A ZIP outside your `--dataDir` is not opened, so the PDFs inside it are missed too.
 * **Symlinks are followed by default.** With `--followSymlinks false` they are skipped entirely rather than indexed as files. A symlink loop is detected by the walker, logged, and does not stop the scan.
 * **Unreadable files and directories are logged and skipped.** A permission error on one subtree does not abort the walk.
-* **A full queue blocks the scan.** With an in-memory queue, when `--queueCapacity` is reached the scanner waits `queueFullTimeout` seconds for a slot, logs a warning, and retries forever. Set `queueFullStop=true` if you would rather it fail loudly.
+* **A full queue blocks the scan.** With an in-memory queue, when `--queueCapacity` is reached the scanner waits for a slot, logs a warning, and keeps retrying. Raise `--queueCapacity`, or use a Redis queue, if you see those warnings.
 
 ## Failure and restart
 
