@@ -64,7 +64,7 @@ Usually benign. The parent document is indexed normally, and the embedded item i
 Look at the underlying cause. If it is `NoSuchFileException`, that is not a broken file, it is a **temporary directory problem**: the spool file Datashare wrote vanished before it was read, which usually means `/tmp` filled up. Move the temporary directory to a volume with room:
 
 ```bash
-DS_JAVA_OPTS="-Djava.io.tmpdir=/vault/tmp" datashare stage run ...
+DS_JAVA_OPTS="-Djava.io.tmpdir=/data/tmp" datashare stage run ...
 ```
 
 and keep that directory outside `--dataDir`.

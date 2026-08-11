@@ -15,7 +15,7 @@ datashare stage run \
   --stages ENQUEUEIDX,ARTIFACT \
   --defaultProject my-project \
   --searchQuery 'extractionLevel:0' \
-  --artifactDir /vault/artifacts \
+  --artifactDir /data/artifacts \
   --elasticsearchAddress http://elasticsearch:9200 \
   --queueType REDIS \
   --redisAddress redis://redis:6379
@@ -55,7 +55,7 @@ The INDEX stage can write the `raw` payload as it parses, which avoids a second 
 ```bash
 datashare stage run --stages SCAN,INDEX \
   --artifacts raw \
-  --artifactDir /vault/artifacts \
+  --artifactDir /data/artifacts \
   ...
 ```
 

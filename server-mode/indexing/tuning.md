@@ -244,7 +244,7 @@ datashare stage run --stages SCAN,INDEX --language FRENCH --ocrLanguage fra ...
 
 ## Storage and temporary files
 
-* Extraction spools embedded documents to the temporary directory. On a corpus with large archives or mailboxes, `/tmp` fills up and parses start failing with "no such file" errors. Point the JVM somewhere with space: `DS_JAVA_OPTS="-Djava.io.tmpdir=/vault/tmp"`.
+* Extraction spools embedded documents to the temporary directory. On a corpus with large archives or mailboxes, `/tmp` fills up and parses start failing with "no such file" errors. Point the JVM somewhere with space: `DS_JAVA_OPTS="-Djava.io.tmpdir=/data/tmp"`.
 * Keep that temporary directory **outside** `--dataDir`, otherwise the scanner walks into Datashare's own spool files.
 * Network storage for the source files is fine, indexing is not I/O bound. Network storage for the Elasticsearch data directory is not.
 

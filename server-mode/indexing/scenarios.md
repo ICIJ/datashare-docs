@@ -20,7 +20,7 @@ You have files on the server and an empty project. Start with a **subset**, chec
 datashare stage run \
   --stages SCAN,INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents/sample \
+  --dataDir /data/documents/sample \
   --elasticsearchAddress http://elasticsearch:9200 \
   --reportName "report:my-project" \
   --queueType REDIS \
@@ -79,7 +79,7 @@ Scan only:
 datashare stage run \
   --stages SCAN \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --queueType REDIS \
   --redisAddress redis://redis:6379
 ```
@@ -97,7 +97,7 @@ Index when you are ready, from the same or from another machine:
 datashare stage run \
   --stages INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --elasticsearchAddress http://elasticsearch:9200 \
   --reportName "report:my-project" \
   --queueType REDIS \
@@ -116,7 +116,7 @@ If a path can end up in the queue twice, for example because an earlier scan was
 datashare stage run \
   --stages SCAN,DEDUPLICATE,INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --elasticsearchAddress http://elasticsearch:9200 \
   --reportName "report:my-project" \
   --queueType REDIS \
@@ -149,7 +149,7 @@ datashare stage run \
 datashare stage run \
   --stages SCAN,INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --elasticsearchAddress http://elasticsearch:9200 \
   --reportName "report:my-project" \
   --queueType REDIS \
@@ -186,7 +186,7 @@ On one machine, scan:
 ```bash
 datashare stage run --stages SCAN \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --queueType REDIS --redisAddress redis://shared-redis:6379
 ```
 
@@ -195,7 +195,7 @@ On each worker machine, run the same INDEX command:
 ```bash
 datashare stage run --stages INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --elasticsearchAddress http://shared-es:9200 \
   --reportName "report:my-project" \
   --queueType REDIS --redisAddress redis://shared-redis:6379 \
@@ -226,7 +226,7 @@ maxDepth=10
 datashare --settings /etc/datashare/indexing.conf stage run \
   --stages SCAN,INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents \
+  --dataDir /data/documents \
   --elasticsearchAddress http://elasticsearch:9200
 ```
 
@@ -317,7 +317,7 @@ Mailboxes are the corpus type most likely to surprise you.
 
 ```bash
 # -e writes one .eml file per message, -D includes deleted items
-readpst -e -D -o /vault/documents/mailboxes-split archive.pst
+readpst -e -D -o /data/documents/mailboxes-split archive.pst
 ```
 
 Expect the split output to take roughly as much disk space as the original mailbox.
@@ -328,7 +328,7 @@ Index them with a generous parse timeout and a report map, and expect the run to
 datashare stage run \
   --stages SCAN,INDEX \
   --defaultProject my-project \
-  --dataDir /vault/documents/mailboxes \
+  --dataDir /data/documents/mailboxes \
   --elasticsearchAddress http://elasticsearch:9200 \
   --reportName "report:my-project" \
   --queueType REDIS --redisAddress redis://redis:6379 \
@@ -373,14 +373,14 @@ datashare stage run --stages ENQUEUEIDX,CATEGORIZE \
 datashare stage run --stages ENQUEUEIDX,ARTIFACT \
   --defaultProject my-project \
   --searchQuery 'extractionLevel:0' \
-  --artifactDir /vault/artifacts \
+  --artifactDir /data/artifacts \
   --elasticsearchAddress http://elasticsearch:9200 \
   --queueType REDIS --redisAddress redis://redis:6379
 ```
 
 The query selects root documents only, because each root's whole embedded tree is cached as a side effect of processing it. `--artifactDir` is mandatory for this stage. Artifacts are cached, so a second run skips what a manifest already covers unless you pass `--artifactsForce true`.
 
-You can also produce the raw payload during indexing instead, by adding `--artifacts raw --artifactDir /vault/artifacts` to your `SCAN,INDEX` command. That avoids a second full pass, at the cost of a slower and more disk-hungry INDEX stage.
+You can also produce the raw payload during indexing instead, by adding `--artifacts raw --artifactDir /data/artifacts` to your `SCAN,INDEX` command. That avoids a second full pass, at the cost of a slower and more disk-hungry INDEX stage.
 
 ## Find what is missing
 
@@ -389,7 +389,7 @@ After a long run with interruptions, compare what is on disk to what is in the i
 Count files on disk, then count root documents in the index:
 
 ```bash
-find /vault/documents -type f | wc -l
+find /data/documents -type f | wc -l
 
 curl -s 'http://elasticsearch:9200/my-project/_count' \
   -H 'Content-Type: application/json' \

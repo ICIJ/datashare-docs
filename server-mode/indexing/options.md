@@ -18,7 +18,7 @@ Datashare reads its configuration from three places. When the same key is set in
 Any option that has a built-in default is always sent by the command line, even when you do not type it. That means it **overrides the same key in your settings file**. Use the settings file for keys that have no command-line flag (see [advanced keys](#advanced-keys-settings-file-only)), and use flags for everything else.
 {% endhint %}
 
-Options are position-independent: `datashare --dataDir /vault stage run --stages SCAN` and `datashare stage run --stages SCAN --dataDir /vault` are the same command.
+Options are position-independent: `datashare --dataDir /data stage run --stages SCAN` and `datashare stage run --stages SCAN --dataDir /data` are the same command.
 
 ## Global options
 
@@ -195,7 +195,7 @@ datashare --settings /etc/datashare/indexing.conf stage run --stages SCAN,INDEX 
 The temporary directory is a JVM property rather than a Datashare option, so it goes in `DS_JAVA_OPTS`:
 
 ```bash
-DS_JAVA_OPTS="-Djava.io.tmpdir=/vault/tmp" datashare stage run --stages SCAN,INDEX ...
+DS_JAVA_OPTS="-Djava.io.tmpdir=/data/tmp" datashare stage run --stages SCAN,INDEX ...
 ```
 
 ## Checking what a version supports
