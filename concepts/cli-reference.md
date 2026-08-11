@@ -50,7 +50,7 @@ datashare app start --mode EMBEDDED
 
 ## `stage run`
 
-Run one or more document processing [stages](cli-stages.md). Requires `--stages`.
+Run one or more document processing [stages](cli-stages/README.md). Requires `--stages`.
 
 ```bash
 # Scan and index documents
@@ -68,6 +68,26 @@ datashare stage run --stages SCAN,INDEX,NLP \
   --dataDir /path/to/documents \
   --elasticsearchAddress http://elasticsearch:9200
 ```
+
+The options most often used with this subcommand:
+
+| Flag | Default | Description |
+| ---- | ------- | ----------- |
+| `--stages` | required | Comma-separated stages to run |
+| `--reportName` | none | Report map recording the outcome of each file, required for resumable runs |
+| `-o, --ocr` | `true` | Enable OCR on images |
+| `--ocrLanguage` | `eng` | Tesseract languages, for example `eng+fra` |
+| `--ocrStrategy` | `NO_OCR` | PDF OCR strategy (`NO_OCR`, `AUTO`, `OCR_AND_TEXT_EXTRACTION`, `OCR_ONLY`) |
+| `--ocrTimeout` | `12h` | Timeout for a single OCR run |
+| `--parseTimeout` | `24h` | Timeout for parsing one document, `0` disables it |
+| `--parallelism` | CPU cores | Documents extracted concurrently |
+| `--maxContentLength` | `20000000` | Maximum extracted text kept per document |
+| `--maxEmbedDepth` | `20` | Maximum nesting depth of embedded documents |
+| `--nlpPipeline` | `CORENLP` | NER engine (`CORENLP`, `OPENNLP`, `EMAIL`, `SPACY`) |
+| `--searchQuery` | none | Restricts `ENQUEUEIDX`, in Datashare query syntax or as a raw Elasticsearch clause |
+| `--artifactDir` | none | Directory for the embedded document cache, required by `ARTIFACT` |
+
+The complete list, with the environment variables and settings-file keys that have no flag, is in [Indexing options](../server-mode/indexing/options.md).
 
 ## `worker run`
 
@@ -143,16 +163,26 @@ These flags can be placed before any subcommand and apply to all subcommands.
 | Flag | Default | Description |
 | ---- | ------- | ----------- |
 | `-d, --dataDir` | `~/Datashare` | Document source directory |
-| `-P, --defaultProject` | `local-datashare` | Default project name |
-| `-s, --settings` | `./dist/datashare.conf` | Path to settings file |
+| `-P, --defaultProject` | `local-datashare` | Default project name, also the Elasticsearch index name |
+| `-s, --settings` | `$DATASHARE_HOME/dist/datashare.conf` (set by the launcher) | Path to settings file |
 | `--logLevel` | `INFO` | Log level (`DEBUG`, `INFO`, `WARN`, `ERROR`) |
-| `--elasticsearchAddress` | `http://localhost:9200` | Elasticsearch URL |
-| `--redisAddress` | `redis://localhost:6379` | Redis URL |
+| `--charset` | JVM default | Output encoding for extracted text and metadata |
+| `-l, --language` | detected | Force the language of indexed documents instead of detecting it |
+| `--digestAlgorithm` | `SHA384` | Hash used to compute document ids |
+| `--digestProjectName` | none | Include the project name in the document hash |
+| `--elasticsearchAddress` | `http://elasticsearch:9200` | Elasticsearch URL |
+| `--redisAddress` | `redis://redis:6379` | Redis URL |
+| `--messageBusAddress` | `redis://redis:6379` | Data bus URL |
+| `--dataSourceUrl` | local SQLite file | JDBC URL of the database |
 | `--busType` | `MEMORY` | Data bus type (`MEMORY`, `REDIS`, `AMQP`) |
 | `--queueType` | `MEMORY` | Queue type (`MEMORY`, `REDIS`, `AMQP`) |
-| `--no-color` | — | Disable colored output |
-| `-h, --help` | — | Show help and exit |
-| `-V, --version` | — | Print version and exit |
+| `--queueName` | `extract:queue` | Base queue name, each stage reads `<queueName>:<stage>` |
+| `--queueCapacity` | `1000000` | Maximum entries held in an in-memory queue |
+| `--no-color` | none | Disable colored output |
+| `-h, --help` | none | Show help and exit |
+| `-V, --version` | none | Print version and exit |
+
+Global flags are position-independent: they can appear before or after the subcommand name.
 
 ## Backward compatibility
 
