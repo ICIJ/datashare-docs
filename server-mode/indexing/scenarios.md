@@ -211,33 +211,40 @@ Notes:
 
 ## Scenario 6: index only part of a corpus
 
-The simplest filter is `--dataDir`: point it at a subdirectory. Nothing outside it is touched.
-
-For finer control, the scanner supports glob patterns, but they are not exposed as command-line flags. Put them in a settings file and pass it with `--settings`:
-
-```properties
-# /etc/datashare/indexing.conf
-includePattern=**/*.{pdf,doc,docx,xls,xlsx}
-excludePattern=**/{node_modules,.git,Backups}/**
-maxDepth=10
-```
+**`--dataDir` is the only filter Datashare gives you.** Point it at a subdirectory and nothing outside it is touched:
 
 ```bash
-datashare --settings /etc/datashare/indexing.conf stage run \
+datashare stage run \
   --stages SCAN,INDEX \
   --defaultProject my-project \
-  --dataDir /data/documents \
+  --dataDir /data/documents/accounting \
+  --elasticsearchAddress http://elasticsearch:9200 \
+  --reportName "report:my-project" \
+  --queueType REDIS --redisAddress redis://redis:6379
+```
+
+Run it once per directory you want, keeping the same project and report map, and the results accumulate in one index.
+
+There is **no option to filter by file type or name**, and the scanner takes everything it finds, including hidden files and operating-system leftovers such as `.DS_Store` and `Thumbs.db`.
+
+To index a selection that does not match a directory boundary, build the selection on disk and point `--dataDir` at it. Symbolic links work, because `--followSymlinks` defaults to `true`:
+
+```bash
+mkdir -p /data/selection
+find /data/documents -name '*.pdf' -exec ln -s {} /data/selection/ \;
+
+datashare stage run --stages SCAN,INDEX \
+  --defaultProject my-project \
+  --dataDir /data/selection \
   --elasticsearchAddress http://elasticsearch:9200
 ```
 
-The scanner takes everything it finds, including hidden files and operating-system leftovers such as `.DS_Store` and `Thumbs.db`. If you do not want those in the index, exclude them explicitly:
-
-```properties
-excludePattern=**/{.DS_Store,Thumbs.db,.git,node_modules}**
-```
+{% hint style="info" %}
+The path stored in the index is the one Datashare walked, so with the approach above documents are recorded under `/data/selection/...` rather than their original location. Copy or hard-link instead of symlinking if the original path matters to you.
+{% endhint %}
 
 {% hint style="warning" %}
-Excluding a container does not exclude its content and vice versa. If you exclude `**/*.zip`, nothing inside those archives is indexed. If you include only `**/*.pdf`, a PDF **inside** a ZIP is still missed, because the ZIP itself did not match the pattern and was never opened.
+Filtering by directory does not reach inside containers. Excluding a ZIP excludes everything in it, and selecting only PDFs misses every PDF that lives **inside** an archive or a mailbox, because the container itself was never selected and so was never opened.
 {% endhint %}
 
 ## Scenario 7: extract named entities after indexing
