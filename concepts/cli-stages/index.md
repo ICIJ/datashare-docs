@@ -69,7 +69,7 @@ flowchart TD
     Q[["extract:queue:index"]] --> W["worker thread<br/>one per --parallelism"]
     W --> T["Tika parse:<br/>text and metadata"]
     T --> EM["embedded documents"]
-    EM -. "images" .-> OCR[["shared OCR pool<br/>ocrParallelism"]]
+    EM -. "images" .-> OCR[["shared OCR pool<br/>sized to the cores"]]
     T --> S["writer"]
     EM --> S
     OCR --> S
@@ -80,7 +80,7 @@ flowchart TD
 ## Execution details
 
 * **One document per worker thread.** `--parallelism` threads each take one path and own it until it is written, including its whole embedded tree. A container is therefore a single work unit: ten mailboxes use ten threads, one mailbox uses one.
-* **OCR of embedded images does not stay on that thread.** Eligible images found inside a container are handed to a shared OCR pool sized by `ocrParallelism`, so attachments OCR in parallel even though the container is walked serially. Loose images on disk are OCR'd inline by the worker that picked them up.
+* **OCR of embedded images does not stay on that thread.** Eligible images found inside a container are handed to a shared OCR pool sized to the core count, so attachments OCR in parallel even though the container is walked serially. Loose images on disk are OCR'd inline by the worker that picked them up.
 * **Document ids are content hashes**, so indexing the same file twice updates one document instead of creating two. Changing `--digestAlgorithm` or `--digestProjectName` mid-project produces a second set of ids for the same files.
 * **Embedded documents become documents.** A mailbox, an archive, or an email with attachments produces one indexed document per item, linked to its parent, which is why file counts and document counts differ by orders of magnitude.
 * **The index is created if it does not exist**, with Datashare's mappings.
