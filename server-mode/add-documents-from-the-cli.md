@@ -1,13 +1,19 @@
+---
+description: >-
+  The shortest path from an empty project to searchable documents on a server
+  install.
+---
+
 # Add documents from the CLI
 
 **This document assumes that you have installed Datashare** [**in server mode within Docker**](install-with-docker.md)**.**
 
-In server [mode](../concepts/running-modes.md), it's important to understand that Datashare does not provide a web interface to add documents. Documents are added using the command-line interface.
+In server [mode](../concepts/running-modes.md), Datashare has no web interface to add documents. Documents are added from the command line.
 
-Here is a simple command to scan a directory and index its files:
+Here is the shortest command that scans a directory and indexes its files:
 
 ```bash
-docker compose exec datashare_web /entrypoint.sh \
+docker compose exec datashare /entrypoint.sh \
   stage run \
   --stages SCAN,INDEX \
   --defaultProject secret-project \
@@ -15,78 +21,23 @@ docker compose exec datashare_web /entrypoint.sh \
   --dataDir /home/datashare/Datashare/
 ```
 
-What's happening here:
+What is happening:
 
-* Datashare runs the pipeline [stages](../concepts/cli-stages.md)
-* We ask to process both SCAN and INDEX [stages](../concepts/cli-stages.md) at the same time
-* The SCAN stage feeds a queue in memory with file to add
-* The INDEX stage pulls files from the queue to add them to ElasticSearch
-* We tell Datashare to use the `elasticsearch` service
-* Files to add are located in `/home/datashare/Datashare/` which is a directory mounted from the host machine
+* Datashare runs the SCAN and INDEX [stages](../concepts/cli-stages/README.md) together, SCAN filling a queue with the files it finds and INDEX draining it.
+* Files are read from `/home/datashare/Datashare/`, which is a directory mounted from the host machine, so this is the path **inside the container**.
+* Extracted documents are written to the `secret-project` index in Elasticsearch.
 
-Alternatively, you can do this in two separated phases, as long as you tell Datashare to store the queue in a shared resource. Here, we use the Redis:
+Once the command exits, your documents are searchable.
 
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  stage run \
-  --stages SCAN \
-  --queueType REDIS \
-  --queueName "datashare:queue" \
-  --redisAddress redis://redis:6379 \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
+{% hint style="warning" %}
+That command is fine for a first try on a small directory. For a real corpus, add at least `--reportName` (so the run can resume) and `--queueType REDIS` (so the queue survives the process), and decide whether you want OCR. All of that is covered in [Indexing](indexing/).
+{% endhint %}
 
-Once the operation is done, we can easily check the content of queue created by Datashare in Redis. In this example we only display the 20 first files in the `datashare:queue`:
+## Next steps
 
-```bash
-docker compose exec redis redis-cli lrange datashare:queue 0 20
-```
-
-The INDEX [stage](../concepts/cli-stages.md) can now be executed in the same container:
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  stage run \
-  --stages INDEX \
-  --queueType REDIS \
-  --queueName "datashare:queue" \
-  --redisAddress redis://redis:6379 \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
-
-Once the indexing is done, Datashare will exit gracefully and your document will already be visible on Datashare.
-
-Sometimes you will face the case where you have an existing index, and you want to index additional documents inside your working directory without processing every document again. It can be done in two steps :
-
-* Scan the existing ElasticSearch index and gather document paths to store it inside a report queue
-* Scan and index (with OCR) the documents in the directory, thanks to the previous report queue, it will skip the paths inside of it
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  stage run \
-  --stages SCANIDX \
-  --queueType REDIS \
-  --reportName "report:queue" \
-  --redisAddress redis://redis:6379 \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
-
-```bash
-docker compose exec datashare_web /entrypoint.sh \
-  stage run \
-  --stages SCAN,INDEX \
-  --ocr true \
-  --queueType REDIS \
-  --queueName "datashare:queue" \
-  --reportName "report:queue" \
-  --redisAddress redis://redis:6379 \
-  --defaultProject secret-project \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --dataDir /home/datashare/Datashare/
-```
+* [Indexing](indexing/): the full guide to indexing on a server.
+  * [Scenarios](indexing/scenarios.md): incremental updates, resuming, distributing across machines, mail archives.
+  * [Options](indexing/options.md): every command-line flag, environment variable and settings key.
+  * [Tuning](indexing/tuning.md): parallelism, OCR, memory and Elasticsearch.
+  * [Troubleshooting](indexing/troubleshooting.md): what the errors mean.
+* [Add entities from the CLI](add-entities-from-the-cli.md): extract people, organizations and locations from documents you have indexed.
