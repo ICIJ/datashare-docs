@@ -11,7 +11,7 @@ description: Datashare runs using different modes with their own features.
 | `LOCAL` ,`EMBEDDED` | To run Datashare on a single computer for a single user. |
 | `SERVER`            | To run Datashare on a server for multiple users.         |
 
-> **Note:** Document processing pipeline stages are run with `datashare stage run` (see [CLI stages](cli-stages.md)). The async task worker daemon is started with `datashare worker run`.
+> **Note:** Document processing pipeline stages are run with `datashare stage run` (see [CLI stages](cli-stages/README.md)). The async task worker daemon is started with `datashare worker run`.
 
 ## Web modes
 
@@ -44,7 +44,7 @@ _When running Datashare in local mode, users can choose to use embedded services
 
 Pipeline stages allow Datashare to process documents without a web server. Stages can be used in conjunction with both local and server modes, and allow users to distribute heavy tasks between several servers. They are now run with `datashare stage run --stages SCAN,INDEX,NLP`.
 
-If you want to learn more about which stages you can execute, checkout the [stages documentation](cli-stages.md).
+If you want to learn more about which stages you can execute, checkout the [stages documentation](cli-stages/README.md).
 
 ## Daemon modes
 
