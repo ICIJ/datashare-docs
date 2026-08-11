@@ -29,7 +29,7 @@ The project name can be passed as a positional argument (as above) or with `--na
 | ------ | ----------- |
 | `--label` | Display label (default: name) |
 | `--description` | Free-form description |
-| `--source-path` | Filesystem source path (default: `/vault/<name>`) |
+| `--source-path` | Filesystem source path (default: the data directory) |
 | `--source-url` | URL of the data origin |
 | `--logo-url` | URL to the project logo |
 | `--maintainer-name` | Maintainer display name |
