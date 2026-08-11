@@ -57,9 +57,9 @@ If you also lower `--ocrTimeout`, oversubscription stops being merely slow and s
 Two paths spawn Tesseract, and they have separate limits:
 
 * **Loose images** are OCR'd on the extraction thread that picked them up, so up to `--parallelism` at a time.
-* **Images inside containers** (attachments, images embedded in documents) are handed to a shared OCR pool whose size is `ocrParallelism`, a settings-file key that defaults to the number of cores.
+* **Images inside containers** (attachments, images embedded in documents) are handed to a shared OCR pool sized to the number of cores. That pool has no command-line flag.
 
-With `OMP_THREAD_LIMIT=1` each of those is a single-threaded process, so the machine stays sane either way. On a corpus that mixes many loose images with many containers, lowering `ocrParallelism` to about half the core count leaves room for the extraction threads.
+With `OMP_THREAD_LIMIT=1` each of those is a single-threaded process, so the machine stays sane either way. On a corpus that mixes many loose images with many containers, the way to leave room for the extraction threads is to lower `--parallelism`, since the OCR pool cannot be resized.
 
 ## OCR
 
@@ -123,7 +123,7 @@ heap  ≈  --parallelism × (embedded-text budget + --maxContentLength + parser 
          + JVM and Elasticsearch client overhead
 ```
 
-* **Embedded-text budget**: 64 MB per in-flight root document by default (`embedMemoryBudgetMb`), shared by that document's whole embedded tree. Past it, text spills to disk, and it spills early anyway once heap occupancy passes 70% (`embedMemoryPressureThreshold`).
+* **Embedded-text budget**: about 64 MB per in-flight root document, shared by that document's whole embedded tree. Past it, text spills to disk, and it spills early anyway once heap occupancy passes roughly 70%. Neither value is configurable.
 * **`--maxContentLength`**: 20 MB of text per document being written to Elasticsearch.
 * **Parser working set**: the variable that actually matters, and it depends on the format. See the table below.
 
@@ -135,7 +135,7 @@ So sixteen concurrent extractions cost roughly 1.5 GB of buffers plus whatever t
 | ------ | --------------- | --------------------- | ------------- |
 | Loose born-digital documents (PDF, Office, email) | cores | `-Xmx4g` | Nothing much. This is the easy case. Run with `--ocr false`. |
 | Loose scans and images | cores | `-Xmx4g` | CPU, not memory. `OMP_THREAD_LIMIT=1` is what matters. |
-| Archives (ZIP, RAR, nested) | cores | `-Xmx4g` to `-Xmx8g` | Temporary disk, not heap. Set `java.io.tmpdir` on a big volume, and consider `maxEmbedSizeBytes`. |
+| Archives (ZIP, RAR, nested) | cores | `-Xmx4g` to `-Xmx8g` | Temporary disk, not heap. Set `java.io.tmpdir` on a big volume. |
 | Large spreadsheets and legacy Office files | half the cores | `-Xmx8g` or more | One huge `.xlsx` or `.doc` can need gigabytes on its own. |
 | A few very large mailboxes (PST, OST) | 2 to 4 | `-Xmx8g` to `-Xmx16g` | Work units, not memory. Raise `--parseTimeout`. |
 | Mixed corpus | cores | `-Xmx8g` | Size for the worst case above that applies. |
@@ -145,7 +145,7 @@ Per format, what to expect:
 * **PST, OST, MBOX.** Read on demand from disk, so resident memory stays modest even on very large files: a 48 GB mailbox has been parsed under a 6 GB heap without an out-of-memory error. The cost is time and work-unit shape, not RAM.
 * **PDF.** Comparatively frugal in heap. Scanned PDFs are a CPU problem (OCR), not a memory one.
 * **Office.** Several Office formats are parsed by building a model of the whole file in memory. A single very large spreadsheet or legacy document is the one case where file size really does translate into heap, so give the JVM headroom if your corpus contains any.
-* **Archives.** Cheap in heap because entries are extracted one at a time, expensive in temporary disk because they are spooled there. `maxEmbedDepth` (20 by default) and `maxEmbedSizeBytes` (disabled by default) are your guards against decompression bombs.
+* **Archives.** Cheap in heap because entries are extracted one at a time, expensive in temporary disk because they are spooled there. `--maxEmbedDepth` (20 by default) is your guard against decompression bombs.
 * **Images.** Trivial in heap, entirely CPU.
 
 ### Threads add up on container-heavy corpora
@@ -157,15 +157,17 @@ flowchart TD
     subgraph CORES["all competing for the same cores"]
         direction LR
         P["extraction threads<br/>--parallelism"]
-        F["mailbox folder walkers<br/>pstParseParallelism"]
-        O["OCR processes<br/>ocrParallelism"]
+        F["mailbox folder walkers<br/>sized to the cores"]
+        O["OCR processes<br/>sized to the cores"]
     end
     Q[["queue"]] --> P
     P -- "folders of a mailbox" --> F
     P -- "images inside containers" --> O
 ```
 
-On a corpus of loose files that is fine, because the last two are rarely busy. On a corpus of a few large mailboxes it is the wrong shape: `--parallelism` has only a handful of work units to chew on anyway, while the two pools do the real work. Give the pools the cores and keep the extraction threads low:
+On a corpus of loose files that is fine, because the last two are rarely busy. On a corpus of a few large mailboxes it is the wrong shape: `--parallelism` has only a handful of work units to chew on anyway, while the two pools do the real work.
+
+**Only the first of the three is yours to set.** The fan-out pools have no command-line flag and cannot be configured for a stage run, so the lever you have is `--parallelism`: lower it on a container-heavy corpus, and let the pools use the cores they were going to take anyway.
 
 ```bash
 # 16-core machine, corpus of large mailboxes
@@ -173,14 +175,7 @@ DS_JAVA_OPTS="-Xms4g -Xmx12g" datashare stage run \
   --stages SCAN,INDEX \
   --parallelism 4 \
   --parseTimeout 72h \
-  --settings /etc/datashare/mail.conf ...
-```
-
-```properties
-# /etc/datashare/mail.conf
-pstFolderFanout=true
-pstParseParallelism=8
-ocrParallelism=8
+  ...
 ```
 
 {% hint style="danger" %}
@@ -202,8 +197,10 @@ Mail archives break the "one document per worker" assumption that makes everythi
 
 **One mailbox file is one queue entry.** Ten mailboxes occupy ten extraction threads, and everything else about that mailbox has to happen inside its one entry. Two mechanisms recover parallelism inside it, both on by default in recent versions:
 
-* **Folder fan-out** walks the folders of a single mailbox in parallel. The settings keys are `pstFolderFanout` (default `true`) and `pstParseParallelism` (default: the number of cores).
+* **Folder fan-out** walks the folders of a single mailbox in parallel, across a pool sized to the core count.
 * **OCR fan-out** hands image attachments to the shared OCR pool, so they are OCR'd in parallel rather than one after the other.
+
+Neither has a command-line flag: they are on by default and you cannot resize them for a stage run.
 
 What stays serial is the walk of a single folder. A mailbox whose hundred thousand messages all sit in one folder therefore still behaves close to a single work unit, and that is the case where a big machine indexes a mail corpus slowly.
 
@@ -212,13 +209,7 @@ Two ways out, in increasing order of effort:
 1. **Spread mailboxes across machines**: one shared queue, several INDEX workers, so each mailbox at least gets its own machine's worth of attention.
 2. **Split mailboxes before indexing** into one file per message, which turns one work unit into thousands and makes restarts cheap. See [scenario 8](scenarios.md#scenario-8-mail-archives-pst-ost-mbox).
 
-If you are on an older version, or if the fan-out pools are competing with your extraction threads, both are tunable from the settings file:
-
-```properties
-pstFolderFanout=true
-pstParseParallelism=8
-ocrParallelism=8
-```
+If the fan-out pools are competing with your extraction threads, the only lever is to lower `--parallelism`, as described above.
 
 Also budget for the fact that a mailbox produces one document per message **and** one per attachment, and that attachments are often scans. A mail corpus is an OCR corpus.
 
