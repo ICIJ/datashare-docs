@@ -127,7 +127,7 @@ Almost always a single document with an enormous amount of extracted text (a mul
 
 1. Keep `--maxContentLength` at a sane value. 20 MB is the default and is plenty for a searchable document.
 2. Raise the heap with `DS_JAVA_OPTS="-Xmx8g"`.
-3. Exclude the offending files with `excludePattern` if a corpus is full of them.
+3. Move the offending files out of the tree, or point `--dataDir` at a subtree without them.
 
 Add `-XX:+ExitOnOutOfMemoryError` so the process dies instead of thrashing, then restart it: with a report map, it resumes.
 
