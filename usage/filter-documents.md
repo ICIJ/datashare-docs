@@ -43,7 +43,11 @@ In the search breadcrumb, you see that the excluded filters are **strikethrough*
 Locked filters are new in Datashare **21.20.4**.
 {% endhint %}
 
-Locking a filter value keeps it active for future searches, until you unlock it yourself, even across projects or after clearing every other filter. A lock is:
+Locking a filter value keeps it active for future searches, until you unlock it yourself, even across projects or after clearing every other filter.&#x20;
+
+<figure><img src="../.gitbook/assets/image.png" alt="A screenshot of the breadcrumb &#x22;Your search&#x22; in Datashare shows the tooltip &#x22;Lock this filter value&#x22; when the user hovers the padlock icon in the filter &#x27;PDF&#x27;.&#x22;"><figcaption></figcaption></figure>
+
+A lock is:
 
 * **Personal**: the fact that a value is locked is never shared with other members, and never travels with a shared link. Other members opening a search you share always see the filter value but never see the padlock icon.
 * **Cross-project**: a locked value stays locked when you switch to a different project, even one where that value doesn't exist.
