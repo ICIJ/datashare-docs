@@ -2,6 +2,10 @@
 
 ## Install the Neo4j plugin
 
+{% hint style="warning" %}
+The Neo4j plugin is **not available on Windows**. It only supports Mac and Linux.
+{% endhint %}
+
 Install the Neo4j plugin following [these instructions](../plugins-and-extensions.md).
 
 ## Configure the Neo4j plugin
