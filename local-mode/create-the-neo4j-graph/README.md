@@ -6,6 +6,10 @@ description: >-
 
 # Neo4j
 
+{% hint style="warning" %}
+The Neo4j plugin is **not available on Windows**. It only supports Mac and Linux.
+{% endhint %}
+
 ## Prerequisites
 
 ### Get Neo4j up and running
