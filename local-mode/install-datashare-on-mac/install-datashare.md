@@ -20,31 +20,31 @@ The installer will set up:
 
 {% stepper %}
 {% step %}
-#### **Download Datashare**
+**Download Datashare**
 
 Go to [datashare.icij.org](https://datashare.icij.org) and click '**Download for Mac'**.
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/install-datashare/01-download.png" alt="Screenshot of the homepage of datashare.icij.org highlighting the &#x27;Download for Mac&#x27; button"><figcaption><p><a href="https://datashare.icij.org">datashare.icij.org</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/01-download.png" alt="Screenshot of the homepage of datashare.icij.org highlighting the &#x27;Download for Mac&#x27; button"><figcaption><p><a href="https://datashare.icij.org">datashare.icij.org</a></p></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Start the installer
+**Start the installer**
 
 In Finder, go to your '**Downloads'** directory and double-click '**datashare-X.Y.Z.pkg'**:
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/install-datashare/02-downloads-window-mac-showing-installer.png" alt="Screenshot of the Downloads window on Mac showing the installer package of Datashare"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/02-downloads-window-mac-showing-installer.png" alt="Screenshot of the Downloads window on Mac showing the installer package of Datashare"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### **Go through the Datashare Installer**
+**Go through the Datashare Installer**
 
 Click '**Continue**', '**Install**', enter your password and '**Install Software**':
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/install-datashare/03-mac-installer-s-first-step-install.png" alt="Screenshot of the Mac installer&#x27;s first step to install Datashare: &#x27;Introduction&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/03-mac-installer-s-first-step-install.png" alt="Screenshot of the Mac installer&#x27;s first step to install Datashare: &#x27;Introduction&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/install-datashare/04-mac-installer-s-third-step-install.png" alt="Screenshot of the Mac installer&#x27;s third step to install Datashare: &#x27;Installation Type&#x27;&#x27;"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/04-mac-installer-s-third-step-install.png" alt="Screenshot of the Mac installer&#x27;s third step to install Datashare: &#x27;Installation Type&#x27;&#x27;"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/install-datashare/05-mac-installer-s-step-install-datashare.png" alt="Screenshot of the Mac installer&#x27;s step to install Datashare when username and password are asked"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/05-mac-installer-s-step-install-datashare.png" alt="Screenshot of the Mac installer&#x27;s step to install Datashare when username and password are asked"><figcaption></figcaption></figure>
 
 The installation begins. You see a progress bar. It stays a long time on "Running package scripts" because it is installing XCode Command Line Tools, MacPort, Tesseract OCR, Java Runtime Environment and finally Datashare.
 
@@ -52,7 +52,7 @@ You can see what it actually does by typing command+L: it will open a window whi
 
 In the end, you should see this screen:
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-mac/install-datashare/06-mac-installer-s-last-step-install.png" alt="Screenshot of the Mac installer&#x27;s last step to install Datashare: &#x27;Summary&#x27; saying &#x27;The installation was successful.&#x27;with a blue &#x27;Close&#x27; button"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/06-mac-installer-s-last-step-install.png" alt="Screenshot of the Mac installer&#x27;s last step to install Datashare: &#x27;Summary&#x27; saying &#x27;The installation was successful.&#x27;with a blue &#x27;Close&#x27; button"><figcaption></figcaption></figure>
 
 You can now safely close this window.
 {% endstep %}

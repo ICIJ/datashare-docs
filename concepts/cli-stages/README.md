@@ -8,7 +8,7 @@ description: >-
 
 Document processing in Datashare is a chain of **stages**. Each stage is a small program that consumes a queue and produces the next one, which is what lets you run them separately, later, or on several machines at once.
 
-Stages are primarily meant for an instance that uses non-embedded services (an external Elasticsearch, database and key/value store). See [Embedded mode](../../local-mode/embedded-mode.md) for the default single-process configuration.
+Stages are primarily meant for an instance that uses non-embedded services (an external Elasticsearch, database and key/value store). See [Embedded mode](../../local-mode/about-the-local-mode/embedded-mode.md) for the default single-process configuration.
 
 They are run with:
 
@@ -20,18 +20,18 @@ Whatever order you list them in, stages always run in pipeline order.
 
 ## The stages
 
-| Stage | Purpose | Reads from | Writes to |
-| ----- | ------- | ---------- | --------- |
-| [`SCAN`](scan.md) | Walk `--dataDir` and queue every file found | filesystem | queue |
-| [`SCANIDX`](scanidx.md) | Record the paths already in an index into a report map | Elasticsearch | report map |
-| [`DEDUPLICATE`](deduplicate.md) | Drop paths already seen in the queue | queue | queue |
-| [`INDEX`](index.md) | Extract text, metadata, OCR and embedded documents | queue | Elasticsearch + queue |
-| [`ENQUEUEIDX`](enqueueidx.md) | Push document ids from an existing index back onto a queue | Elasticsearch | queue |
-| [`CATEGORIZE`](categorize.md) | Fill the `contentTypeCategory` field of indexed documents | queue | Elasticsearch + queue |
-| [`NLP`](nlp.md) | Run named entity recognition over indexed documents | queue | Elasticsearch |
-| [`CREATENLPBATCHESFROMIDX`](createnlpbatchesfromidx.md) | Group documents into batches and submit one NER task per batch | Elasticsearch | tasks |
-| [`BATCHNLP`](batchnlp.md) | Not runnable from the command line | n/a | n/a |
-| [`ARTIFACT`](artifact.md) | Cache embedded document payloads on disk | queue | filesystem |
+| Stage                                                   | Purpose                                                        | Reads from    | Writes to             |
+| ------------------------------------------------------- | -------------------------------------------------------------- | ------------- | --------------------- |
+| [`SCAN`](scan.md)                                       | Walk `--dataDir` and queue every file found                    | filesystem    | queue                 |
+| [`SCANIDX`](scanidx.md)                                 | Record the paths already in an index into a report map         | Elasticsearch | report map            |
+| [`DEDUPLICATE`](deduplicate.md)                         | Drop paths already seen in the queue                           | queue         | queue                 |
+| [`INDEX`](index.md)                                     | Extract text, metadata, OCR and embedded documents             | queue         | Elasticsearch + queue |
+| [`ENQUEUEIDX`](enqueueidx.md)                           | Push document ids from an existing index back onto a queue     | Elasticsearch | queue                 |
+| [`CATEGORIZE`](categorize.md)                           | Fill the `contentTypeCategory` field of indexed documents      | queue         | Elasticsearch + queue |
+| [`NLP`](nlp.md)                                         | Run named entity recognition over indexed documents            | queue         | Elasticsearch         |
+| [`CREATENLPBATCHESFROMIDX`](createnlpbatchesfromidx.md) | Group documents into batches and submit one NER task per batch | Elasticsearch | tasks                 |
+| [`BATCHNLP`](batchnlp.md)                               | Not runnable from the command line                             | n/a           | n/a                   |
+| [`ARTIFACT`](artifact.md)                               | Cache embedded document payloads on disk                       | queue         | filesystem            |
 
 `NLP` and `CREATENLPBATCHESFROMIDX` are alternatives, not a sequence. Asking for both in the same `--stages` is an error.
 
