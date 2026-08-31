@@ -39,13 +39,17 @@ In the search breadcrumb, you see that the excluded filters are **strikethrough*
 
 ## Lock filters
 
-Locking a filter value pins it so it stays applied across searches, until you unlock it yourself. A lock is:
+Locking a filter value keeps it available for future searches, until you unlock it yourself, even across projects or after clearing every other filter. It doesn't reapply itself silently though: see [Apply your locked filters](#apply-your-locked-filters) below for when you need one extra click to bring it back. A lock is:
 
-* **Personal**: never shared with other members, never included in a saved search, a batch search or a batch download.
+* **Personal**: the fact that a value is locked is never shared with other members, and never travels with a shared link. Other members opening a search you share, or reopening a saved search you saved, never see the padlock icon.
 * **Cross-project**: a locked value stays locked when you switch to a different project, even one where that value doesn't exist.
 
 {% hint style="info" %}
 Locking only works on filter **values**, never on the free-text search query itself.
+{% endhint %}
+
+{% hint style="warning" %}
+Only the lock itself is personal, not the value it applies to. A locked filter value is still included, exactly as applied on screen, in anything you export while it's active: a shared link, a saved search, a batch search or a batch download.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/usage/filter-documents/14-screencast-lock-and-apply-locked-filters.gif" alt="Screencast of locking the &#x27;French&#x27; language filter, starting a new search that no longer includes it, then clicking &#x27;Apply locked filters&#x27; to bring it back"><figcaption></figcaption></figure>
