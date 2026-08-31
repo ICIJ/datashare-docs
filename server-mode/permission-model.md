@@ -16,7 +16,7 @@ See [User management](user-management/) for login options.
 
 ### Model overview
 
-Datashare permissions work with **hierarchical RBAC** using Casbin as permission enforcer engine.&#x20;
+Datashare permissions work with **hierarchical RBAC** using Casbin as permission enforcer engine.
 
 In practice, use a **scope string** that encodes the instance/domain/project hierarchy. Make it path-like, so you can match parents easily.
 
@@ -60,7 +60,7 @@ instance_admin > domain_admin > project_admin > project_editor > project_member 
 
 ### How does it works inside Datashare?
 
-Where policies live in production ? `CasbinRule` table&#x20;
+Where policies live in production ? `CasbinRule` table
 
 How policies are updated:
 
@@ -99,11 +99,11 @@ See [Manage projects from the CLI](manage-projects-from-the-cli.md) for all opti
 
 #### Migration
 
-To ensures a smooth and incremental enrollment with the new system, each auth filters has an auto-enrolling system happening after a user logs in. On post login, it adds the user as `PROJECT_MEMBER` to each project the user is already allowed to access, if they are not enrolled yet.&#x20;
+To ensures a smooth and incremental enrollment with the new system, each auth filters has an auto-enrolling system happening after a user logs in. On post login, it adds the user as `PROJECT_MEMBER` to each project the user is already allowed to access, if they are not enrolled yet.
 
 #### Creating the super user of the instance:
 
-`GrantAdminPolicyTask` is a CLI task that allows creation of **one** `INSTANCE_USER` . The example below will grand `INSTANCE_ADMIN` role to the user `foo`  existing in the REDIS database.&#x20;
+`GrantAdminPolicyTask` is a CLI task that allows creation of **one** `INSTANCE_USER` . The example below will grand `INSTANCE_ADMIN` role to the user `foo` existing in the REDIS database.
 
 ```
 datashare \
