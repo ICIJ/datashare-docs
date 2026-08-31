@@ -43,9 +43,9 @@ In the search breadcrumb, you see that the excluded filters are **strikethrough*
 Locked filters are new in Datashare **21.20.4**.
 {% endhint %}
 
-Locking a filter value keeps it available for future searches, until you unlock it yourself, even across projects or after clearing every other filter. It doesn't reapply itself silently though: see [Apply your locked filters](#apply-your-locked-filters) below for when you need one extra click to bring it back. A lock is:
+Locking a filter value keeps it active for future searches, until you unlock it yourself, even across projects or after clearing every other filter. A lock is:
 
-* **Personal**: the fact that a value is locked is never shared with other members, and never travels with a shared link. Other members opening a search you share, or reopening a saved search you saved, never see the padlock icon.
+* **Personal**: the fact that a value is locked is never shared with other members, and never travels with a shared link. Other members opening a search you share always see the filter value but never see the padlock icon.
 * **Cross-project**: a locked value stays locked when you switch to a different project, even one where that value doesn't exist.
 
 {% hint style="info" %}
@@ -53,7 +53,7 @@ Locking only works on filter **values**, never on the free-text search query its
 {% endhint %}
 
 {% hint style="warning" %}
-Only the lock itself is personal, not the value it applies to. A locked filter value is still included, exactly as applied on screen, in anything you export while it's active: a shared link, a saved search, a batch search or a batch download.
+Only the lock itself is personal, not the value it applies to. Even locked, a filter value remains included, exactly as applied on screen, in anything you export, save or download: a shared link, a saved search or a batch download.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/usage/filter-documents/14-screencast-lock-and-apply-locked-filters.gif" alt="Screencast of locking the &#x27;French&#x27; language filter, starting a new search that no longer includes it, then clicking &#x27;Apply locked filters&#x27; to bring it back"><figcaption></figcaption></figure>
@@ -82,7 +82,7 @@ Locking one side of a paired filter (for instance a content type marked '**Exclu
 
 #### Apply your locked filters
 
-A lock doesn't silently reapply itself to searches that don't already match it. For instance, right after you open a search link someone else shared with you, or start a brand-new search. The search breadcrumb's '**Apply locked filters**' button becomes clickable whenever at least one locked value isn't reflected in your current search:
+A lock doesn't silently reapply itself to searches that don't already match it. For instance, right after you open a search link someone else shared with you, or when you open a saved search, or start a brand-new search. The search breadcrumb's '**Apply locked filters**' button becomes clickable whenever at least one locked value isn't reflected in your current search:
 
 <figure><img src="../.gitbook/assets/usage/filter-documents/11-page-search-documents-apply-locked-filters-enabled.jpg" alt="Screenshot of Datashare&#x27;s breadcrumb footer with the &#x27;Apply locked filters&#x27; button enabled, since a locked French value isn&#x27;t part of the current search"><figcaption></figcaption></figure>
 
@@ -118,9 +118,8 @@ To reset all filters at the same time, open the **search breadcrumb**:
 
 Click '**Clear filters**':
 
-
-<figure><img src="../.gitbook/assets/usage/filter-documents/08-page-search-documents-search-breadcrumb.png" alt="Screenshot of Datashare&#x27;s page to search documents with search breadcrumb open and the &#x27;Clear filter&#x27; button highlighted"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/08-page-search-documents-search-breadcrumb.png" alt="Screenshot of Datashare&#x27;s page to search documents with search breadcrumb open and the &#x27;Clear filter&#x27; button highlighted"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-'**Clear filters**' and '**Clear filters and query**' never remove a locked value. They clear every other filter and instantly re-apply your locks. To remove the locks themselves, see [Unlock every filter](#unlock-every-filter) above.
+'**Clear filters**' and '**Clear filters and query**' never remove a locked value. They clear every other filter and instantly re-apply your locks. To remove the locks themselves, see [Unlock every filter](filter-documents.md#unlock-every-filter) above.
 {% endhint %}
