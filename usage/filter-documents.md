@@ -39,6 +39,10 @@ In the search breadcrumb, you see that the excluded filters are **strikethrough*
 
 ## Lock filters
 
+{% hint style="info" %}
+Locked filters are new in Datashare **21.20.4**.
+{% endhint %}
+
 Locking a filter value keeps it available for future searches, until you unlock it yourself, even across projects or after clearing every other filter. It doesn't reapply itself silently though: see [Apply your locked filters](#apply-your-locked-filters) below for when you need one extra click to bring it back. A lock is:
 
 * **Personal**: the fact that a value is locked is never shared with other members, and never travels with a shared link. Other members opening a search you share, or reopening a saved search you saved, never see the padlock icon.
