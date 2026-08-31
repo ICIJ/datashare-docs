@@ -8,19 +8,19 @@ And adapt the following launch script to your environment: [https://github.com/I
 
 {% stepper %}
 {% step %}
-#### Download Datashare
+**Download Datashare**
 
 Go to [datashare.icij.org](https://datashare.icij.org) and click '**Download for Linux**':
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-linux/install-datashare/01-download-linux.png" alt="Screenshot of the homepage of datashare.icij.org highlighting the &#x27;Download for Linux&#x27; button"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/01-download-linux.png" alt="Screenshot of the homepage of datashare.icij.org highlighting the &#x27;Download for Linux&#x27; button"><figcaption></figcaption></figure>
 
 Save the **Debian package** as a file:
 
-<figure><img src="../../.gitbook/assets/local-mode/install-datashare-on-linux/install-datashare/02-save-as.png" alt="Screenshot of a Linux&#x27; window saying &#x27;What should Firefox do with this file?&#x27; with 2 radiobuttons: &#x27;Open with Archive Manager&#x27; and &#x22;Save File&#x27; (selected) with 2 buttons: &#x27;Cancel&#x27; and &#x27;OK&#x27;"><figcaption><p>Save as file</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/02-save-as.png" alt="Screenshot of a Linux&#x27; window saying &#x27;What should Firefox do with this file?&#x27; with 2 radiobuttons: &#x27;Open with Archive Manager&#x27; and &#x22;Save File&#x27; (selected) with 2 buttons: &#x27;Cancel&#x27; and &#x27;OK&#x27;"><figcaption><p>Save as file</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Install the package
+**Install the package**
 
 ```
 $ sudo apt install /dir/to/debian/package/datashare-dist_7.2.0_all.deb
@@ -28,7 +28,7 @@ $ sudo apt install /dir/to/debian/package/datashare-dist_7.2.0_all.deb
 {% endstep %}
 
 {% step %}
-#### Run Datashare
+**Run Datashare**
 
 ```
 $ datashare

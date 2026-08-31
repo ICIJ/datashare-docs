@@ -7,7 +7,7 @@ description: >-
 
 # About Datashare
 
-<figure><img src=".gitbook/assets/home/01-datashare-logo-tagline-find-stories-any.png" alt="Image showing Datashare logo, the tagline &#x27;Find stories in any files&#x27; and a screenshot of a page of the software"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/01-datashare-logo-tagline-find-stories-any.png" alt="Image showing Datashare logo, the tagline &#x27;Find stories in any files&#x27; and a screenshot of a page of the software"><figcaption></figcaption></figure>
 
 ### What is Datashare?
 
@@ -33,7 +33,7 @@ Curious to know more about how we use Datashare?
 
 We setup a [demo instance of Datashare](https://datashare-demo.icij.org) with a small set of documents from the [LuxLeaks](https://www.icij.org/investigations/luxembourg-leaks/) investigation (2014). When using this instance, you will be assigned a temporary user which can star, tag, recommend and explore documents.
 
-<figure><img src=".gitbook/assets/home/02-demo.png" alt="Image of a screenshot of the batch search page of Datashare"><figcaption><p>Launch your own batch search on Datashare's <a href="https://datashare-demo.icij.org/#/">demo</a></p></figcaption></figure>
+<figure><img src=".gitbook/assets/02-demo.png" alt="Image of a screenshot of the batch search page of Datashare"><figcaption><p>Launch your own batch search on Datashare's <a href="https://datashare-demo.icij.org/#/">demo</a></p></figcaption></figure>
 
 ### Can I run Datashare on my server?
 
@@ -41,7 +41,7 @@ Datashare was also built to run on a server. This is how we use it for our colla
 
 ### Can I customize Datashare?
 
-When building Datashare, one of our first decisions was to use [Elasticsearch](https://www.elastic.co/elasticsearch) to create an index of documents. It would be fair to describe Datashare as a nice looking web interface for Elasticsearch. We want our search platform to be user-friendly while keeping all the powerful Elasticsearch features available for advanced users. This way we ensure that Datashare is usable by non tech-savvy reporters, but still robust enough to satisfy data analysts and developers who want to query the index directly [with our API](broken-reference/).
+When building Datashare, one of our first decisions was to use [Elasticsearch](https://www.elastic.co/elasticsearch) to create an index of documents. It would be fair to describe Datashare as a nice looking web interface for Elasticsearch. We want our search platform to be user-friendly while keeping all the powerful Elasticsearch features available for advanced users. This way we ensure that Datashare is usable by non tech-savvy reporters, but still robust enough to satisfy data analysts and developers who want to query the index directly [with our API](https://github.com/ICIJ/datashare-docs/blob/main/broken-reference/README.md).
 
 We implemented the possibility to create plugins, to make this process more accessible. Instead of modifying Datashare directly, you could isolate your code with a specific set of features and then configure Datashare to use it. Each Datashare user can pick the plugins they need or want, and have a fully customized installation of our search platform. Please have a look at the [documentation](developers/backend/write-extensions.md).
 

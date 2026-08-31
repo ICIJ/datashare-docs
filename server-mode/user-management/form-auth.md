@@ -8,7 +8,7 @@ The form authentication method (`--auth form`) displays a login page served by D
 
 This method is the **default** (used when no `--auth` flag is provided) and the **recommended** authentication provider for self-managed deployments. It replaces the legacy basic (`--auth basic`) and dummy (`--auth yesBasic`) methods.
 
-<figure><img src="../../.gitbook/assets/server-mode/user-management/form-auth/01-datashare-login-form.png" alt="Screenshot of Datashare's HTML login form with username and password fields and a sign-in button"><figcaption><p>Datashare login form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/01-datashare-login-form.png" alt="Screenshot of Datashare&#x27;s HTML login form with username and password fields and a sign-in button"><figcaption><p>Datashare login form</p></figcaption></figure>
 
 ## How it works
 
@@ -36,7 +36,7 @@ Form auth must be paired with a user provider that stores credentials, selected 
 * `database` (default): credentials stored in the Datashare database (PostgreSQL recommended).
 * `redis`: credentials stored in Redis.
 
-The user record format is the same in both cases. See [Provisioning users](README.md#provisioning-users) for how to hash passwords, structure records, and store them in PostgreSQL or Redis.
+The user record format is the same in both cases. See [Provisioning users](./#provisioning-users) for how to hash passwords, structure records, and store them in PostgreSQL or Redis.
 
 ## Migrating from basic auth
 
