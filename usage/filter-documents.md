@@ -16,11 +16,11 @@ Open '**Filters**' on the left of the search bar:
 
 **'Indexing dates'** arethe dates when the documents were added to Datashare.
 
-**'Embedment levels'** regard embedded documents:
+**'Embedding levels'** regard embedded documents:
 
 * The 'file on disk' is level zero
-* If a document is attached to (or contained in) a file on disk, its embedment level is '1st'
-* If a document is attached to (or contained in) a document itself contained in a file on disk, its embedment level is '2nd'
+* If a document is attached to (or contained in) a file on disk, its embedding level is '1st'
+* If a document is attached to (or contained in) a document itself contained in a file on disk, its embedding level is '2nd'
 * And so on
 
 ## Filter by entities
@@ -78,7 +78,7 @@ A value you locked earlier can still show up as locked even if it later disappea
 
 Open '**Your search**' to see the search breadcrumb, then click a chip's **padlock icon** to lock or unlock it (see the '**French**' chip above, for instance).
 
-Locking one side of a paired filter (for instance a content type marked '**Excluded**') never locks its opposite side.
+Locking one side of a paired filter (for instance a content type marked '**Excluded**') never locks its opposite side. For instance, if you lock 'PDF', its paired category content type ('Document') won't be locked.
 
 #### Apply your locked filters
 
