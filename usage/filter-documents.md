@@ -45,6 +45,8 @@ Locked filters are new in Datashare **21.20.4**.
 
 Locking a filter value keeps it active for future searches, until you unlock it yourself, even across projects or after clearing every other filter.&#x20;
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 A lock is:
 
 * **Personal**: the fact that a value is locked is never shared with other members, and never travels with a shared link. Other members opening a search you share always see the filter value but never see the padlock icon.
