@@ -53,7 +53,7 @@ No data migration is needed: the user records are identical.
 With a PostgreSQL user inventory:
 
 ```
-docker run -ti ICIJ/datashare --mode SERVER \
+docker run -ti ICIJ/datashare app start --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
@@ -64,7 +64,7 @@ docker run -ti ICIJ/datashare --mode SERVER \
 With credentials stored in Redis:
 
 ```
-docker run -ti ICIJ/datashare --mode SERVER \
+docker run -ti ICIJ/datashare app start --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
