@@ -22,13 +22,13 @@ Credentials are sent in plain text (base64 is not encryption). Always run Datash
 
 On the server side, you need to provide a database user inventory. Launching Datashare first with the full database URL will automatically migrate the schema. Datashare supports SQLite and PostgreSQL. **SQLite is not recommended** for multi-user servers because it cannot be multithreaded and will cause contention on user lookups.
 
-See [Provisioning users](README.md#provisioning-users) for how to hash passwords, structure user records, and insert them into the `user_inventory` table.
+See [Provisioning users](./#provisioning-users) for how to hash passwords, structure user records, and insert them into the `user_inventory` table.
 
 ## Login experience
 
 When accessing Datashare, the browser prompts with its native basic-auth popup:
 
-<figure><img src="https://i.imgur.com/qec6c2k.jpg" alt="Screenshot of an &#x27;authentication required&#x27; window with username and password fields and &#x27;Cancel&#x27; and &#x27;OK&#x27; buttons"><figcaption><p>basic auth popup</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot from 2026-09-04 11-11-28.png" alt="basic auth popup"><figcaption><p>basic auth popup</p></figcaption></figure>
 
 There is no sign-out: users remain logged in until the browser is closed.
 
