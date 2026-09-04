@@ -29,6 +29,12 @@ OAuth2 authentication is selected with `--auth oauth`. With OAuth2 you delegate 
 
 ## Example
 
+From Datashare **21.7.0** or later:
+
+{% hint style="warning" %}
+Since Datashare's CLI moved to `app start` subcommands, `--auth` (like every other server option) must come after `app start`, not before it. Passing it before (or without) `app start` fails with `auth is not a recognized option`.
+{% endhint %}
+
 ```
 docker run -ti ICIJ/datashare:version app start --mode SERVER \
     --auth oauth \
@@ -40,9 +46,18 @@ docker run -ti ICIJ/datashare:version app start --mode SERVER \
     --oauthCallbackPath /auth/callback
 ```
 
-{% hint style="warning" %}
-Since Datashare's CLI moved to `app start` subcommands, `--auth` (like every other server option) must come after `app start`, not before it. Passing it before (or without) `app start` fails with `auth is not a recognized option`.
-{% endhint %}
+Before 21.7.0:
+```
+docker run -ti ICIJ/datashare:version --mode SERVER \
+    --auth oauth \
+    --oauthClientId 30045255030c6740ce4c95c \
+    --oauthClientSecret 10af3d46399a8143179271e6b726aaf63f20604092106 \
+    --oauthAuthorizeUrl https://my.oauth-server.org/oauth/authorize \
+    --oauthTokenUrl https://my.oauth-server.org/oauth/token \
+    --oauthApiUrl https://my.oauth-server.org/api/v1/me.json \
+    --oauthCallbackPath /auth/callback
+```
+
 
 ## Integration with KeyCloak
 
