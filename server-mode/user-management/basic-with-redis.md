@@ -33,7 +33,7 @@ There is no sign-out: users remain logged in until the browser is closed.
 Launching Datashare with Docker and the basic-auth filter backed by Redis:
 
 ```
-docker run -ti ICIJ/datashare --mode SERVER \
+docker run -ti ICIJ/datashare app start --mode SERVER \
     --batchQueueType REDIS \
     --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>' \
     --sessionStoreType REDIS \
