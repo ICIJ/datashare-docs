@@ -32,6 +32,7 @@ Whatever order you list them in, stages always run in pipeline order.
 | [`CREATENLPBATCHESFROMIDX`](createnlpbatchesfromidx.md) | Group documents into batches and submit one NER task per batch | Elasticsearch | tasks                 |
 | [`BATCHNLP`](batchnlp.md)                               | Not runnable from the command line                             | n/a           | n/a                   |
 | [`ARTIFACT`](artifact.md)                               | Cache embedded document payloads on disk                       | queue         | filesystem            |
+| [`LANGUAGE`](language.md)                               | Re-detect the language of indexed documents                    | queue         | Elasticsearch         |
 
 `NLP` and `CREATENLPBATCHESFROMIDX` are alternatives, not a sequence. Asking for both in the same `--stages` is an error.
 
@@ -74,7 +75,7 @@ If you want a long-lived consumer that waits for work, run it under a supervisor
 
 ## Stages and distribution
 
-`INDEX`, `NLP`, `CATEGORIZE` and `ARTIFACT` pull from a blocking queue, so several machines can run them at the same time against the same Redis and the same Elasticsearch. They are idempotent: reprocessing a document produces the same result.
+`INDEX`, `NLP`, `CATEGORIZE`, `ARTIFACT` and `LANGUAGE` pull from a blocking queue, so several machines can run them at the same time against the same Redis and the same Elasticsearch. They are idempotent: reprocessing a document produces the same result.
 
 `SCAN`, `SCANIDX`, `ENQUEUEIDX`, `DEDUPLICATE` and `CREATENLPBATCHESFROMIDX` are producers reading a source of truth from end to end. Running two of them in parallel does not split the work, it duplicates it.
 

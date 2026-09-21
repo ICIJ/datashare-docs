@@ -58,5 +58,5 @@ The stage keeps no state. If it is interrupted, rerun it: in front of NLP the "n
 
 ## See also
 
-* [NLP](nlp.md), [CATEGORIZE](categorize.md) and [ARTIFACT](artifact.md), the stages usually placed after it.
+* [NLP](nlp.md), [CATEGORIZE](categorize.md), [ARTIFACT](artifact.md) and [LANGUAGE](language.md), the stages usually placed after it.
 * [Scenario 7: extract named entities after indexing](../../server-mode/indexing/scenarios.md#scenario-7-extract-named-entities-after-indexing)
