@@ -363,7 +363,7 @@ redis-cli -h redis DEL report:my-project
 
 ## Scenario 10: backfills on an existing index
 
-Two stages exist to enrich documents that are already indexed.
+Three stages exist to enrich documents that are already indexed.
 
 **Content type categories.** Documents indexed by an older version of Datashare may lack the `contentTypeCategory` field used by the file type filter:
 
@@ -388,6 +388,18 @@ datashare stage run --stages ENQUEUEIDX,ARTIFACT \
 The query selects root documents only, because each root's whole embedded tree is cached as a side effect of processing it. `--artifactDir` is mandatory for this stage. Artifacts are cached, so a second run skips what a manifest already covers unless you pass `--artifactsForce true`.
 
 You can also produce the raw payload during indexing instead, by adding `--artifacts raw --artifactDir /data/artifacts` to your `SCAN,INDEX` command. That avoids a second full pass, at the cost of a slower and more disk-hungry INDEX stage.
+
+**Languages.** The `LANGUAGE` stage re-detects the language of indexed documents and rewrites the field when the new guess differs. Use it on a corpus indexed by an older version, or one whose scans were OCR'd after indexing:
+
+```bash
+datashare stage run --stages ENQUEUEIDX,LANGUAGE \
+  --defaultProject my-project \
+  --searchQuery 'language:UNKNOWN' \
+  --elasticsearchAddress http://elasticsearch:9200 \
+  --queueType REDIS --redisAddress redis://redis:6379
+```
+
+Detection runs on the indexed content, so no file is re-read. Dropping `--searchQuery` re-detects the whole index, which costs one Elasticsearch read per document.
 
 ## Find what is missing
 
