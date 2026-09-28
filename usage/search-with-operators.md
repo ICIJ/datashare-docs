@@ -232,7 +232,7 @@ For instance, Datashare finds documents whose translated content contains terms 
 
 <kbd>content\_translated.content:mercede?</kbd>
 
-Datashare finds documents whose translated content contains terms **starting with 'merc'**, It also works with \* to replace multiple characters:
+Datashare finds documents whose translated content contains terms **starting with 'merc'** plus **multiple characters**, such as 'mercedes':
 
 <kbd>content\_translated.content:merc\*</kbd>
 
@@ -240,11 +240,11 @@ And documents whose translated content contains terms **close to 'mercedes'**, s
 
 <kbd>content\_translated.content:mercedes\~</kbd>
 
-Note that wildcards and fuzziness don't work inside double quotes.
+Note that wildcards (\* or ?) and fuzziness (\~) don't work inside double quotes.
 
 #### Search in original content only (not translated)&#x20;
 
-Simply select Content in the field dropdown here:
+Simply select 'Content' in the field dropdown at the right inside the search bar, here:
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
