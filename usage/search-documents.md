@@ -30,6 +30,8 @@ For instance, Datashare finds documents containing **either 'ikea' or 'paris' or
 
 <figure><img src="../.gitbook/assets/04-search-documents-page-highlighted-ikea.png" alt="Screenshot of a Datashare&#x27;s search documents page with highlighted &#x27;Ikea paris&#x27; typed in the search bar"><figcaption></figcaption></figure>
 
+Switch to **AND** by changing the [results settings](https://icij.gitbook.io/datashare/usage/search-documents#results-settings).
+
 ## Linked entities
 
 As you type a term, Datashare **suggest linked entities** - only if a task to find entities in this project was completed.

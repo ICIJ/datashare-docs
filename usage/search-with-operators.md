@@ -179,3 +179,72 @@ For other searches:
 **Ranges**: You can also search for numbers in a range. Ranges can be specified for **date**, **numeric** or **string fields** among the ones you can find by clicking the magnifying glass when you hover the fields in a document's tab 'Metadata'. Inclusive ranges are specified with square brackets \[min TO max] and exclusive ranges with curly brackets {min TO max}. For more details, please refer to [Elastic's page on ranges](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges).
 {% endstep %}
 {% endstepper %}
+
+### **Search in translated content only**
+
+{% hint style="info" %}
+Your documents must have been translated in Datashare before.&#x20;
+{% endhint %}
+
+By default, **Datashare searches in both original and translated content**. Here is how to search in translated content only:
+
+#### Search a term
+
+**Type&#x20;**<kbd>**content\_translated.content:**</kbd> followed by your term in the search bar.
+
+For instance, Datashare finds documents whose **translated content contains 'paris'** here:
+
+<kbd>content\_translated.content:paris</kbd>
+
+You don't need quotes to search a single term.
+
+#### Search an exact phrase
+
+To search for **several terms side by side and in this order**, put them **between double quotes**.
+
+For instance, Datashare finds documents whose translated content contains the **exact phrase 'paris is in france'** here:
+
+<kbd>content\_translated.content:"paris is in france"</kbd>
+
+#### Search several terms in any order
+
+If you type several terms **without quotes or parentheses**, only the **first term** is searched in the translated content. The other terms are searched in both original and translated content.
+
+For instance, here Datashare searches 'paris' in the translated content, but 'france' in all fields:
+
+<kbd>content\_translated.content:paris france</kbd>
+
+To search **all terms in the translated content, in any order**, put them **between parentheses**. As the **default operator is OR**, Datashare finds documents whose translated content contains **either 'paris' or 'mercedes' or both terms** here:
+
+<kbd>content\_translated.content:(paris France)</kbd>
+
+Note that you can change the default operator and pick AND instead in the [result settings](https://icij.gitbook.io/datashare/usage/search-documents#results-settings).
+
+Or find only documents whose translated content contains **both terms**, add **AND** between them:
+
+<kbd>content\_translated.content:(paris AND mercedes)</kbd>
+
+#### Use wildcards and fuzziness
+
+Without quotes, you can also use **wildcards** and **fuzziness** in the translated content.
+
+For instance, Datashare finds documents whose translated content contains terms **starting with 'mercede' plus a single character**, such as 'mercedes', here:
+
+<kbd>content\_translated.content:mercede?</kbd>
+
+Datashare finds documents whose translated content contains terms **starting with 'merc'**, It also works with \* to replace multiple characters:
+
+<kbd>content\_translated.content:merc\*</kbd>
+
+And documents whose translated content contains terms **close to 'mercedes'**, such as 'mercedez', here:
+
+<kbd>content\_translated.content:mercedes\~</kbd>
+
+Note that wildcards and fuzziness don't work inside double quotes.
+
+#### Search in original content only (not translated)&#x20;
+
+Simply select Content in the field dropdown here:
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
