@@ -81,3 +81,46 @@ Ticking these properties will change **which document's metadata are displayed i
 <figure><img src="../.gitbook/assets/16-search-documents-page-ikea-paris-typed.png" alt="Screenshot of a Datashare&#x27;s search documents page with &#x27;Ikea paris&#x27; typed in the search bar and the first document card highlighted at the top of the results in a Table layout"><figcaption></figcaption></figure>
 
 You can now make your search more precise [with operators or Regex (Regular Expressions)](search-with-operators.md).
+
+## **Characters that cannot be searched**
+
+Some characters **cannot be found** in Datashare, even if you can see them in your documents. This includes most **symbols and punctuation marks**, for instance:
+
+> $ € £ ¥ % # @ & + = , ; ! ? ( ) « » " ' / –
+
+This is because Datashare uses [the Standard tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html). When your documents are indexed, their text is split into **terms** (mostly words and numbers), and **most symbols and punctuation are removed**. These characters are not stored in the index, so the search engine cannot find them.
+
+{% hint style="info" %}
+**Why does it work this way?** The Standard tokenizer follows [Unicode's rules for splitting text into words](https://unicode.org/reports/tr29/). It is designed to find **words**, whatever punctuation surrounds them. Thanks to this, searching for **contract** also finds "contract,", "(contract)" or "contract." without you having to think about it. It also keeps the index smaller, which helps make searches **faster**, especially on very large datasets.
+{% endhint %}
+
+A document containing "€ 2 million" is indexed as the terms **2** and **million**. The **€** is not kept.
+
+The same thing happens to your query. If you search for:
+
+> €
+
+Datashare has no term to look for, and **returns no results**, even if many of your documents contain the euro sign.
+
+**Escaping the character with a backslash (\€), using double quotes ("€") or using Regex (/€/) does not help:** the character is still not in the index.
+
+#### **How to find these mentions anyway**
+
+Instead of searching for the symbol, search for the **words or numbers around it**.
+
+* Use an **exact phrase** with the amount, as the symbol is removed on both sides:
+
+> "2 million" (this query will catch "€ 2 million", "€2 million", etc., with any currency)
+
+* Use a **proximity search** if you don't know the exact amount:
+
+> "million euros"\~2 (this query will catch "2 million euros", "1.5 million euros", etc.)
+
+* Search for **other ways of writing** the same thing with <kbd>OR</kbd>. You need to write <kbd>OR</kbd> with **all letters uppercase:**
+
+> EUR OR euro OR euros
+
+* Use the <kbd>**AND**</kbd> operator to combine terms that **usually appear together** in the documents you are looking for:
+
+> "2 million" AND contract
+
