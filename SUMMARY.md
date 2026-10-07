@@ -55,6 +55,7 @@
   * [Tuning and performance](server-mode/indexing/tuning.md)
   * [Troubleshooting indexing](server-mode/indexing/troubleshooting.md)
 * [Add entities from the CLI](server-mode/add-entities-from-the-cli.md)
+* [Manage users from the UI](server-mode/manage-users-from-the-ui.md)
 * [Manage users from the CLI](server-mode/manage-users-from-the-cli.md)
 * [Manage projects from the CLI](server-mode/manage-projects-from-the-cli.md)
 * [User management](server-mode/user-management/README.md)

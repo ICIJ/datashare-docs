@@ -40,7 +40,9 @@ The legacy `--authFilter` flag, which took a fully-qualified filter class name (
 
 ## Provisioning users
 
-The easiest way to create users is the [`datashare user create` subcommand](../manage-users-from-the-cli.md):
+In server mode, an instance admin can create and manage accounts from the interface, in **Settings > Users**: see [Manage users from the UI](../manage-users-from-the-ui.md). It works with the `form` and `basic` methods, whichever user store they sit on, but not with OAuth2, where accounts belong to your identity provider.
+
+From the command line, the easiest way to create users is the [`datashare user create` subcommand](../manage-users-from-the-cli.md):
 
 ```bash
 datashare user create alice --email alice@example.org --password $PW --groups project1,project2
