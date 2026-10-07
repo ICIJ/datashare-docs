@@ -91,7 +91,7 @@ You cannot delete your own account from this page: the bin icon is greyed out on
 
 Datashare can only create, edit and delete accounts when it is the one holding them. That depends on the [`--auth` and `--authUsersProvider` flags](user-management/):
 
-| `--auth` | Where accounts live | Settings > Users can |
+| **`--auth`** | **Where accounts live** | **Settings > Users can** |
 | --- | --- | --- |
 | `form` or `basic`, with `--authUsersProvider database` | PostgreSQL `user_inventory` table | list, create, edit, delete, manage roles |
 | `form` or `basic`, with `--authUsersProvider redis` | Redis | list, create, edit, delete, manage roles |
