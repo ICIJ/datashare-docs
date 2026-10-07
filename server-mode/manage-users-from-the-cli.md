@@ -13,6 +13,8 @@ The `datashare user` subcommands let you provision and remove users directly fro
 
 Run these commands with the same data-store settings as your server (`--dataSourceUrl`, and `--redisAddress` if your deployment uses Redis) so they operate on the same user inventory.
 
+In server mode, the same accounts can also be created, edited and deleted from the interface: see [Manage users from the UI](manage-users-from-the-ui.md).
+
 ## Create a user
 
 ```bash
