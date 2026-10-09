@@ -43,6 +43,9 @@
 * [Neo4j](local-mode/create-the-neo4j-graph/README.md)
   * [Install Neo4j plugin](local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
   * [Create and update Neo4j graph](local-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
+* [Transcribe audio and video](local-mode/transcribe-audio-video/README.md)
+  * [Install ASR plugin](local-mode/transcribe-audio-video/install-asr-plugin.md)
+  * [Transcribe documents](local-mode/transcribe-audio-video/transcribe-documents.md)
 
 ## On your server <a href="#server-mode" id="server-mode"></a>
 
@@ -68,6 +71,9 @@
 * [Neo4j](server-mode/create-the-neo4j-graph/README.md)
   * [Install Neo4j plugin](server-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
   * [Create and update Neo4j graph](server-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
+* [Transcribe audio and video](server-mode/transcribe-audio-video/README.md)
+  * [Install ASR plugin](local-mode/transcribe-audio-video/install-asr-plugin.md)
+  * [Transcribe documents](local-mode/transcribe-audio-video/transcribe-documents.md)
 * [Performance considerations](server-mode/performance-considerations.md)
 
 ## Usage
@@ -82,6 +88,7 @@
 * [Star, tag and recommend](usage/star-documents.md)
 * [Keyboard shortcuts](usage/use-keyboard-shortcuts.md)
 * [Create a Neo4j graph and explore it](usage/explore-the-neo4j-graph.md)
+* [Transcribe audio and video](usage/transcribe-audio-and-video.md)
 * [FAQ](usage/faq/README.md)
   * [General](usage/faq/general/README.md)
     * [Can I use Datashare with no internet connection?](usage/faq/general/can-i-use-datashare-with-no-internet-connection.md)
