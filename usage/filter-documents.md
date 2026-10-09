@@ -60,17 +60,17 @@ Locking only works on filter **values**, never on the free-text search query its
 Only the lock itself is personal, not the value it applies to. Even locked, a filter value remains included, exactly as applied on screen, in anything you export, save or download: a shared link, a saved search or a batch download.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/14-screencast-lock-and-apply-locked-filters.gif" alt="Screencast of locking the &#x27;French&#x27; language filter, starting a new search that no longer includes it, then clicking &#x27;Apply locked filters&#x27; to bring it back"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/14-screencast-lock-and-apply-locked-filters.gif" alt="Screencast of locking the &#x27;French&#x27; language filter, starting a new search that no longer includes it, then clicking &#x27;Apply locked filters&#x27; to bring it back"><figcaption></figcaption></figure>
 
 #### Lock a value from the Filters panel
 
 Tick a filter value, then click its **padlock icon** to lock it:
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/09-page-search-documents-lock-filter-value-hover.jpg" alt="Screenshot of Datashare&#x27;s Languages filter with &#x27;French&#x27; ticked and its open padlock icon revealed on hover, before it is locked"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/09-page-search-documents-lock-filter-value-hover.jpg" alt="Screenshot of Datashare&#x27;s Languages filter with &#x27;French&#x27; ticked and its open padlock icon revealed on hover, before it is locked"><figcaption></figcaption></figure>
 
 The padlock switches to its closed/filled state once the value is locked:
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/10-page-search-documents-locked-filter-value.jpg" alt="Screenshot of Datashare&#x27;s Languages filter with &#x27;French&#x27; ticked and locked, its closed padlock icon shown, and the corresponding chip in the search breadcrumb also showing a padlock icon"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/10-page-search-documents-locked-filter-value.jpg" alt="Screenshot of Datashare&#x27;s Languages filter with &#x27;French&#x27; ticked and locked, its closed padlock icon shown, and the corresponding chip in the search breadcrumb also showing a padlock icon"><figcaption></figcaption></figure>
 
 Unticking a locked value removes it **and** unlocks it at the same time. There is no way to keep a lock without keeping its value applied.
 
@@ -88,11 +88,11 @@ Locking one side of a paired filter (for instance a content type marked '**Exclu
 
 A lock doesn't silently reapply itself to searches that don't already match it. For instance, right after you open a search link someone else shared with you, or when you open a saved search, or start a brand-new search. The search breadcrumb's '**Apply locked filters**' button becomes clickable whenever at least one locked value isn't reflected in your current search:
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/11-page-search-documents-apply-locked-filters-enabled.jpg" alt="Screenshot of Datashare&#x27;s breadcrumb footer with the &#x27;Apply locked filters&#x27; button enabled, since a locked French value isn&#x27;t part of the current search"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/11-page-search-documents-apply-locked-filters-enabled.jpg" alt="Screenshot of Datashare&#x27;s breadcrumb footer with the &#x27;Apply locked filters&#x27; button enabled, since a locked French value isn&#x27;t part of the current search"><figcaption></figcaption></figure>
 
 Click it to instantly apply every locked value to your current search (locks always win over a conflicting value). A confirmation message tells you whether it succeeded:
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/12-page-search-documents-locked-filters-applied-toast.jpg" alt="Screenshot of Datashare&#x27;s search documents page with the &#x27;Locked filters successfully applied&#x27; confirmation message shown at the top right"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/12-page-search-documents-locked-filters-applied-toast.jpg" alt="Screenshot of Datashare&#x27;s search documents page with the &#x27;Locked filters successfully applied&#x27; confirmation message shown at the top right"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 If you have at least one lock active, the search breadcrumb opens automatically after you run a new search, and whenever a locked value stops matching your current search, so you always see what's locked before you read your results.
@@ -102,7 +102,7 @@ If you have at least one lock active, the search breadcrumb opens automatically 
 
 To remove every lock at once, without touching the filter values currently applied, open the search breadcrumb and click '**Unlock filters**':
 
-<figure><img src="../.gitbook/assets/usage/filter-documents/13-page-search-documents-unlock-filters.jpg" alt="Screenshot of Datashare&#x27;s Languages filter and search breadcrumb after clicking &#x27;Unlock filters&#x27;: French stays ticked and applied, but its padlock icon and the footer&#x27;s lock count are gone"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/13-page-search-documents-unlock-filters.jpg" alt="Screenshot of Datashare&#x27;s Languages filter and search breadcrumb after clicking &#x27;Unlock filters&#x27;: French stays ticked and applied, but its padlock icon and the footer&#x27;s lock count are gone"><figcaption></figcaption></figure>
 
 ## Contextualize filters
 
