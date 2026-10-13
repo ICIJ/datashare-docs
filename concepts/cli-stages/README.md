@@ -55,6 +55,14 @@ Two consequences that catch people out:
 * **The queue name has to match between commands.** If you run SCAN with `--queueName my-queue`, the INDEX command needs the same flag, because it reads `my-queue:index`.
 * **A stage still writes to its next stage's queue even when that stage is not in your list.** When the list ends, "next" falls back to the next main stage, so a `SCAN,INDEX` run keeps pushing document ids into `extract:queue:nlp`. With a Redis queue those entries stay there until an `NLP` run consumes them.
 
+`ENQUEUEIDX` can be pointed at a queue explicitly with `--nextStage`, so it feeds a stage you run in a separate command:
+
+```bash
+datashare stage run --stages ENQUEUEIDX --nextStage ARTIFACT
+```
+
+`--nextStage` is only read by `ENQUEUEIDX`. It must name a stage that consumes document ids (`CATEGORIZE`, `NLP`, `ARTIFACT` or `LANGUAGE`), and using it without `ENQUEUEIDX` in `--stages` is rejected.
+
 To run stages in **separate commands**, or on separate machines, the queue has to be shared, which means Redis:
 
 ```bash
