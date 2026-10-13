@@ -32,6 +32,7 @@ Whatever order you list them in, stages always run in pipeline order.
 | [`NLP`](nlp.md)                                         | Run named entity recognition over indexed documents            | queue         | Elasticsearch         |
 | [`ARTIFACT`](artifact.md)                               | Cache embedded document payloads on disk                       | queue         | filesystem            |
 | [`LANGUAGE`](language.md)                               | Re-detect the language of indexed documents                    | queue         | Elasticsearch         |
+| [`ENTITIES`](entities.md)                               | Turn the rows of an indexed table into structured entities     | Elasticsearch | database + Elasticsearch |
 
 `SCAN` and `SCANQUERY` are alternatives, not a sequence. Asking for both in the same `--stages` is an error.
 
