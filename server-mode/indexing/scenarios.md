@@ -289,30 +289,6 @@ Available pipelines are `CORENLP` (the default, best coverage), `OPENNLP`, `EMAI
 
 NER holds language models in memory. Give the process more heap than an INDEX run, and see [Tuning](tuning.md#named-entity-extraction) for the parallelism settings.
 
-### Batched extraction with the Python worker
-
-The `SPACY` pipeline processes documents in batches rather than one at a time, so it uses a different stage. `CREATENLPBATCHESFROMIDX` scrolls the index, groups documents by language, and submits one extraction task per batch:
-
-```bash
-datashare stage run \
-  --stages CREATENLPBATCHESFROMIDX \
-  --defaultProject my-project \
-  --nlpPipeline SPACY \
-  --batchSize 1024 \
-  --elasticsearchAddress http://elasticsearch:9200 \
-  --queueType REDIS --redisAddress redis://redis:6379
-```
-
-The batches are **tasks**, not queue entries, so a worker has to execute them. Start one alongside, pointed at the same Redis:
-
-```bash
-datashare worker run --busType REDIS --redisAddress redis://redis:6379
-```
-
-The stage command returns as soon as the batches are submitted, so follow the tasks rather than the command to know when the work is done. `BATCHNLP` appears in the stage list but has no command-line implementation: passing it to `--stages` logs `no task class for stage BATCHNLP, skipping it`.
-
-Use this only with a batch-capable pipeline. For `CORENLP` and `OPENNLP`, `ENQUEUEIDX,NLP` above is the right form, and the two are mutually exclusive: `NLP` and `CREATENLPBATCHESFROMIDX` in the same `--stages` is rejected.
-
 ## Scenario 8: mail archives (PST, OST, MBOX)
 
 Mailboxes are the corpus type most likely to surprise you.

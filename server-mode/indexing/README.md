@@ -62,12 +62,8 @@ Both require a **shared** queue, which means Redis (`--queueType REDIS`). With t
 | [`CATEGORIZE`](../../concepts/cli-stages/categorize.md) | Fills the `contentTypeCategory` field of already-indexed documents | queue | Yes |
 | [`NLP`](../../concepts/cli-stages/nlp.md) | Runs named entity recognition on indexed documents | queue | **Yes** |
 | [`ARTIFACT`](../../concepts/cli-stages/artifact.md) | Caches embedded document payloads on disk for preview and download | queue | Yes |
-| [`CREATENLPBATCHESFROMIDX`](../../concepts/cli-stages/createnlpbatchesfromidx.md) | Groups indexed documents into batches and submits one NER task per batch, for batch-capable pipelines such as the Python worker | Elasticsearch | Yes |
-| [`BATCHNLP`](../../concepts/cli-stages/batchnlp.md) | Listed in the stage enum but has no command-line implementation. The batch work is done by the tasks the stage above submits | n/a | n/a |
 
 Stages always run in that order, whatever order you list them in. `SCAN`, `INDEX` and `NLP` are the three you will use most, and [CLI stages](../../concepts/cli-stages/README.md) has a runnable example for every one of them.
-
-`NLP` and `CREATENLPBATCHESFROMIDX` are alternatives, not a sequence: asking for both in the same `--stages` is rejected with an error.
 
 ## Where the state lives
 

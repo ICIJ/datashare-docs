@@ -12,8 +12,6 @@
     * [ENQUEUEIDX](concepts/cli-stages/enqueueidx.md)
     * [CATEGORIZE](concepts/cli-stages/categorize.md)
     * [NLP](concepts/cli-stages/nlp.md)
-    * [CREATENLPBATCHESFROMIDX](concepts/cli-stages/createnlpbatchesfromidx.md)
-    * [BATCHNLP](concepts/cli-stages/batchnlp.md)
     * [ARTIFACT](concepts/cli-stages/artifact.md)
     * [LANGUAGE](concepts/cli-stages/language.md)
   * [CLI reference](concepts/cli-reference.md)

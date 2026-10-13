@@ -54,7 +54,7 @@ Note what is **not** here: `--parallelism` has no effect on this stage, and `--n
 | `CORENLP` | People, organizations, locations | The default, and the most expensive |
 | `OPENNLP` | People, organizations, locations | Alternative engine, requires its extension |
 | `EMAIL` | Email addresses only | Very cheap, useful on mail corpora |
-| `SPACY` | People, organizations, locations | Runs in a Python worker, see [CREATENLPBATCHESFROMIDX](createnlpbatchesfromidx.md) |
+| `SPACY` | People, organizations, locations | Runs in a Python worker |
 
 ## See also
 
