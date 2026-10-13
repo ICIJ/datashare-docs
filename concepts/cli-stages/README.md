@@ -33,6 +33,7 @@ Whatever order you list them in, stages always run in pipeline order.
 | [`BATCHNLP`](batchnlp.md)                               | Not runnable from the command line                             | n/a           | n/a                   |
 | [`ARTIFACT`](artifact.md)                               | Cache embedded document payloads on disk                       | queue         | filesystem            |
 | [`LANGUAGE`](language.md)                               | Re-detect the language of indexed documents                    | queue         | Elasticsearch         |
+| [`ENTITIES`](entities.md)                               | Turn the rows of an indexed table into structured entities     | Elasticsearch | database + Elasticsearch |
 
 `NLP` and `CREATENLPBATCHESFROMIDX` are alternatives, not a sequence. Asking for both in the same `--stages` is an error.
 

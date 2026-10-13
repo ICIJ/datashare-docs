@@ -16,6 +16,7 @@
     * [BATCHNLP](concepts/cli-stages/batchnlp.md)
     * [ARTIFACT](concepts/cli-stages/artifact.md)
     * [LANGUAGE](concepts/cli-stages/language.md)
+    * [ENTITIES](concepts/cli-stages/entities.md)
   * [CLI reference](concepts/cli-reference.md)
 * [About ICIJ](https://www.icij.org/about/)
 * [Github](https://github.com/ICIJ/datashare)
