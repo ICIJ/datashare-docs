@@ -7,6 +7,7 @@
   * [CLI stages](concepts/cli-stages/README.md)
     * [SCAN](concepts/cli-stages/scan.md)
     * [SCANIDX](concepts/cli-stages/scanidx.md)
+    * [SCANQUERY](concepts/cli-stages/scanquery.md)
     * [DEDUPLICATE](concepts/cli-stages/deduplicate.md)
     * [INDEX](concepts/cli-stages/index.md)
     * [ENQUEUEIDX](concepts/cli-stages/enqueueidx.md)

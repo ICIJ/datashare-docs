@@ -56,6 +56,7 @@ Both require a **shared** queue, which means Redis (`--queueType REDIS`). With t
 | ----- | ------------ | ---------- | ------------- |
 | [`SCAN`](../../concepts/cli-stages/scan.md) | Walks `--dataDir` and pushes every file path onto the queue | filesystem | No, run it once |
 | [`SCANIDX`](../../concepts/cli-stages/scanidx.md) | Reads the paths already present in an index and writes them into a report map, so a later run skips them | Elasticsearch | No |
+| [`SCANQUERY`](../../concepts/cli-stages/scanquery.md) | Pushes the paths of the indexed files a search query selects onto the queue, so INDEX extracts them again | Elasticsearch | No |
 | [`DEDUPLICATE`](../../concepts/cli-stages/deduplicate.md) | Drops paths already seen in the queue | queue | No |
 | [`INDEX`](../../concepts/cli-stages/index.md) | Extracts text, OCR, metadata and embedded documents, then writes to Elasticsearch | queue | **Yes** |
 | [`ENQUEUEIDX`](../../concepts/cli-stages/enqueueidx.md) | Pushes document ids from an existing index back onto a queue, optionally filtered by a search query | Elasticsearch | No |
@@ -64,6 +65,8 @@ Both require a **shared** queue, which means Redis (`--queueType REDIS`). With t
 | [`ARTIFACT`](../../concepts/cli-stages/artifact.md) | Caches embedded document payloads on disk for preview and download | queue | Yes |
 
 Stages always run in that order, whatever order you list them in. `SCAN`, `INDEX` and `NLP` are the three you will use most, and [CLI stages](../../concepts/cli-stages/README.md) has a runnable example for every one of them.
+
+`SCAN` and `SCANQUERY` are alternatives, not a sequence: asking for both in the same `--stages` is rejected with an error.
 
 ## Where the state lives
 

@@ -24,6 +24,7 @@ Whatever order you list them in, stages always run in pipeline order.
 | ------------------------------------------------------- | -------------------------------------------------------------- | ------------- | --------------------- |
 | [`SCAN`](scan.md)                                       | Walk `--dataDir` and queue every file found                    | filesystem    | queue                 |
 | [`SCANIDX`](scanidx.md)                                 | Record the paths already in an index into a report map         | Elasticsearch | report map            |
+| [`SCANQUERY`](scanquery.md)                             | Queue the indexed files a search query selects, to extract them again | Elasticsearch | queue          |
 | [`DEDUPLICATE`](deduplicate.md)                         | Drop paths already seen in the queue                           | queue         | queue                 |
 | [`INDEX`](index.md)                                     | Extract text, metadata, OCR and embedded documents             | queue         | Elasticsearch + queue |
 | [`ENQUEUEIDX`](enqueueidx.md)                           | Push document ids from an existing index back onto a queue     | Elasticsearch | queue                 |
@@ -31,6 +32,8 @@ Whatever order you list them in, stages always run in pipeline order.
 | [`NLP`](nlp.md)                                         | Run named entity recognition over indexed documents            | queue         | Elasticsearch         |
 | [`ARTIFACT`](artifact.md)                               | Cache embedded document payloads on disk                       | queue         | filesystem            |
 | [`LANGUAGE`](language.md)                               | Re-detect the language of indexed documents                    | queue         | Elasticsearch         |
+
+`SCAN` and `SCANQUERY` are alternatives, not a sequence. Asking for both in the same `--stages` is an error.
 
 ## How stages find each other
 
@@ -73,7 +76,7 @@ If you want a long-lived consumer that waits for work, run it under a supervisor
 
 `INDEX`, `NLP`, `CATEGORIZE`, `ARTIFACT` and `LANGUAGE` pull from a blocking queue, so several machines can run them at the same time against the same Redis and the same Elasticsearch. They are idempotent: reprocessing a document produces the same result.
 
-`SCAN`, `SCANIDX`, `ENQUEUEIDX` and `DEDUPLICATE` are producers reading a source of truth from end to end. Running two of them in parallel does not split the work, it duplicates it.
+`SCAN`, `SCANIDX`, `SCANQUERY`, `ENQUEUEIDX` and `DEDUPLICATE` are producers reading a source of truth from end to end. Running two of them in parallel does not split the work, it duplicates it.
 
 ## Going further
 
