@@ -42,6 +42,9 @@
 * [Neo4j](local-mode/create-the-neo4j-graph/README.md)
   * [Install Neo4j plugin](local-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
   * [Create and update Neo4j graph](local-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
+* [Transcribe audio and video](local-mode/transcribe-audio-and-video/README.md)
+  * [Install ASR plugin](local-mode/transcribe-audio-and-video/install-asr-plugin.md)
+  * [Transcribe documents](local-mode/transcribe-audio-and-video/transcribe-documents.md)
 
 ## On your server <a href="#server-mode" id="server-mode"></a>
 
@@ -67,6 +70,9 @@
 * [Neo4j](server-mode/create-the-neo4j-graph/README.md)
   * [Install Neo4j plugin](server-mode/create-the-neo4j-graph/run-datashare-with-the-neo4j-plugin.md)
   * [Create and update Neo4j graph](server-mode/create-the-neo4j-graph/create-and-update-the-graph.md)
+* [Transcribe audio and video](server-mode/transcribe-audio-and-video/README.md)
+  * [Install ASR plugin](local-mode/transcribe-audio-and-video/install-asr-plugin.md)
+  * [Transcribe documents](local-mode/transcribe-audio-and-video/transcribe-documents.md)
 * [Performance considerations](server-mode/performance-considerations.md)
 
 ## Usage
