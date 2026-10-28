@@ -24,7 +24,19 @@ Datashare **must be accessed from your internet browser** (Firefox, Chome, etc),
 {% hint style="info" %}
 **Advanced: adjusting memory settings**
 
-If Datashare crashes on startup or during use, it may be due to insufficient memory allocated to Datashare or Elasticsearch. You can edit the `datashare.bat` script in the installation folder and set the `DS_JAVA_OPTS` and `ES_JAVA_OPTS` variables directly in it. See [Performance considerations](../../server-mode/performance-considerations.md) for recommendations.
+If Datashare crashes on startup or during use, it may be due to insufficient memory allocated to Datashare or Elasticsearch. Two variables control it:
+
+| Variable | Controls | Recommended value |
+|---|---|---|
+| `DS_JAVA_OPTS` | Memory allocated to Datashare | `-Xmx2g` |
+| `ES_JAVA_OPTS` | Memory allocated to Elasticsearch | `-Xms2g -Xmx2g` |
+
+Adjust these values to the memory available on your computer. You can set them in two ways:
+
+* **In the `datashare.bat` script:** open `datashare.bat` in the installation folder (usually `C:\Program Files\Datashare`) with a text editor as administrator, and remove the `::` in front of the two `set` lines in the 'Memory settings' section. Your changes are lost when you update Datashare.
+* **In the Windows environment variables:** search for 'environment variables' in the Windows main menu, open 'Edit environment variables for your account', and add each variable under 'User variables'. Your settings are kept when you update Datashare. Restart Datashare to apply them.
+
+See [Performance considerations](../../server-mode/performance-considerations.md) for more recommendations.
 {% endhint %}
 
 You can now [add documents to Datashare](add-documents-to-datashare-on-windows.md).
