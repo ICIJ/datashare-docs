@@ -33,7 +33,7 @@ If Datashare crashes on startup or during use, it may be due to insufficient mem
 
 Adjust these values to the memory available on your computer. You can set them in two ways:
 
-* **In the `datashare.bat` script:** open `datashare.bat` in the installation folder (usually `C:\Program Files\Datashare`) with a text editor as administrator, and remove the `::` in front of the two `set` lines in the 'Memory settings' section. Your changes are lost when you update Datashare.
+* **In the `datashare.bat` script:** open `datashare.bat` in the installation folder (`%APPDATA%\Datashare` by default) with a text editor, and remove the `::` in front of the two `set` lines in the 'Memory settings' section. Your changes are lost when you update Datashare.
 * **In the Windows environment variables:** search for 'environment variables' in the Windows main menu, open 'Edit environment variables for your account', and add each variable under 'User variables'. Your settings are kept when you update Datashare. Restart Datashare to apply them.
 
 See [Performance considerations](../../server-mode/performance-considerations.md) for more recommendations.
