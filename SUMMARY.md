@@ -127,5 +127,6 @@
 * [Frontend](developers/frontend/README.md)
   * [Design System](developers/frontend/design-system.md)
   * [Write plugins](developers/frontend/write-plugins.md)
+* [MCP](developers/mcp.md)
 * [CLI with Tarentula](developers/introduction-to-tarentula.md)
 * [Script with Playground](developers/introduction-to-playground.md)
