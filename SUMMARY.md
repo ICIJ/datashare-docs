@@ -120,6 +120,7 @@
 ## Developers
 
 * [How to contribute](developers/how-to-contribute.md)
+* [MCP](developers/mcp.md)
 * [Backend](developers/backend/README.md)
   * [API](developers/backend/api.md)
   * [Database Schema](developers/backend/database.md)
@@ -127,6 +128,5 @@
 * [Frontend](developers/frontend/README.md)
   * [Design System](developers/frontend/design-system.md)
   * [Write plugins](developers/frontend/write-plugins.md)
-* [MCP](developers/mcp.md)
 * [CLI with Tarentula](developers/introduction-to-tarentula.md)
 * [Script with Playground](developers/introduction-to-playground.md)
