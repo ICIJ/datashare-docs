@@ -24,6 +24,7 @@ Running `datashare` with no arguments is equivalent to `datashare app start` —
 | `api-key get` | Get the current user's API key |
 | `api-key create` | Create an API key |
 | `api-key delete` | Delete an API key |
+| `entities export` | Export the structured entities of a project |
 | `user create` | Create a Datashare user |
 | `user delete` | Delete a Datashare user and all their owned data |
 | `project create` | Create a Datashare project |
@@ -99,6 +100,17 @@ datashare worker run \
   --redisAddress redis://redis:6379 \
   --busType REDIS
 ```
+
+## `entities export`
+
+Export the structured entities of the project set with `-P`, in the native format of their data model (`--model`, default `ftm`). The output goes to stdout unless `--output` names a file.
+
+```bash
+datashare -P my-project entities export > my-project.ftm.json
+datashare -P my-project entities export --output my-project.ftm.json
+```
+
+Only a PostgreSQL data source streams the entities: on an embedded database the whole project is read into memory first. A project that does not exist exports nothing and exits `0`.
 
 ## `plugin` and `extension`
 
