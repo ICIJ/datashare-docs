@@ -76,7 +76,8 @@ The options most often used with this subcommand:
 | `--stages` | required | Comma-separated stages to run |
 | `--reportName` | none | Report map recording the outcome of each file, required for resumable runs |
 | `-o, --ocr` | `true` | Enable OCR on images |
-| `--ocrLanguage` | `eng` | Tesseract languages, for example `eng+fra` |
+| `--ocrLanguage` | chosen per image | Tesseract languages, for example `eng+fra`. Empty picks one per image from its detected script |
+| `--ocrPageSegMode` | `AUTO` | Tesseract page segmentation mode, `AUTO` or an integer from 1 to 13 (except 2) |
 | `--ocrStrategy` | `NO_OCR` | PDF OCR strategy (`NO_OCR`, `AUTO`, `OCR_AND_TEXT_EXTRACTION`, `OCR_ONLY`) |
 | `--ocrTimeout` | `12h` | Timeout for a single OCR run |
 | `--parseTimeout` | `24h` | Timeout for parsing one document, `0` disables it |

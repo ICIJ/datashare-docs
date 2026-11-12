@@ -33,7 +33,10 @@ datashare stage run \
 | Option | Default | Effect |
 | ------ | ------- | ------ |
 | `-o, --ocr` | `true` | Whether images are OCR'd at all. |
-| `--ocrLanguage` | `eng` | Tesseract languages, `eng+fra` for several. They must be installed on the machine. |
+| `--ocrLanguage` | chosen per image | Tesseract languages, `eng+fra` for several. They must be installed on the machine. Left empty, each image is read with the language of its detected script when the `osd` and script models are installed, `eng` otherwise. A mapping such as `Cyrillic:rus+ukr,Han:chi_sim` keeps the per-image choice but reads the listed scripts with the given languages. |
+| `--ocrRetryConfidence` | `60` | When the language is chosen per image, an image whose first read scores below this confidence (0 to 100) is read again with every script model. |
+| `--ocrPageSegMode` | `AUTO` | Tesseract page segmentation mode. `AUTO` reads with mode 1, then 6 when the read is blank, then 11. An integer from 1 to 13 (except 2) forces that mode. |
+| `--ocrMinConfidence` | `60` | OCR text with a confidence below this (0 to 100) is not used to detect the document's language. Only applies when the OCR records a confidence: the language is chosen per image, or `--ocrType` is `TESS4J`. |
 | `--ocrStrategy` | `NO_OCR` | Whether PDF **pages** are rendered and OCR'd. `AUTO` for scanned PDFs. |
 | `--ocrType` | `TESSERACT` | OCR engine. |
 | `--ocrTimeout` | `12h` | Limit for a single OCR run. |
@@ -85,7 +88,7 @@ flowchart TD
 * **Embedded documents become documents.** A mailbox, an archive, or an email with attachments produces one indexed document per item, linked to its parent, which is why file counts and document counts differ by orders of magnitude.
 * **The index is created if it does not exist**, with Datashare's mappings.
 * **It writes to the next stage's queue as it goes.** Every document written to Elasticsearch is also pushed as an id onto `<queueName>:<next stage>`. When `--stages` ends at INDEX, "next" falls back to NLP, so `extract:queue:nlp` fills up even when you are not running NLP. With Redis that list stays until something consumes it.
-* **Language is detected from the extracted text** unless `--language` is set. Setting it saves time and avoids pathological detection on files that are not prose.
+* **Language is detected from the extracted text** unless `--language` is set. Setting it saves time and avoids pathological detection on files that are not prose. OCR text read with a confidence below `--ocrMinConfidence` is left out of the guess.
 * **Termination**: when SCAN is listed in the same command, INDEX keeps polling while SCAN runs. Alone, it stops on its first empty poll. It then waits for in-flight documents, logging every `--indexTimeout` minutes.
 
 ## The report map
