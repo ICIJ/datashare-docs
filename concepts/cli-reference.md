@@ -49,6 +49,8 @@ datashare app start --mode SERVER \
 datashare app start --mode EMBEDDED
 ```
 
+`--maxHttpBodySize` caps the size of an HTTP request body, in bytes. It defaults to `104857600` (100 MiB), and `0` disables the check.
+
 ## `stage run`
 
 Run one or more document processing [stages](cli-stages/README.md). Requires `--stages`.
