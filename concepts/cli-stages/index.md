@@ -65,6 +65,57 @@ datashare stage run \
 
 Extract carries further knobs, for the OCR pool, the mailbox fan-out, the embedded-text buffers and the streaming writer. **None of them is exposed as a flag, and a settings file does not reach a stage run**, so their defaults are what you get. They are described as behaviour in [Tuning](../../server-mode/indexing/tuning.md).
 
+## Choosing the OCR settings
+
+OCR is where INDEX spends most of its time. Settle these questions in order before a large run.
+
+### 1. Do you need OCR at all?
+
+For born-digital files (PDFs exported from an editor, Office documents, emails without scanned attachments), run with `--ocr false`. Indexing gets several times faster and you lose nothing. For scans, photos or mail archives with image attachments, keep it on. For scanned PDFs, add `--ocrStrategy AUTO`, otherwise the text lands on the embedded page images instead of on the PDF. See [Tuning](../../server-mode/indexing/tuning.md#ocr).
+
+### 2. Which language?
+
+| Your corpus | Set | Why |
+| ----------- | --- | --- |
+| Known languages, for example French and German | `--ocrLanguage fra+deu` | Fastest and most precise. A language model is smaller and more accurate than a script model. |
+| Unknown or mixed languages | nothing | Each image is read with the model of its detected script. |
+| Known scripts, each with known languages | `--ocrLanguage "Cyrillic:rus+ukr,Han:chi_sim"` | Keeps the per-image detection, but reads each listed script with the languages you name. |
+| Traditional Chinese | `--ocrLanguage chi_tra` | The per-image choice only uses Simplified Chinese. |
+
+**A list applies to every image.** With `eng+fra+deu`, Tesseract tries the first language on each word and goes to the next ones only for the words it is unsure about. Put the main language first: a clean page costs about one model, a messy page approaches the cost of all of them.
+
+**When `--ocrLanguage` is empty**, each image goes through these steps:
+
+1. Tesseract detects the image's script.
+2. Datashare reads the image with that script's model plus the Latin one: Latin, Han, Cyrillic, Arabic, Japanese or Korean. Any other script is read with all six models at once.
+3. When the mean word confidence of that read is below `--ocrRetryConfidence` (default `60`), Datashare reads the image again with all six script models and keeps the better of the two reads.
+
+This needs the `osd` model and the six script models in `tessdata/script/`. The Docker image ships them, and the Debian package links them when the script packages are installed (it recommends `tesseract-ocr-all`). Elsewhere, Datashare logs one warning naming the missing models and falls back to `eng` for every image.
+
+In a mapping, the keys are the names Tesseract's script detection reports: `Latin`, `Han`, `Cyrillic`, `Arabic`, `Japanese`, and `Korean` (not `Hangul`). A script you leave out keeps its script model. The low-confidence retry still uses the six script models, so they stay required.
+
+**The per-image choice has a cost.** A script model needs about 270 MB per Tesseract process, against roughly 30 to 110 MB for `eng`. On degraded scans the retry can cost 9 to 14 times the CPU of a single `eng` read. If your scans are poor and mostly in one script, name the languages, or lower `--ocrRetryConfidence`. `0` turns the retry off.
+
+### 3. Images without a page layout
+
+`--ocrPageSegMode` sets how Tesseract looks for text in an image. The default `AUTO` reads with mode 1, which looks for a page layout. Only when that read is blank does it try mode 6 (one block of text), then mode 11 (scattered text). Screenshots, chat captures and photos with text in bubbles are typically the images where mode 1 finds nothing.
+
+Keep `AUTO` unless images come out with some text but clearly miss most of it. `AUTO` does not retry those, because the first read was not blank. Force `--ocrPageSegMode 6` or `11` for such a corpus. Each extra read has its own `--ocrTimeout`, so a blank image can take up to three timeouts in `AUTO`.
+
+### 4. Language detection on OCR'd text
+
+Garbled OCR text makes the language detector pick a random language. With `--ocrMinConfidence` (default `60`), text read with a lower confidence is left out of the guess. It only applies when the OCR records a confidence: when the language is chosen per image, or with `--ocrType TESS4J`. If you know the language of the corpus, `--language` skips detection altogether.
+
+### Summary
+
+| Corpus | Suggested flags |
+| ------ | --------------- |
+| Born-digital | `--ocr false` |
+| Scans in one or two known languages | `--ocrStrategy AUTO --ocrLanguage fra+eng` |
+| Languages unknown | `--ocrStrategy AUTO`, script models installed, defaults otherwise |
+| Mostly Russian and Ukrainian, some Chinese | `--ocrLanguage "Cyrillic:rus+ukr,Han:chi_sim"` |
+| Screenshots that come out half empty | `--ocrPageSegMode 11` |
+
 ## How one document flows through
 
 ```mermaid
