@@ -147,6 +147,9 @@ datashare user create alice --email alice@example.org
 # Create a user with a password and project access
 datashare user create alice --email alice@example.org --password $PW --groups p1,p2
 
+# Read the password from stdin
+printf '%s' "$PW" | datashare user create alice --email alice@example.org --password-stdin
+
 # Delete a user and all their owned data
 datashare user delete alice --yes
 ```

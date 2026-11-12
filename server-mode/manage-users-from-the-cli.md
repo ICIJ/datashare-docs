@@ -28,6 +28,7 @@ The login can be passed as a positional argument (as above) or with `--login`. U
 | `--email` | RFC 5322 email address |
 | `--name` | Display name (default: login) |
 | `--password` | Password, for the `local` provider |
+| `--password-stdin` | Read the password from the first line of stdin |
 | `--provider` | `local`, `oauth` or `external` (default: `local`) |
 | `--groups` | Comma-separated project names the user can access |
 | `--if-not-exists` | Idempotent: exit 0 if the user already exists |
@@ -50,7 +51,7 @@ datashare user create alice --email alice@example.org --provider oauth --no-inpu
 ```
 
 {% hint style="info" %}
-Prefer passing the password through an environment variable (as in the example above) rather than typing it literally, so it doesn't end up in your shell history.
+Prefer passing the password through an environment variable (as in the example above) rather than typing it literally, so it doesn't end up in your shell history. `--password-stdin` keeps it out of the process list too: `printf '%s' "$PW" | datashare user create alice --email alice@example.org --password-stdin`.
 {% endhint %}
 
 With Docker Compose, prefix the command with the web container's entrypoint:
