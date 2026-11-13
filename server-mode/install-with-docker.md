@@ -103,7 +103,7 @@ _The `-d` flag runs the containers in detached mode, allowing them to run in the
 Docker Compose will pull the necessary Docker images (if not already present) and start the containers defined in the YAML file. Datashare will take a few seconds to start. You can check the progression of this opperation with:
 
 ```
-docker compose logs -f datashare_web
+docker compose logs -f datashare
 ```
 
 Once the containers are up and running, you can access the Datashare service by opening a web browser and entering `http://localhost:8080`. This assumes that the default port mapping of `8080:8080` is used for the Datashare container in the YAML file.
