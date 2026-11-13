@@ -20,7 +20,7 @@ Specifically, Docker Compose allows you to configure and launch separate contain
 
 This separation of services using Docker Compose provides several advantages. It enhances modularity, scalability, and maintainability within the Datashare platform. It allows for independent management and scaling of each service, facilitating efficient resource utilization and enabling seamless upgrades or replacements of individual components as needed.
 
-To start Datashare in server mode with [Docker Compose](https://docs.docker.com/compose/), you can use the following **docker-compose.yml** file for version 20.1.4 (check latest version on [https://datashare.icij.org/](https://datashare.icij.org/)):
+To start Datashare in server mode with [Docker Compose](https://docs.docker.com/compose/), you can use the following **docker-compose.yml** file for version 21.24.1 (check latest version on [https://datashare.icij.org/](https://datashare.icij.org/)):
 
 {% code fullWidth="true" %}
 ```yaml
@@ -28,7 +28,7 @@ version: "3.7"
 services:
 
   datashare:
-    image: icij/datashare:20.1.4
+    image: icij/datashare:21.24.1
     hostname: datashare
     ports:
       - 8080:8080
@@ -42,6 +42,7 @@ services:
         source: datashare-models
         target: /home/datashare/dist
     command: >-
+      app start
       --dataSourceUrl jdbc:postgresql://postgresql/datashare?user=datashare\&password=password 
       --mode SERVER
       --tcpListenPort 8080
@@ -94,7 +95,7 @@ volumes:
 Open a terminal or command prompt and navigate to the directory where you saved the `docker-compose.yml` file. Then run the following command to start the Datashare service:
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 _The `-d` flag runs the containers in detached mode, allowing them to run in the background._
@@ -102,7 +103,7 @@ _The `-d` flag runs the containers in detached mode, allowing them to run in the
 Docker Compose will pull the necessary Docker images (if not already present) and start the containers defined in the YAML file. Datashare will take a few seconds to start. You can check the progression of this opperation with:
 
 ```
-docker-compose logs -f datashare_web
+docker compose logs -f datashare_web
 ```
 
 Once the containers are up and running, you can access the Datashare service by opening a web browser and entering `http://localhost:8080`. This assumes that the default port mapping of `8080:8080` is used for the Datashare container in the YAML file.
@@ -110,7 +111,7 @@ Once the containers are up and running, you can access the Datashare service by 
 To stop the Datashare service and remove the containers, you can run the following command in the same directory where the `docker-compose.yml` file is located:
 
 ```
-docker-compose down
+docker compose down
 ```
 
 This will stop and remove the containers, freeing up system resources.
