@@ -5,7 +5,7 @@
 Install the Neo4j plugin using the Datashare CLI so that users can access it from the frontend:
 
 ```bash
-docker compose exec datashare_web /entrypoint.sh \
+docker compose exec datashare /entrypoint.sh \
   plugin install datashare-plugin-neo4j-graph-widget
 ```
 
@@ -19,7 +19,7 @@ Update the `docker-compose.yml` to reflect your [Neo4j docker service settings](
 ```yaml
 ...
 services:
-    datashare_web:
+    datashare:
       ...
       environment:
         - DS_DOCKER_NEO4J_HOST=neo4j
@@ -37,7 +37,7 @@ If your choose a different Neo4j user or set a password for your Neo4j user make
 After installing the plugin a restart might be needed for the plugin to display:
 
 ```
-docker compose restart datashare_web
+docker compose restart datashare
 ```
 
 ## Next step
