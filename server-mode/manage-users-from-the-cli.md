@@ -60,7 +60,7 @@ With Docker Compose, prefix the command with the web container's entrypoint:
 docker compose exec datashare /entrypoint.sh \
   user create alice \
   --email alice@example.org \
-  --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>'
+  --dataSourceUrl 'jdbc:postgresql://postgresql/datashare?user=<username>&password=<password>'
 ```
 
 ## Delete a user
