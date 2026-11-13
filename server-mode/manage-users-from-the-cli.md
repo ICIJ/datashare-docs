@@ -57,7 +57,7 @@ Prefer passing the password through an environment variable (as in the example a
 With Docker Compose, prefix the command with the web container's entrypoint:
 
 ```bash
-docker compose exec datashare_web /entrypoint.sh \
+docker compose exec datashare /entrypoint.sh \
   user create alice \
   --email alice@example.org \
   --dataSourceUrl 'jdbc:postgresql://postgres/datashare?user=<username>&password=<password>'

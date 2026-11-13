@@ -7,7 +7,7 @@ In server [mode](../concepts/running-modes.md), it's important to understand tha
 Datashare has the ability to detect email addresses, name of people, organizations and locations. This process use a Natural Language Processing (NLP) pipeline called CORENLP. Once your documents have been indexed in Datashare, you can perform the named entities extraction in the same fashion as the previous CLI's [stages](../concepts/cli-stages/README.md):
 
 ```bash
-docker compose exec datashare_web /entrypoint.sh \
+docker compose exec datashare /entrypoint.sh \
   stage run \
   --stages NLP \
   --defaultProject secret-project \
@@ -31,7 +31,7 @@ The first time you run this command you will have to wait a little bit because D
 You can also use chain the 3 stages altogether:
 
 ```bash
-docker compose exec datashare_web /entrypoint.sh \
+docker compose exec datashare /entrypoint.sh \
   stage run \
   --stages SCAN,INDEX,NLP \
   --defaultProject secret-project \
@@ -44,7 +44,7 @@ docker compose exec datashare_web /entrypoint.sh \
 As for the previous [stages](../concepts/cli-stages/README.md) you may want to restore the output queue from the `INDEX` stage. You can do:
 
 ```bash
-docker compose exec datashare_web /entrypoint.sh \
+docker compose exec datashare /entrypoint.sh \
   stage run \
   --stages ENQUEUEIDX,NLP \
   --defaultProject secret-project \
