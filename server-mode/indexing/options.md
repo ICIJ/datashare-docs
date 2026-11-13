@@ -67,10 +67,10 @@ These apply to every subcommand.
 | Option | Default | What it does |
 | ------ | ------- | ------------ |
 | `-o, --ocr` | `true` | Whether images are OCR'd at all. **This is on by default and it is the most expensive setting in Datashare.** |
-| `--ocrLanguage` | chosen per image | Language packs used by Tesseract. Combine several with `+`, for example `eng+fra+deu`, using 3-letter ISO 639-2 codes. Left empty, each image is read with the language of its detected script when the `osd` and script models are installed, `eng` otherwise. A mapping such as `Cyrillic:rus+ukr,Han:chi_sim` keeps the per-image choice but reads the listed scripts with the given languages. |
-| `--ocrRetryConfidence` | `60` | When the language is chosen per image, an image whose first read scores below this confidence (0 to 100) is read again with every script model. |
-| `--ocrPageSegMode` | `AUTO` | Tesseract page segmentation mode. `AUTO` reads with mode 1, then 6 when the read is blank, then 11. An integer from 1 to 13 (except 2) forces that mode. |
-| `--ocrMinConfidence` | `60` | OCR text with a confidence below this (0 to 100) is not used to detect the document's language. Only applies when the OCR records a confidence: the language is chosen per image, or `--ocrType` is `TESS4J`. |
+| `--ocrLanguage` | chosen per image | Tesseract languages, for example `eng+fra+deu`. Left empty, each image is read with the language of its detected script. See [Choosing the OCR settings](../../concepts/cli-stages/index.md#choosing-the-ocr-settings). |
+| `--ocrRetryConfidence` | `60` | Confidence (0 to 100) below which an image is read again with every script model, when the language is chosen per image. |
+| `--ocrPageSegMode` | `AUTO` | Tesseract page segmentation mode, `AUTO` or an integer from 1 to 13 (except 2). |
+| `--ocrMinConfidence` | `60` | Confidence (0 to 100) below which OCR text is left out of language detection. |
 | `--ocrStrategy` | `NO_OCR` | How PDFs are handled. See below. |
 | `--ocrType` | `TESSERACT` | OCR engine, `TESSERACT` or `TESS4J`. |
 | `--ocrTimeout` | `12h` | Wall-clock limit for a single OCR run. |

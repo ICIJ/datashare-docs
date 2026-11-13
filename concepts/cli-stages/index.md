@@ -34,7 +34,7 @@ datashare stage run \
 | ------ | ------- | ------ |
 | `-o, --ocr` | `true` | Whether images are OCR'd at all. |
 | `--ocrLanguage` | chosen per image | Tesseract languages, `eng+fra` for several. They must be installed on the machine. Left empty, each image is read with the language of its detected script when the `osd` and script models are installed, `eng` otherwise. A mapping such as `Cyrillic:rus+ukr,Han:chi_sim` keeps the per-image choice but reads the listed scripts with the given languages. |
-| `--ocrRetryConfidence` | `60` | When the language is chosen per image, an image whose first read scores below this confidence (0 to 100) is read again with every script model. |
+| `--ocrRetryConfidence` | `60` | When the language is chosen per image, an image whose first read finds text but scores below this confidence (0 to 100) is read again with every script model. |
 | `--ocrPageSegMode` | `AUTO` | Tesseract page segmentation mode. `AUTO` reads with mode 1, then 6 when the read is blank, then 11. An integer from 1 to 13 (except 2) forces that mode. |
 | `--ocrMinConfidence` | `60` | OCR text with a confidence below this (0 to 100) is not used to detect the document's language. Only applies when the OCR records a confidence: the language is chosen per image, or `--ocrType` is `TESS4J`. |
 | `--ocrStrategy` | `NO_OCR` | Whether PDF **pages** are rendered and OCR'd. `AUTO` for scanned PDFs. |
@@ -87,12 +87,12 @@ For born-digital files (PDFs exported from an editor, Office documents, emails w
 **When `--ocrLanguage` is empty**, each image goes through these steps:
 
 1. Tesseract detects the image's script.
-2. Datashare reads the image with that script's model plus the Latin one: Latin, Han, Cyrillic, Arabic, Japanese or Korean. Any other script is read with all six models at once.
-3. When the mean word confidence of that read is below `--ocrRetryConfidence` (default `60`), Datashare reads the image again with all six script models and keeps the better of the two reads.
+2. Datashare reads the image with that script's model plus the Latin one: Latin, Han, Cyrillic, Arabic, Japanese or Korean. Any other script is read with all six models at once. When detection fails, the image is read with the Latin model only.
+3. When that read finds text but its mean word confidence is below `--ocrRetryConfidence` (default `60`), Datashare reads the image again with all six script models and keeps the better of the two reads. A blank first read is not retried.
 
 This needs the `osd` model and the six script models in `tessdata/script/`. The Docker image ships them, and the Debian package links them when the script packages are installed (it recommends `tesseract-ocr-all`). Elsewhere, Datashare logs one warning naming the missing models and falls back to `eng` for every image.
 
-In a mapping, the keys are the names Tesseract's script detection reports: `Latin`, `Han`, `Cyrillic`, `Arabic`, `Japanese`, and `Korean` (not `Hangul`). A script you leave out keeps its script model. The low-confidence retry still uses the six script models, so they stay required.
+In a mapping, the keys are the names Tesseract's script detection reports: `Latin`, `Han`, `Cyrillic`, `Arabic`, `Japanese`, and `Korean` (not `Hangul`). Japanese text can also be reported as `Hiragana` or `Katakana`, so map all three, for example `Japanese:jpn,Hiragana:jpn,Katakana:jpn`. A script you leave out keeps its script model. The low-confidence retry still uses the six script models, so they stay required. Every language named in a mapping must be installed too: if one is missing, the whole per-image choice is turned off and every image is read with `eng`.
 
 **The per-image choice has a cost.** A script model needs about 270 MB per Tesseract process, against roughly 30 to 110 MB for `eng`. On degraded scans the retry can cost 9 to 14 times the CPU of a single `eng` read. If your scans are poor and mostly in one script, name the languages, or lower `--ocrRetryConfidence`. `0` turns the retry off.
 
@@ -100,7 +100,7 @@ In a mapping, the keys are the names Tesseract's script detection reports: `Lati
 
 `--ocrPageSegMode` sets how Tesseract looks for text in an image. The default `AUTO` reads with mode 1, which looks for a page layout. Only when that read is blank does it try mode 6 (one block of text), then mode 11 (scattered text). Screenshots, chat captures and photos with text in bubbles are typically the images where mode 1 finds nothing.
 
-Keep `AUTO` unless images come out with some text but clearly miss most of it. `AUTO` does not retry those, because the first read was not blank. Force `--ocrPageSegMode 6` or `11` for such a corpus. Each extra read has its own `--ocrTimeout`, so a blank image can take up to three timeouts in `AUTO`.
+Keep `AUTO` unless images come out with some text but clearly miss most of it. `AUTO` does not retry those, because the first read was not blank. Force `--ocrPageSegMode 6` or `11` for such a corpus. Each Tesseract run has its own `--ocrTimeout`. With a fixed language, a blank image costs up to three runs in `AUTO`. When the language is chosen per image, add one run for script detection, and a low-confidence image can go through the three modes again on the retry: up to seven runs.
 
 ### 4. Language detection on OCR'd text
 
