@@ -15,7 +15,7 @@ Datashare platform is designed to function effectively by utilizing a combinatio
 To start Datashare within a [Docker](https://www.docker.com/) container, you can use this command:
 
 ```bash
-docker run --mount src=$HOME/Datashare,target=/home/datashare/data,type=bind -p 8080:8080 icij/datashare:21.24.1 app start --mode EMBEDDED
+docker run --mount src=$HOME/Datashare,target=/home/datashare/data,type=bind -p 8080:8080 icij/datashare:21.24.1 app start --mode EMBEDDED --bind 0.0.0.0
 ```
 
 _Make sure the `Datashare` folder exists in your homedir or this command will fail. This is an example about how to use Datashare with Docker, data will not be persisted._
@@ -55,6 +55,7 @@ services:
       app start
       --dataSourceUrl jdbc:postgresql://postgresql/datashare?user=datashare\&password=password 
       --mode LOCAL
+      --bind 0.0.0.0
       --tcpListenPort 8080
     depends_on:
       - postgresql
@@ -62,7 +63,7 @@ services:
       - elasticsearch
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.8
     restart: on-failure
     volumes:
       - type: volume
@@ -74,7 +75,7 @@ services:
       - "transport.host=0.0.0.0"
       - "cluster.name=datashare"
       - "discovery.type=single-node"
-      - "discovery.zen.minimum_master_nodes=1"
+      - "xpack.security.enabled=false"
       - "xpack.license.self_generated.type=basic"
       - "http.cors.enabled=true"
       - "http.cors.allow-origin=*"

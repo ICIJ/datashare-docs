@@ -52,7 +52,7 @@ services:
       - elasticsearch
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.8
     restart: on-failure
     volumes:
       - type: volume
@@ -64,7 +64,7 @@ services:
       - "transport.host=0.0.0.0"
       - "cluster.name=datashare"
       - "discovery.type=single-node"
-      - "discovery.zen.minimum_master_nodes=1"
+      - "xpack.security.enabled=false"
       - "xpack.license.self_generated.type=basic"
       - "http.cors.enabled=true"
       - "http.cors.allow-origin=*"
