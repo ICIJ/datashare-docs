@@ -100,41 +100,73 @@ The default boost value is 1, but can be any positive floating point number. Boo
 
 ‌"_A regular expression (shortened as regex or regexp) is a sequence of characters that define a search pattern._" ([Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)).
 
-1\. You can use Regex in Datashare. Regular expressions (Regex) in Datashare need to be **written between 2 slashes** and **starting with the field (content, name, author, recipients, etc):**
+1\. You can use Regex in Datashare. Regular expressions (Regex) in Datashare need to be **written between 2 slashes** and **start with the name of the field** to search in:
 
-> content: /.\*..\*@.\*..\*/
+> content:/dimitr\[iyu]/
 
-The example above will search in the **content** of the document for any expression which is **structured like an email address** with a dot between two expressions before the @ and a dot between two expressions after the @ like in 'first.lastname@email.com' for instance.
+2\. Regex can be combined with standard queries in Datashare:
 
-2\. Regex can be combined with standard queries in Datashare :
-
-> ("Ada Lovelace" OR "Ado Lavelace") AND paris AND content:/.\*..\*@.\*..\*/
+> ("Ada Lovelace" OR "Ado Lavelace") AND paris AND content:/.\*\\.com/
 
 3\. **You need to escape the following characters by typing a backslash just before them (without space):‌ . ? + \* | { } \[ ] ( ) " \ # @ & < > \~**
 
-> /.\*..\*\\@.\*..\*/ (the @ was escaped by a backslash \ just before it)
+> content:/.\*\\@.\*/ (the @ was escaped by a backslash \ just before it)
 
-4\. Important: **Datashare relies on Elastic's Regex syntax** as explained[ here](https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html). Datashare uses [the Standard tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html). A consequence of this is that **spaces cannot be searched as such in Regex**.
+Without the backslash, some of these characters have a special meaning. For instance, an unescaped @ means "any text", so <kbd>content:/.\*@.\*/</kbd> finds **all** documents.
+
+4\. Important: **Datashare relies on Elastic's Regex syntax** as explained[ here](https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html). How a Regex behaves depends on the field you search in.
+
+#### Regex in the content of documents
+
+Datashare uses [the Standard tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html) to split the content of documents into **words**. This has three consequences:
+
+* **A Regex matches one word at a time**, never a whole sentence. Spaces, and most punctuation such as - , / or @, split words, so they **cannot be searched in a Regex**. For instance, 'first.lastname@email.com' is stored as two words: 'first.lastname' and 'email.com'.
+* **The content is stored in lowercase**, so **write your Regex in lowercase**. <kbd>content:/.\*gmbh.\*/</kbd> finds GmbH, GMBH and gmbh, while <kbd>content:/.\*GmbH.\*/</kbd> finds nothing.
+* **Accents are removed**, so <kbd>content:/cafe/</kbd> also finds 'café'.
 
 We encourage you to **use the&#x20;**<kbd>**AND**</kbd>**&#x20;operator** to work around this limitation and make sure you can make your search.
 
 If you're looking for French International Bank Account Number (IBAN) that can or cannot contain space and contain FR followed by numbers and/or letters (it could be FR7630001007941234567890185 ou FR76 3000 4000 0312 3456 7890 H43 for example), you can then search for:
 
-> /FR\[0-9]{14}\[0-9a-zA-Z]{11}/ OR (/FR\[0-9]{2}.\*/ AND /\[0-9]{4}.\*/ AND /\[0-9a-zA-Z]{11}.\*/)
+> content:/fr\[0-9]{14}\[0-9a-z]{11}/ OR (content:/fr\[0-9]{2}/ AND content:/\[0-9]{4}/)
 
 Here are a few examples of useful Regex:
 
-* You can search for <kbd>**/Dimitr\[iyu]/**</kbd> instead of searching for **Dimitri OR Dimitry OR Dimitru**. It will find all the Dimitri, Dimitry or Dimitru.
-* You can search for <kbd>**/Dimitr\[^yu]/**</kbd> if you want to search all the words which begin with Dimitr and **do not end with either y nor u.**
-* You can search for <kbd>**/Dimitri<1-5>/**</kbd> if you want to search **Dimitri1, Dimitri2, Dimitri3, Dimitri4 or Dimitri5**.
+* You can search for <kbd>**content:/dimitr\[iyu]/**</kbd> instead of searching for **Dimitri OR Dimitry OR Dimitru**. It will find all the Dimitri, Dimitry or Dimitru.
+* You can search for <kbd>**content:/dimitr\[^yu]/**</kbd> if you want to search all the words which begin with Dimitr and **do not end with either y nor u.**
+* You can search for <kbd>**content:/dimitri<1-5>/**</kbd> if you want to search **Dimitri1, Dimitri2, Dimitri3, Dimitri4 or Dimitri5**.
 
 Other common Regex examples:
 
-* phone numbers with "-" and/or country code like +919367788755, 8989829304, +16308520397 or 786-307-3615 for instance: `/[\+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}/`
-* emails ([simplified](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression)): `/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+/`
-* credit cards: `/(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35[0-9]{3})[0-9]{11})/`
+* phone numbers written without spaces or dashes, like 8989829304: `content:/[0-9]{10,12}/`. A number written with dashes, like 786-307-3615, is stored as three words, so search it with `content:786 AND content:307 AND content:3615`.
+* email domains, like 'email.com' in 'first.lastname@email.com': `content:/.*\.(com|org|net)/`
+* credit cards: `content:/(4[0-9]{12}([0-9]{3})?|[25][1-7][0-9]{14}|6(011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(0[0-5]|[68][0-9])[0-9]{11}|(2131|1800|35[0-9]{3})[0-9]{11})/`
 
-You can find many other examples [on this site](https://ihateregex.io/). More generally, if you use a regex found on internet, beware that the syntax is not necessarily compatible with elasticsearch's. For example `\d`, `\S` and the like [are not understood](https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html).
+#### Regex in other fields
+
+Fields such as the path, the file type or the tags store each value as a whole, without splitting it into words or changing its case. On these fields, **a Regex must match the whole value** and **is case sensitive**.
+
+For instance, to exclude all the files whose path ends with '.json', whatever the case:
+
+> -path:/.\*\\.\[jJ]\[sS]\[oO]\[nN]/
+
+To exclude all JSON files based on their file type, you don't need a Regex:
+
+> -contentType:"application/json"
+
+Here are some fields you can search in:
+
+* <kbd>content</kbd>: the text of the document
+* <kbd>path</kbd>: the full path of the file
+* <kbd>metadata.tika\_metadata\_resourcename</kbd>: the name of the file
+* <kbd>contentType</kbd>: the file type, like application/pdf
+* <kbd>language</kbd>: the language of the document, like ENGLISH
+* <kbd>tags</kbd>: the tags of the document
+* <kbd>extractionLevel</kbd>: 0 for the files in your folders, 1 or more for attachments and files inside archives
+
+To find the name of other fields, see [Search with metadata fields](search-with-operators.md#search-with-metadata-fields) below. The 'Author' and 'Recipients' choices in the field dropdown of the search bar are not field names: they search in several fields at once and can't be typed in a query.
+
+You can find many other examples [on this site](https://ihateregex.io/). More generally, if you use a regex found on internet, beware that the syntax is not necessarily compatible with elasticsearch's. For example `\d`, `\S`, `(?:` and the like [are not understood](https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html). Searching with a Regex that starts with `.*` can be slow on large projects.
 
 ### **Search with metadata fields**
 
