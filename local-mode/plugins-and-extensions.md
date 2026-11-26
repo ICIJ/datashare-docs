@@ -28,7 +28,7 @@ Choose the plugin you want to add and click '**Install'**:
 
 <figure><img src="../.gitbook/assets/03-settings-page-plugins-tab-plugin-s.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with a Plugin&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
 
-If you want to install a plugin from an URL, click '**Install from a URL**':
+If you want to install a plugin from an URL, click '**Install from a URL**'. By default, only the URLs listed in Datashare's registry are accepted, see [Install from any URL](#install-from-any-url):
 
 <figure><img src="../.gitbook/assets/04-settings-page-plugins-tab-field-install.png" alt="Screenshot of Datashare&#x27;s Settings page on the Plugins tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
 {% endstep %}
@@ -64,7 +64,7 @@ Choose the extension you want to add and click '**Install'**:
 
 <figure><img src="../.gitbook/assets/07-settings-page-extensions-tab-extension.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with a Extension&#x27;s &#x27;Install&#x27; button highlighted"><figcaption></figcaption></figure>
 
-If you want to install an extension from an URL, click '**Install from a URL**':
+If you want to install an extension from an URL, click '**Install from a URL**'. By default, only the URLs listed in Datashare's registry are accepted, see [Install from any URL](#install-from-any-url):
 
 <figure><img src="../.gitbook/assets/08-settings-page-extensions-tab-field.png" alt="Screenshot of Datashare&#x27;s Settings page on the Extensions tab with the field &#x27;Install from a URL&#x27; highlighted"><figcaption></figcaption></figure>
 {% endstep %}
@@ -87,6 +87,29 @@ When a newer version of a plugin or extension is available, get the latest versi
 If it is a plugin, **refresh** your page to activate the latest version.
 
 If it is an extension, **restart** Datashare to activate the latest version. Check how for [Mac](install-datashare-on-mac/open-datashare-on-mac.md), [Windows](install-datashare-on-windows/open-datashare-on-windows.md) and [Linux](install-datashare-on-linux/open-datashare-on-linux.md).
+
+## Install from any URL
+
+![Available from Datashare 21.27.0](https://img.shields.io/badge/available%20from-21.27.0-blue)
+
+By default, '**Install from a URL**' only accepts the URL of a plugin or extension listed in Datashare's registry. Any other URL is refused.
+
+To install from another URL, for example to test your own plugin, you have two options:
+
+* Use the command line, which accepts any URL or local file. See the [CLI reference](../concepts/cli-reference.md#plugin-and-extension).
+* Start Datashare with the `--allowInsecureAddonUrlInstall` option. '**Install from a URL**' then also accepts any `https` URL.
+
+{% hint style="warning" %}
+A plugin or extension runs code on your computer. With this option, Datashare installs it without checking where it comes from. Only install from sources you trust.
+{% endhint %}
+
+```bash
+datashare app start --allowInsecureAddonUrlInstall
+```
+
+With Docker, set the environment variable `DS_DOCKER_ALLOW_INSECURE_ADDON_URL_INSTALL=true` on the Datashare container.
+
+This option can only be set when Datashare starts. It cannot be changed from the settings page, and it is ignored in the settings file.
 
 ## Create your own plugin or extension
 
