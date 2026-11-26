@@ -51,6 +51,8 @@ datashare app start --mode EMBEDDED
 
 `--maxHttpBodySize` caps the size of an HTTP request body, in bytes. It defaults to `104857600` (100 MiB), and `0` disables the check.
 
+![Available from Datashare 21.27.0](https://img.shields.io/badge/available%20from-21.27.0-blue) `--allowInsecureAddonUrlInstall` lets the web interface install plugins and extensions from any `https` URL, not only the URLs of the registry. It is off by default and runs unverified code, so only use it with sources you trust. It can only be set at launch, with this flag or with the `DS_DOCKER_ALLOW_INSECURE_ADDON_URL_INSTALL=true` environment variable: it is ignored in the settings file. It does not change the `plugin install` and `extension install` subcommands, which already accept any URL.
+
 ## `stage run`
 
 Run one or more document processing [stages](cli-stages/README.md). Requires `--stages`.
