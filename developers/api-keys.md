@@ -23,10 +23,10 @@ claude mcp add --transport http datashare https://<host>/api/mcp \
 Instead, have the shell ask for the key. `read -s` reads it without showing it on screen and without writing it to the history. This works in zsh and bash:
 
 ```bash
-printf 'Datashare API key: ' && read -rs DATASHARE_API_KEY && echo
+printf 'Datashare API key: ' && read -rs DATASHARE_API_KEY && export DATASHARE_API_KEY && echo
 ```
 
-Paste the key when prompted, then press Enter. Commands you run afterwards in the same terminal can use `"$DATASHARE_API_KEY"`, and the history only keeps the variable name:
+Paste the key when prompted, then press Enter. Commands and programs you start afterwards in the same terminal can use `"$DATASHARE_API_KEY"`, and the history only keeps the variable name:
 
 ```bash
 claude mcp add --transport http datashare https://<host>/api/mcp \
@@ -36,7 +36,7 @@ claude mcp add --transport http datashare https://<host>/api/mcp \
 The variable disappears when you close the terminal. To remove it earlier, run `unset DATASHARE_API_KEY`.
 
 {% hint style="warning" %}
-This keeps the key out of your history, not out of your AI assistant's config. The command above still saves the key itself in Claude Code's config file. See [Keep it out of your AI assistant's config](#keep-it-out-of-your-ai-assistants-config) to avoid that.
+This keeps the key out of your history, not out of your AI assistant's config. The command above still saves the key itself in Claude Code's config file. See [Keep it out of your MCP client config](#keep-it-out-of-your-mcp-client-config) to avoid that.
 {% endhint %}
 
 ## Store it in your system's keychain
@@ -45,10 +45,10 @@ Rather than pasting the key each time, store it once in the password store of yo
 
 ### macOS
 
-Store the key in the Keychain. `-w` placed last makes `security` prompt for the key instead of reading it from the command:
+Store the key in the Keychain. `-w` placed last makes `security` prompt for the key instead of reading it from the command, and `-U` replaces a key you stored before:
 
 ```bash
-security add-generic-password -a "$USER" -s datashare-api-key -w
+security add-generic-password -U -a "$USER" -s datashare-api-key -w
 ```
 
 Load it into the variable:
@@ -59,7 +59,7 @@ export DATASHARE_API_KEY="$(security find-generic-password -a "$USER" -s datasha
 
 ### Linux
 
-With a desktop keyring (GNOME Keyring, KWallet), `secret-tool` stores the key and prompts for it:
+With a keyring that supports the Secret Service API (GNOME Keyring, KeePassXC, recent KWallet), `secret-tool` stores the key and prompts for it:
 
 ```bash
 secret-tool store --label='Datashare API key' service datashare-api-key
@@ -75,7 +75,7 @@ export DATASHARE_API_KEY="$(secret-tool lookup service datashare-api-key)"
 A password manager with a command-line tool works the same way: store the key in it, and load it into `DATASHARE_API_KEY` with the tool's read command.
 {% endhint %}
 
-## Keep it out of your AI assistant's config
+## Keep it out of your MCP client config
 
 MCP clients save the servers you add in a config file in your home directory. If the header holds the key, the file holds the key. Some clients can read the key from an environment variable instead, so the file only holds the variable name.
 
