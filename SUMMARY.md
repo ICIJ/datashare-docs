@@ -121,6 +121,7 @@
 
 * [How to contribute](developers/how-to-contribute.md)
 * [MCP](developers/mcp.md)
+* [API keys](developers/api-keys.md)
 * [Backend](developers/backend/README.md)
   * [API](developers/backend/api.md)
   * [Database Schema](developers/backend/database.md)

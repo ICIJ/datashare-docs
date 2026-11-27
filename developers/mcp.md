@@ -35,6 +35,10 @@ claude mcp add --transport http datashare https://<host>/api/mcp \
   --header "Authorization: Bearer <api key>"
 ```
 
+{% hint style="warning" %}
+Typing the key in this command saves it in your shell history and in Claude Code's config file. See [API keys](api-keys.md) to keep it out of both.
+{% endhint %}
+
 {% hint style="info" %}
 Other clients take the same two pieces of information: the URL of `/api/mcp` and, in server mode, an `Authorization: Bearer <api key>` header. Check your client's documentation for where to set them.
 {% endhint %}
